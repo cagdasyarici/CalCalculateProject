@@ -19,6 +19,7 @@ namespace CalCalculatorDAL.Configuration
             builder.Property(x => x.UserName).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Password).IsRequired().HasMaxLength(16);
             builder.Property(x => x.Email).IsRequired().HasMaxLength(50);
+            //asglkfsfjdfs
         }
     }
 }
