@@ -16,9 +16,9 @@ namespace CalCalculatorDAL.Configuration
         {
             builder.HasKey(x => x.UserID);
 
-            builder.Property(x => x.UserName).IsRequired();
-            builder.Property(x => x.Password).IsRequired();
-            builder.Property(x => x.Email).IsRequired();
+            builder.Property(x => x.UserName).IsRequired().HasMaxLength(50);
+            builder.Property(x => x.Password).IsRequired().HasMaxLength(16);
+            builder.Property(x => x.Email).IsRequired().HasMaxLength(50);
         }
     }
 }

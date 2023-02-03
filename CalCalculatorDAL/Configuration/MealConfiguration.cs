@@ -17,6 +17,7 @@ namespace CalCalculatorDAL.Configuration
             builder.HasOne(x => x.Users)
                 .WithMany(x => x.Meals)
                 .HasForeignKey(x => x.ContactUserID);
+            builder.Property(x => x.MealName).IsRequired().HasMaxLength(50);
         }
     }
 }

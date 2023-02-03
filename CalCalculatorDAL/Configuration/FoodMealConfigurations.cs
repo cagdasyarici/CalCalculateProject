@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CalCalculatorDAL.Configuration
 {
-    internal class FoodMealConfigurations : IEntityTypeConfiguration<FoodMeal>
+    public class FoodMealConfigurations : IEntityTypeConfiguration<FoodMeal>
     {
         public void Configure(EntityTypeBuilder<FoodMeal> builder)
         {
