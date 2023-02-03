@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblForgotPass = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -102,11 +103,21 @@
             this.lblForgotPass.Text = "Forgot Password?";
             this.lblForgotPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblForgotPass_LinkClicked);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(87, 211);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(235, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "YUŞA TOSUN PROJEYE KOSUN EHEHEHEHE";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 246);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblForgotPass);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -131,5 +142,6 @@
         private TextBox txtPassword;
         private LinkLabel lblForgotPassword;
         private LinkLabel lblForgotPass;
+        private Label label3;
     }
 }
