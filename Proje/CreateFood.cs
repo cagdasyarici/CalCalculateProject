@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Proje
 {
-    public partial class MainForm : Form
+    public partial class CreateFood : Form
     {
-        public MainForm()
+        public CreateFood()
         {
             InitializeComponent();
         }
-
     }
 }
