@@ -14,6 +14,7 @@ namespace CalCalculatorDAL.Configuration
         public void Configure(EntityTypeBuilder<Food> builder)
         {
             builder.Property(x => x.FoodName).IsRequired().HasMaxLength(50);
+            //sucuklu
         }
     }
 }
