@@ -42,7 +42,7 @@ namespace Proje
             User user = _db.Users.FirstOrDefault(x => x.UserName.Contains(txtUsername.Text));
             if (user.Password == txtPassword.Text)
             {
-                MainForm frm = new MainForm();
+                Form1 frm = new Form1(user);
                 frm.Show();
                 this.Hide();
             }
