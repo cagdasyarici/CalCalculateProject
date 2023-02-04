@@ -38,7 +38,6 @@ namespace Proje
         private void btnLogin_Click(object sender, EventArgs e)
         {
             User user = new User();
-            user = _db.User.Find(txtUsername.Text);
             if (user != null)
             {
                 MainForm frm = new MainForm();
