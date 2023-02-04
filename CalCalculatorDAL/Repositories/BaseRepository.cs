@@ -10,7 +10,7 @@ namespace CalCalculatorDAL.Repositories
     public class BaseRepository<T> where T : class
     {
         CalCalculateDB _db= new CalCalculateDB();
-        public void AddEntity(T entity) //Nesneyi Class fark etmeksizin database'e ekleyen metot
+        public void AddEntity(T entity) //Nesneyi Class fark etmeksizin database'e ekleyen metot.
         {
             _db.Set<T>().Add(entity);
             _db.SaveChanges();
