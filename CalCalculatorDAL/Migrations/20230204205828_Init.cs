@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CalCalculatorDAL.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,9 +32,9 @@ namespace CalCalculatorDAL.Migrations
                 {
                     UserID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,17 +47,16 @@ namespace CalCalculatorDAL.Migrations
                 {
                     MealID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MealName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MealName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ContactUserID = table.Column<int>(type: "int", nullable: false),
-                    UsersUserID = table.Column<int>(type: "int", nullable: false),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Meals", x => x.MealID);
                     table.ForeignKey(
-                        name: "FK_Meals_Users_UsersUserID",
-                        column: x => x.UsersUserID,
+                        name: "FK_Meals_Users_ContactUserID",
+                        column: x => x.ContactUserID,
                         principalTable: "Users",
                         principalColumn: "UserID",
                         onDelete: ReferentialAction.Cascade);
@@ -100,9 +99,9 @@ namespace CalCalculatorDAL.Migrations
                 column: "MealID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Meals_UsersUserID",
+                name: "IX_Meals_ContactUserID",
                 table: "Meals",
-                column: "UsersUserID");
+                column: "ContactUserID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

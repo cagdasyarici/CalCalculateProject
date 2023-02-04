@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalCalculatorDAL.Migrations
 {
     [DbContext(typeof(CalCalculateDB))]
-    [Migration("20230204184642_init")]
-    partial class init
+    [Migration("20230204205828_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -92,14 +92,12 @@ namespace CalCalculatorDAL.Migrations
 
                     b.Property<string>("MealName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UsersUserID")
-                        .HasColumnType("int");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("MealID");
 
-                    b.HasIndex("UsersUserID");
+                    b.HasIndex("ContactUserID");
 
                     b.ToTable("Meals");
                 });
@@ -114,15 +112,18 @@ namespace CalCalculatorDAL.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("UserID");
 
@@ -150,13 +151,13 @@ namespace CalCalculatorDAL.Migrations
 
             modelBuilder.Entity("CalCalculatorEntities.Meal", b =>
                 {
-                    b.HasOne("CalCalculatorEntities.User", "Users")
+                    b.HasOne("CalCalculatorEntities.User", "User")
                         .WithMany("Meals")
-                        .HasForeignKey("UsersUserID")
+                        .HasForeignKey("ContactUserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Users");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.Food", b =>

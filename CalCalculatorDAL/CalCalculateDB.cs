@@ -17,10 +17,27 @@ namespace CalCalculatorDAL
         public DbSet<FoodMeal> FoodMeals { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //DENİZ
 
-            optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculatorProgramDB;Trusted_Connection=True");
+            //optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculateDB;Trusted_Connection=True");
 
-            //optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculatorProgramDB;Trusted_Connection=True;");
+
+            //ÇAĞDAŞ
+
+            optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculateDB;Trusted_Connection=True");
+
+
+            //YUŞA
+
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=NORTHWND;Trusted_Connection=True");
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new UserConfigurations()).ApplyConfiguration(new MealConfiguration())
+                .ApplyConfiguration(new FoodMealConfigurations());
+            base.OnModelCreating(modelBuilder);
+        }
+
+
     }
 }
