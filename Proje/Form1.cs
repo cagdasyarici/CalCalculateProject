@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CalCalculatorBLL;
+using CalCalculatorDAL;
+using CalCalculatorEntities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,37 @@ namespace Proje
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        User user1;
+        public Form1(User user)
         {
+            user1= user;
             InitializeComponent();
+        }
+        
+
+        private void btnAddMeal_Click(object sender, EventArgs e)
+        {
+
+            Meal meal = new Meal
+            {
+                MealName = txtMealName.Text,
+                ContactUserID = user1.UserID,
+                CreateTime= DateTime.Now,
+            };
+            MealServices mealServices= new MealServices();
+            mealServices.AddEntity(meal);
+            
+        }
+
+        private void btnShowMeals_Click(object sender, EventArgs e)
+        {
+            MealServices mealServices = new MealServices();
+            dataGridView1.DataSource = mealServices.SearchByDate(dateTimePicker1.Value);
+        }
+
+        private void DGVFill()
+        {
+            //dataGridView1.DataSource = _db.Meal.ToList();
         }
     }
 }
