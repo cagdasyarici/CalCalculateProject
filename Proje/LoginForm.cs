@@ -37,8 +37,34 @@ namespace Proje
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-         
-            
+
+            //List<User> UserList = _db.Users.ToList();
+
+            // foreach (var item in UserList)
+            // {
+            //     if (item.UserName==txtUsername.Text&&item.Password==txtPassword.Text)
+            //     {
+            //         Form1 form1 = new Form1();
+
+            //         form1.Show();
+            //         this.Hide();
+
+            //     }
+            //}
+
+            User user = _db.Users.FirstOrDefault(x => x.UserName.Contains(txtUsername.Text));
+            if (user != null)
+            {
+                MainForm frm = new MainForm();
+                frm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("YANLIÞ KULLANICI ADI VEYA ÞÝFRE");
+            }
+
+
         }
     }
 }
