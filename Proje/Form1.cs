@@ -15,18 +15,19 @@ namespace Proje
     public partial class Form1 : Form
     {
         CalCalculateDB _db = new();
-        public Form1(User user)
+        public Form1(User userInfo)
         {
             InitializeComponent();
-            userr = user;
+            user = userInfo;
         }
-        public User userr = new User();
+        User user = new User();
         private void btnAddMeal_Click(object sender, EventArgs e)
         {
+            //MealOLUSSTUR();
             Meal meal = new Meal()
             {
                 MealName = txtMealName.Text,
-                ContactUserID = userr.UserID,
+                ContactUserID = user.UserID,
                 CreateTime = dateTimePicker1.Value
             };
             _db.Meals.Add(meal);
@@ -37,6 +38,12 @@ namespace Proje
         {
             var List =  _db.Meals.ToList();
             dataGridView1.DataSource = List;
+        }
+
+        private void btnShowMeals_Click(object sender, EventArgs e)
+        {
+            //Tarih 
+            DGWRefresh();
         }
     }
 }
