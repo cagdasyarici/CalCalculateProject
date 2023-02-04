@@ -29,21 +29,21 @@ namespace Proje
 
             CalCalculatorEntities.User user = new CalCalculatorEntities.User()
             {
-                UserName = "Cado",
+                UserName = "yusa",
                 Password = "123",
-                Email = "cado@gmail.com"
+                Email = "yusa@gmail.com"
             };
 
-            _db.User.Add(user);
+            _db.Users.Add(user);
             _db.SaveChanges();
 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
             user = _db.User.FirstOrDefault(x => x.UserName.Contains(txtUsername.Text));
             if (user.Password==txtPassword.Text)
+
             {
                 Form1 frm = new Form1(user);
                 frm.Show();
@@ -52,9 +52,9 @@ namespace Proje
             }
             else
             {
-                MessageBox.Show("YANLIﬁ KULLANICI ADI VEYA ﬁ›FRE");
+                MessageBox.Show("YANLI√û KULLANICI ADI VEYA √û√ùFRE");
             }
-            
+
         }
     }
 }

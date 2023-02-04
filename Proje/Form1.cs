@@ -1,5 +1,7 @@
+
 ﻿using CalCalculatorBLL;
 using CalCalculatorDAL;
+
 using CalCalculatorEntities;
 using System;
 using System.Collections.Generic;
@@ -17,9 +19,36 @@ namespace Proje
     {
         User user1;
         public Form1(User user)
+
         {
             user1= user;
             InitializeComponent();
+            user = userInfo;
+        }
+        User user = new User();
+        private void btnAddMeal_Click(object sender, EventArgs e)
+        {
+            //MealOLUSSTUR();
+            Meal meal = new Meal()
+            {
+                MealName = txtMealName.Text,
+                ContactUserID = user.UserID,
+                CreateTime = dateTimePicker1.Value
+            };
+            _db.Meals.Add(meal);
+            _db.SaveChanges();
+            DGWRefresh();
+        }
+        private void DGWRefresh()
+        {
+            var List =  _db.Meals.ToList();
+            dataGridView1.DataSource = List;
+        }
+
+        private void btnShowMeals_Click(object sender, EventArgs e)
+        {
+            //Tarih 
+            DGWRefresh();
         }
         
 
