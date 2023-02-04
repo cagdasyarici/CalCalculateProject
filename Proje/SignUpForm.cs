@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalCalculatorBLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace Proje
         public SignUpForm()
         {
             InitializeComponent();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            string username=txtUsername.Text;
+            string password=txtPassword.Text;
+            //string 
+            //UserServices userServices = new UserServices();
+            //userServices.CreateUser(txt)
         }
     }
 }

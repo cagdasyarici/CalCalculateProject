@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CalCalculatorDAL.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Food",
+                name: "Foods",
                 columns: table => new
                 {
                     FoodID = table.Column<int>(type: "int", nullable: false)
@@ -23,47 +23,48 @@ namespace CalCalculatorDAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Food", x => x.FoodID);
+                    table.PrimaryKey("PK_Foods", x => x.FoodID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
                     UserID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserID);
+                    table.PrimaryKey("PK_Users", x => x.UserID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Meal",
+                name: "Meals",
                 columns: table => new
                 {
                     MealID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MealName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    MealName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ContactUserID = table.Column<int>(type: "int", nullable: false),
+                    UsersUserID = table.Column<int>(type: "int", nullable: false),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Meal", x => x.MealID);
+                    table.PrimaryKey("PK_Meals", x => x.MealID);
                     table.ForeignKey(
-                        name: "FK_Meal_User_ContactUserID",
-                        column: x => x.ContactUserID,
-                        principalTable: "User",
+                        name: "FK_Meals_Users_UsersUserID",
+                        column: x => x.UsersUserID,
+                        principalTable: "Users",
                         principalColumn: "UserID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "FoodMeal",
+                name: "FoodMeals",
                 columns: table => new
                 {
                     FoodMealID = table.Column<int>(type: "int", nullable: false)
@@ -73,50 +74,50 @@ namespace CalCalculatorDAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FoodMeal", x => x.FoodMealID);
+                    table.PrimaryKey("PK_FoodMeals", x => x.FoodMealID);
                     table.ForeignKey(
-                        name: "FK_FoodMeal_Food_FoodID",
+                        name: "FK_FoodMeals_Foods_FoodID",
                         column: x => x.FoodID,
-                        principalTable: "Food",
+                        principalTable: "Foods",
                         principalColumn: "FoodID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FoodMeal_Meal_MealID",
+                        name: "FK_FoodMeals_Meals_MealID",
                         column: x => x.MealID,
-                        principalTable: "Meal",
+                        principalTable: "Meals",
                         principalColumn: "MealID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_FoodMeal_FoodID",
-                table: "FoodMeal",
+                name: "IX_FoodMeals_FoodID",
+                table: "FoodMeals",
                 column: "FoodID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FoodMeal_MealID",
-                table: "FoodMeal",
+                name: "IX_FoodMeals_MealID",
+                table: "FoodMeals",
                 column: "MealID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Meal_ContactUserID",
-                table: "Meal",
-                column: "ContactUserID");
+                name: "IX_Meals_UsersUserID",
+                table: "Meals",
+                column: "UsersUserID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "FoodMeal");
+                name: "FoodMeals");
 
             migrationBuilder.DropTable(
-                name: "Food");
+                name: "Foods");
 
             migrationBuilder.DropTable(
-                name: "Meal");
+                name: "Meals");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Users");
         }
     }
 }
