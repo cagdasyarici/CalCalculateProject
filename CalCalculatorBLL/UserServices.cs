@@ -11,16 +11,22 @@ namespace CalCalculatorBLL
 {
     public class UserServices:BaseRepository<User>
     {
-        public void CreateUser(string name,string password,string email)
+        CalCalculateDB _db;
+        public void CreateUser(string name,string password,string email, string securityQuestion, string securityAnswer)
         {
-            CalCalculateDB _db = new CalCalculateDB();
-            User user = new User
+            using (_db = new CalCalculateDB())
             {
-                UserName = name,
-                Password = password,
-                Email = email
-            };
-            AddEntity(user);
+                User user = new User
+                {
+                    UserName = name,
+                    Password = password,
+                    Email = email,
+                    SecurityQuestion = securityQuestion,
+                    SecurityAnswer = securityAnswer
+                };
+                AddEntity(user);
+            }
+            
         }
     }
     
