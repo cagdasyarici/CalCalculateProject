@@ -36,7 +36,7 @@ namespace Proje
         private void btnShowMeals_Click(object sender, EventArgs e)
         {
             MealServices mealServices = new MealServices();
-            dataGridView1.DataSource = mealServices.SearchByDate(dateTimePicker1.Value);
+            dataGridView1.DataSource = mealServices.SearchByDate(dateTimePicker1.Value,user);
         }
         private void DGVFill()
         {
