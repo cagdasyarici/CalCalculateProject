@@ -21,5 +21,6 @@ namespace CalCalculatorDAL
             optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculatorProgramDB;Trusted_Connection=True");
 
             optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculatorProgramDB;Trusted_Connection=True;");
+        }
     }
 }

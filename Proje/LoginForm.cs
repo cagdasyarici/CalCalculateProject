@@ -41,7 +41,7 @@ namespace Proje
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            user = _db.User.FirstOrDefault(x => x.UserName.Contains(txtUsername.Text));
+            user = _db.Users.FirstOrDefault(x => x.UserName.Contains(txtUsername.Text));
             if (user.Password==txtPassword.Text)
 
             {
