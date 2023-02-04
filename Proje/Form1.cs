@@ -1,6 +1,5 @@
 using CalCalculatorBLL;
 using CalCalculatorDAL;
-
 using CalCalculatorEntities;
 using System;
 using System.Collections.Generic;
