@@ -11,9 +11,9 @@ namespace CalCalculatorBLL
     public class MealServices:BaseRepository<Meal>
     {
 
-        public List<Meal> SearchByDate(DateTime date)
+        public List<Meal> SearchByDate(DateTime date, User user)
         {
-            return QueryableList().Where(x => x.CreateTime.Date == date.Date).ToList();
+            return QueryableList().Where(x => x.CreateTime.Date == date.Date&&x.ContactUserID==user.UserID).ToList();
         }
     }
 }
