@@ -25,29 +25,19 @@ namespace Proje
 
             CalCalculatorEntities.User user = new CalCalculatorEntities.User()
             {
-                UserName = "Cado",
+                UserName = "yusa",
                 Password = "123",
-                Email = "cado@gmail.com"
+                Email = "yusa@gmail.com"
             };
 
-            _db.User.Add(user);
+            _db.Users.Add(user);
             _db.SaveChanges();
 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            if (user != null)
-            {
-                MainForm frm = new MainForm();
-                frm.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("YANLIÞ KULLANICI ADI VEYA ÞÝFRE");
-            }
+         
             
         }
     }

@@ -48,7 +48,7 @@ namespace CalCalculatorDAL.Migrations
 
                     b.HasKey("FoodID");
 
-                    b.ToTable("Food");
+                    b.ToTable("Foods");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.FoodMeal", b =>
@@ -71,7 +71,7 @@ namespace CalCalculatorDAL.Migrations
 
                     b.HasIndex("MealID");
 
-                    b.ToTable("FoodMeal");
+                    b.ToTable("FoodMeals");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.Meal", b =>
@@ -90,13 +90,14 @@ namespace CalCalculatorDAL.Migrations
 
                     b.Property<string>("MealName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("MealID");
 
                     b.HasIndex("ContactUserID");
 
-                    b.ToTable("Meal");
+                    b.ToTable("Meals");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.User", b =>
@@ -109,19 +110,22 @@ namespace CalCalculatorDAL.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("UserID");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.FoodMeal", b =>
