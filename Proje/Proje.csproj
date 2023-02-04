@@ -15,4 +15,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CalCalculatorDAL\CalCalculatorDAL.csproj" />
+    <ProjectReference Include="..\CalCalculatorEntities\CalCalculatorEntities.csproj" />
+  </ItemGroup>
+
 </Project>
