@@ -17,7 +17,7 @@ namespace CalCalculatorDAL
         public DbSet<FoodMeal> FoodMeals { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=CalCalculatorProgramDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculatorProgramDB;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

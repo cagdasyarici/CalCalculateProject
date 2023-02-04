@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalCalculatorDAL.Migrations
 {
     [DbContext(typeof(CalCalculateDB))]
-    [Migration("20230204133417_yusa1")]
-    partial class yusa1
+    [Migration("20230204135951_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
