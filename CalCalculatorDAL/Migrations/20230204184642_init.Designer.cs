@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalCalculatorDAL.Migrations
 {
     [DbContext(typeof(CalCalculateDB))]
-    [Migration("20230204135951_Init")]
-    partial class Init
+    [Migration("20230204184642_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -92,12 +92,14 @@ namespace CalCalculatorDAL.Migrations
 
                     b.Property<string>("MealName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UsersUserID")
+                        .HasColumnType("int");
 
                     b.HasKey("MealID");
 
-                    b.HasIndex("ContactUserID");
+                    b.HasIndex("UsersUserID");
 
                     b.ToTable("Meals");
                 });
@@ -112,18 +114,15 @@ namespace CalCalculatorDAL.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(16)
-                        .HasColumnType("nvarchar(16)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserID");
 
@@ -153,7 +152,7 @@ namespace CalCalculatorDAL.Migrations
                 {
                     b.HasOne("CalCalculatorEntities.User", "Users")
                         .WithMany("Meals")
-                        .HasForeignKey("ContactUserID")
+                        .HasForeignKey("UsersUserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

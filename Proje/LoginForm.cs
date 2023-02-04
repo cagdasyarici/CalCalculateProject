@@ -24,8 +24,8 @@ namespace Proje
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            //SignUpForm frm = new SignUpForm();
-            //frm.ShowDialog();
+            SignUpForm frm = new SignUpForm();
+            frm.ShowDialog();
 
             CalCalculatorEntities.User user = new CalCalculatorEntities.User()
             {
