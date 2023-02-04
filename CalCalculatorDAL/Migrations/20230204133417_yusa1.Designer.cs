@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalCalculatorDAL.Migrations
 {
     [DbContext(typeof(CalCalculateDB))]
-    [Migration("20230203162422_Init")]
-    partial class Init
+    [Migration("20230204133417_yusa1")]
+    partial class yusa1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,7 +50,7 @@ namespace CalCalculatorDAL.Migrations
 
                     b.HasKey("FoodID");
 
-                    b.ToTable("Food");
+                    b.ToTable("Foods");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.FoodMeal", b =>
@@ -73,7 +73,7 @@ namespace CalCalculatorDAL.Migrations
 
                     b.HasIndex("MealID");
 
-                    b.ToTable("FoodMeal");
+                    b.ToTable("FoodMeals");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.Meal", b =>
@@ -92,13 +92,14 @@ namespace CalCalculatorDAL.Migrations
 
                     b.Property<string>("MealName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("MealID");
 
                     b.HasIndex("ContactUserID");
 
-                    b.ToTable("Meal");
+                    b.ToTable("Meals");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.User", b =>
@@ -111,19 +112,22 @@ namespace CalCalculatorDAL.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("UserID");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.FoodMeal", b =>
