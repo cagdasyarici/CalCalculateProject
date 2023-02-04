@@ -13,6 +13,8 @@ namespace CalCalculatorEntities
         public string Password { get; set; }
         public string Email { get; set; }
         public virtual ICollection<Meal> Meals { get; set; }
+        public string SecurityQuestion { get; set; }
+        public string SecurityAnswer { get; set; }
 
         public User()
         {
