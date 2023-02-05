@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.grpSecurity = new System.Windows.Forms.GroupBox();
+
+
+            this.cmbSecurityQuestions = new System.Windows.Forms.ComboBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.txtSecurityAnswer = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtSecurityQuestion = new System.Windows.Forms.TextBox();
+
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,10 +59,13 @@
             // 
             // grpSecurity
             // 
+
+
+            this.grpSecurity.Controls.Add(this.cmbSecurityQuestions);
             this.grpSecurity.Controls.Add(this.btnNext);
             this.grpSecurity.Controls.Add(this.txtSecurityAnswer);
             this.grpSecurity.Controls.Add(this.label3);
-            this.grpSecurity.Controls.Add(this.txtSecurityQuestion);
+
             this.grpSecurity.Controls.Add(this.label2);
             this.grpSecurity.Controls.Add(this.txtUsername);
             this.grpSecurity.Controls.Add(this.label1);
@@ -70,6 +76,22 @@
             this.grpSecurity.TabStop = false;
             this.grpSecurity.Text = "Security Section";
             // 
+
+
+            // cmbSecurityQuestions
+            // 
+            this.cmbSecurityQuestions.FormattingEnabled = true;
+            this.cmbSecurityQuestions.Items.AddRange(new object[] {
+            "What is your first pet\'s name?",
+            "What is your favorite meal?",
+            "Which pokemon do you like the most?",
+            "What is your best friend\'s name?"});
+            this.cmbSecurityQuestions.Location = new System.Drawing.Point(145, 76);
+            this.cmbSecurityQuestions.Name = "cmbSecurityQuestions";
+            this.cmbSecurityQuestions.Size = new System.Drawing.Size(134, 23);
+            this.cmbSecurityQuestions.TabIndex = 3;
+            // 
+
             // btnNext
             // 
             this.btnNext.Location = new System.Drawing.Point(145, 154);
@@ -96,13 +118,8 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Security Answer : ";
             // 
-            // txtSecurityQuestion
-            // 
-            this.txtSecurityQuestion.Location = new System.Drawing.Point(145, 76);
-            this.txtSecurityQuestion.Name = "txtSecurityQuestion";
-            this.txtSecurityQuestion.Size = new System.Drawing.Size(134, 23);
-            this.txtSecurityQuestion.TabIndex = 1;
-            // 
+
+
             // label2
             // 
             this.label2.AutoSize = true;
@@ -279,7 +296,8 @@
         private Button btnNext;
         private TextBox txtSecurityAnswer;
         private Label label3;
-        private TextBox txtSecurityQuestion;
+
+
         private Label label2;
         private TextBox txtUsername;
         private Label label1;
@@ -296,5 +314,9 @@
         private Label label6;
         private TextBox txtPassword;
         private Label label7;
+
+
+        private ComboBox cmbSecurityQuestions;
+
     }
 }
