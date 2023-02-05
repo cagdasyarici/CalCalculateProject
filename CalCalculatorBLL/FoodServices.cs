@@ -16,6 +16,7 @@ namespace CalCalculatorBLL
         {
             using(_db = new CalCalculateDB()) 
             {
+                
                 Food food = new Food
                 {
                     FoodName= foodName,
@@ -24,6 +25,7 @@ namespace CalCalculatorBLL
                     FoodProt=foodProt,
                     FoodCal=foodCal
                 };
+                AddEntity(food);
 
             }
         }
