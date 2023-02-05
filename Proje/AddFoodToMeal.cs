@@ -19,6 +19,10 @@ namespace Proje
             InitializeComponent();
             meal = currentMeal;
         }
-         
+
+        private void AddFoodToMeal_Load(object sender, EventArgs e)
+        {
+            //var sonuc = meal.FoodMeals.
+        }
     }
 }
