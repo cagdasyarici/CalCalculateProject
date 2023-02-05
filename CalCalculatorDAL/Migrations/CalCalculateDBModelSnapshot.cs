@@ -46,6 +46,9 @@ namespace CalCalculatorDAL.Migrations
                     b.Property<int>("FoodProt")
                         .HasColumnType("int");
 
+                    b.Property<int>("Grams")
+                        .HasColumnType("int");
+
                     b.HasKey("FoodID");
 
                     b.ToTable("Foods");
@@ -53,23 +56,15 @@ namespace CalCalculatorDAL.Migrations
 
             modelBuilder.Entity("CalCalculatorEntities.FoodMeal", b =>
                 {
-                    b.Property<int>("FoodMealID")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("MealID")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodMealID"), 1L, 1);
 
                     b.Property<int>("FoodID")
                         .HasColumnType("int");
 
-                    b.Property<int>("MealID")
-                        .HasColumnType("int");
-
-                    b.HasKey("FoodMealID");
+                    b.HasKey("MealID", "FoodID");
 
                     b.HasIndex("FoodID");
-
-                    b.HasIndex("MealID");
 
                     b.ToTable("FoodMeals");
                 });

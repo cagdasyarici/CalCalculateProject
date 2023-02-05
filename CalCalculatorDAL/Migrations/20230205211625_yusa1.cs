@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CalCalculatorDAL.Migrations
 {
-    public partial class Init : Migration
+    public partial class yusa1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -69,14 +69,12 @@ namespace CalCalculatorDAL.Migrations
                 name: "FoodMeals",
                 columns: table => new
                 {
-                    FoodMealID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     FoodID = table.Column<int>(type: "int", nullable: false),
                     MealID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FoodMeals", x => x.FoodMealID);
+                    table.PrimaryKey("PK_FoodMeals", x => new { x.MealID, x.FoodID });
                     table.ForeignKey(
                         name: "FK_FoodMeals_Foods_FoodID",
                         column: x => x.FoodID,
@@ -95,11 +93,6 @@ namespace CalCalculatorDAL.Migrations
                 name: "IX_FoodMeals_FoodID",
                 table: "FoodMeals",
                 column: "FoodID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_FoodMeals_MealID",
-                table: "FoodMeals",
-                column: "MealID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Meals_ContactUserID",

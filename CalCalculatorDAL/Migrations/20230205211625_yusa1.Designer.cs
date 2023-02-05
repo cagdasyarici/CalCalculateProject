@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalCalculatorDAL.Migrations
 {
     [DbContext(typeof(CalCalculateDB))]
-    [Migration("20230204230810_yusa1")]
+    [Migration("20230205211625_yusa1")]
     partial class yusa1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,9 @@ namespace CalCalculatorDAL.Migrations
                     b.Property<int>("FoodProt")
                         .HasColumnType("int");
 
+                    b.Property<int>("Grams")
+                        .HasColumnType("int");
+
                     b.HasKey("FoodID");
 
                     b.ToTable("Foods");
@@ -55,23 +58,15 @@ namespace CalCalculatorDAL.Migrations
 
             modelBuilder.Entity("CalCalculatorEntities.FoodMeal", b =>
                 {
-                    b.Property<int>("FoodMealID")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("MealID")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodMealID"), 1L, 1);
 
                     b.Property<int>("FoodID")
                         .HasColumnType("int");
 
-                    b.Property<int>("MealID")
-                        .HasColumnType("int");
-
-                    b.HasKey("FoodMealID");
+                    b.HasKey("MealID", "FoodID");
 
                     b.HasIndex("FoodID");
-
-                    b.HasIndex("MealID");
 
                     b.ToTable("FoodMeals");
                 });
