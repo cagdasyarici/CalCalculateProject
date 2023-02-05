@@ -14,7 +14,7 @@ namespace CalCalculatorEntities
         public int FoodFat { get; set; }
         public int FoodProt { get; set; }
         public int FoodCal { get; set; }
-        //public int Grams { get; set; } Her get edildiğinde Grams/100 ile değerleri çarpıp öyle getiririz. Ne kadar yediğiniz göstermiş oluruz.-DENİZ, ÇAĞDAŞ
+        public int Grams { get; set; } // Her get edildiğinde Grams/100 ile değerleri çarpıp öyle getiririz. Ne kadar yediğiniz göstermiş oluruz.-DENİZ, ÇAĞDAŞ
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
         public Food()
         {
