@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CalCalculatorDAL.Migrations
 {
-    public partial class init : Migration
+    public partial class yusa1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

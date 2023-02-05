@@ -19,7 +19,7 @@ namespace CalCalculatorDAL
         {
             //DENİZ
 
-            optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculateDB;Trusted_Connection=True");
+            //optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculateDB;Trusted_Connection=True");
 
 
             //ÇAĞDAŞ
@@ -29,7 +29,7 @@ namespace CalCalculatorDAL
 
             //YUŞA
 
-            //optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=NORTHWND;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
