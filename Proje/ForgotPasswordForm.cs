@@ -39,7 +39,9 @@ namespace Proje
 
                 foreach (var item in SecurityList)
                 {
+
                     if (item.SecurityAnswer.Equals(txtSecurityAnswer.Text) && item.SecurityQuestion.Equals(cmbSecurityQuestions.SelectedItem as string))
+
                     {
                         grpMail.Enabled = true;
                         txtEMailAdress.Enabled = false;
@@ -55,7 +57,9 @@ namespace Proje
         {
             grpMail.Enabled = false;
             grpChangePassword.Enabled = false;
+
             cmbSecurityQuestions.SelectedItem = cmbSecurityQuestions.Items[0].ToString();
+
         }
         /// <summary>
         /// Kullanıcının databasede bulunan Mail adresine 6 haneli bir doğrulama kodu gönderir        /// </summary>
@@ -123,13 +127,19 @@ namespace Proje
                 //else
                 //{
                 //    MessageBox.Show("Please enter proper values", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                //} 
+
                 //}
+
                 #endregion
 
                 #region Yeni Kısım
 
 
+
                 CheckPassword(txtPassword.Text, txtPasswordConfirm.Text);
+
 
                 #endregion
             }
@@ -146,7 +156,9 @@ namespace Proje
             {
                 if (result)
                 {
+
                     _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Password = _password; ///todo:Burayı sonra değiştir
+
                     _db.SaveChanges();
 
                     MessageBox.Show($"Your Password has been changed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);

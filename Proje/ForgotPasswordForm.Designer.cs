@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.grpSecurity = new System.Windows.Forms.GroupBox();
+
+
             this.cmbSecurityQuestions = new System.Windows.Forms.ComboBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.txtSecurityAnswer = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,10 +59,13 @@
             // 
             // grpSecurity
             // 
+
+
             this.grpSecurity.Controls.Add(this.cmbSecurityQuestions);
             this.grpSecurity.Controls.Add(this.btnNext);
             this.grpSecurity.Controls.Add(this.txtSecurityAnswer);
             this.grpSecurity.Controls.Add(this.label3);
+
             this.grpSecurity.Controls.Add(this.label2);
             this.grpSecurity.Controls.Add(this.txtUsername);
             this.grpSecurity.Controls.Add(this.label1);
@@ -70,6 +76,8 @@
             this.grpSecurity.TabStop = false;
             this.grpSecurity.Text = "Security Section";
             // 
+
+
             // cmbSecurityQuestions
             // 
             this.cmbSecurityQuestions.FormattingEnabled = true;
@@ -83,6 +91,7 @@
             this.cmbSecurityQuestions.Size = new System.Drawing.Size(134, 23);
             this.cmbSecurityQuestions.TabIndex = 3;
             // 
+
             // btnNext
             // 
             this.btnNext.Location = new System.Drawing.Point(145, 154);
@@ -109,6 +118,8 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Security Answer : ";
             // 
+
+
             // label2
             // 
             this.label2.AutoSize = true;
@@ -285,6 +296,8 @@
         private Button btnNext;
         private TextBox txtSecurityAnswer;
         private Label label3;
+
+
         private Label label2;
         private TextBox txtUsername;
         private Label label1;
@@ -301,6 +314,9 @@
         private Label label6;
         private TextBox txtPassword;
         private Label label7;
+
+
         private ComboBox cmbSecurityQuestions;
+
     }
 }

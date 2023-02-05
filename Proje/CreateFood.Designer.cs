@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtMail = new System.Windows.Forms.TextBox();
-            this.txtPassControl = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtFat = new System.Windows.Forms.TextBox();
+            this.txtProt = new System.Windows.Forms.TextBox();
+            this.txtCarbonh = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtFoodName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCal = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtMail
+            // txtFat
             // 
-            this.txtMail.Location = new System.Drawing.Point(221, 137);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(121, 23);
-            this.txtMail.TabIndex = 13;
+            this.txtFat.Location = new System.Drawing.Point(221, 137);
+            this.txtFat.Name = "txtFat";
+            this.txtFat.Size = new System.Drawing.Size(121, 23);
+            this.txtFat.TabIndex = 13;
             // 
-            // txtPassControl
+            // txtProt
             // 
-            this.txtPassControl.Location = new System.Drawing.Point(221, 108);
-            this.txtPassControl.Name = "txtPassControl";
-            this.txtPassControl.Size = new System.Drawing.Size(121, 23);
-            this.txtPassControl.TabIndex = 14;
+            this.txtProt.Location = new System.Drawing.Point(221, 108);
+            this.txtProt.Name = "txtProt";
+            this.txtProt.Size = new System.Drawing.Size(121, 23);
+            this.txtProt.TabIndex = 14;
             // 
-            // txtPassword
+            // txtCarbonh
             // 
-            this.txtPassword.Location = new System.Drawing.Point(221, 79);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(121, 23);
-            this.txtPassword.TabIndex = 15;
+            this.txtCarbonh.Location = new System.Drawing.Point(221, 79);
+            this.txtCarbonh.Name = "txtCarbonh";
+            this.txtCarbonh.Size = new System.Drawing.Size(121, 23);
+            this.txtCarbonh.TabIndex = 15;
             // 
             // label4
             // 
@@ -73,12 +73,12 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Fat:";
             // 
-            // txtUsername
+            // txtFoodName
             // 
-            this.txtUsername.Location = new System.Drawing.Point(221, 49);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(121, 23);
-            this.txtUsername.TabIndex = 16;
+            this.txtFoodName.Location = new System.Drawing.Point(221, 49);
+            this.txtFoodName.Name = "txtFoodName";
+            this.txtFoodName.Size = new System.Drawing.Size(121, 23);
+            this.txtFoodName.TabIndex = 16;
             // 
             // label3
             // 
@@ -120,12 +120,12 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Calories:";
             // 
-            // textBox1
+            // txtCal
             // 
-            this.textBox1.Location = new System.Drawing.Point(221, 166);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 23);
-            this.textBox1.TabIndex = 13;
+            this.txtCal.Location = new System.Drawing.Point(221, 166);
+            this.txtCal.Name = "txtCal";
+            this.txtCal.Size = new System.Drawing.Size(121, 23);
+            this.txtCal.TabIndex = 13;
             // 
             // button1
             // 
@@ -135,6 +135,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Create Food";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -153,13 +154,13 @@
             this.ClientSize = new System.Drawing.Size(409, 273);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtMail);
-            this.Controls.Add(this.txtPassControl);
+            this.Controls.Add(this.txtCal);
+            this.Controls.Add(this.txtFat);
+            this.Controls.Add(this.txtProt);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtCarbonh);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtFoodName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -171,16 +172,16 @@
         }
 
         #endregion
-        private TextBox txtMail;
-        private TextBox txtPassControl;
-        private TextBox txtPassword;
+        private TextBox txtFat;
+        private TextBox txtProt;
+        private TextBox txtCarbonh;
         private Label label4;
-        private TextBox txtUsername;
+        private TextBox txtFoodName;
         private Label label3;
         private Label label2;
         private Label label1;
         private Label label5;
-        private TextBox textBox1;
+        private TextBox txtCal;
         private Button button1;
         private Label label6;
     }
