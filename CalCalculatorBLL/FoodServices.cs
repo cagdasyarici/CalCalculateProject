@@ -12,13 +12,17 @@ namespace CalCalculatorBLL
     public class FoodServices:BaseRepository<Food>
     {
         CalCalculateDB _db;
-        public void CreateFood()
+        public void CreateFood(string foodName,int foodCarb,int foodFat,int foodProt,int foodCal)
         {
             using(_db = new CalCalculateDB()) 
             {
                 Food food = new Food
                 {
-
+                    FoodName= foodName,
+                    FoodCarb=foodCarb,
+                    FoodFat=foodFat,
+                    FoodProt=foodProt,
+                    FoodCal=foodCal
                 };
 
             }
