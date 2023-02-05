@@ -8,7 +8,6 @@ namespace CalCalculatorEntities
 {
     public class FoodMeal
     {
-        public int FoodMealID { get; set; }
         public int FoodID { get; set; }
         public virtual Food Food { get; set; }
         public int MealID { get; set; }
