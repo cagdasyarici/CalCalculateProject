@@ -1,6 +1,6 @@
 ﻿namespace Proje
 {
-    partial class Form2
+    partial class AddFoodToMeal
     {
         /// <summary>
         /// Required designer variable.
@@ -107,14 +107,14 @@
             this.button1.Text = "Add Meal\'s";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // AddFoodToMeal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 950);
             this.Controls.Add(this.groupBox2);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "AddFoodToMeal";
+            this.Text = "AddFoodToMeal";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

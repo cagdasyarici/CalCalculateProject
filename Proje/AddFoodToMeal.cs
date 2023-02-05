@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalCalculatorEntities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,14 @@ using System.Windows.Forms;
 
 namespace Proje
 {
-    public partial class Form2 : Form
+    public partial class AddFoodToMeal : Form
     {
-        public Form2()
+        Meal meal;
+        public AddFoodToMeal(Meal currentMeal)
         {
             InitializeComponent();
+            meal = currentMeal;
         }
+         
     }
 }
