@@ -41,5 +41,12 @@ namespace Proje
         {
             //dataGridView1.DataSource = _db.Meal.ToList();
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dtgw = (DataGridView)sender;
+            var snc1 = dtgw.SelectedCells[0].OwningRow.DataBoundItem;
+
+        }
     }
 }
