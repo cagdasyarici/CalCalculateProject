@@ -38,14 +38,12 @@ namespace CalCalculatorBLL
             {
                 if (!_db.Categories.Select(x => x.CategoryName).Contains(categoryName))
                 {
-                    using (_db = new CalCalculateDB())
-                    {
                         Category category = new Category
                         {
                             CategoryName = categoryName,
                         };
                         AddEntity(category);
-                    }
+                   
                 }
             }
             

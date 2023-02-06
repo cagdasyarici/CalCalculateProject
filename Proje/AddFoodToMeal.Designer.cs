@@ -29,81 +29,94 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.btnOgunEkle = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.dgv_MealDetails = new System.Windows.Forms.DataGridView();
+            this.btnAddMeal = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dgv_FoodList = new System.Windows.Forms.DataGridView();
+            this.txtGrams = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddMealDetail = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_MealDetails)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FoodList)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dataGridView3);
-            this.groupBox4.Controls.Add(this.btnOgunEkle);
+            this.groupBox4.Controls.Add(this.btn_Delete);
+            this.groupBox4.Controls.Add(this.dgv_MealDetails);
+            this.groupBox4.Controls.Add(this.btnAddMeal);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(489, 260);
+            this.groupBox4.Size = new System.Drawing.Size(489, 370);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Add Meal";
+            this.groupBox4.Text = "Meal Details";
             // 
-            // dataGridView3
+            // btn_Delete
             // 
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.DarkKhaki;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 22);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(469, 182);
-            this.dataGridView3.TabIndex = 7;
+            this.btn_Delete.Location = new System.Drawing.Point(317, 210);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(75, 27);
+            this.btn_Delete.TabIndex = 8;
+            this.btn_Delete.Text = "Delete";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
-            // btnOgunEkle
+            // dgv_MealDetails
             // 
-            this.btnOgunEkle.Location = new System.Drawing.Point(398, 210);
-            this.btnOgunEkle.Name = "btnOgunEkle";
-            this.btnOgunEkle.Size = new System.Drawing.Size(77, 27);
-            this.btnOgunEkle.TabIndex = 4;
-            this.btnOgunEkle.Text = "Add Meal";
-            this.btnOgunEkle.UseVisualStyleBackColor = true;
-            this.btnOgunEkle.Click += new System.EventHandler(this.btnOgunEkle_Click);
+            this.dgv_MealDetails.BackgroundColor = System.Drawing.Color.DarkKhaki;
+            this.dgv_MealDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_MealDetails.Location = new System.Drawing.Point(6, 22);
+            this.dgv_MealDetails.Name = "dgv_MealDetails";
+            this.dgv_MealDetails.RowTemplate.Height = 25;
+            this.dgv_MealDetails.Size = new System.Drawing.Size(469, 182);
+            this.dgv_MealDetails.TabIndex = 7;
+            this.dgv_MealDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_MealDetails_CellContentClick);
+            // 
+            // btnAddMeal
+            // 
+            this.btnAddMeal.Location = new System.Drawing.Point(398, 210);
+            this.btnAddMeal.Name = "btnAddMeal";
+            this.btnAddMeal.Size = new System.Drawing.Size(77, 27);
+            this.btnAddMeal.TabIndex = 4;
+            this.btnAddMeal.Text = "Add Meal";
+            this.btnAddMeal.UseVisualStyleBackColor = true;
+            this.btnAddMeal.Click += new System.EventHandler(this.btnAddMeal_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.dgv_FoodList);
+            this.groupBox2.Controls.Add(this.txtGrams);
             this.groupBox2.Controls.Add(this.txtSearch);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnAddMealDetail);
             this.groupBox2.Location = new System.Drawing.Point(507, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(514, 370);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Add Food";
+            this.groupBox2.Text = "Food List";
             // 
-            // dataGridView2
+            // dgv_FoodList
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Info;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(21, 55);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(454, 251);
-            this.dataGridView2.TabIndex = 1;
+            this.dgv_FoodList.BackgroundColor = System.Drawing.SystemColors.Info;
+            this.dgv_FoodList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_FoodList.Location = new System.Drawing.Point(21, 55);
+            this.dgv_FoodList.Name = "dgv_FoodList";
+            this.dgv_FoodList.RowTemplate.Height = 25;
+            this.dgv_FoodList.Size = new System.Drawing.Size(454, 251);
+            this.dgv_FoodList.TabIndex = 1;
             // 
-            // textBox1
+            // txtGrams
             // 
-            this.textBox1.Location = new System.Drawing.Point(207, 322);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(115, 23);
-            this.textBox1.TabIndex = 12;
+            this.txtGrams.Location = new System.Drawing.Point(207, 322);
+            this.txtGrams.Name = "txtGrams";
+            this.txtGrams.Size = new System.Drawing.Size(115, 23);
+            this.txtGrams.TabIndex = 12;
             // 
             // txtSearch
             // 
@@ -122,16 +135,16 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "How many grams did you eat?";
             // 
-            // button1
+            // btnAddMealDetail
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(363, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 30);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Add Meal";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddMealDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddMealDetail.Location = new System.Drawing.Point(328, 315);
+            this.btnAddMealDetail.Name = "btnAddMealDetail";
+            this.btnAddMealDetail.Size = new System.Drawing.Size(147, 30);
+            this.btnAddMealDetail.TabIndex = 8;
+            this.btnAddMealDetail.Text = "Add Meal Detail";
+            this.btnAddMealDetail.UseVisualStyleBackColor = true;
+            this.btnAddMealDetail.Click += new System.EventHandler(this.btnAddMealDetail_Click);
             // 
             // AddFoodToMeal
             // 
@@ -144,10 +157,10 @@
             this.Text = "AddFoodToMeal";
             this.Load += new System.EventHandler(this.AddFoodToMeal_Load);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_MealDetails)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FoodList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -155,13 +168,16 @@
         #endregion
 
         private GroupBox groupBox4;
-        private DataGridView dataGridView3;
+        private DataGridView dgv_MealDetails;
         private Button btnOgunEkle;
         private GroupBox groupBox2;
-        private DataGridView dataGridView2;
-        private TextBox textBox1;
+        private DataGridView dgv_FoodList;
+        private TextBox txtGrams;
         private TextBox txtSearch;
         private Label label2;
         private Button button1;
+        private Button btnAddMeal;
+        private Button btnAddMealDetail;
+        private Button btn_Delete;
     }
 }
