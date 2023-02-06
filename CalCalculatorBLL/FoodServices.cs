@@ -12,9 +12,10 @@ namespace CalCalculatorBLL
     public class FoodServices:BaseRepository<Food>
     {
         CalCalculateDB _db;
-        public void CreateFood(string foodName,int foodCarb,int foodFat,int foodProt,int foodCal)
+        public void CreateFood(string foodName,int foodCarb,int foodFat,int foodProt,int foodCal,int foodCategoryId)
         {
-            using(_db = new CalCalculateDB()) 
+            
+            using (_db = new CalCalculateDB()) 
             {
                 
                 Food food = new Food
@@ -23,7 +24,8 @@ namespace CalCalculatorBLL
                     FoodCarb=foodCarb,
                     FoodFat=foodFat,
                     FoodProt=foodProt,
-                    FoodCal=foodCal
+                    FoodCal=foodCal,
+                    CategoryId=foodCategoryId
                 };
                 AddEntity(food);
 

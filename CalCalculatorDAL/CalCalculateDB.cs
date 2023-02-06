@@ -15,11 +15,12 @@ namespace CalCalculatorDAL
         public DbSet<Food> Foods { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<FoodMeal> FoodMeals { get; set; }
+        public DbSet<Category> Categories { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //DENİZ
 
-            //optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculateDB;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-ES7IFME\\MSSQLKD14;Database=CalCalculateDB;Trusted_Connection=True");
 
 
             //ÇAĞDAŞ
@@ -29,7 +30,7 @@ namespace CalCalculatorDAL
 
             //YUŞA
 
-            optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True");
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

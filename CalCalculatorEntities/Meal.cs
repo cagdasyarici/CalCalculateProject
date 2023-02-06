@@ -12,7 +12,7 @@ namespace CalCalculatorEntities
         public int MealID { get; set; }
         public string MealName { get; set; }
         public int ContactUserID { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
         public DateTime CreateTime { get; set; }
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
         public Meal()

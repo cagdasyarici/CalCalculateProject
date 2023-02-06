@@ -1,3 +1,4 @@
+using CalCalculatorBLL;
 using CalCalculatorDAL;
 using CalCalculatorEntities;
 using System.Security.Cryptography.X509Certificates;
@@ -8,7 +9,6 @@ namespace Proje
     public partial class LoginForm : Form
     {
         public User user;
-
         CalCalculateDB _db = new();
         
         public LoginForm()
@@ -46,6 +46,7 @@ namespace Proje
 
             {
                 Form1 frm = new Form1(user);
+                UserServices userServices = new UserServices(user);
                 frm.Show();
                 this.Hide();
                 

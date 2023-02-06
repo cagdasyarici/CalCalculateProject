@@ -22,6 +22,23 @@ namespace CalCalculatorDAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("CalCalculatorEntities.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("CalCalculatorEntities.Food", b =>
                 {
                     b.Property<int>("FoodID")
@@ -29,6 +46,9 @@ namespace CalCalculatorDAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodID"), 1L, 1);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<int>("FoodCal")
                         .HasColumnType("int");
@@ -50,6 +70,8 @@ namespace CalCalculatorDAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("FoodID");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Foods");
                 });
@@ -131,6 +153,17 @@ namespace CalCalculatorDAL.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("CalCalculatorEntities.Food", b =>
+                {
+                    b.HasOne("CalCalculatorEntities.Category", "FoodCategory")
+                        .WithMany("Foods")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FoodCategory");
+                });
+
             modelBuilder.Entity("CalCalculatorEntities.FoodMeal", b =>
                 {
                     b.HasOne("CalCalculatorEntities.Food", "Food")
@@ -159,6 +192,11 @@ namespace CalCalculatorDAL.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CalCalculatorEntities.Category", b =>
+                {
+                    b.Navigation("Foods");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.Food", b =>
