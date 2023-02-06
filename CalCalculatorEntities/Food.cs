@@ -16,7 +16,7 @@ namespace CalCalculatorEntities
         public int FoodCal { get; set; }
         public int Grams { get; set; } // Her get edildiğinde Grams/100 ile değerleri çarpıp öyle getiririz. Ne kadar yediğiniz göstermiş oluruz.-DENİZ, ÇAĞDAŞ
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
-        public virtual Category FoodCategory { get; set; }
+        public virtual Category Category { get; set; }
         public int CategoryId { get; set; }
         public Food()
         {
