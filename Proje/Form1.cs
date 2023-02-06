@@ -16,6 +16,7 @@ namespace Proje
     public partial class Form1 : Form
     {
         User user;
+ 
         public Form1(User userInfo)
         {
             user = userInfo;
@@ -47,7 +48,7 @@ namespace Proje
 
         private void btnCreateFoodForm_Click(object sender, EventArgs e)
         {
-            CreateFood createFood=new CreateFood();
+            CreateFood createFood=new CreateFood(user);
             createFood.Show();
         }
     }

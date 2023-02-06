@@ -130,6 +130,9 @@ namespace CalCalculatorDAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(16)
@@ -155,13 +158,13 @@ namespace CalCalculatorDAL.Migrations
 
             modelBuilder.Entity("CalCalculatorEntities.Food", b =>
                 {
-                    b.HasOne("CalCalculatorEntities.Category", "FoodCategory")
+                    b.HasOne("CalCalculatorEntities.Category", "Category")
                         .WithMany("Foods")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("FoodCategory");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.FoodMeal", b =>

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalCalculatorDAL.Migrations
 {
     [DbContext(typeof(CalCalculateDB))]
-    [Migration("20230206030051_init")]
+    [Migration("20230206124705_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,6 +132,9 @@ namespace CalCalculatorDAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(16)
@@ -157,13 +160,13 @@ namespace CalCalculatorDAL.Migrations
 
             modelBuilder.Entity("CalCalculatorEntities.Food", b =>
                 {
-                    b.HasOne("CalCalculatorEntities.Category", "FoodCategory")
+                    b.HasOne("CalCalculatorEntities.Category", "Category")
                         .WithMany("Foods")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("FoodCategory");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("CalCalculatorEntities.FoodMeal", b =>
