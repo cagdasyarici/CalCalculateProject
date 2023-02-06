@@ -107,11 +107,13 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtSearch.Location = new System.Drawing.Point(292, 26);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(183, 23);
             this.txtSearch.TabIndex = 6;
             this.txtSearch.Text = "Search...";
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             // 
             // label2
             // 

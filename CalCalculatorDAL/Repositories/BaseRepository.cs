@@ -36,6 +36,10 @@ namespace CalCalculatorDAL.Repositories
         {
             return _db.Set<T>().AsQueryable();
         }
-
+        public IList<T> BringTList()
+        {
+            return _db.Set<T>().ToList();
+        }
+        
     }
 }

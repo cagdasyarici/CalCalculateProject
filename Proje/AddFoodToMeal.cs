@@ -34,5 +34,10 @@ namespace Proje
         {
 
         }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+        }
     }
 }

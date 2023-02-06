@@ -42,6 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.btnContinue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtFat
@@ -167,11 +168,22 @@
             this.cmbCategory.Size = new System.Drawing.Size(121, 23);
             this.cmbCategory.TabIndex = 19;
             // 
+            // btnContinue
+            // 
+            this.btnContinue.Location = new System.Drawing.Point(69, 252);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(121, 30);
+            this.btnContinue.TabIndex = 20;
+            this.btnContinue.Text = "Continue as an User";
+            this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            // 
             // CreateFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 307);
+            this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
@@ -208,5 +220,6 @@
         private Label label6;
         private Label label7;
         private ComboBox cmbCategory;
+        private Button btnContinue;
     }
 }
