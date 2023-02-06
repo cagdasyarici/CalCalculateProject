@@ -72,6 +72,7 @@
             this.btnOgunEkle.TabIndex = 4;
             this.btnOgunEkle.Text = "Add Meal";
             this.btnOgunEkle.UseVisualStyleBackColor = true;
+            this.btnOgunEkle.Click += new System.EventHandler(this.btnOgunEkle_Click);
             // 
             // groupBox2
             // 
@@ -130,6 +131,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Add Meal";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AddFoodToMeal
             // 

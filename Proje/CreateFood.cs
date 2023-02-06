@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,17 +18,33 @@ namespace Proje
         public CreateFood()
         {
             InitializeComponent();
+            CategoryServices categoryServices = new CategoryServices();
+            categoryServices.CreateDefaultCategoriesIfNotExist();
+            List<string> categoryNames = categoryServices.BringCategoryNames();
+            foreach(string categoryName in categoryNames)
+            {
+                cmbCategory.Items.Add(categoryName);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            CategoryServices categoryServices = new CategoryServices();
+            
+            IList<Category> categoryList = categoryServices.SearchCategoryByName(cmbCategory.SelectedItem.ToString());
             string foodName = txtFoodName.Text;
             int foodCarb = Convert.ToInt32(txtCarbonh.Text);
             int foodFat = Convert.ToInt32(txtFat.Text);
             int foodProt = Convert.ToInt32(txtProt.Text);
             int foodCal = Convert.ToInt32(txtCal.Text);
+            int categoryID = 0;
+            foreach(Category category in categoryList)
+            {
+                categoryID = category.CategoryId;
+            }
             FoodServices foodServices = new FoodServices();
-            foodServices.CreateFood(foodName, foodCarb, foodFat, foodProt, foodCal);
+            foodServices.CreateFood(foodName, foodCarb, foodFat, foodProt, foodCal, categoryID);
         }
     }
 }

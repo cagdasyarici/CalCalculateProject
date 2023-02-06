@@ -5,26 +5,21 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CalCalculatorDAL.Migrations
 {
-    public partial class yusa1 : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Foods",
+                name: "Categories",
                 columns: table => new
                 {
-                    FoodID = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FoodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FoodCarb = table.Column<int>(type: "int", nullable: false),
-                    FoodFat = table.Column<int>(type: "int", nullable: false),
-                    FoodProt = table.Column<int>(type: "int", nullable: false),
-                    FoodCal = table.Column<int>(type: "int", nullable: false),
-                    Grams = table.Column<int>(type: "int", nullable: false)
+                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Foods", x => x.FoodID);
+                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -42,6 +37,31 @@ namespace CalCalculatorDAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Foods",
+                columns: table => new
+                {
+                    FoodID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FoodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FoodCarb = table.Column<int>(type: "int", nullable: false),
+                    FoodFat = table.Column<int>(type: "int", nullable: false),
+                    FoodProt = table.Column<int>(type: "int", nullable: false),
+                    FoodCal = table.Column<int>(type: "int", nullable: false),
+                    Grams = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Foods", x => x.FoodID);
+                    table.ForeignKey(
+                        name: "FK_Foods_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -95,6 +115,11 @@ namespace CalCalculatorDAL.Migrations
                 column: "FoodID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Foods_CategoryId",
+                table: "Foods",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Meals_ContactUserID",
                 table: "Meals",
                 column: "ContactUserID");
@@ -110,6 +135,9 @@ namespace CalCalculatorDAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Meals");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Users");

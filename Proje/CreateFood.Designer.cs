@@ -40,6 +40,8 @@
             this.txtCal = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtFat
@@ -129,7 +131,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(221, 217);
+            this.button1.Location = new System.Drawing.Point(221, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 30);
             this.button1.TabIndex = 17;
@@ -147,16 +149,36 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Please enter values ​​per 100 grams!";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(104, 198);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 20);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Category:";
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(221, 195);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(121, 23);
+            this.cmbCategory.TabIndex = 19;
+            // 
             // CreateFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 273);
+            this.ClientSize = new System.Drawing.Size(409, 307);
+            this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtCal);
             this.Controls.Add(this.txtFat);
             this.Controls.Add(this.txtProt);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtCarbonh);
             this.Controls.Add(this.label4);
@@ -184,5 +206,7 @@
         private TextBox txtCal;
         private Button button1;
         private Label label6;
+        private Label label7;
+        private ComboBox cmbCategory;
     }
 }

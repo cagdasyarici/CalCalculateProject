@@ -36,5 +36,6 @@ namespace CalCalculatorDAL.Repositories
         {
             return _db.Set<T>().AsQueryable();
         }
+
     }
 }

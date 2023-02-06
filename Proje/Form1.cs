@@ -23,14 +23,8 @@ namespace Proje
         }
         private void btnAddMeal_Click(object sender, EventArgs e)
         {
-            Meal meal = new Meal
-            {
-                MealName = txtMealName.Text,
-                ContactUserID = user.UserID,
-                CreateTime = DateTime.Now,
-            };
             MealServices mealServices = new MealServices();
-            mealServices.AddEntity(meal);
+            mealServices.CreateMeal(txtMealName.Text, user.UserID);
         }
         private void btnShowMeals_Click(object sender, EventArgs e)
         {
@@ -49,6 +43,12 @@ namespace Proje
             AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal);
             addFoodToMeal.Show();
             this.Close();
+        }
+
+        private void btnCreateFoodForm_Click(object sender, EventArgs e)
+        {
+            CreateFood createFood=new CreateFood();
+            createFood.Show();
         }
     }
 }

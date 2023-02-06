@@ -24,5 +24,15 @@ namespace Proje
         {
             //var sonuc = meal.FoodMeals.
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOgunEkle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

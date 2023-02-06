@@ -35,6 +35,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnShowMeals = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnCreateFoodForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +80,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCreateFoodForm);
             this.groupBox1.Controls.Add(this.btnShowMeals);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.dataGridView1);
@@ -109,6 +111,16 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 4;
             // 
+            // btnCreateFoodForm
+            // 
+            this.btnCreateFoodForm.Location = new System.Drawing.Point(91, 322);
+            this.btnCreateFoodForm.Name = "btnCreateFoodForm";
+            this.btnCreateFoodForm.Size = new System.Drawing.Size(133, 23);
+            this.btnCreateFoodForm.TabIndex = 6;
+            this.btnCreateFoodForm.Text = "CreateFoodForm";
+            this.btnCreateFoodForm.UseVisualStyleBackColor = true;
+            this.btnCreateFoodForm.Click += new System.EventHandler(this.btnCreateFoodForm_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -133,5 +145,6 @@
         private GroupBox groupBox1;
         private Button btnShowMeals;
         private DateTimePicker dateTimePicker1;
+        private Button btnCreateFoodForm;
     }
 }

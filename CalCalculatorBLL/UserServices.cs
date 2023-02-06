@@ -12,6 +12,11 @@ namespace CalCalculatorBLL
     public class UserServices:BaseRepository<User>
     {
         CalCalculateDB _db;
+        int userID;
+        public UserServices()
+        {
+
+        }
         public void CreateUser(string name,string password,string email, string securityQuestion, string securityAnswer)
         {
             using (_db = new CalCalculateDB())
@@ -28,6 +33,15 @@ namespace CalCalculatorBLL
             }
             
         }
+        public UserServices(User user)
+        {
+            userID = user.UserID;
+        }
+        public int BringUserID()
+        {
+            return userID;
+        }
+        
     }
     
 }
