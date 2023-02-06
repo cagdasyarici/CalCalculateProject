@@ -63,7 +63,7 @@ namespace Proje
             }
             else
             {
-                MessageBox.Show("YANLIÞ KULLANICI ADI VEYA ÞÝFRE");
+                MessageBox.Show("Invalid username or password");
             }
 
         }

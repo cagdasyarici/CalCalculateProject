@@ -70,7 +70,12 @@ namespace Proje
 
         private void btnAddMeal_Click(object sender, EventArgs e)
         {
-            Food selectedFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as Food;
+            #region Bi şey öğrendim
+            dynamic sonuc = dgv_MealDetails.DataSource;
+            ICollection<Food> foods = sonuc;    ///ICollection<Food> Şeklinde yakalayabiliyorum @@@@@@@@@@@@@@@@@@@@@@@
+            #endregion
+
+
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
