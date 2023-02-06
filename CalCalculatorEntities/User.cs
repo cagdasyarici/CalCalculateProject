@@ -15,6 +15,7 @@ namespace CalCalculatorEntities
         public virtual ICollection<Meal> Meals { get; set; }
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
+        public bool IsAdmin { get; set; }
 
         public User()
         {

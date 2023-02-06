@@ -13,6 +13,8 @@ namespace CalCalculatorBLL
     {
         CalCalculateDB _db;
         int userID;
+        string userName;
+        string email;
         public UserServices()
         {
 
@@ -36,11 +38,23 @@ namespace CalCalculatorBLL
         public UserServices(User user)
         {
             userID = user.UserID;
+            userName = user.UserName;
+            email = user.Email;
+            
         }
         public int BringUserID()
         {
             return userID;
         }
+        public string BringUserName()
+        {
+            return userName;
+        }  
+        public string BringUserEmail()
+        {
+            return email;
+        }
+
         
     }
     

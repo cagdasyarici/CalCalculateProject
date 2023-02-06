@@ -32,7 +32,8 @@ namespace CalCalculatorDAL.Migrations
                     Password = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     SecurityQuestion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SecurityAnswer = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    SecurityAnswer = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

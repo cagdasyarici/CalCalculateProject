@@ -15,8 +15,10 @@ namespace Proje
 {
     public partial class CreateFood : Form
     {
-        public CreateFood()
+        User user;
+        public CreateFood(User userInfo)
         {
+            user=userInfo;
             InitializeComponent();
             CategoryServices categoryServices = new CategoryServices();
             categoryServices.CreateDefaultCategoriesIfNotExist();
@@ -45,6 +47,14 @@ namespace Proje
             }
             FoodServices foodServices = new FoodServices();
             foodServices.CreateFood(foodName, foodCarb, foodFat, foodProt, foodCal, categoryID);
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            
+            Form1 frm = new Form1(user);
+            frm.Show();
+            this.Hide();
         }
     }
 }

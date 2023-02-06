@@ -45,10 +45,20 @@ namespace Proje
             if (user.Password==txtPassword.Text)
 
             {
-                Form1 frm = new Form1(user);
-                UserServices userServices = new UserServices(user);
-                frm.Show();
-                this.Hide();
+                if (!user.IsAdmin)
+                {
+                    Form1 frm = new Form1(user);
+                    UserServices userServices = new UserServices(user);
+                    frm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    AdminPanel panel = new AdminPanel(user);
+                    panel.Show();
+                    this.Hide();
+                }
+               
                 
             }
             else
