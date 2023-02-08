@@ -8,8 +8,7 @@ namespace Proje
     
     public partial class LoginForm : Form
     {
-        public User user;
-        CalCalculateDB _db = new();
+        
         
         public LoginForm()
         {
@@ -41,14 +40,16 @@ namespace Proje
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            user = _db.Users.FirstOrDefault(x => x.UserName.Contains(txtUsername.Text));
+            string userName = txtUsername.Text;
+            UserServices userServices = new UserServices();
+            User user = userServices.FindUser(userName);
             if (user.Password==txtPassword.Text)
 
             {
                 if (!user.IsAdmin)
                 {
                     Form1 frm = new Form1(user);
-                    UserServices userServices = new UserServices(user);
+                    
                     frm.Show();
                     this.Hide();
                 }
