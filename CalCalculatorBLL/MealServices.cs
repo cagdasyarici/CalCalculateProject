@@ -31,5 +31,22 @@ namespace CalCalculatorBLL
         {
             return QueryableList().Where(x => x.CreateTime.Date == date.Date&&x.ContactUserID==user.UserID).ToList();
         }
+
+        public List<Meal> SearchByDate(DateTime date1,DateTime date2, User user)
+        {
+            if (date1 > date2)
+            {
+                return QueryableList().Where(x => x.CreateTime.Date >= date2.Date && x.CreateTime.Date <= date1 && x.ContactUserID == user.UserID).ToList();
+            }
+            else if (date1 < date2)
+            {
+                return QueryableList().Where(x => x.CreateTime.Date >= date1.Date && x.CreateTime.Date <= date2 && x.ContactUserID == user.UserID).ToList();
+            }
+            else
+            {
+                return QueryableList().Where(x => x.CreateTime.Date == date1.Date && x.CreateTime.Date == date2 && x.ContactUserID == user.UserID).ToList();
+            }
+            
+        }
     }
 }

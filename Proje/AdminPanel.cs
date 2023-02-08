@@ -23,9 +23,9 @@ namespace Proje
 
         private void AdminPanel_Load(object sender, EventArgs e)
         {
-            UserServices userServices = new UserServices();
-            lblUserName.Text = userServices.BringUserName();
-            lblEmail.Text = userServices.BringUserEmail();
+
+            lblUserName.Text = user.UserName;
+            lblEmail.Text = user.Email;
         }
 
         private void btnCreateFood_Click(object sender, EventArgs e)
