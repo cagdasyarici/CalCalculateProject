@@ -75,7 +75,7 @@
             this.dgv_MealDetails.RowTemplate.Height = 25;
             this.dgv_MealDetails.Size = new System.Drawing.Size(469, 182);
             this.dgv_MealDetails.TabIndex = 7;
-            this.dgv_MealDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_MealDetails_CellContentClick);
+
             // 
             // btnAddMeal
             // 
@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 394);
+            this.ClientSize = new System.Drawing.Size(1033, 380);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Name = "AddFoodToMeal";
