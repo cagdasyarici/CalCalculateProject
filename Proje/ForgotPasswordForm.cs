@@ -1,4 +1,5 @@
 ﻿using CalCalculatorDAL;
+using CalCalculatorEntities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,15 @@ namespace Proje
     {
         CalCalculateDB _db;
         string code;
+        User user;
         public ForgotPasswordForm()
         {
             InitializeComponent();
         }
-
+        public ForgotPasswordForm(User userInfo)
+        {
+            userInfo = user;
+        }
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
