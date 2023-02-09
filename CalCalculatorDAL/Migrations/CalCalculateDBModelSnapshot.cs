@@ -66,9 +66,6 @@ namespace CalCalculatorDAL.Migrations
                     b.Property<int>("FoodProt")
                         .HasColumnType("int");
 
-                    b.Property<int>("Grams")
-                        .HasColumnType("int");
-
                     b.HasKey("FoodID");
 
                     b.HasIndex("CategoryId");
@@ -82,6 +79,9 @@ namespace CalCalculatorDAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("FoodID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Grams")
                         .HasColumnType("int");
 
                     b.HasKey("MealID", "FoodID");
