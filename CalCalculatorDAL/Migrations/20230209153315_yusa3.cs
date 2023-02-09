@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CalCalculatorDAL.Migrations
 {
-    public partial class init : Migration
+    public partial class yusa3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,7 +51,6 @@ namespace CalCalculatorDAL.Migrations
                     FoodFat = table.Column<int>(type: "int", nullable: false),
                     FoodProt = table.Column<int>(type: "int", nullable: false),
                     FoodCal = table.Column<int>(type: "int", nullable: false),
-                    Grams = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -91,7 +90,8 @@ namespace CalCalculatorDAL.Migrations
                 columns: table => new
                 {
                     FoodID = table.Column<int>(type: "int", nullable: false),
-                    MealID = table.Column<int>(type: "int", nullable: false)
+                    MealID = table.Column<int>(type: "int", nullable: false),
+                    Grams = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -39,27 +39,66 @@ namespace Proje
         private void btnAddMealDetail_Click(object sender, EventArgs e)
         {
             #region Eski Kısım 
-            Food selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
+            //Food selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
 
-            if (!foods.Contains(selectedFood))
-            {
-
-
-                //selectedFood.Grams = Convert.ToInt32(txtGrams.Text);
+            //if (!foods.Contains(selectedFood))
+            //{
 
 
-                foods.Add(selectedFood);
-                dgv_MealDetails.DataSource = null;
-                dgv_MealDetails.DataSource = foods;
-                txtGrams.Text = string.Empty;
-            }
+            //    //selectedFood.Grams = Convert.ToInt32(txtGrams.Text);
+
+
+            //    foods.Add(selectedFood);
+            //    dgv_MealDetails.DataSource = null;
+            //    dgv_MealDetails.DataSource = foods;
+            //    txtGrams.Text = string.Empty;
+            //}
             #endregion
 
+            #region Yeni Kısım 
 
+
+            using (_db = new CalCalculateDB())
+            {
+                Food selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
+
+
+                meal.FoodMeals.Add(new FoodMeal()
+                {
+                    Food = selectedFood,
+                    Grams = int.Parse(txtGrams.Text)
+                });
+
+                _db.Update(meal);
+                _db.SaveChanges();
+
+                dgv_MealDetails.DataSource = meal.FoodMeals;
+            }
+
+
+
+
+
+
+
+
+            //if (!foods.Contains(selectedFood))
+            //{
+
+
+            //    //selectedFood.Grams = Convert.ToInt32(txtGrams.Text);
+
+
+            //    foods.Add(selectedFood);
+            //    dgv_MealDetails.DataSource = null;
+            //    dgv_MealDetails.DataSource = foods;
+            //    txtGrams.Text = string.Empty;
+            //}
+            #endregion
 
         }
 
-       
+
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
