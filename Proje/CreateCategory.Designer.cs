@@ -39,25 +39,28 @@
             // 
             // txtCategoryName
             // 
-            this.txtCategoryName.Location = new System.Drawing.Point(142, 27);
+            this.txtCategoryName.Location = new System.Drawing.Point(203, 45);
+            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(245, 23);
+            this.txtCategoryName.Size = new System.Drawing.Size(348, 31);
             this.txtCategoryName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 30);
+            this.label1.Location = new System.Drawing.Point(19, 50);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 15);
+            this.label1.Size = new System.Drawing.Size(185, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Enter Category Name:";
             // 
             // btnAddCategory
             // 
-            this.btnAddCategory.Location = new System.Drawing.Point(142, 56);
+            this.btnAddCategory.Location = new System.Drawing.Point(203, 93);
+            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(245, 23);
+            this.btnAddCategory.Size = new System.Drawing.Size(350, 38);
             this.btnAddCategory.TabIndex = 2;
             this.btnAddCategory.Text = "Add Category Into Database";
             this.btnAddCategory.UseVisualStyleBackColor = true;
@@ -67,17 +70,20 @@
             // 
             this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategories.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvCategories.Location = new System.Drawing.Point(0, 143);
+            this.dgvCategories.Location = new System.Drawing.Point(0, 239);
+            this.dgvCategories.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvCategories.Name = "dgvCategories";
+            this.dgvCategories.RowHeadersWidth = 62;
             this.dgvCategories.RowTemplate.Height = 25;
-            this.dgvCategories.Size = new System.Drawing.Size(399, 305);
+            this.dgvCategories.Size = new System.Drawing.Size(570, 508);
             this.dgvCategories.TabIndex = 3;
             // 
             // btnRemoveCategory
             // 
-            this.btnRemoveCategory.Location = new System.Drawing.Point(142, 85);
+            this.btnRemoveCategory.Location = new System.Drawing.Point(203, 142);
+            this.btnRemoveCategory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRemoveCategory.Name = "btnRemoveCategory";
-            this.btnRemoveCategory.Size = new System.Drawing.Size(245, 23);
+            this.btnRemoveCategory.Size = new System.Drawing.Size(350, 38);
             this.btnRemoveCategory.TabIndex = 2;
             this.btnRemoveCategory.Text = "Remove Category From Database";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
@@ -85,9 +91,10 @@
             // 
             // btnContinue
             // 
-            this.btnContinue.Location = new System.Drawing.Point(142, 114);
+            this.btnContinue.Location = new System.Drawing.Point(203, 190);
+            this.btnContinue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(245, 23);
+            this.btnContinue.Size = new System.Drawing.Size(350, 38);
             this.btnContinue.TabIndex = 4;
             this.btnContinue.Text = "Continue as an User";
             this.btnContinue.UseVisualStyleBackColor = true;
@@ -95,15 +102,16 @@
             // 
             // CreateCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 448);
+            this.ClientSize = new System.Drawing.Size(570, 747);
             this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.dgvCategories);
             this.Controls.Add(this.btnRemoveCategory);
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCategoryName);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CreateCategory";
             this.Text = "CreateCategory";
             this.Load += new System.EventHandler(this.CreateCategory_Load);

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,10 +28,7 @@ namespace Proje
         {
             userInfo = user;
         }
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
+      
 
         /// <summary>
         /// Girilen bilgiler databasedekilerle uyuşuyorsa sıradaki adımı açar  
@@ -142,8 +140,6 @@ namespace Proje
 
                 #region Yeni Kısım
 
-
-
                 CheckPassword(txtPassword.Text, txtPasswordConfirm.Text);
 
 
@@ -197,7 +193,24 @@ namespace Proje
         /// </summary>
         public void SendVerificationCode()
         {
+            string mailAdres = txtEMailAdress.Text;
 
+            if (mailAdres.Contains("@hotmail.com"))
+            {
+                SendForHotmail();
+            }
+            else if(mailAdres.Contains("@gmail.com"))
+            {
+                SendForGmail();
+            }
+
+            
+
+        }
+
+
+        public void SendForHotmail()
+        {
             MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text, txtUsername.Text);
             MailAddress MailSender = new MailAddress("CalculatorCodeSender@hotmail.com", "CodeSender");
             MailMessage verificationMessage = new MailMessage();
@@ -212,6 +225,28 @@ namespace Proje
             smtp.Credentials = new System.Net.NetworkCredential("CalculatorCodeSender@hotmail.com", "Cal.5224");
             smtp.EnableSsl = true;
             smtp.Send(verificationMessage);
+        }
+
+        public void SendForGmail()
+        {
+
+            MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text, txtUsername.Text);
+            MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "CodeSender");
+            MailMessage verificationMessage = new MailMessage();
+
+
+            verificationMessage.To.Add(MailReceiver);
+            verificationMessage.From = MailSender;
+            verificationMessage.Subject = "Change Password";
+            verificationMessage.Body = "Verification Code to Change Password : " + code;
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc
+            smtp.EnableSsl = true;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //smtp.Timeout
+            smtp.Send(verificationMessage);
+
         }
     }
 }
