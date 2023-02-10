@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CalCalculatorBLL
 {
     public class FoodServices:BaseRepository<Food>
@@ -17,19 +18,29 @@ namespace CalCalculatorBLL
             
             using (_db = new CalCalculateDB()) 
             {
-                
-                Food food = new Food
+
+                if (!_db.Foods.Select(x => x.FoodName).Contains(foodName))
                 {
-                    FoodName= foodName,
-                    FoodCarb=foodCarb,
-                    FoodFat=foodFat,
-                    FoodProt=foodProt,
-                    FoodCal=foodCal,
-                    CategoryId=foodCategoryId
-                };
-                AddEntity(food);
+                    Food food = new Food
+                    {
+                        FoodName = foodName,
+                        FoodCarb = foodCarb,
+                        FoodFat = foodFat,
+                        FoodProt = foodProt,
+                        FoodCal = foodCal,
+                        CategoryId = foodCategoryId
+                    };
+                    AddEntity(food);
+                }
+                else
+                {
+                    
+                }
+                
 
             }
+
+         
         }
     }
 }

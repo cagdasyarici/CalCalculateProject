@@ -18,5 +18,7 @@ namespace CalCalculatorDAL.Configuration
                 .WithMany(x => x.Foods)
                 .HasForeignKey(x => x.CategoryId);
         }
+
+        
     }
 }

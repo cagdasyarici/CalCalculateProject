@@ -1,5 +1,7 @@
 ﻿using CalCalculatorBLL;
 using CalCalculatorDAL;
+using CalCalculatorDAL.Repositories;
+
 using CalCalculatorEntities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,6 +20,7 @@ namespace Proje
     {
 
 
+
         IList<Food> foodListDgv;
         Meal meal;
         public AddFoodToMeal(Meal currentMeal)
@@ -34,13 +37,16 @@ namespace Proje
             #region Dgv2 Doldurma
             FoodServices foodServices = new FoodServices();
 
+
             foodListDgv = foodServices.BringTList();
             dgv_FoodList.DataSource = foodListDgv;
 
             #endregion
 
 
+
             #region Dgv1 Doldurma
+
 
 
             MealServices mealServices = new MealServices();
@@ -52,7 +58,7 @@ namespace Proje
             //    foods.Add(_db.Foods.Where(x => x.FoodID == IdNumber).FirstOrDefault());
             //}
 
-            //tempList2.Add(_db.Foods.i)
+
 
 
 
