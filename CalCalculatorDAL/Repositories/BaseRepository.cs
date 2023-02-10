@@ -29,7 +29,8 @@ namespace CalCalculatorDAL.Repositories
 
         public void UpdateEntity(T entity)
         {
-            //_db.Set<T>().Update(entity);
+            _db.Set<T>().Update(entity);
+            _db.SaveChanges();
         }
 
         public IQueryable<T> QueryableList() //Sorgulanabilir listeye çeviren metot.

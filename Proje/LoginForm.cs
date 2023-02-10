@@ -13,6 +13,9 @@ namespace Proje
         public LoginForm()
         {
             InitializeComponent();
+            CategoryServices categoryServices= new CategoryServices();
+            categoryServices.CreateDefaultCategoriesIfNotExist();
+
         }
         
         private void lblForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -42,30 +45,41 @@ namespace Proje
         {
             string userName = txtUsername.Text;
             UserServices userServices = new UserServices();
-            User user = userServices.FindUser(userName);
-            if (user.Password==txtPassword.Text)
-
+            User? user = new User();
+            user = userServices.FindUser(userName);
+            
+            if(user is not null)
             {
-                if (!user.IsAdmin)
+                if (user.Password == txtPassword.Text)
+
                 {
-                    Form1 frm = new Form1(user);
-                    
-                    frm.Show();
-                    this.Hide();
+                    if (!user.IsAdmin)
+                    {
+                        Form1 frm = new Form1(user);
+
+                        frm.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        AdminPanel panel = new AdminPanel(user);
+                        panel.Show();
+                        this.Hide();
+                    }
+
+
                 }
                 else
                 {
-                    AdminPanel panel = new AdminPanel(user);
-                    panel.Show();
-                    this.Hide();
+                    MessageBox.Show("Invalid username or password");
                 }
-               
-                
             }
             else
             {
                 MessageBox.Show("Invalid username or password");
+
             }
+
 
         }
     }
