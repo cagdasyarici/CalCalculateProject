@@ -1,4 +1,5 @@
-﻿using CalCalculatorDAL;
+﻿using CalCalculatorBLL;
+using CalCalculatorDAL;
 using CalCalculatorEntities;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Proje
         string code;
         User user;
         public ForgotPasswordForm()
-        {
+        {   
             InitializeComponent();
         }
         public ForgotPasswordForm(User userInfo)
