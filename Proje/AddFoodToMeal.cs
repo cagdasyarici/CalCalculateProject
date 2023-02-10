@@ -1,6 +1,7 @@
 ﻿using CalCalculatorBLL;
 using CalCalculatorDAL;
 using CalCalculatorDAL.Repositories;
+
 using CalCalculatorEntities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,14 +18,10 @@ namespace Proje
 {
     public partial class AddFoodToMeal : Form
     {
-        List<int> tempList1 = new List<int>();
-        List<Food> tempList2 = new List<Food>();
 
-        List<Food> foodListDgv;
-        List<Food> foods = new();
 
-        CalCalculateDB _db = new CalCalculateDB();
 
+        IList<Food> foodListDgv;
         Meal meal;
         public AddFoodToMeal(Meal currentMeal)
         {
@@ -35,79 +32,67 @@ namespace Proje
 
         private void AddFoodToMeal_Load(object sender, EventArgs e)
         {
-            foodListDgv = new();
-            
-            
-
-                #region Dgv2 Doldurma
-                FoodServices foodServices = new FoodServices();
-                foodListDgv = (List<Food>)foodServices.BringTList();
-                dgv_FoodList.DataSource = foodListDgv;
-
-                #endregion
 
 
-                #region Dgv1 Doldurma
+            #region Dgv2 Doldurma
+            FoodServices foodServices = new FoodServices();
 
-                FoodMealServices foodMealServices = new FoodMealServices();
-                tempList1 = foodMealServices.QueryableList().Where(x => x.MealID == meal.MealID).Select(x=>x.FoodID).ToList();
 
-                foreach (var IdNumber in tempList1)
-                {
-                    foods.Add(foodListDgv.Where(x => x.FoodID == IdNumber).FirstOrDefault());
-                }
+            foodListDgv = foodServices.BringTList();
+            dgv_FoodList.DataSource = foodListDgv;
 
-                dgv_MealDetails.DataSource = foods;
-                //tempList2.Add(_db.Foods.i)
+            #endregion
 
-                
 
-                #endregion
 
-            
+            #region Dgv1 Doldurma
+
+
+
+            MealServices mealServices = new MealServices();
+
+            var mealList = mealServices.ListeOlustur(meal);
+
+            //foreach (var IdNumber in tempList1)
+            //{
+            //    foods.Add(_db.Foods.Where(x => x.FoodID == IdNumber).FirstOrDefault());
+            //}
+
+
+
+
+
+            #endregion
+
+
 
         }
 
         private void btnAddMealDetail_Click(object sender, EventArgs e)
         {
-            #region Eski Kısım 
-            //Food selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
-
-            //if (!foods.Contains(selectedFood))
-            //{
-
-
-            //    //selectedFood.Grams = Convert.ToInt32(txtGrams.Text);
-
-
-            //    foods.Add(selectedFood);
-            //    dgv_MealDetails.DataSource = null;
-            //    dgv_MealDetails.DataSource = foods;
-            //    txtGrams.Text = string.Empty;
-            //}
-            #endregion
 
             #region Yeni Kısım 
 
 
-            
-            
-                Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
+
+            Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
+            meal.FoodMeals.Add(new FoodMeal()
+            {
+                Food = selectedFood,
+                Grams = int.Parse(txtGrams.Text)
+            });
+
+            MealServices mealServices = new MealServices();
+            mealServices.UpdateEntity(meal);
+
+            var mealList = mealServices.ListeOlustur(meal);
+
+            ListMealRefresh(mealList);
 
 
-                meal.FoodMeals.Add(new FoodMeal()
-                {
-                    Food = selectedFood,
-                    Grams = int.Parse(txtGrams.Text)
-                });
-                MealServices mealServices = new MealServices();
-                mealServices.UpdateEntity(meal);
 
-                dgv_MealDetails.DataSource = null;
-                foods.Add(meal.FoodMeals.Select(x => x.Food).Where(x => x.FoodID == selectedFood.FoodID).FirstOrDefault());
-                dgv_MealDetails.DataSource = foods;
 
-            
+
             #endregion
 
         }
@@ -123,18 +108,23 @@ namespace Proje
             #endregion
 
             #region Yeni Kısım
-            using (_db = new())
-            {
-                Food selectedFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as Food;
-                foods.Remove(selectedFood);
-                dgv_MealDetails.DataSource = null;
-                dgv_MealDetails.DataSource = foods;
-                //Food? deletedFood = _db.FoodMeals.Select(x => x.Food).Where(x => x.FoodID == selectedFood.FoodID).FirstOrDefault();
-                //_db.Remove(deletedFood);
-                FoodMeal? selectedMeal = _db.FoodMeals.Where(x => x.FoodID == selectedFood.FoodID).FirstOrDefault();
-                _db.Remove(selectedMeal);
-                _db.SaveChanges();
-            }
+
+            string foodDetail = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem.ToString();
+
+            int FoodID = Convert.ToInt32((foodDetail[foodDetail.Length - 3]).ToString());
+
+            FoodMealServices foodMealServices = new FoodMealServices();
+
+            FoodMeal? selectedFoodMeal = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
+
+            foodMealServices.RemoveEntity(selectedFoodMeal);
+
+            MealServices mealServices = new MealServices();
+            var mealList = mealServices.ListeOlustur(meal);
+
+            meal.FoodMeals.Remove(selectedFoodMeal);
+
+            ListMealRefresh(mealList);
 
             #endregion
 
@@ -256,6 +246,14 @@ namespace Proje
 
             dgv_FoodList.DataSource = null;
             dgv_FoodList.DataSource = foodListDgv.Where(x => x.FoodName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+        }
+
+        private void ListMealRefresh(dynamic list)
+        {
+            dgv_MealDetails.DataSource = null;
+
+            dgv_MealDetails.DataSource = list;
+            dgv_MealDetails.Columns["FoodID"].Visible = false;
         }
     }
 }
