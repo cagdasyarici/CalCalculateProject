@@ -39,8 +39,6 @@ namespace CalCalculatorBLL
                 
 
             }
-
-         
         }
     }
 }
