@@ -1,4 +1,6 @@
-﻿using CalCalculatorDAL;
+﻿using CalCalculatorBLL;
+using CalCalculatorDAL;
+using CalCalculatorDAL.Repositories;
 using CalCalculatorEntities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,7 +22,8 @@ namespace Proje
 
         List<Food> foodListDgv;
         List<Food> foods = new();
-        CalCalculateDB _db;
+
+        CalCalculateDB _db = new CalCalculateDB();
 
         Meal meal;
         public AddFoodToMeal(Meal currentMeal)
@@ -33,12 +36,12 @@ namespace Proje
         private void AddFoodToMeal_Load(object sender, EventArgs e)
         {
             foodListDgv = new();
-            using (_db = new CalCalculateDB())
-            {
+            
+            
 
                 #region Dgv2 Doldurma
-
-                foodListDgv = _db.Foods.ToList();
+                FoodServices foodServices = new FoodServices();
+                foodListDgv = (List<Food>)foodServices.BringTList();
                 dgv_FoodList.DataSource = foodListDgv;
 
                 #endregion
@@ -46,12 +49,12 @@ namespace Proje
 
                 #region Dgv1 Doldurma
 
-                
-                tempList1 = _db.FoodMeals.Where(x => x.MealID == meal.MealID).Select(x=>x.FoodID).ToList();
+                FoodMealServices foodMealServices = new FoodMealServices();
+                tempList1 = foodMealServices.QueryableList().Where(x => x.MealID == meal.MealID).Select(x=>x.FoodID).ToList();
 
                 foreach (var IdNumber in tempList1)
                 {
-                    foods.Add(_db.Foods.Where(x => x.FoodID == IdNumber).FirstOrDefault());
+                    foods.Add(foodListDgv.Where(x => x.FoodID == IdNumber).FirstOrDefault());
                 }
 
                 dgv_MealDetails.DataSource = foods;
@@ -61,7 +64,7 @@ namespace Proje
 
                 #endregion
 
-            }
+            
 
         }
 
@@ -87,8 +90,8 @@ namespace Proje
             #region Yeni Kısım 
 
 
-            using (_db = new CalCalculateDB())
-            {
+            
+            
                 Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
 
 
@@ -97,15 +100,14 @@ namespace Proje
                     Food = selectedFood,
                     Grams = int.Parse(txtGrams.Text)
                 });
-
-                _db.Update(meal);
-                _db.SaveChanges();
+                MealServices mealServices = new MealServices();
+                mealServices.UpdateEntity(meal);
 
                 dgv_MealDetails.DataSource = null;
                 foods.Add(meal.FoodMeals.Select(x => x.Food).Where(x => x.FoodID == selectedFood.FoodID).FirstOrDefault());
                 dgv_MealDetails.DataSource = foods;
 
-            }
+            
             #endregion
 
         }
