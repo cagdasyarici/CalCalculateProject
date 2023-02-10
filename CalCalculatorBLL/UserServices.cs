@@ -41,6 +41,7 @@ namespace CalCalculatorBLL
                 return user;
             }
         }
+
         //private void CheckPassword(string _password, string _confirmPassword)
         //{
 
@@ -71,6 +72,12 @@ namespace CalCalculatorBLL
         //    }
 
         //}
+
+
+        public bool CheckUserIsNullOrEmpty(User user)
+        {
+          return  user == null ? true : false;
+        }
     }
     
 }

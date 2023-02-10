@@ -15,6 +15,10 @@ namespace Proje
 {
     public partial class AddFoodToMeal : Form
     {
+        List<int> tempList1 = new List<int>();
+        List<Food> tempList2 = new List<Food>();
+
+        List<Food> foodListDgv;
         List<Food> foods = new();
         CalCalculateDB _db;
 
@@ -23,15 +27,40 @@ namespace Proje
         {
             InitializeComponent();
             meal = currentMeal;
+            txtGrams.Text = "0";
         }
 
         private void AddFoodToMeal_Load(object sender, EventArgs e)
         {
-
+            foodListDgv = new();
             using (_db = new CalCalculateDB())
             {
-                dgv_FoodList.DataSource = _db.Foods.ToList();
-                //Meal meal = (Meal)dtgw.SelectedCells[0].OwningRow.DataBoundItem;
+
+                #region Dgv2 Doldurma
+
+                foodListDgv = _db.Foods.ToList();
+                dgv_FoodList.DataSource = foodListDgv;
+
+                #endregion
+
+
+                #region Dgv1 Doldurma
+
+                
+                tempList1 = _db.FoodMeals.Where(x => x.MealID == meal.MealID).Select(x=>x.FoodID).ToList();
+
+                foreach (var IdNumber in tempList1)
+                {
+                    foods.Add(_db.Foods.Where(x => x.FoodID == IdNumber).FirstOrDefault());
+                }
+
+                dgv_MealDetails.DataSource = foods;
+                //tempList2.Add(_db.Foods.i)
+
+                
+
+                #endregion
+
             }
 
         }
@@ -60,7 +89,7 @@ namespace Proje
 
             using (_db = new CalCalculateDB())
             {
-                Food selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
+                Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
 
 
                 meal.FoodMeals.Add(new FoodMeal()
@@ -72,80 +101,78 @@ namespace Proje
                 _db.Update(meal);
                 _db.SaveChanges();
 
-                dgv_MealDetails.DataSource = meal.FoodMeals;
+                dgv_MealDetails.DataSource = null;
+                foods.Add(meal.FoodMeals.Select(x => x.Food).Where(x => x.FoodID == selectedFood.FoodID).FirstOrDefault());
+                dgv_MealDetails.DataSource = foods;
+
             }
-
-
-
-
-
-
-
-
-            //if (!foods.Contains(selectedFood))
-            //{
-
-
-            //    //selectedFood.Grams = Convert.ToInt32(txtGrams.Text);
-
-
-            //    foods.Add(selectedFood);
-            //    dgv_MealDetails.DataSource = null;
-            //    dgv_MealDetails.DataSource = foods;
-            //    txtGrams.Text = string.Empty;
-            //}
             #endregion
 
         }
 
-
-
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            Food selectedFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as Food;
-            foods.Remove(selectedFood);
-            dgv_MealDetails.DataSource = null;
-            dgv_MealDetails.DataSource = foods;
+            #region Eski Kısım
+            //Food selectedFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as Food;
+            //foods.Remove(selectedFood);
+            //dgv_MealDetails.DataSource = null;
+            //dgv_MealDetails.DataSource = foods;
+            //Food? deletedFood = _db.FoodMeals.Select(x => x.Food).Where(x => x.FoodID == selectedFood.FoodID).FirstOrDefault(); 
+            #endregion
+
+            #region Yeni Kısım
+            using (_db = new())
+            {
+                Food selectedFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as Food;
+                foods.Remove(selectedFood);
+                dgv_MealDetails.DataSource = null;
+                dgv_MealDetails.DataSource = foods;
+                //Food? deletedFood = _db.FoodMeals.Select(x => x.Food).Where(x => x.FoodID == selectedFood.FoodID).FirstOrDefault();
+                //_db.Remove(deletedFood);
+                FoodMeal? selectedMeal = _db.FoodMeals.Where(x => x.FoodID == selectedFood.FoodID).FirstOrDefault();
+                _db.Remove(selectedMeal);
+                _db.SaveChanges();
+            }
+
+            #endregion
+
         }
 
         private void btnAddMeal_Click(object sender, EventArgs e)
         {
+
+
+
+            #region Eskiler
             #region Bi şey öğrendim
             //dynamic sonuc = dgv_MealDetails.DataSource;
             //ICollection<Food> foods = sonuc;
             //int selectedMealsID = meal.MealID;
             ///ICollection<Food> Şeklinde yakalayabiliyorum @@@@@@@@@@@@@@@@@@@@@@@
             #endregion
+            #region deneme3
+            //var result = dgv_MealDetails.DataSource as List<Food>;
 
 
+            //using (_db = new())
+            //{
+            //    foreach (var item in result)
+            //    {
+            //        meal.FoodMeals = new List<FoodMeal>()
+            //        {
+            //            new FoodMeal()
+            //            {
+            //                FoodID = item.FoodID
+
+            //            }
+            //        };
+            //        _db.Update(meal);
+            //        _db.SaveChanges();
+            //    }
 
 
-            var result = dgv_MealDetails.DataSource as List<Food>;
-
-
-            using (_db = new())
-            {
-                foreach (var item in result)
-                {
-                    meal.FoodMeals = new List<FoodMeal>()
-                    {
-                        new FoodMeal()
-                        {
-                            FoodID = item.FoodID
-
-                        }
-                    };
-                    _db.Update(meal);
-                    _db.SaveChanges();
-                }
-
-
-            }
-
-
-
-
-
+            //} 
+            #endregion
             #region Deneme2
             //Food? selectedFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as Food;
             //int selectedID = selectedFood.FoodID;
@@ -165,7 +192,6 @@ namespace Proje
             //    _db.SaveChanges();
             //}
             #endregion
-
             #region Çalışan Kopya2
             //using (_db = new())
             //{
@@ -190,7 +216,6 @@ namespace Proje
             //    _db.SaveChanges();
             //}
             #endregion
-
             #region Çalışan Kopya
             //using (_db = new())
             //{
@@ -214,12 +239,21 @@ namespace Proje
             //    _db.Add(food);
             //    _db.SaveChanges();
             //} 
+            #endregion 
             #endregion
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
         {
             txtSearch.Text = "";
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            //dgv_FoodList.Rows.Clear();
+
+            dgv_FoodList.DataSource = null;
+            dgv_FoodList.DataSource = foodListDgv.Where(x => x.FoodName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
         }
     }
 }
