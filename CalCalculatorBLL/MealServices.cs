@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CalCalculatorBLL
 {
-    public class MealServices:BaseRepository<Meal>
+    public class MealServices : BaseRepository<Meal>
     {
         CalCalculateDB _db;
         public void CreateMeal(string mealName, int userId)
@@ -29,11 +29,12 @@ namespace CalCalculatorBLL
         }
         public List<Meal> SearchByDate(DateTime date, User user)
         {
-            return QueryableList().Where(x => x.CreateTime.Date == date.Date&&x.ContactUserID==user.UserID).ToList();
+            return QueryableList().Where(x => x.CreateTime.Date == date.Date && x.ContactUserID == user.UserID).ToList();
         }
 
-        public List<Meal> SearchByDate(DateTime date1,DateTime date2, User user)
+        public List<Meal> SearchByDate(DateTime date1, DateTime date2, User user)
         {
+
             if (date1 > date2)
             {
                 return QueryableList().Where(x => x.CreateTime.Date >= date2.Date && x.CreateTime.Date <= date1 && x.ContactUserID == user.UserID).ToList();
@@ -46,7 +47,27 @@ namespace CalCalculatorBLL
             {
                 return QueryableList().Where(x => x.CreateTime.Date == date1.Date && x.CreateTime.Date == date2 && x.ContactUserID == user.UserID).ToList();
             }
-            
+
+
         }
+
+        public dynamic ListeOlustur(Meal meal)
+        {
+            using (_db = new CalCalculateDB())
+            {
+               return _db.FoodMeals.Where(x => x.MealID == meal.MealID).Select(x =>
+               new
+               {
+                   FoodName = x.Food.FoodName,
+                   Calories = x.Food.FoodCal * (x.Grams / 100),
+                   Grams = x.Grams,
+                   FoodID = x.FoodID
+
+               }).ToList();
+
+            }
+        }
+
+
     }
 }
