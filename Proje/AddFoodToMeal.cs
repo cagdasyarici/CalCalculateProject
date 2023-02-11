@@ -1,7 +1,6 @@
 ﻿using CalCalculatorBLL;
 using CalCalculatorDAL;
 using CalCalculatorDAL.Repositories;
-
 using CalCalculatorEntities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -53,10 +52,7 @@ namespace Proje
 
             var mealList = mealServices.ListeOlustur(meal);
 
-            //foreach (var IdNumber in tempList1)
-            //{
-            //    foods.Add(_db.Foods.Where(x => x.FoodID == IdNumber).FirstOrDefault());
-            //}
+            ListMealRefresh(mealList);
 
 
 
@@ -73,12 +69,17 @@ namespace Proje
 
             #region Yeni Kısım 
 
-
+            meal.FoodMeals.Clear();
 
             Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
+            FoodServices foodServices = new FoodServices();
+            Food food = foodServices.FindEntity(selectedFood.FoodID);
             meal.FoodMeals.Add(new FoodMeal()
             {
-                Food = selectedFood,
+                //MealID = meal.MealID,
+                //FoodID = selectedFood.FoodID, BUNLARA GEREK YOK SANIRIM. DENEME AMAÇLI.
+                //Meal = meal,
+                Food = food,
                 Grams = int.Parse(txtGrams.Text)
             });
 
@@ -108,131 +109,23 @@ namespace Proje
             #endregion
 
             #region Yeni Kısım
-
             string foodDetail = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem.ToString();
 
             int FoodID = Convert.ToInt32((foodDetail[foodDetail.Length - 3]).ToString());
 
             FoodMealServices foodMealServices = new FoodMealServices();
-
-            FoodMeal? selectedFoodMeal = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
-
-            foodMealServices.RemoveEntity(selectedFoodMeal);
+            
+            FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
+            foodMealServices.DatabaseRemove(selectedFoodMeal2);
+        
 
             MealServices mealServices = new MealServices();
             var mealList = mealServices.ListeOlustur(meal);
-
-            meal.FoodMeals.Remove(selectedFoodMeal);
 
             ListMealRefresh(mealList);
 
             #endregion
 
-        }
-
-        private void btnAddMeal_Click(object sender, EventArgs e)
-        {
-
-
-
-            #region Eskiler
-            #region Bi şey öğrendim
-            //dynamic sonuc = dgv_MealDetails.DataSource;
-            //ICollection<Food> foods = sonuc;
-            //int selectedMealsID = meal.MealID;
-            ///ICollection<Food> Şeklinde yakalayabiliyorum @@@@@@@@@@@@@@@@@@@@@@@
-            #endregion
-            #region deneme3
-            //var result = dgv_MealDetails.DataSource as List<Food>;
-
-
-            //using (_db = new())
-            //{
-            //    foreach (var item in result)
-            //    {
-            //        meal.FoodMeals = new List<FoodMeal>()
-            //        {
-            //            new FoodMeal()
-            //            {
-            //                FoodID = item.FoodID
-
-            //            }
-            //        };
-            //        _db.Update(meal);
-            //        _db.SaveChanges();
-            //    }
-
-
-            //} 
-            #endregion
-            #region Deneme2
-            //Food? selectedFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as Food;
-            //int selectedID = selectedFood.FoodID;
-
-            //using (_db = new())
-            //{
-            //    meal.FoodMeals = new HashSet<FoodMeal>()
-            //    {
-            //        new FoodMeal()
-            //        {
-            //            //Grams=int.Parse(txtGrams.Text),
-            //            FoodID=selectedID
-            //        }
-            //    };
-
-            //    //_db.Add();
-            //    _db.SaveChanges();
-            //}
-            #endregion
-            #region Çalışan Kopya2
-            //using (_db = new())
-            //{
-            //    Food food = new Food()
-            //    {
-            //        FoodCal = 150,
-            //        FoodCarb = 10,
-            //        FoodFat = 10,
-            //        FoodProt = 10,
-            //        FoodName = "Mısır",
-            //        CategoryId = 1,
-            //        FoodMeals = new HashSet<FoodMeal>()
-            //    {
-            //        new()
-            //        {   Grams=100,
-            //            MealID=meal.MealID
-            //        }
-            //    }
-            //    };
-
-            //    _db.Add(food);
-            //    _db.SaveChanges();
-            //}
-            #endregion
-            #region Çalışan Kopya
-            //using (_db = new())
-            //{
-            //    Food food = new Food()
-            //    {
-            //        FoodCal = 1000,
-            //        FoodCarb = 10,
-            //        FoodFat = 10,
-            //        FoodProt = 10,
-            //        FoodName = "çorba",
-            //        CategoryId = 1,
-            //        FoodMeals = new HashSet<FoodMeal>()
-            //    {
-            //        new()
-            //        {
-            //            MealID=3
-            //        }
-            //    }
-            //    };
-
-            //    _db.Add(food);
-            //    _db.SaveChanges();
-            //} 
-            #endregion 
-            #endregion
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
