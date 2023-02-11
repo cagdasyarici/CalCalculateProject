@@ -46,7 +46,16 @@ namespace Proje
                 categoryID = category.CategoryId;
             }
             FoodServices foodServices = new FoodServices();
-            foodServices.CreateFood(foodName, foodCarb, foodFat, foodProt, foodCal, categoryID);
+            bool foodCreated = foodServices.CreateFood(foodName, foodCarb, foodFat, foodProt, foodCal, categoryID);
+            if (foodCreated)
+            {
+                MessageBox.Show("Food created");
+            }
+            else
+            {
+                MessageBox.Show("Food already exists in database");
+            }
+            dgvFood.DataSource = foodServices.BringTList();
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
@@ -55,6 +64,24 @@ namespace Proje
             Form1 frm = new Form1(user);
             frm.Show();
             this.Hide();
+        }
+
+        private void CreateFood_Load(object sender, EventArgs e)
+        {
+            FoodServices foodServices=new FoodServices();
+            dgvFood.DataSource = foodServices.BringTList();
+        }
+
+        
+
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            FoodServices foodServices = new FoodServices();
+            Food selectedFood = (Food)dgvFood.CurrentRow.DataBoundItem;
+            foodServices.RemoveEntity(selectedFood);
+            dgvFood.DataSource = foodServices.BringTList();
+
         }
     }
 }

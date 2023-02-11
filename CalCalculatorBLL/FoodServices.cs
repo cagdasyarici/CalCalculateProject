@@ -13,12 +13,12 @@ namespace CalCalculatorBLL
     public class FoodServices:BaseRepository<Food>
     {
         CalCalculateDB _db;
-        public void CreateFood(string foodName,int foodCarb,int foodFat,int foodProt,int foodCal,int foodCategoryId)
+        public bool CreateFood(string foodName, int foodCarb, int foodFat, int foodProt, int foodCal,int foodCategoryId)
         {
             
             using (_db = new CalCalculateDB()) 
             {
-
+                bool foodCreated = false;
                 if (!_db.Foods.Select(x => x.FoodName).Contains(foodName))
                 {
                     Food food = new Food
@@ -31,10 +31,12 @@ namespace CalCalculatorBLL
                         CategoryId = foodCategoryId
                     };
                     AddEntity(food);
+                    return foodCreated = true;
+                    
                 }
                 else
                 {
-                    
+                    return foodCreated = false;
                 }
                 
 
