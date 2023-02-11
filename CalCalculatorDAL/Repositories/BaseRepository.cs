@@ -10,6 +10,11 @@ namespace CalCalculatorDAL.Repositories
     public class BaseRepository<T> where T : class
     {
         CalCalculateDB _db= new CalCalculateDB();
+        public void DatabaseRemove(FoodMeal foodMeal)
+        {
+            _db.Remove(foodMeal);
+            _db.SaveChanges();
+        }
         public void AddEntity(T entity) //Nesneyi Class fark etmeksizin database'e ekleyen metot..
         {
             _db.Set<T>().Add(entity);
@@ -29,7 +34,7 @@ namespace CalCalculatorDAL.Repositories
 
         public void UpdateEntity(T entity)
         {
-            _db.Set<T>().Update(entity);
+            _db.Set<T>().Attach(entity);
             _db.SaveChanges();
         }
 
