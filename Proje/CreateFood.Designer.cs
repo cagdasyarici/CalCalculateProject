@@ -43,6 +43,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.btnContinue = new System.Windows.Forms.Button();
+            this.dgvFood = new System.Windows.Forms.DataGridView();
+            this.btnDelete = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFat
@@ -178,11 +181,32 @@
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
+            // dgvFood
+            // 
+            this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFood.Location = new System.Drawing.Point(365, 49);
+            this.dgvFood.Name = "dgvFood";
+            this.dgvFood.RowTemplate.Height = 25;
+            this.dgvFood.Size = new System.Drawing.Size(412, 169);
+            this.dgvFood.TabIndex = 21;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(638, 252);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(139, 30);
+            this.btnDelete.TabIndex = 22;
+            this.btnDelete.Text = "Delete Selected Food";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // CreateFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 307);
+            this.ClientSize = new System.Drawing.Size(789, 307);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.label6);
@@ -200,6 +224,8 @@
             this.Controls.Add(this.label1);
             this.Name = "CreateFood";
             this.Text = "CreateFood";
+            this.Load += new System.EventHandler(this.CreateFood_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +247,7 @@
         private Label label7;
         private ComboBox cmbCategory;
         private Button btnContinue;
+        private DataGridView dgvFood;
+        private Button btnDelete;
     }
 }
