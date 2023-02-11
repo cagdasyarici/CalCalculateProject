@@ -84,7 +84,7 @@ namespace Proje
             });
 
             MealServices mealServices = new MealServices();
-            mealServices.UpdateEntity(meal);
+            mealServices.AttachEntity(meal);
 
             var mealList = mealServices.ListeOlustur(meal);
 

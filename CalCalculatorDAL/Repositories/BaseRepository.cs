@@ -34,6 +34,11 @@ namespace CalCalculatorDAL.Repositories
 
         public void UpdateEntity(T entity)
         {
+            _db.Set<T>().Update(entity);
+            _db.SaveChanges();
+        }
+        public void AttachEntity(T entity)
+        {
             _db.Set<T>().Attach(entity);
             _db.SaveChanges();
         }
