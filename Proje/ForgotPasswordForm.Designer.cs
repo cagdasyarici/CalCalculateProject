@@ -225,7 +225,6 @@
             this.grpChangePassword.TabIndex = 1;
             this.grpChangePassword.TabStop = false;
             this.grpChangePassword.Text = "Password Section";
-            this.grpChangePassword.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // btnChange
             // 

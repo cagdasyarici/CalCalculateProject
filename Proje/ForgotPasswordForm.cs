@@ -27,10 +27,6 @@ namespace Proje
         {
             userInfo = user;
         }
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// Girilen bilgiler databasedekilerle uyuşuyorsa sıradaki adımı açar  
@@ -42,9 +38,10 @@ namespace Proje
             using (_db=new())
             {
                 var SecurityList = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).Select(x => new { x.SecurityQuestion, x.SecurityAnswer }).ToList();
-
+                bool isUserExist = false;
                 foreach (var item in SecurityList)
                 {
+                    
 
                     if (item.SecurityAnswer.Equals(txtSecurityAnswer.Text) && item.SecurityQuestion.Equals(cmbSecurityQuestions.SelectedItem as string))
 
@@ -53,9 +50,17 @@ namespace Proje
                         txtEMailAdress.Enabled = false;
 
                         txtEMailAdress.Text = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Email;
+                        grpSecurity.Enabled = false;
+                        isUserExist = true;
                     }
+
+                   
                 }
 
+                if (!isUserExist)
+                {
+                    MessageBox.Show("Please check your informations","Wrong Information",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -75,8 +80,18 @@ namespace Proje
         {
             code = Generate6DigitCode();
 
-            SendVerificationCode();
 
+            if (txtEMailAdress.Text.Contains("@gmail.com"))
+            {
+                GmailSendVerificationCode();
+            }
+            else if (txtEMailAdress.Text.Contains("@hotmail.com"))
+            {
+                HotmailSendVerificationCode();
+            }
+
+           
+           
             #region Eski Kısım
 
             //MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text,txtUsername.Text);
@@ -108,7 +123,17 @@ namespace Proje
             if (txtVerificationCode.Text.Equals(code))
             {
                 grpChangePassword.Enabled = true;
+                grpMail.Enabled=false;
             }
+            else if (txtVerificationCode.Text==String.Empty)
+            {
+                MessageBox.Show("Please Fill The Verification Code Textbox","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Code!");     
+            }
+            
         }
 
         /// <summary>
@@ -121,33 +146,7 @@ namespace Proje
 
             using (_db = new CalCalculateDB())
             {
-                #region Eski Kısım
-                //if ((txtPassword.Text == txtPasswordConfirm.Text) && !string.IsNullOrEmpty(txtPassword.Text))
-                //{
-                //    _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Password = txtPassword.Text; ///todo:Burayı sonra değiştir
-                //    _db.SaveChanges();
-
-                //    MessageBox.Show($"Your Password has been changed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-
-                //else
-                //{
-                //    MessageBox.Show("Please enter proper values", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                //} 
-
-                //}
-
-                #endregion
-
-                #region Yeni Kısım
-
-
-
                 CheckPassword(txtPassword.Text, txtPasswordConfirm.Text);
-
-
-                #endregion
             }
             
         }
@@ -195,7 +194,7 @@ namespace Proje
         /// <summary>
         /// Hotmail.com mail adresleri için doğrulama Kodu gönderir
         /// </summary>
-        public void SendVerificationCode()
+        public void HotmailSendVerificationCode()
         {
 
             MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text, txtUsername.Text);
@@ -212,6 +211,28 @@ namespace Proje
             smtp.Credentials = new System.Net.NetworkCredential("CalculatorCodeSender@hotmail.com", "Cal.5224");
             smtp.EnableSsl = true;
             smtp.Send(verificationMessage);
+        }
+
+        public void GmailSendVerificationCode()
+        {
+         
+                MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text, txtUsername.Text);
+                MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "CodeSender");
+                MailMessage verificationMessage = new MailMessage();
+
+
+                verificationMessage.To.Add(MailReceiver);
+                verificationMessage.From = MailSender;
+                verificationMessage.Subject = "Change Password";
+                verificationMessage.Body = "Verification Code to Change Password : " + code;
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                //smtp.Timeout   // Duruma göre bunu da ekle
+                smtp.Send(verificationMessage);
+
         }
     }
 }
