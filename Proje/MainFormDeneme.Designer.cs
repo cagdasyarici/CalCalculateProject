@@ -1,0 +1,284 @@
+﻿namespace Proje
+{
+    partial class MainFormDeneme
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.sidebarContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.menuButton = new FontAwesome.Sharp.IconButton();
+            this.homeContainer = new System.Windows.Forms.Panel();
+            this.ıconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnHome = new FontAwesome.Sharp.IconButton();
+            this.btnStatics = new FontAwesome.Sharp.IconButton();
+            this.btnCalorieTracker = new FontAwesome.Sharp.IconButton();
+            this.btnHelp = new FontAwesome.Sharp.IconButton();
+            this.btnAbout = new FontAwesome.Sharp.IconButton();
+            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.homeTimer = new System.Windows.Forms.Timer(this.components);
+            this.sidebarContainer.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.homeContainer.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // sidebarContainer
+            // 
+            this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.sidebarContainer.Controls.Add(this.panel1);
+            this.sidebarContainer.Controls.Add(this.homeContainer);
+            this.sidebarContainer.Controls.Add(this.btnHelp);
+            this.sidebarContainer.Controls.Add(this.btnAbout);
+            this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
+            this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 715);
+            this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 715);
+            this.sidebarContainer.Name = "sidebarContainer";
+            this.sidebarContainer.Size = new System.Drawing.Size(233, 715);
+            this.sidebarContainer.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.menuButton);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(227, 137);
+            this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(95, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 21);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Menu";
+            // 
+            // menuButton
+            // 
+            this.menuButton.FlatAppearance.BorderSize = 0;
+            this.menuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.menuButton.ForeColor = System.Drawing.Color.White;
+            this.menuButton.IconChar = FontAwesome.Sharp.IconChar.Bars;
+            this.menuButton.IconColor = System.Drawing.Color.White;
+            this.menuButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuButton.Location = new System.Drawing.Point(19, 50);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(41, 43);
+            this.menuButton.TabIndex = 1;
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            // 
+            // homeContainer
+            // 
+            this.homeContainer.Controls.Add(this.ıconButton1);
+            this.homeContainer.Controls.Add(this.btnHome);
+            this.homeContainer.Controls.Add(this.btnStatics);
+            this.homeContainer.Controls.Add(this.btnCalorieTracker);
+            this.homeContainer.Location = new System.Drawing.Point(3, 146);
+            this.homeContainer.MaximumSize = new System.Drawing.Size(227, 176);
+            this.homeContainer.MinimumSize = new System.Drawing.Size(227, 53);
+            this.homeContainer.Name = "homeContainer";
+            this.homeContainer.Size = new System.Drawing.Size(227, 176);
+            this.homeContainer.TabIndex = 1;
+            // 
+            // ıconButton1
+            // 
+            this.ıconButton1.FlatAppearance.BorderSize = 0;
+            this.ıconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ıconButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ıconButton1.ForeColor = System.Drawing.Color.White;
+            this.ıconButton1.IconChar = FontAwesome.Sharp.IconChar.CircleNodes;
+            this.ıconButton1.IconColor = System.Drawing.Color.White;
+            this.ıconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ıconButton1.IconSize = 30;
+            this.ıconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ıconButton1.Location = new System.Drawing.Point(3, 133);
+            this.ıconButton1.Name = "ıconButton1";
+            this.ıconButton1.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.ıconButton1.Size = new System.Drawing.Size(221, 38);
+            this.ıconButton1.TabIndex = 4;
+            this.ıconButton1.Text = "         YEDEK";
+            this.ıconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ıconButton1.UseVisualStyleBackColor = true;
+            // 
+            // btnHome
+            // 
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.btnHome.IconColor = System.Drawing.Color.White;
+            this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHome.IconSize = 36;
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(0, 3);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(230, 47);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "         Home";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // btnStatics
+            // 
+            this.btnStatics.FlatAppearance.BorderSize = 0;
+            this.btnStatics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatics.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStatics.ForeColor = System.Drawing.Color.White;
+            this.btnStatics.IconChar = FontAwesome.Sharp.IconChar.CircleNodes;
+            this.btnStatics.IconColor = System.Drawing.Color.White;
+            this.btnStatics.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnStatics.IconSize = 30;
+            this.btnStatics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatics.Location = new System.Drawing.Point(3, 91);
+            this.btnStatics.Name = "btnStatics";
+            this.btnStatics.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.btnStatics.Size = new System.Drawing.Size(221, 36);
+            this.btnStatics.TabIndex = 3;
+            this.btnStatics.Text = "         Statics";
+            this.btnStatics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStatics.UseVisualStyleBackColor = true;
+            // 
+            // btnCalorieTracker
+            // 
+            this.btnCalorieTracker.FlatAppearance.BorderSize = 0;
+            this.btnCalorieTracker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalorieTracker.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCalorieTracker.ForeColor = System.Drawing.Color.White;
+            this.btnCalorieTracker.IconChar = FontAwesome.Sharp.IconChar.CircleHalfStroke;
+            this.btnCalorieTracker.IconColor = System.Drawing.Color.White;
+            this.btnCalorieTracker.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCalorieTracker.IconSize = 30;
+            this.btnCalorieTracker.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalorieTracker.Location = new System.Drawing.Point(3, 50);
+            this.btnCalorieTracker.Name = "btnCalorieTracker";
+            this.btnCalorieTracker.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.btnCalorieTracker.Size = new System.Drawing.Size(221, 35);
+            this.btnCalorieTracker.TabIndex = 2;
+            this.btnCalorieTracker.Text = "   Calorie Tracker";
+            this.btnCalorieTracker.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalorieTracker.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCalorieTracker.UseVisualStyleBackColor = true;
+            this.btnCalorieTracker.Click += new System.EventHandler(this.btnCalorieTracker_Click);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            this.btnHelp.IconColor = System.Drawing.Color.White;
+            this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHelp.IconSize = 36;
+            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.Location = new System.Drawing.Point(3, 328);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHelp.Size = new System.Drawing.Size(227, 48);
+            this.btnHelp.TabIndex = 4;
+            this.btnHelp.Text = "          Help";
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.FlatAppearance.BorderSize = 0;
+            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAbout.ForeColor = System.Drawing.Color.White;
+            this.btnAbout.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
+            this.btnAbout.IconColor = System.Drawing.Color.White;
+            this.btnAbout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAbout.IconSize = 36;
+            this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbout.Location = new System.Drawing.Point(3, 382);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnAbout.Size = new System.Drawing.Size(227, 44);
+            this.btnAbout.TabIndex = 5;
+            this.btnAbout.Text = "         About";
+            this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbout.UseVisualStyleBackColor = true;
+            // 
+            // sidebarTimer
+            // 
+            this.sidebarTimer.Interval = 10;
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
+            // 
+            // homeTimer
+            // 
+            this.homeTimer.Interval = 10;
+            this.homeTimer.Tick += new System.EventHandler(this.homeTimer_Tick);
+            // 
+            // MainFormDeneme
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1155, 715);
+            this.Controls.Add(this.sidebarContainer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "MainFormDeneme";
+            this.Text = "MainFormDeneme";
+            this.sidebarContainer.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.homeContainer.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private FlowLayoutPanel sidebarContainer;
+        private Panel panel1;
+        private Label label1;
+        private FontAwesome.Sharp.IconButton menuButton;
+        private FontAwesome.Sharp.IconButton btnHome;
+        private FontAwesome.Sharp.IconButton btnCalorieTracker;
+        private FontAwesome.Sharp.IconButton btnStatics;
+        private FontAwesome.Sharp.IconButton btnHelp;
+        private FontAwesome.Sharp.IconButton btnAbout;
+        private System.Windows.Forms.Timer sidebarTimer;
+        private Panel homeContainer;
+        private System.Windows.Forms.Timer homeTimer;
+        private FontAwesome.Sharp.IconButton ıconButton1;
+    }
+}

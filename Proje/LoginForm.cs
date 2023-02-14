@@ -82,5 +82,11 @@ namespace Proje
 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainFormDeneme sidebar = new();
+            sidebar.ShowDialog();
+        }
     }
 }
