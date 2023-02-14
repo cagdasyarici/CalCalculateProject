@@ -96,5 +96,10 @@ namespace Proje
             }
            
         }
+
+        private void sidebarContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -88,5 +88,11 @@ namespace Proje
             MainFormDeneme sidebar = new();
             sidebar.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoginFormDeneme loginform = new();
+            loginform.ShowDialog();
+        }
     }
 }
