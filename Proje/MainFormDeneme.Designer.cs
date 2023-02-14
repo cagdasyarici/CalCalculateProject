@@ -38,6 +38,7 @@
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.btnStatics = new FontAwesome.Sharp.IconButton();
             this.btnCalorieTracker = new FontAwesome.Sharp.IconButton();
+            this.HelpAboutContainer = new System.Windows.Forms.Panel();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
             this.btnAbout = new FontAwesome.Sharp.IconButton();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
@@ -45,24 +46,22 @@
             this.sidebarContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homeContainer.SuspendLayout();
+            this.HelpAboutContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebarContainer
             // 
-            this.sidebarContainer.AutoSize = true;
             this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
             this.sidebarContainer.Controls.Add(this.panel1);
             this.sidebarContainer.Controls.Add(this.homeContainer);
-            this.sidebarContainer.Controls.Add(this.btnHelp);
-            this.sidebarContainer.Controls.Add(this.btnAbout);
+            this.sidebarContainer.Controls.Add(this.HelpAboutContainer);
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
             this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 2000);
-            this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 0);
+            this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 480);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(233, 480);
+            this.sidebarContainer.Size = new System.Drawing.Size(80, 480);
             this.sidebarContainer.TabIndex = 0;
-            this.sidebarContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebarContainer_Paint);
             // 
             // panel1
             // 
@@ -112,6 +111,7 @@
             this.homeContainer.Name = "homeContainer";
             this.homeContainer.Size = new System.Drawing.Size(227, 176);
             this.homeContainer.TabIndex = 1;
+            this.homeContainer.Visible = false;
             // 
             // ıconButton1
             // 
@@ -198,6 +198,16 @@
             this.btnCalorieTracker.UseVisualStyleBackColor = true;
             this.btnCalorieTracker.Click += new System.EventHandler(this.btnCalorieTracker_Click);
             // 
+            // HelpAboutContainer
+            // 
+            this.HelpAboutContainer.Controls.Add(this.btnHelp);
+            this.HelpAboutContainer.Controls.Add(this.btnAbout);
+            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 328);
+            this.HelpAboutContainer.Name = "HelpAboutContainer";
+            this.HelpAboutContainer.Size = new System.Drawing.Size(227, 108);
+            this.HelpAboutContainer.TabIndex = 6;
+            this.HelpAboutContainer.Visible = false;
+            // 
             // btnHelp
             // 
             this.btnHelp.FlatAppearance.BorderSize = 0;
@@ -209,7 +219,7 @@
             this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHelp.IconSize = 36;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(3, 328);
+            this.btnHelp.Location = new System.Drawing.Point(0, 3);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(227, 48);
@@ -230,7 +240,7 @@
             this.btnAbout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAbout.IconSize = 36;
             this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbout.Location = new System.Drawing.Point(3, 382);
+            this.btnAbout.Location = new System.Drawing.Point(0, 57);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnAbout.Size = new System.Drawing.Size(227, 44);
@@ -263,8 +273,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.homeContainer.ResumeLayout(false);
+            this.HelpAboutContainer.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -283,5 +293,6 @@
         private Panel homeContainer;
         private System.Windows.Forms.Timer homeTimer;
         private FontAwesome.Sharp.IconButton ıconButton1;
+        private Panel HelpAboutContainer;
     }
 }
