@@ -53,6 +53,19 @@ namespace Proje
         private void menuButton_Click(object sender, EventArgs e)
         {
             sidebarTimer.Start();
+
+            //If menu closed
+            if (homeContainer.Visible && HelpAboutContainer.Visible)
+            {
+                homeContainer.Visible = false;
+                HelpAboutContainer.Visible = false;
+            }
+            else
+            {
+                homeContainer.Visible = true;
+                HelpAboutContainer.Visible = true;
+            }
+           
         }
 
         private void homeTimer_Tick(object sender, EventArgs e)
@@ -97,9 +110,5 @@ namespace Proje
            
         }
 
-        private void sidebarContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
