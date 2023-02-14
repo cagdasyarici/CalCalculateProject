@@ -16,5 +16,10 @@ namespace Proje
         {
             InitializeComponent();
         }
+
+        private void LoginFormDeneme_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

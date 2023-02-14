@@ -49,6 +49,7 @@
             // 
             // sidebarContainer
             // 
+            this.sidebarContainer.AutoSize = true;
             this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
             this.sidebarContainer.Controls.Add(this.panel1);
             this.sidebarContainer.Controls.Add(this.homeContainer);
@@ -56,11 +57,12 @@
             this.sidebarContainer.Controls.Add(this.btnAbout);
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
-            this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 715);
-            this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 715);
+            this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 2000);
+            this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 0);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(233, 715);
+            this.sidebarContainer.Size = new System.Drawing.Size(233, 480);
             this.sidebarContainer.TabIndex = 0;
+            this.sidebarContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebarContainer_Paint);
             // 
             // panel1
             // 
@@ -117,7 +119,7 @@
             this.ıconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ıconButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ıconButton1.ForeColor = System.Drawing.Color.White;
-            this.ıconButton1.IconChar = FontAwesome.Sharp.IconChar.CircleNodes;
+            this.ıconButton1.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
             this.ıconButton1.IconColor = System.Drawing.Color.White;
             this.ıconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ıconButton1.IconSize = 30;
@@ -252,7 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 715);
+            this.ClientSize = new System.Drawing.Size(973, 480);
             this.Controls.Add(this.sidebarContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainFormDeneme";
@@ -262,6 +264,7 @@
             this.panel1.PerformLayout();
             this.homeContainer.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
