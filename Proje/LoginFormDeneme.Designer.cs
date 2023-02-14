@@ -43,6 +43,7 @@
             // ıconButton1
             // 
             this.ıconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
+            this.ıconButton1.Enabled = false;
             this.ıconButton1.FlatAppearance.BorderSize = 0;
             this.ıconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ıconButton1.IconChar = FontAwesome.Sharp.IconChar.User;
@@ -68,6 +69,7 @@
             // ıconButton2
             // 
             this.ıconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
+            this.ıconButton2.Enabled = false;
             this.ıconButton2.FlatAppearance.BorderSize = 0;
             this.ıconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ıconButton2.IconChar = FontAwesome.Sharp.IconChar.Key;
