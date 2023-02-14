@@ -60,7 +60,7 @@
             this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 2000);
             this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 480);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(86, 480);
+            this.sidebarContainer.Size = new System.Drawing.Size(80, 480);
             this.sidebarContainer.TabIndex = 0;
             // 
             // panel1

@@ -55,12 +55,12 @@ namespace Proje
             sidebarTimer.Start();
 
             //If menu closed
-            if (homeContainer.Visible && HelpAboutContainer.Visible)
+            if (homeContainer.Visible && HelpAboutContainer.Visible && sidebarContainer.Width>230)
             {
                 homeContainer.Visible = false;
                 HelpAboutContainer.Visible = false;
             }
-            else
+            else if(!homeContainer.Visible && !HelpAboutContainer.Visible && sidebarContainer.Width < 85)
             {
                 homeContainer.Visible = true;
                 HelpAboutContainer.Visible = true;
