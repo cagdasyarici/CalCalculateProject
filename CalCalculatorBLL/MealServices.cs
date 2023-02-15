@@ -52,7 +52,7 @@ namespace CalCalculatorBLL
 
         }
 
-        public dynamic ListeOlustur(Meal meal)
+        public List<TempFood> ListeOlustur(Meal meal)
         {
             using (_db = new CalCalculateDB())
             {
