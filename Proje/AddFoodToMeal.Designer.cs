@@ -31,7 +31,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.dgv_MealDetails = new System.Windows.Forms.DataGridView();
-            this.btnAddMeal = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_FoodList = new System.Windows.Forms.DataGridView();
             this.txtGrams = new System.Windows.Forms.TextBox();
@@ -48,7 +47,6 @@
             // 
             this.groupBox4.Controls.Add(this.btn_Delete);
             this.groupBox4.Controls.Add(this.dgv_MealDetails);
-            this.groupBox4.Controls.Add(this.btnAddMeal);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(489, 370);
@@ -77,16 +75,7 @@
             this.dgv_MealDetails.Size = new System.Drawing.Size(469, 182);
             this.dgv_MealDetails.TabIndex = 7;
             // 
-            // btnAddMeal
-            // 
-            this.btnAddMeal.Location = new System.Drawing.Point(6, 330);
-            this.btnAddMeal.Name = "btnAddMeal";
-            this.btnAddMeal.Size = new System.Drawing.Size(77, 27);
-            this.btnAddMeal.TabIndex = 4;
-            this.btnAddMeal.Text = "Add Meal";
-            this.btnAddMeal.UseVisualStyleBackColor = true;
-            this.btnAddMeal.Click += new System.EventHandler(this.btnAddMeal_Click);
-            // 
+
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgv_FoodList);
@@ -180,7 +169,6 @@
         private TextBox txtSearch;
         private Label label2;
         private Button button1;
-        private Button btnAddMeal;
         private Button btnAddMealDetail;
         private Button btn_Delete;
     }

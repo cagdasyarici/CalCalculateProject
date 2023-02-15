@@ -1,6 +1,7 @@
 ﻿using CalCalculatorDAL;
 using CalCalculatorDAL.Repositories;
 using CalCalculatorEntities;
+using CalCalculatorEntities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,15 +56,28 @@ namespace CalCalculatorBLL
         {
             using (_db = new CalCalculateDB())
             {
-               return _db.FoodMeals.Where(x => x.MealID == meal.MealID).Select(x =>
-               new
-               {
-                   FoodName = x.Food.FoodName,
-                   Calories = x.Food.FoodCal * (double)(x.Grams / 100.00),
-                   Grams = x.Grams,
-                   FoodID = x.FoodID
 
-               }).ToList();
+                return _db.FoodMeals.Where(x => x.MealID == meal.MealID).Select(x=>
+                
+                new TempFood
+                {
+                    FoodName = x.Food.FoodName,
+                    Calories = x.Food.FoodCal * (x.Grams / 100),
+                    Grams = x.Grams,
+                    FoodID = x.FoodID
+                }
+
+                ).ToList();
+
+               //new
+               //{
+               //    FoodName = x.Food.FoodName,
+               //    Calories = x.Food.FoodCal * (x.Grams / 100),
+               //    Grams = x.Grams,
+               //    FoodID = x.FoodID
+
+
+               //}).ToList();
 
             }
         }
