@@ -77,6 +77,7 @@ namespace Proje
                 Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
                 FoodServices foodServices = new FoodServices();
                 Food food = foodServices.FindEntity(selectedFood.FoodID);
+                
                 meal.FoodMeals.Add(new FoodMeal()
                 {
                     //MealID = meal.MealID,
@@ -84,6 +85,8 @@ namespace Proje
                     //Meal = meal,
                     Food = food,
                     Grams = int.Parse(txtGrams.Text)
+                    
+                    
                 });
 
                 MealServices mealServices = new MealServices();

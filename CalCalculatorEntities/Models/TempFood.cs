@@ -10,7 +10,7 @@ namespace CalCalculatorEntities.Models
     {
         public string FoodName { get; set; }
         public int Calories { get; set; }
-        public int Grams { get; set; }
+        public double Grams { get; set; }
         public int FoodID { get; set; }
 
 
