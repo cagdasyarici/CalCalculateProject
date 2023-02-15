@@ -75,6 +75,7 @@
             this.dgv_MealDetails.Size = new System.Drawing.Size(469, 182);
             this.dgv_MealDetails.TabIndex = 7;
             // 
+
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgv_FoodList);

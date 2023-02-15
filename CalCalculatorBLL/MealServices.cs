@@ -56,6 +56,7 @@ namespace CalCalculatorBLL
         {
             using (_db = new CalCalculateDB())
             {
+
                 return _db.FoodMeals.Where(x => x.MealID == meal.MealID).Select(x=>
                 
                 new TempFood
@@ -74,6 +75,7 @@ namespace CalCalculatorBLL
                //    Calories = x.Food.FoodCal * (x.Grams / 100),
                //    Grams = x.Grams,
                //    FoodID = x.FoodID
+
 
                //}).ToList();
 
