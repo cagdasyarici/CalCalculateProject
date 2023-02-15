@@ -81,6 +81,7 @@ namespace Proje
         {
             CreateFood createFood = new CreateFood(user);
             createFood.Show();
+            this.Hide();
         }
 
         private void btnDeleteMeal_Click(object sender, EventArgs e)

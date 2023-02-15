@@ -59,7 +59,7 @@ namespace CalCalculatorBLL
                new
                {
                    FoodName = x.Food.FoodName,
-                   Calories = x.Food.FoodCal * (x.Grams / 100),
+                   Calories = x.Food.FoodCal * (double)(x.Grams / 100.00),
                    Grams = x.Grams,
                    FoodID = x.FoodID
 
