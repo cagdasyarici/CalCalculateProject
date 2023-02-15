@@ -16,7 +16,7 @@ namespace Proje
     public partial class Form1 : Form
     {
         User user;
- 
+
         public Form1(User userInfo)
         {
             user = userInfo;
@@ -24,18 +24,49 @@ namespace Proje
         }
         private void btnAddMeal_Click(object sender, EventArgs e)
         {
-            MealServices mealServices = new MealServices();
-            mealServices.CreateMeal(txtMealName.Text, user.UserID);
+            if (txtMealName.Text.Trim() != null && txtMealName.Text.Trim() != "")
+            {
+                MealServices mealServices = new MealServices();
+                mealServices.CreateMeal(txtMealName.Text, user.UserID);
+            }
+            else
+            {
+                MessageBox.Show("Meal name cannot be empty");
+            }
+            DGVFill();
+
         }
+        bool totalCalorieBrought;
         private void btnShowMeals_Click(object sender, EventArgs e)
         {
-            MealServices mealServices = new MealServices();
-            dataGridView1.DataSource = mealServices.SearchByDate(dateTimePicker1.Value,dateTimePicker2.Value,user);
+            DGVFill();
+
+
         }
         private void DGVFill()
         {
-            //dataGridView1.DataSource = _db.Meal.ToList();
-        }
+            MealServices mealServices = new MealServices();
+            dataGridView1.DataSource = mealServices.SearchByDate(dateTimePicker1.Value, dateTimePicker2.Value, user);
+            dataGridView1.Columns["User"].Visible = false;
+            dataGridView1.Columns["FoodMeals"].Visible = false;
+            dataGridView1.Columns["ContactUserID"].Visible = false;
+
+            if (!totalCalorieBrought)
+            {
+                //totalCalorieBrought = true;
+                //dataGridView1.Columns.Add("TotalCalorie", "Total Calorie");
+                //List<int> mealIDs =  mealServices.QueryableList().Select(x=>x.MealID).ToList();
+
+                //foreach (DataGridViewRow row in dataGridView1.Rows)
+                //{
+                //    if (mealIDs.Contains((int)row.Cells[1].Value))
+                //    {
+                //        dataGridView1.Columns["TotalCalorie"]
+                //        break;
+                //    }
+                //}
+            }
+        }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -48,8 +79,23 @@ namespace Proje
 
         private void btnCreateFoodForm_Click(object sender, EventArgs e)
         {
-            CreateFood createFood=new CreateFood(user);
+            CreateFood createFood = new CreateFood(user);
             createFood.Show();
+        }
+
+        private void btnDeleteMeal_Click(object sender, EventArgs e)
+        {
+            Meal meal;
+            meal = (Meal)dataGridView1.CurrentRow.DataBoundItem;
+            MealServices mealServices = new MealServices();
+            mealServices.RemoveEntity(meal);
+            DGVFill();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            totalCalorieBrought = false;
+            DGVFill();
         }
     }
 }
