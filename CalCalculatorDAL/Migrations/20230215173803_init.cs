@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CalCalculatorDAL.Migrations
 {
-    public partial class yusa3 : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -72,7 +72,8 @@ namespace CalCalculatorDAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MealName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ContactUserID = table.Column<int>(type: "int", nullable: false),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TotalCalorie = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
