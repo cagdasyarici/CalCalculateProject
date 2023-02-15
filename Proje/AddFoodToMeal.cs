@@ -2,6 +2,7 @@
 using CalCalculatorDAL;
 using CalCalculatorDAL.Repositories;
 using CalCalculatorEntities;
+using CalCalculatorEntities.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -69,30 +70,35 @@ namespace Proje
 
             #region Yeni Kısım 
 
-            meal.FoodMeals.Clear();
-
-            Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
-            FoodServices foodServices = new FoodServices();
-            Food food = foodServices.FindEntity(selectedFood.FoodID);
-            meal.FoodMeals.Add(new FoodMeal()
+            if (CheckGramCount(txtGrams.Text))
             {
-                //MealID = meal.MealID,
-                //FoodID = selectedFood.FoodID, BUNLARA GEREK YOK SANIRIM. DENEME AMAÇLI.
-                //Meal = meal,
-                Food = food,
-                Grams = int.Parse(txtGrams.Text)
-            });
+                meal.FoodMeals.Clear(); // todo: Çağdaşa bu kısmı sor.Böyle olması sorun çıkarmıyor mu ?
 
-            MealServices mealServices = new MealServices();
-            mealServices.AttachEntity(meal);
+                Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
+                FoodServices foodServices = new FoodServices();
+                Food food = foodServices.FindEntity(selectedFood.FoodID);
+                meal.FoodMeals.Add(new FoodMeal()
+                {
+                    //MealID = meal.MealID,
+                    //FoodID = selectedFood.FoodID, BUNLARA GEREK YOK SANIRIM. DENEME AMAÇLI.
+                    //Meal = meal,
+                    Food = food,
+                    Grams = int.Parse(txtGrams.Text)
+                });
 
-            var mealList = mealServices.ListeOlustur(meal);
+                MealServices mealServices = new MealServices();
+                mealServices.AttachEntity(meal);
 
-            ListMealRefresh(mealList);
+                var mealList = mealServices.ListeOlustur(meal);
 
+                ListMealRefresh(mealList);
+            }
 
-
-
+            else
+            {
+                MessageBox.Show("Please enter a proper value", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
 
             #endregion
 
@@ -109,9 +115,13 @@ namespace Proje
             #endregion
 
             #region Yeni Kısım
-            string foodDetail = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem.ToString();
+            //string foodDetail = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem.ToString();
 
-            int FoodID = Convert.ToInt32((foodDetail[foodDetail.Length - 3]).ToString());
+            //int FoodID = Convert.ToInt32((foodDetail[foodDetail.Length - 3]).ToString());
+
+            TempFood tmpFood =  dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
+            int FoodID = tmpFood.FoodID;
+           
 
             FoodMealServices foodMealServices = new FoodMealServices();
             
@@ -141,12 +151,29 @@ namespace Proje
             dgv_FoodList.DataSource = foodListDgv.Where(x => x.FoodName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
         }
 
-        private void ListMealRefresh(dynamic list)
+        private void ListMealRefresh(List<TempFood> list)
         {
             dgv_MealDetails.DataSource = null;
 
             dgv_MealDetails.DataSource = list;
             dgv_MealDetails.Columns["FoodID"].Visible = false;
         }
+        private bool CheckGramCount(string gram)
+        {
+
+            int gramCount = 0;
+            bool isGramNumber = int.TryParse(txtGrams.Text,out gramCount);
+
+            if (isGramNumber && gramCount > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
+        }
+
     }
 }

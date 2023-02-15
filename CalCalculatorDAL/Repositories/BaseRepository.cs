@@ -12,8 +12,8 @@ namespace CalCalculatorDAL.Repositories
         CalCalculateDB _db= new CalCalculateDB();
         public void DatabaseRemove(FoodMeal foodMeal)
         {
-            _db.Remove(foodMeal);
-            _db.SaveChanges();
+            _db.Remove(foodMeal); // Value Cannot Be Null Hatası
+            _db.SaveChanges();  
         }
         public void AddEntity(T entity) //Nesneyi Class fark etmeksizin database'e ekleyen metot..
         {
