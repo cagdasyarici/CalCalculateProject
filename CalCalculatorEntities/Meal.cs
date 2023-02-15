@@ -14,6 +14,7 @@ namespace CalCalculatorEntities
         public int ContactUserID { get; set; }
         public virtual User User { get; set; }
         public DateTime CreateTime { get; set; }
+        public double TotalCalorie { get; set; }
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
         public Meal()
         {

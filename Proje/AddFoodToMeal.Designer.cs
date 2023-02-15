@@ -85,6 +85,7 @@
             this.btnAddMeal.TabIndex = 4;
             this.btnAddMeal.Text = "Add Meal";
             this.btnAddMeal.UseVisualStyleBackColor = true;
+            this.btnAddMeal.Click += new System.EventHandler(this.btnAddMeal_Click);
             // 
             // groupBox2
             // 

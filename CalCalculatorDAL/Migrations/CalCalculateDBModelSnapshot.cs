@@ -110,6 +110,9 @@ namespace CalCalculatorDAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<double>("TotalCalorie")
+                        .HasColumnType("float");
+
                     b.HasKey("MealID");
 
                     b.HasIndex("ContactUserID");

@@ -148,5 +148,17 @@ namespace Proje
             dgv_MealDetails.DataSource = list;
             dgv_MealDetails.Columns["FoodID"].Visible = false;
         }
+
+        private void btnAddMeal_Click(object sender, EventArgs e)
+        {
+            double sum = 0;
+            for (int i = 0; i < dgv_MealDetails.Rows.Count; ++i)
+            {
+                sum += Convert.ToInt32(dgv_MealDetails.Rows[i].Cells[1].Value);
+            }
+            meal.TotalCalorie = sum;
+            MealServices mealServices = new MealServices();
+            mealServices.UpdateEntity(meal);
+        }
     }
 }
