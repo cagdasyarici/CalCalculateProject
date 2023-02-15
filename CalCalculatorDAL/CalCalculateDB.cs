@@ -21,13 +21,13 @@ namespace CalCalculatorDAL
             //DENİZ
 
 
-            optionsBuilder.UseSqlServer("Server=DESKTOP-ES7IFME\\MSSQLKD14;Database=CalCalculateDB;Trusted_Connection=True");
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-ES7IFME\\MSSQLKD14;Database=CalCalculateDB;Trusted_Connection=True");
 
 
 
             //ÇAĞDAŞ
 
-            //optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculateDB5;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculateDB5;Trusted_Connection=True");
 
 
             //YUŞA
