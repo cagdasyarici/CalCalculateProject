@@ -21,7 +21,7 @@ namespace CalCalculatorDAL
             //DENİZ
 
 
-            //optionsBuilder.UseSqlServer("Server=DESKTOP-ES7IFME\\MSSQLKD14;Database=CalCalculateDB;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-ES7IFME\\MSSQLKD14;Database=CalCalculateDB;Trusted_Connection=True");
 
 
 
@@ -32,7 +32,7 @@ namespace CalCalculatorDAL
 
             //YUŞA
 
-            optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -37,6 +37,7 @@
             this.btnShowMeals = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnDeleteMeal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDeleteMeal);
             this.groupBox1.Controls.Add(this.btnCreateFoodForm);
             this.groupBox1.Controls.Add(this.btnShowMeals);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
@@ -108,7 +110,7 @@
             // 
             // btnShowMeals
             // 
-            this.btnShowMeals.Location = new System.Drawing.Point(107, 264);
+            this.btnShowMeals.Location = new System.Drawing.Point(21, 264);
             this.btnShowMeals.Name = "btnShowMeals";
             this.btnShowMeals.Size = new System.Drawing.Size(100, 23);
             this.btnShowMeals.TabIndex = 5;
@@ -132,6 +134,16 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(112, 23);
             this.dateTimePicker1.TabIndex = 4;
             // 
+            // btnDeleteMeal
+            // 
+            this.btnDeleteMeal.Location = new System.Drawing.Point(188, 263);
+            this.btnDeleteMeal.Name = "btnDeleteMeal";
+            this.btnDeleteMeal.Size = new System.Drawing.Size(100, 23);
+            this.btnDeleteMeal.TabIndex = 7;
+            this.btnDeleteMeal.Text = "Delete Meal";
+            this.btnDeleteMeal.UseVisualStyleBackColor = true;
+            this.btnDeleteMeal.Click += new System.EventHandler(this.btnDeleteMeal_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -141,6 +153,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -159,5 +172,6 @@
         private DateTimePicker dateTimePicker1;
         private Button btnCreateFoodForm;
         private DateTimePicker dateTimePicker2;
+        private Button btnDeleteMeal;
     }
 }
