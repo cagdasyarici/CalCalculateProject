@@ -72,7 +72,7 @@ namespace Proje
 
             if (CheckGramCount(txtGrams.Text))
             {
-                meal.FoodMeals.Clear(); // todo: Çağdaşa bu kısmı sor.Böyle olması sorun çıkarmıyor mu ?
+                meal.FoodMeals.Clear(); // todo: Çağdaşa bu kısmı sor.Böyle olması sorun çıkarmıyor mu ?(Yuşa)
 
                 Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
                 FoodServices foodServices = new FoodServices();
@@ -106,33 +106,30 @@ namespace Proje
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            #region Eski Kısım
-            //Food selectedFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as Food;
-            //foods.Remove(selectedFood);
-            //dgv_MealDetails.DataSource = null;
-            //dgv_MealDetails.DataSource = foods;
-            //Food? deletedFood = _db.FoodMeals.Select(x => x.Food).Where(x => x.FoodID == selectedFood.FoodID).FirstOrDefault(); 
-            #endregion
 
             #region Yeni Kısım
             //string foodDetail = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem.ToString();
 
             //int FoodID = Convert.ToInt32((foodDetail[foodDetail.Length - 3]).ToString());
 
-            TempFood tmpFood =  dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
-            int FoodID = tmpFood.FoodID;
-           
+            TempFood? tmpFood =  dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
+            int FoodID = 0;
 
-            FoodMealServices foodMealServices = new FoodMealServices();
-            
-            FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
-            foodMealServices.DatabaseRemove(selectedFoodMeal2);
-        
+            if (tmpFood is not null)
+            {
+                FoodID = tmpFood.FoodID;
 
-            MealServices mealServices = new MealServices();
-            var mealList = mealServices.ListeOlustur(meal);
+                FoodMealServices foodMealServices = new FoodMealServices();
 
-            ListMealRefresh(mealList);
+                FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
+                foodMealServices.DatabaseRemove(selectedFoodMeal2);
+
+
+                MealServices mealServices = new MealServices();
+                var mealList = mealServices.ListeOlustur(meal);
+
+                ListMealRefresh(mealList);
+            }
 
             #endregion
 
@@ -178,7 +175,7 @@ namespace Proje
 
 
 
-        private void btnAddMeal_Click(object sender, EventArgs e)
+        private void btnAddMeal_Click(object sender, EventArgs e) // todo: Deniz Sanırım ben bunun buttonunu sildim (Yuşa)
         {
             double sum = 0;
             for (int i = 0; i < dgv_MealDetails.Rows.Count; ++i)

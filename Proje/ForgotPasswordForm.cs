@@ -162,7 +162,7 @@ namespace Proje
                 if (result)
                 {
 
-                    _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Password = _password; ///todo:Burayı sonra değiştir
+                    _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Password = _password; ///todo:Burayı sonra değiştir (Yuşa)
 
                     _db.SaveChanges();
 
