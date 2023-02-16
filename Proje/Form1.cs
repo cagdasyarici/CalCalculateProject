@@ -71,7 +71,7 @@ namespace Proje
         {
             DataGridView dtgw = (DataGridView)sender;
             Meal meal = (Meal)dtgw.SelectedCells[0].OwningRow.DataBoundItem;
-            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal);
+            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal,user);
             addFoodToMeal.Show();
             this.Close();
         }
