@@ -63,22 +63,10 @@ namespace Proje
             }
             else
             {
-                MessageBox.Show("Please Fill All TextBoxes","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Please Fill Information Boxes","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
            
         }
 
-        //private bool CheckUserDetailsNullOrWhiteSpace()
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtUsername.Text)&&string.IsNullOrWhiteSpace(txtMail.Text)&&string.IsNullOrWhiteSpace(txtPassControl.Text)&&string.IsNullOrWhiteSpace(txtPassword.Text)&&string.IsNullOrWhiteSpace(txtSecurity.Text))
-        //    {
-        //        return true;
-        //    }
-
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
     }
 }
