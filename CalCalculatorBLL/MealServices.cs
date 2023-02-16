@@ -52,6 +52,11 @@ namespace CalCalculatorBLL
 
         }
 
+        /// <summary>
+        /// Parametre olarak aldığı Meal'ın Food'larını listeler 
+        /// </summary>
+        /// <param name="meal"></param>
+        /// <returns>TempFood Listesi tipinde geriye değer döndürür </returns>
         public List<TempFood> ListeOlustur(Meal meal)
         {
             using (_db = new CalCalculateDB())
@@ -66,18 +71,7 @@ namespace CalCalculatorBLL
                     Grams = x.Grams,
                     FoodID = x.FoodID
                 }
-
                 ).ToList();
-
-               //new
-               //{
-               //    FoodName = x.Food.FoodName,
-               //    Calories = x.Food.FoodCal * (x.Grams / 100),
-               //    Grams = x.Grams,
-               //    FoodID = x.FoodID
-
-
-               //}).ToList();
 
             }
         }
