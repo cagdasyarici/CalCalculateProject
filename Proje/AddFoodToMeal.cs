@@ -115,11 +115,13 @@ namespace Proje
 
             //int FoodID = Convert.ToInt32((foodDetail[foodDetail.Length - 3]).ToString());
 
-            TempFood? tmpFood =  dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
-            int FoodID = 0;
 
-            if (tmpFood is not null)
+            try
             {
+                TempFood? tmpFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
+                int FoodID = 0;
+
+
                 FoodID = tmpFood.FoodID;
 
                 FoodMealServices foodMealServices = new FoodMealServices();
@@ -133,7 +135,19 @@ namespace Proje
 
                 ListMealRefresh(mealList);
             }
+            catch (ArgumentOutOfRangeException)
+            {
 
+                MessageBox.Show("Please,choose a food to delete from Meal Details Table");
+            }
+          
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error","",MessageBoxButtons.OK,MessageBoxIcon.Error); //todo: daha sonra uygun bi yazı düşün (yuşa)
+            }
+          
+           
             #endregion
 
         }
@@ -158,6 +172,20 @@ namespace Proje
             dgv_MealDetails.DataSource = list;
             dgv_MealDetails.Columns["FoodID"].Visible = false;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private bool CheckGramCount(string gram)
         {
