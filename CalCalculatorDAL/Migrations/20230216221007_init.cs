@@ -50,7 +50,7 @@ namespace CalCalculatorDAL.Migrations
                     FoodCarb = table.Column<int>(type: "int", nullable: false),
                     FoodFat = table.Column<int>(type: "int", nullable: false),
                     FoodProt = table.Column<int>(type: "int", nullable: false),
-                    FoodCal = table.Column<int>(type: "int", nullable: false),
+                    FoodCal = table.Column<double>(type: "float", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -92,7 +92,7 @@ namespace CalCalculatorDAL.Migrations
                 {
                     FoodID = table.Column<int>(type: "int", nullable: false),
                     MealID = table.Column<int>(type: "int", nullable: false),
-                    Grams = table.Column<int>(type: "int", nullable: false)
+                    Grams = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
