@@ -125,7 +125,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvMealDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMealDetails.RowHeadersVisible = false;
-            this.dgvMealDetails.RowTemplate.Height = 25;
+            this.dgvMealDetails.RowTemplate.Height = 35;
+            this.dgvMealDetails.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMealDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMealDetails.Size = new System.Drawing.Size(477, 254);
             this.dgvMealDetails.TabIndex = 9;
@@ -179,7 +180,8 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvFoodList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFoodList.RowHeadersVisible = false;
-            this.dgvFoodList.RowTemplate.Height = 25;
+            this.dgvFoodList.RowTemplate.Height = 35;
+            this.dgvFoodList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFoodList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFoodList.Size = new System.Drawing.Size(658, 254);
             this.dgvFoodList.TabIndex = 13;

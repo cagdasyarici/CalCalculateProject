@@ -36,13 +36,13 @@
             this.txtMealName = new System.Windows.Forms.TextBox();
             this.btnAddMeal = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDeleteMeals = new FontAwesome.Sharp.IconButton();
             this.btnDeleteMeal = new System.Windows.Forms.Button();
             this.BtnShowMeal = new FontAwesome.Sharp.IconButton();
             this.btnAddCategoryy = new FontAwesome.Sharp.IconButton();
             this.btnShowMeals = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnDeleteMeals = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +86,9 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.RowTemplate.Height = 35;
+            this.dataGridView1.RowTemplate.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(547, 197);
             this.dataGridView1.TabIndex = 0;
@@ -144,6 +146,26 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Meal Table";
+            // 
+            // btnDeleteMeals
+            // 
+            this.btnDeleteMeals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.btnDeleteMeals.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteMeals.FlatAppearance.BorderSize = 0;
+            this.btnDeleteMeals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteMeals.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDeleteMeals.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnDeleteMeals.IconChar = FontAwesome.Sharp.IconChar.SquareMinus;
+            this.btnDeleteMeals.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnDeleteMeals.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDeleteMeals.IconSize = 32;
+            this.btnDeleteMeals.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteMeals.Location = new System.Drawing.Point(413, 316);
+            this.btnDeleteMeals.Name = "btnDeleteMeals";
+            this.btnDeleteMeals.Size = new System.Drawing.Size(131, 32);
+            this.btnDeleteMeals.TabIndex = 31;
+            this.btnDeleteMeals.Text = "       Delete Meal";
+            this.btnDeleteMeals.UseVisualStyleBackColor = false;
             // 
             // btnDeleteMeal
             // 
@@ -230,26 +252,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(115, 29);
             this.dateTimePicker1.TabIndex = 4;
-            // 
-            // btnDeleteMeals
-            // 
-            this.btnDeleteMeals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.btnDeleteMeals.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteMeals.FlatAppearance.BorderSize = 0;
-            this.btnDeleteMeals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteMeals.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleteMeals.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.btnDeleteMeals.IconChar = FontAwesome.Sharp.IconChar.SquareMinus;
-            this.btnDeleteMeals.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.btnDeleteMeals.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDeleteMeals.IconSize = 32;
-            this.btnDeleteMeals.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteMeals.Location = new System.Drawing.Point(413, 316);
-            this.btnDeleteMeals.Name = "btnDeleteMeals";
-            this.btnDeleteMeals.Size = new System.Drawing.Size(131, 32);
-            this.btnDeleteMeals.TabIndex = 31;
-            this.btnDeleteMeals.Text = "       Delete Meal";
-            this.btnDeleteMeals.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 

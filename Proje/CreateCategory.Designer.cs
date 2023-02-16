@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCategoryName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddCategory = new System.Windows.Forms.Button();
-            this.dgvCategories = new System.Windows.Forms.DataGridView();
             this.btnRemoveCategory = new System.Windows.Forms.Button();
             this.btnRemoveCategoryy = new FontAwesome.Sharp.IconButton();
             this.btnAddCategoryy = new FontAwesome.Sharp.IconButton();
+            this.dgvCategories = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,19 +70,7 @@
             this.btnAddCategory.TabIndex = 2;
             this.btnAddCategory.Text = "Add Category Into Database";
             this.btnAddCategory.UseVisualStyleBackColor = true;
-            this.btnAddCategory.Visible = false;
             this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
-            // 
-            // dgvCategories
-            // 
-            this.dgvCategories.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
-            this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCategories.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvCategories.Location = new System.Drawing.Point(0, 232);
-            this.dgvCategories.Name = "dgvCategories";
-            this.dgvCategories.RowTemplate.Height = 25;
-            this.dgvCategories.Size = new System.Drawing.Size(563, 277);
-            this.dgvCategories.TabIndex = 3;
             // 
             // btnRemoveCategory
             // 
@@ -89,7 +80,6 @@
             this.btnRemoveCategory.TabIndex = 2;
             this.btnRemoveCategory.Text = "Remove Category From Database";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
-            this.btnRemoveCategory.Visible = false;
             this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
             // 
             // btnRemoveCategoryy
@@ -132,15 +122,61 @@
             this.btnAddCategoryy.Text = "       Add Category Into Database";
             this.btnAddCategoryy.UseVisualStyleBackColor = false;
             // 
+            // dgvCategories
+            // 
+            this.dgvCategories.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCategories.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            this.dgvCategories.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCategories.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvCategories.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCategories.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCategories.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvCategories.EnableHeadersVisualStyles = false;
+            this.dgvCategories.Location = new System.Drawing.Point(0, 224);
+            this.dgvCategories.MultiSelect = false;
+            this.dgvCategories.Name = "dgvCategories";
+            this.dgvCategories.ReadOnly = true;
+            this.dgvCategories.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCategories.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCategories.RowHeadersVisible = false;
+            this.dgvCategories.RowTemplate.Height = 35;
+            this.dgvCategories.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCategories.Size = new System.Drawing.Size(563, 285);
+            this.dgvCategories.TabIndex = 10;
+            // 
             // CreateCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(563, 509);
+            this.Controls.Add(this.dgvCategories);
             this.Controls.Add(this.btnAddCategoryy);
             this.Controls.Add(this.btnRemoveCategoryy);
-            this.Controls.Add(this.dgvCategories);
             this.Controls.Add(this.btnRemoveCategory);
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.label1);
@@ -160,9 +196,9 @@
         private TextBox txtCategoryName;
         private Label label1;
         private Button btnAddCategory;
-        private DataGridView dgvCategories;
         private Button btnRemoveCategory;
         private FontAwesome.Sharp.IconButton btnRemoveCategoryy;
         private FontAwesome.Sharp.IconButton btnAddCategoryy;
+        private DataGridView dgvCategories;
     }
 }

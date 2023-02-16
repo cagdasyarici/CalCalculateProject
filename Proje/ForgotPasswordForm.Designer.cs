@@ -121,7 +121,6 @@
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Visible = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // txtSecurityAnswer
@@ -238,7 +237,6 @@
             this.btnApply.TabIndex = 4;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Visible = false;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // txtVerificationCode
@@ -259,7 +257,6 @@
             this.btnVerificationCode.TabIndex = 2;
             this.btnVerificationCode.Text = "Send Verification Code";
             this.btnVerificationCode.UseVisualStyleBackColor = true;
-            this.btnVerificationCode.Visible = false;
             this.btnVerificationCode.Click += new System.EventHandler(this.btnVerificationCode_Click);
             // 
             // txtEMailAdress
@@ -335,7 +332,6 @@
             this.btnChange.TabIndex = 4;
             this.btnChange.Text = "Change";
             this.btnChange.UseVisualStyleBackColor = true;
-            this.btnChange.Visible = false;
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // txtPasswordConfirm
