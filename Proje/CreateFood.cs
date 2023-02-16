@@ -17,6 +17,7 @@ namespace Proje
     {
         User user;
         public CreateFood()
+        bool categorySelected;
         {
             InitializeComponent();
             CategoryServices categoryServices = new CategoryServices();
@@ -34,33 +35,59 @@ namespace Proje
         {
             FoodServices foodServices=new FoodServices();
             dgvFood.DataSource = foodServices.BringTList();
+            
         }
 
         private void btnAddCategoryy_Click(object sender, EventArgs e)
         {
 
             CategoryServices categoryServices = new CategoryServices();
-
-            IList<Category> categoryList = categoryServices.SearchCategoryByName(cmbCategory.SelectedItem.ToString());
-            string foodName = txtFoodName.Text;
-            int foodCarb = Convert.ToInt32(txtCarbonh.Text);
-            int foodFat = Convert.ToInt32(txtFat.Text);
-            int foodProt = Convert.ToInt32(txtProt.Text);
-            int foodCal = Convert.ToInt32(txtCal.Text);
-            int categoryID = 0;
-            foreach (Category category in categoryList)
-            {
-                categoryID = category.CategoryId;
-            }
             FoodServices foodServices = new FoodServices();
-            bool foodCreated = foodServices.CreateFood(foodName, foodCarb, foodFat, foodProt, foodCal, categoryID);
-            if (foodCreated)
+
+
+            if (txtFoodName.Text == null || txtCarbonh.Text == null || txtFat.Text == null || txtProt.Text == null || txtCal.Text == null||categorySelected!=true)
             {
-                MessageBox.Show("Food created");
+                MessageBox.Show("Food informations cannot be null");
             }
             else
             {
-                MessageBox.Show("Food already exists in database");
+                try
+                {
+                    string foodName = txtFoodName.Text;
+                    int foodCarb = Convert.ToInt32(txtCarbonh.Text);
+                    int foodFat = Convert.ToInt32(txtFat.Text);
+                    int foodProt = Convert.ToInt32(txtProt.Text);
+                    int foodCal = Convert.ToInt32(txtCal.Text);
+                    int categoryID = 0;
+                    IList<Category> categoryList = categoryServices.SearchCategoryByName(cmbCategory.SelectedItem.ToString());
+                    foreach (Category category in categoryList)
+                    {
+                        categoryID = category.CategoryId;
+                    }
+                    
+                    bool foodCreated = foodServices.CreateFood(foodName, foodCarb, foodFat, foodProt, foodCal, categoryID);
+                    if (foodCreated)
+                    {
+                        MessageBox.Show("Food created");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Food already exists in database");
+                    }
+                    
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Food informations are incorrect");
+                }
+                
+            }
+            foreach (Control c in grpFoodInformations.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = string.Empty;
+                }
             }
             dgvFood.DataSource = foodServices.BringTList();
         }
@@ -72,6 +99,11 @@ namespace Proje
             Food selectedFood = (Food)dgvFood.CurrentRow.DataBoundItem;
             foodServices.RemoveEntity(selectedFood);
             dgvFood.DataSource = foodServices.BringTList();
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            categorySelected=true;
         }
     }
 }

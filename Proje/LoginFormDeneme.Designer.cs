@@ -53,9 +53,10 @@
             this.ıconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.ıconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ıconButton1.IconSize = 36;
-            this.ıconButton1.Location = new System.Drawing.Point(35, 47);
+            this.ıconButton1.Location = new System.Drawing.Point(50, 78);
+            this.ıconButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ıconButton1.Name = "ıconButton1";
-            this.ıconButton1.Size = new System.Drawing.Size(42, 39);
+            this.ıconButton1.Size = new System.Drawing.Size(60, 65);
             this.ıconButton1.TabIndex = 0;
             this.ıconButton1.UseVisualStyleBackColor = false;
             // 
@@ -64,9 +65,10 @@
             this.txtUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtUsername.Location = new System.Drawing.Point(95, 54);
+            this.txtUsername.Location = new System.Drawing.Point(136, 90);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(135, 22);
+            this.txtUsername.Size = new System.Drawing.Size(193, 32);
             this.txtUsername.TabIndex = 1;
             // 
             // ıconButton2
@@ -79,9 +81,10 @@
             this.ıconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.ıconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ıconButton2.IconSize = 36;
-            this.ıconButton2.Location = new System.Drawing.Point(35, 94);
+            this.ıconButton2.Location = new System.Drawing.Point(50, 157);
+            this.ıconButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ıconButton2.Name = "ıconButton2";
-            this.ıconButton2.Size = new System.Drawing.Size(42, 39);
+            this.ıconButton2.Size = new System.Drawing.Size(60, 65);
             this.ıconButton2.TabIndex = 0;
             this.ıconButton2.UseVisualStyleBackColor = false;
             // 
@@ -123,9 +126,10 @@
             this.btnSignUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSignUp.IconSize = 32;
             this.btnSignUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSignUp.Location = new System.Drawing.Point(24, 199);
+            this.btnSignUp.Location = new System.Drawing.Point(34, 332);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(101, 34);
+            this.btnSignUp.Size = new System.Drawing.Size(144, 57);
             this.btnSignUp.TabIndex = 3;
             this.btnSignUp.Text = "       Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = false;
@@ -144,9 +148,10 @@
             this.btnLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogin.IconSize = 32;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(151, 199);
+            this.btnLogin.Location = new System.Drawing.Point(216, 332);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(101, 34);
+            this.btnLogin.Size = new System.Drawing.Size(144, 57);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "     Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -164,7 +169,7 @@
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Location = new System.Drawing.Point(214, 223);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(271, 289);
+            this.panel1.Size = new System.Drawing.Size(387, 482);
             this.panel1.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -196,7 +201,7 @@
             // 
             // LoginFormDeneme
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -205,6 +210,7 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LoginFormDeneme";
             this.Text = "LoginFormDeneme";
             this.panel1.ResumeLayout(false);

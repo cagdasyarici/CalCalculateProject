@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtFat = new System.Windows.Forms.TextBox();
             this.txtProt = new System.Windows.Forms.TextBox();
             this.txtCarbonh = new System.Windows.Forms.TextBox();
@@ -47,7 +47,9 @@
             this.btnAddCategoryy = new FontAwesome.Sharp.IconButton();
             this.btnRemoveCategoryy = new FontAwesome.Sharp.IconButton();
             this.dgvFood = new System.Windows.Forms.DataGridView();
+            this.grpFoodInformations = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
+            this.grpFoodInformations.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtFat
@@ -187,6 +189,7 @@
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(121, 29);
             this.cmbCategory.TabIndex = 19;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // btnAddCategoryy
             // 
@@ -237,14 +240,14 @@
             this.dgvFood.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFood.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvFood.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFood.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFood.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
@@ -261,21 +264,44 @@
             this.dgvFood.Name = "dgvFood";
             this.dgvFood.ReadOnly = true;
             this.dgvFood.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFood.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFood.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFood.RowHeadersVisible = false;
             this.dgvFood.RowHeadersWidth = 62;
             this.dgvFood.RowTemplate.Height = 35;
             this.dgvFood.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dgvFood.Size = new System.Drawing.Size(620, 317);
+
             this.dgvFood.TabIndex = 25;
+            // 
+            // grpFoodInformations
+            // 
+            this.grpFoodInformations.Controls.Add(this.label1);
+            this.grpFoodInformations.Controls.Add(this.label2);
+            this.grpFoodInformations.Controls.Add(this.label3);
+            this.grpFoodInformations.Controls.Add(this.txtFoodName);
+            this.grpFoodInformations.Controls.Add(this.cmbCategory);
+            this.grpFoodInformations.Controls.Add(this.label4);
+            this.grpFoodInformations.Controls.Add(this.txtCarbonh);
+            this.grpFoodInformations.Controls.Add(this.txtCal);
+            this.grpFoodInformations.Controls.Add(this.label5);
+            this.grpFoodInformations.Controls.Add(this.txtFat);
+            this.grpFoodInformations.Controls.Add(this.label7);
+            this.grpFoodInformations.Controls.Add(this.txtProt);
+            this.grpFoodInformations.Location = new System.Drawing.Point(54, 33);
+            this.grpFoodInformations.Name = "grpFoodInformations";
+            this.grpFoodInformations.Size = new System.Drawing.Size(305, 203);
+            this.grpFoodInformations.TabIndex = 26;
+            this.grpFoodInformations.TabStop = false;
+            this.grpFoodInformations.Text = "Food Informations";
             // 
             // CreateFood
             // 
@@ -286,25 +312,15 @@
             this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.btnAddCategoryy);
             this.Controls.Add(this.btnRemoveCategoryy);
-            this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtCal);
-            this.Controls.Add(this.txtFat);
-            this.Controls.Add(this.txtProt);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtCarbonh);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtFoodName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreateFood";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateFood";
             this.Load += new System.EventHandler(this.CreateFood_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
+            this.grpFoodInformations.ResumeLayout(false);
+            this.grpFoodInformations.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,5 +343,6 @@
         private FontAwesome.Sharp.IconButton btnAddCategoryy;
         private FontAwesome.Sharp.IconButton btnRemoveCategoryy;
         private DataGridView dgvFood;
+        private GroupBox grpFoodInformations;
     }
 }

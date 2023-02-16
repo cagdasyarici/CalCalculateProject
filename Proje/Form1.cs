@@ -74,9 +74,9 @@ namespace Proje
             try
             {
                 Meal? meal;
-                /* meal = (Meal)dataGridView1.CurrentRow.DataBoundItem; */ // Burda hata veriyor.Burda nasýl hata verebilir ki ?
+                /* meal = (Meal)dataGridView1.CurrentRow.DataBoundItem; */ // Burda hata veriyor.Burda nasÃ½l hata verebilir ki ?
 
-                if (dataGridView1.CurrentRow.DataBoundItem is not null) // burayý sona býrak (yuþa)
+                if (dataGridView1.CurrentRow.DataBoundItem is not null) // burayÃ½ sona bÃ½rak (yuÃ¾a)
                 {
                     meal = (Meal)dataGridView1.CurrentRow.DataBoundItem;
                     MealServices mealServices = new MealServices();
@@ -85,7 +85,7 @@ namespace Proje
                 }
                 else
                 {
-                    MessageBox.Show("error"); // sonra düzelt
+                    MessageBox.Show("error"); // sonra dÃ¼zelt
                 }
 
             }
@@ -96,7 +96,7 @@ namespace Proje
             catch (Exception)
             {
 
-                MessageBox.Show("Error"); // todo: Buraya bir yazý düþün 
+                MessageBox.Show("Error"); // todo: Buraya bir yazÃ½ dÃ¼Ã¾Ã¼n 
             }
         }
 
@@ -105,23 +105,27 @@ namespace Proje
             DGVFill();
         }
 
-        private void btnAddCategoryy_Click(object sender, EventArgs e)
+        private void btnAddMeal_Click(object sender, EventArgs e)
         {
-            if (txtMealName.Text.Trim() != null && txtMealName.Text.Trim() != "")
-            {
+            if (txtMealName.Text.Trim() != null && txtMealName.Text.Trim() != string.Empty)
+            { 
+
                 MealServices mealServices = new MealServices();
-                mealServices.CreateMeal(txtMealName.Text, user.UserID);
+                if (!mealServices.CheckIsMealNameExist(txtMealName.Text))
+                {
+                    mealServices.CreateMeal(txtMealName.Text, user.UserID);
+                }
+                else
+                {
+                    MessageBox.Show("You can not add same meal twice!","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
+                
             }
             else
             {
                 MessageBox.Show("Meal name cannot be empty");
             }
             DGVFill();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -50,8 +50,8 @@ namespace CalCalculatorDAL.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FoodCal")
-                        .HasColumnType("int");
+                    b.Property<double>("FoodCal")
+                        .HasColumnType("float");
 
                     b.Property<int>("FoodCarb")
                         .HasColumnType("int");
@@ -81,8 +81,8 @@ namespace CalCalculatorDAL.Migrations
                     b.Property<int>("FoodID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Grams")
-                        .HasColumnType("int");
+                    b.Property<double>("Grams")
+                        .HasColumnType("float");
 
                     b.HasKey("MealID", "FoodID");
 
@@ -155,6 +155,12 @@ namespace CalCalculatorDAL.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("UserID");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });

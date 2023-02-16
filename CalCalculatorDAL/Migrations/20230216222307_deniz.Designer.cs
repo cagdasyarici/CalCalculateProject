@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalCalculatorDAL.Migrations
 {
     [DbContext(typeof(CalCalculateDB))]
-    [Migration("20230215173803_init")]
-    partial class init
+    [Migration("20230216222307_deniz")]
+    partial class deniz
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,8 +52,8 @@ namespace CalCalculatorDAL.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FoodCal")
-                        .HasColumnType("int");
+                    b.Property<double>("FoodCal")
+                        .HasColumnType("float");
 
                     b.Property<int>("FoodCarb")
                         .HasColumnType("int");
@@ -83,8 +83,8 @@ namespace CalCalculatorDAL.Migrations
                     b.Property<int>("FoodID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Grams")
-                        .HasColumnType("int");
+                    b.Property<double>("Grams")
+                        .HasColumnType("float");
 
                     b.HasKey("MealID", "FoodID");
 
@@ -157,6 +157,12 @@ namespace CalCalculatorDAL.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("UserID");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });

@@ -37,7 +37,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDeleteMeals = new FontAwesome.Sharp.IconButton();
             this.BtnShowMeal = new FontAwesome.Sharp.IconButton();
-            this.btnAddCategoryy = new FontAwesome.Sharp.IconButton();
+            this.btnAddMeal = new FontAwesome.Sharp.IconButton();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -101,7 +101,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Meal Name";
+            this.label1.Text = "Meal Name : ";
             // 
             // txtMealName
             // 
@@ -118,7 +118,7 @@
             // 
             this.groupBox1.Controls.Add(this.btnDeleteMeals);
             this.groupBox1.Controls.Add(this.BtnShowMeal);
-            this.groupBox1.Controls.Add(this.btnAddCategoryy);
+            this.groupBox1.Controls.Add(this.btnAddMeal);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.dataGridView1);
@@ -176,8 +176,9 @@
             this.BtnShowMeal.UseVisualStyleBackColor = false;
             this.BtnShowMeal.Click += new System.EventHandler(this.BtnShowMeal_Click);
             // 
-            // btnAddCategoryy
+            // btnAddMeal
             // 
+
             this.btnAddCategoryy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
             this.btnAddCategoryy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddCategoryy.FlatAppearance.BorderSize = 0;

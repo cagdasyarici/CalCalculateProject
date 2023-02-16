@@ -91,11 +91,13 @@ namespace Proje
         }
 
 
-
-
+        /// <summary>
+        /// tring girilen gram değerinin bir sayı olduğunu,sıfırdan büyük olduğunu ve integer sınırları içerisi olduğunu kontrol eder
+        /// </summary>
+        /// <param name="gram"></param>
+        /// <returns>Girilen string cinsinden gram değeri bu şartları sağlıyorsa True,sağlamıyorsa False döner</returns>
         private bool CheckGramCount(string gram)
         {
-
             int gramCount = 0;
             bool isGramNumber = int.TryParse(txtGrams.Text, out gramCount);
 
@@ -114,14 +116,7 @@ namespace Proje
 
         private void btnAddMeal_Click(object sender, EventArgs e) // todo: Deniz Sanırım ben bunun buttonunu sildim (Yuşa)
         {
-            double sum = 0;
-            for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
-            {
-                sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
-            }
-            meal.TotalCalorie = sum;
-            MealServices mealServices = new MealServices();
-            mealServices.UpdateEntity(meal);
+            
         }
 
         private void ıconButton1_Click(object sender, EventArgs e)
@@ -138,7 +133,7 @@ namespace Proje
         private void btnAddMealDetails_Click(object sender, EventArgs e)
         {
             #region Yeni Kısım 
-
+            MealServices mealServices = new MealServices();
             if (CheckGramCount(txtGrams.Text))
             {
                 meal.FoodMeals.Clear(); // todo: Çağdaşa bu kısmı sor.Böyle olması sorun çıkarmıyor mu ?(Yuşa)
@@ -158,7 +153,7 @@ namespace Proje
 
                 });
 
-                MealServices mealServices = new MealServices();
+                
                 mealServices.AttachEntity(meal);
 
                 var mealList = mealServices.ListeOlustur(meal);
@@ -170,7 +165,14 @@ namespace Proje
             {
                 MessageBox.Show("Please enter a proper value", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            double sum = 0;
+            for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
+            {
+                sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
+            }
+            meal.TotalCalorie = sum;
+            
+            mealServices.UpdateEntity(meal);
 
             #endregion
         }

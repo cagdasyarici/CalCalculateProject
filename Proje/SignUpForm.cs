@@ -22,7 +22,7 @@ namespace Proje
             UserServices userServices = new UserServices();
             bool UserDetailNullOrWhiteSpace = userServices.CheckUserDetailsNullOrWhiteSpace(txtUsername.Text, txtMail.Text, txtPassword.Text, txtPassControl.Text, txtSecurity.Text);
 
-            if (UserDetailNullOrWhiteSpace)
+            if (UserDetailNullOrWhiteSpace) // todo:Aşağıda da benzer bi işlem yapılmış buna bi bak (yuşa)
             {
                 string userName = txtUsername.Text;
                 string password = txtPassword.Text;
@@ -33,9 +33,17 @@ namespace Proje
                 bool result = password.Any(c => char.IsLetter(c)) && password.Any(c => char.IsDigit(c));
                 if (userName != null && password != null && email != null && result && securityQuestion != null && securityAnswer != null && confirmPassword == password && password.Length > 6)
                 {
-
-                    userServices.CreateUser(userName, password, email, securityQuestion, securityAnswer);
-                    MessageBox.Show("User created successfully!");
+                    bool userCreated;
+                    userCreated = userServices.CreateUser(userName, password, email, securityQuestion, securityAnswer);
+                    if (userCreated)
+                    {
+                        MessageBox.Show("User created successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("User name or E-mail is already used");
+                    }
+                    
                     this.Hide();
                 }
                 else if (!result)
@@ -61,6 +69,6 @@ namespace Proje
             }
            
         }
-
+        
     }
 }

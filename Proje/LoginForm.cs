@@ -13,8 +13,8 @@ namespace Proje
         public LoginForm()
         {
             InitializeComponent();
-            CategoryServices categoryServices= new CategoryServices();
-            categoryServices.CreateDefaultCategoriesIfNotExist();
+            //CategoryServices categoryServices= new CategoryServices();
+            //categoryServices.CreateDefaultCategoriesIfNotExist();
 
         }
         
@@ -28,7 +28,6 @@ namespace Proje
         {
             SignUpForm frm = new SignUpForm();
             frm.ShowDialog();
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

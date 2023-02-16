@@ -67,7 +67,7 @@ namespace CalCalculatorBLL
                 new TempFood
                 {
                     FoodName = x.Food.FoodName,
-                    Calories = x.Food.FoodCal * (x.Grams / 100),
+                    Calories = x.Food.FoodCal * (x.Grams / 100.00),
                     Grams = x.Grams,
                     FoodID = x.FoodID
                 }
@@ -76,6 +76,24 @@ namespace CalCalculatorBLL
             }
         }
 
-
+        /// <summary>
+        /// Girilen mealName değerinin database'de var olup olmadığını kontrol eder
+        /// </summary>
+        /// <param name="mealName"></param>
+        /// <returns>Eğer girilen mealName database'de mevcutsa True,değilse False değer döner</returns>
+        public bool CheckIsMealNameExist(string mealName)
+        {
+            using (_db=new())
+            {
+                if (_db.Meals.Any(x=>x.MealName.Equals(mealName)))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
