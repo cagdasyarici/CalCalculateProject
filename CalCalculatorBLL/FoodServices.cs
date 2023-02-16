@@ -19,25 +19,35 @@ namespace CalCalculatorBLL
             using (_db = new CalCalculateDB()) 
             {
                 bool foodCreated = false;
-                if (!_db.Foods.Select(x => x.FoodName).Contains(foodName))
+                if (foodName != null || foodName != "")
                 {
-                    Food food = new Food
-                    {
-                        FoodName = foodName,
-                        FoodCarb = foodCarb,
-                        FoodFat = foodFat,
-                        FoodProt = foodProt,
-                        FoodCal = foodCal,
-                        CategoryId = foodCategoryId
-                    };
-                    AddEntity(food);
-                    return foodCreated = true;
                     
+                    if (!_db.Foods.Select(x => x.FoodName).Contains(foodName))
+                    {
+
+                        Food food = new Food
+                        {
+                            FoodName = foodName,
+                            FoodCarb = foodCarb,
+                            FoodFat = foodFat,
+                            FoodProt = foodProt,
+                            FoodCal = foodCal,
+                            CategoryId = foodCategoryId
+                        };
+                        AddEntity(food);
+                        return foodCreated = true;
+
+                    }
+                    else
+                    {
+                        return foodCreated = false;
+                    }
                 }
                 else
                 {
                     return foodCreated = false;
                 }
+                
                 
 
             }

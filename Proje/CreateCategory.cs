@@ -53,12 +53,20 @@ namespace Proje
         {
             string categoryName = txtCategoryName.Text;
             CategoryServices categoryServices = new CategoryServices();
-            if (categoryServices.BringCategoryNames().Contains(categoryName))
+            if(categoryName !="") 
             {
-                MessageBox.Show("Category already exist in database");
+                if (categoryServices.BringCategoryNames().Contains(categoryName))
+                {
+                    MessageBox.Show("Category already exist in database");
+                }
+                categoryServices.CreateCategoryIfNotExist(categoryName);
+                DGVFill();
             }
-            categoryServices.CreateCategoryIfNotExist(categoryName);
-            DGVFill();
+            else
+            {
+                MessageBox.Show("Category name cannot be null");
+            }
+            
         }
     }
 }
