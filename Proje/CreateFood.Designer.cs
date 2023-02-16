@@ -53,27 +53,30 @@
             // 
             this.txtFat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtFat.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFat.Location = new System.Drawing.Point(221, 137);
+            this.txtFat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFat.Location = new System.Drawing.Point(221, 140);
             this.txtFat.Name = "txtFat";
-            this.txtFat.Size = new System.Drawing.Size(121, 16);
+            this.txtFat.Size = new System.Drawing.Size(121, 22);
             this.txtFat.TabIndex = 13;
             // 
             // txtProt
             // 
             this.txtProt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtProt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProt.Location = new System.Drawing.Point(221, 108);
+            this.txtProt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtProt.Location = new System.Drawing.Point(221, 111);
             this.txtProt.Name = "txtProt";
-            this.txtProt.Size = new System.Drawing.Size(121, 16);
+            this.txtProt.Size = new System.Drawing.Size(121, 22);
             this.txtProt.TabIndex = 14;
             // 
             // txtCarbonh
             // 
             this.txtCarbonh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtCarbonh.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCarbonh.Location = new System.Drawing.Point(221, 79);
+            this.txtCarbonh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCarbonh.Location = new System.Drawing.Point(221, 82);
             this.txtCarbonh.Name = "txtCarbonh";
-            this.txtCarbonh.Size = new System.Drawing.Size(121, 16);
+            this.txtCarbonh.Size = new System.Drawing.Size(121, 22);
             this.txtCarbonh.TabIndex = 15;
             // 
             // label4
@@ -91,9 +94,10 @@
             // 
             this.txtFoodName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtFoodName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFoodName.Location = new System.Drawing.Point(221, 49);
+            this.txtFoodName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFoodName.Location = new System.Drawing.Point(221, 52);
             this.txtFoodName.Name = "txtFoodName";
-            this.txtFoodName.Size = new System.Drawing.Size(121, 16);
+            this.txtFoodName.Size = new System.Drawing.Size(121, 22);
             this.txtFoodName.TabIndex = 16;
             // 
             // label3
@@ -144,14 +148,15 @@
             // 
             this.txtCal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtCal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCal.Location = new System.Drawing.Point(221, 166);
+            this.txtCal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCal.Location = new System.Drawing.Point(221, 170);
             this.txtCal.Name = "txtCal";
-            this.txtCal.Size = new System.Drawing.Size(121, 16);
+            this.txtCal.Size = new System.Drawing.Size(121, 22);
             this.txtCal.TabIndex = 13;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(233, 265);
+            this.button1.Location = new System.Drawing.Point(365, 265);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 30);
             this.button1.TabIndex = 17;
@@ -186,10 +191,11 @@
             // 
             this.cmbCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.cmbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(221, 195);
+            this.cmbCategory.Location = new System.Drawing.Point(221, 198);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(121, 23);
+            this.cmbCategory.Size = new System.Drawing.Size(121, 29);
             this.cmbCategory.TabIndex = 19;
             // 
             // dgvFood
@@ -226,7 +232,7 @@
             this.btnAddCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddCategoryy.IconSize = 32;
             this.btnAddCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddCategoryy.Location = new System.Drawing.Point(109, 225);
+            this.btnAddCategoryy.Location = new System.Drawing.Point(104, 242);
             this.btnAddCategoryy.Name = "btnAddCategoryy";
             this.btnAddCategoryy.Size = new System.Drawing.Size(245, 34);
             this.btnAddCategoryy.TabIndex = 24;
