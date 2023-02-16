@@ -13,8 +13,8 @@ namespace Proje
         public LoginForm()
         {
             InitializeComponent();
-            CategoryServices categoryServices= new CategoryServices();
-            categoryServices.CreateDefaultCategoriesIfNotExist();
+            //CategoryServices categoryServices= new CategoryServices();
+            //categoryServices.CreateDefaultCategoriesIfNotExist();
 
         }
         
