@@ -39,14 +39,18 @@
             this.btnStatics = new FontAwesome.Sharp.IconButton();
             this.btnCalorieTracker = new FontAwesome.Sharp.IconButton();
             this.HelpAboutContainer = new System.Windows.Forms.Panel();
+            this.btnLogout = new FontAwesome.Sharp.IconButton();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
             this.btnAbout = new FontAwesome.Sharp.IconButton();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.homeTimer = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnShutDown = new FontAwesome.Sharp.IconButton();
             this.sidebarContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homeContainer.SuspendLayout();
             this.HelpAboutContainer.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebarContainer
@@ -60,7 +64,7 @@
             this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 2000);
             this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 480);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(80, 480);
+            this.sidebarContainer.Size = new System.Drawing.Size(233, 480);
             this.sidebarContainer.TabIndex = 0;
             // 
             // panel1
@@ -109,7 +113,7 @@
             this.homeContainer.MaximumSize = new System.Drawing.Size(227, 176);
             this.homeContainer.MinimumSize = new System.Drawing.Size(227, 53);
             this.homeContainer.Name = "homeContainer";
-            this.homeContainer.Size = new System.Drawing.Size(227, 176);
+            this.homeContainer.Size = new System.Drawing.Size(227, 53);
             this.homeContainer.TabIndex = 1;
             this.homeContainer.Visible = false;
             // 
@@ -200,13 +204,36 @@
             // 
             // HelpAboutContainer
             // 
+            this.HelpAboutContainer.Controls.Add(this.btnLogout);
             this.HelpAboutContainer.Controls.Add(this.btnHelp);
             this.HelpAboutContainer.Controls.Add(this.btnAbout);
-            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 328);
+            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 205);
             this.HelpAboutContainer.Name = "HelpAboutContainer";
-            this.HelpAboutContainer.Size = new System.Drawing.Size(227, 108);
+            this.HelpAboutContainer.Size = new System.Drawing.Size(227, 155);
             this.HelpAboutContainer.TabIndex = 6;
             this.HelpAboutContainer.Visible = false;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.btnLogout.IconColor = System.Drawing.Color.White;
+            this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogout.IconSize = 36;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 107);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(227, 44);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "        Logout";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnHelp
             // 
@@ -260,20 +287,53 @@
             this.homeTimer.Interval = 10;
             this.homeTimer.Tick += new System.EventHandler(this.homeTimer_Tick);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.flowLayoutPanel1.Controls.Add(this.btnShutDown);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(233, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 30);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // btnShutDown
+            // 
+            this.btnShutDown.FlatAppearance.BorderSize = 0;
+            this.btnShutDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShutDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnShutDown.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            this.btnShutDown.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnShutDown.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnShutDown.IconSize = 24;
+            this.btnShutDown.Location = new System.Drawing.Point(702, 3);
+            this.btnShutDown.Name = "btnShutDown";
+            this.btnShutDown.Size = new System.Drawing.Size(35, 27);
+            this.btnShutDown.TabIndex = 0;
+            this.btnShutDown.UseVisualStyleBackColor = true;
+            this.btnShutDown.Click += new System.EventHandler(this.btnShutDown_Click);
+            // 
             // MainFormDeneme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(973, 480);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.sidebarContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IsMdiContainer = true;
             this.Name = "MainFormDeneme";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "MainFormDeneme";
             this.sidebarContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.homeContainer.ResumeLayout(false);
             this.HelpAboutContainer.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -294,5 +354,8 @@
         private System.Windows.Forms.Timer homeTimer;
         private FontAwesome.Sharp.IconButton ıconButton1;
         private Panel HelpAboutContainer;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconButton btnShutDown;
+        private FontAwesome.Sharp.IconButton btnLogout;
     }
 }

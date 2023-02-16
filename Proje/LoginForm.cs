@@ -44,10 +44,10 @@ namespace Proje
                 {
                     if (!user.IsAdmin)
                     {
-                        Form1 frm = new Form1(user);
+                        //Form1 frm = new Form1(user);
 
-                        frm.Show();
-                        this.Hide();
+                        //frm.Show();
+                        //this.Hide();
                     }
                     else
                     {
@@ -72,16 +72,16 @@ namespace Proje
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MainFormDeneme sidebar = new();
-            sidebar.ShowDialog();
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    MainFormDeneme sidebar = new(user);
+        //    sidebar.ShowDialog();
+        //}
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            LoginFormDeneme loginform = new();
-            loginform.ShowDialog();
-        }
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    LoginFormDeneme loginform = new();
+        //    loginform.ShowDialog();
+        //}
     }
 }

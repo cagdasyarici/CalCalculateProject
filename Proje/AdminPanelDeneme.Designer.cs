@@ -35,20 +35,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuButton = new FontAwesome.Sharp.IconButton();
             this.homeContainer = new System.Windows.Forms.Panel();
+            this.btnContinueAsAnUser = new FontAwesome.Sharp.IconButton();
             this.btnAbout = new FontAwesome.Sharp.IconButton();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
             this.btnCreateCategory = new FontAwesome.Sharp.IconButton();
             this.btnCreateFood = new FontAwesome.Sharp.IconButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnContinueAsAnUser = new FontAwesome.Sharp.IconButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnShutDown = new FontAwesome.Sharp.IconButton();
             this.sidebarContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homeContainer.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebarTimer
             // 
             this.sidebarTimer.Interval = 10;
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
             // 
             // sidebarContainer
             // 
@@ -60,7 +64,7 @@
             this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 2000);
             this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 480);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(233, 525);
+            this.sidebarContainer.Size = new System.Drawing.Size(80, 525);
             this.sidebarContainer.TabIndex = 1;
             // 
             // panel1
@@ -97,6 +101,7 @@
             this.menuButton.Size = new System.Drawing.Size(41, 43);
             this.menuButton.TabIndex = 1;
             this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
             // homeContainer
             // 
@@ -112,6 +117,28 @@
             this.homeContainer.Size = new System.Drawing.Size(227, 260);
             this.homeContainer.TabIndex = 1;
             this.homeContainer.Visible = false;
+            // 
+            // btnContinueAsAnUser
+            // 
+            this.btnContinueAsAnUser.FlatAppearance.BorderSize = 0;
+            this.btnContinueAsAnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinueAsAnUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnContinueAsAnUser.ForeColor = System.Drawing.Color.White;
+            this.btnContinueAsAnUser.IconChar = FontAwesome.Sharp.IconChar.CircleUser;
+            this.btnContinueAsAnUser.IconColor = System.Drawing.Color.White;
+            this.btnContinueAsAnUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnContinueAsAnUser.IconSize = 36;
+            this.btnContinueAsAnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContinueAsAnUser.Location = new System.Drawing.Point(-3, 213);
+            this.btnContinueAsAnUser.Name = "btnContinueAsAnUser";
+            this.btnContinueAsAnUser.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnContinueAsAnUser.Size = new System.Drawing.Size(227, 44);
+            this.btnContinueAsAnUser.TabIndex = 7;
+            this.btnContinueAsAnUser.Text = "Continue as an User ";
+            this.btnContinueAsAnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContinueAsAnUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnContinueAsAnUser.UseVisualStyleBackColor = true;
+            this.btnContinueAsAnUser.Click += new System.EventHandler(this.btnContinueAsAnUser_Click);
             // 
             // btnAbout
             // 
@@ -175,6 +202,7 @@
             this.btnCreateCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreateCategory.UseVisualStyleBackColor = true;
+            this.btnCreateCategory.Click += new System.EventHandler(this.btnCreateCategory_Click);
             // 
             // btnCreateFood
             // 
@@ -196,45 +224,55 @@
             this.btnCreateFood.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateFood.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreateFood.UseVisualStyleBackColor = true;
+            this.btnCreateFood.Click += new System.EventHandler(this.btnCreateFood_Click);
             // 
             // timer1
             // 
             this.timer1.Interval = 10;
             // 
-            // btnContinueAsAnUser
+            // flowLayoutPanel1
             // 
-            this.btnContinueAsAnUser.FlatAppearance.BorderSize = 0;
-            this.btnContinueAsAnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContinueAsAnUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnContinueAsAnUser.ForeColor = System.Drawing.Color.White;
-            this.btnContinueAsAnUser.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-            this.btnContinueAsAnUser.IconColor = System.Drawing.Color.White;
-            this.btnContinueAsAnUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnContinueAsAnUser.IconSize = 36;
-            this.btnContinueAsAnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContinueAsAnUser.Location = new System.Drawing.Point(-3, 213);
-            this.btnContinueAsAnUser.Name = "btnContinueAsAnUser";
-            this.btnContinueAsAnUser.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnContinueAsAnUser.Size = new System.Drawing.Size(227, 44);
-            this.btnContinueAsAnUser.TabIndex = 7;
-            this.btnContinueAsAnUser.Text = "Continue as an User ";
-            this.btnContinueAsAnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContinueAsAnUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnContinueAsAnUser.UseVisualStyleBackColor = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.flowLayoutPanel1.Controls.Add(this.btnShutDown);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(776, 30);
+            this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // btnShutDown
+            // 
+            this.btnShutDown.FlatAppearance.BorderSize = 0;
+            this.btnShutDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShutDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnShutDown.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            this.btnShutDown.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnShutDown.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnShutDown.IconSize = 24;
+            this.btnShutDown.Location = new System.Drawing.Point(738, 3);
+            this.btnShutDown.Name = "btnShutDown";
+            this.btnShutDown.Size = new System.Drawing.Size(35, 27);
+            this.btnShutDown.TabIndex = 0;
+            this.btnShutDown.UseVisualStyleBackColor = true;
+            this.btnShutDown.Click += new System.EventHandler(this.btnShutDown_Click);
             // 
             // AdminPanelDeneme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 525);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.sidebarContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IsMdiContainer = true;
             this.Name = "AdminPanelDeneme";
             this.Text = "AdminPanelDeneme";
             this.sidebarContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.homeContainer.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -253,5 +291,7 @@
         private System.Windows.Forms.Timer timer1;
         private FontAwesome.Sharp.IconButton btnCreateCategory;
         private FontAwesome.Sharp.IconButton btnContinueAsAnUser;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconButton btnShutDown;
     }
 }

@@ -14,16 +14,13 @@ namespace Proje
 {
     public partial class CreateCategory : Form
     {
-        User user;
-        public CreateCategory(User userInfo)
+        public CreateCategory()
         {
-            user=userInfo;
             InitializeComponent();
         }
 
         private void CreateCategory_Load(object sender, EventArgs e)
         {
-            
             DGVFill();
         }
 
@@ -33,13 +30,7 @@ namespace Proje
             dgvCategories.DataSource = categoryServices.BringTList();
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
-        {
-            
-            Form1 frm = new Form1(user);
-            frm.Show();
-            this.Hide();
-        }
+       
 
         private void btnRemoveCategoryy_Click(object sender, EventArgs e)
         {

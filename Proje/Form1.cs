@@ -16,10 +16,12 @@ namespace Proje
     public partial class Form1 : Form
     {
         User user;
+        MainFormDeneme mainFormDeneme;
         bool totalCalorieBrought;
-        public Form1(User userInfo)
+        public Form1(User userInfo, MainFormDeneme CurrentMainFormDeneme)
         {
             user = userInfo;
+            mainFormDeneme = CurrentMainFormDeneme;
             InitializeComponent();
         }
 
@@ -51,17 +53,15 @@ namespace Proje
         {
             DataGridView dtgw = (DataGridView)sender;
             Meal meal = (Meal)dtgw.SelectedCells[0].OwningRow.DataBoundItem;
-            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user);
+            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user,mainFormDeneme);
+            addFoodToMeal.MdiParent = mainFormDeneme;
+            int height = addFoodToMeal.Height + 35;
+            int width = addFoodToMeal.Width + 238;
+            mainFormDeneme.Size = new Size(width, height);
             addFoodToMeal.Show();
             this.Close();
         }
 
-        private void btnCreateFoodForm_Click(object sender, EventArgs e)
-        {
-            CreateFood createFood = new CreateFood(user);
-            createFood.Show();
-            this.Hide();
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -74,9 +74,9 @@ namespace Proje
             try
             {
                 Meal? meal;
-                /* meal = (Meal)dataGridView1.CurrentRow.DataBoundItem; */ // Burda hata veriyor.Burda nasýl hata verebilir ki ?
+                /* meal = (Meal)dataGridView1.CurrentRow.DataBoundItem; */ // Burda hata veriyor.Burda nasÃ½l hata verebilir ki ?
 
-                if (dataGridView1.CurrentRow.DataBoundItem is not null) // burayý sona býrak (yuþa)
+                if (dataGridView1.CurrentRow.DataBoundItem is not null) // burayÃ½ sona bÃ½rak (yuÃ¾a)
                 {
                     meal = (Meal)dataGridView1.CurrentRow.DataBoundItem;
                     MealServices mealServices = new MealServices();
@@ -85,7 +85,7 @@ namespace Proje
                 }
                 else
                 {
-                    MessageBox.Show("error"); // sonra düzelt
+                    MessageBox.Show("error"); // sonra dÃ¼zelt
                 }
 
             }
@@ -96,7 +96,7 @@ namespace Proje
             catch (Exception)
             {
 
-                MessageBox.Show("Error"); // todo: Buraya bir yazý düþün 
+                MessageBox.Show("Error"); // todo: Buraya bir yazÃ½ dÃ¼Ã¾Ã¼n 
             }
         }
 
@@ -127,6 +127,5 @@ namespace Proje
             }
             DGVFill();
         }
-
     }
 }

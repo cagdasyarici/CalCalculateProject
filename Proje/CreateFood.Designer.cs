@@ -57,7 +57,7 @@
             this.txtFat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtFat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFat.Location = new System.Drawing.Point(174, 107);
+            this.txtFat.Location = new System.Drawing.Point(188, 170);
             this.txtFat.Name = "txtFat";
             this.txtFat.Size = new System.Drawing.Size(121, 22);
             this.txtFat.TabIndex = 13;
@@ -67,7 +67,7 @@
             this.txtProt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtProt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProt.Location = new System.Drawing.Point(174, 78);
+            this.txtProt.Location = new System.Drawing.Point(188, 131);
             this.txtProt.Name = "txtProt";
             this.txtProt.Size = new System.Drawing.Size(121, 22);
             this.txtProt.TabIndex = 14;
@@ -77,7 +77,7 @@
             this.txtCarbonh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtCarbonh.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCarbonh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCarbonh.Location = new System.Drawing.Point(174, 49);
+            this.txtCarbonh.Location = new System.Drawing.Point(188, 91);
             this.txtCarbonh.Name = "txtCarbonh";
             this.txtCarbonh.Size = new System.Drawing.Size(121, 22);
             this.txtCarbonh.TabIndex = 15;
@@ -87,7 +87,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label4.Location = new System.Drawing.Point(102, 107);
+            this.label4.Location = new System.Drawing.Point(116, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 20);
             this.label4.TabIndex = 9;
@@ -98,7 +98,7 @@
             this.txtFoodName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtFoodName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFoodName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFoodName.Location = new System.Drawing.Point(174, 19);
+            this.txtFoodName.Location = new System.Drawing.Point(188, 53);
             this.txtFoodName.Name = "txtFoodName";
             this.txtFoodName.Size = new System.Drawing.Size(121, 22);
             this.txtFoodName.TabIndex = 16;
@@ -108,7 +108,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label3.Location = new System.Drawing.Point(72, 78);
+            this.label3.Location = new System.Drawing.Point(86, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 10;
@@ -119,7 +119,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label2.Location = new System.Drawing.Point(11, 49);
+            this.label2.Location = new System.Drawing.Point(25, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 20);
             this.label2.TabIndex = 11;
@@ -130,7 +130,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label1.Location = new System.Drawing.Point(37, 19);
+            this.label1.Location = new System.Drawing.Point(51, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 20);
             this.label1.TabIndex = 12;
@@ -141,7 +141,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label5.Location = new System.Drawing.Point(64, 136);
+            this.label5.Location = new System.Drawing.Point(78, 210);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 20);
             this.label5.TabIndex = 9;
@@ -152,7 +152,7 @@
             this.txtCal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtCal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCal.Location = new System.Drawing.Point(174, 137);
+            this.txtCal.Location = new System.Drawing.Point(188, 211);
             this.txtCal.Name = "txtCal";
             this.txtCal.Size = new System.Drawing.Size(121, 22);
             this.txtCal.TabIndex = 13;
@@ -162,7 +162,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label6.Location = new System.Drawing.Point(70, 9);
+            this.label6.Location = new System.Drawing.Point(37, 10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(272, 21);
             this.label6.TabIndex = 18;
@@ -173,7 +173,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label7.Location = new System.Drawing.Point(57, 165);
+            this.label7.Location = new System.Drawing.Point(71, 251);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 20);
             this.label7.TabIndex = 9;
@@ -185,7 +185,7 @@
             this.cmbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(174, 165);
+            this.cmbCategory.Location = new System.Drawing.Point(188, 251);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(121, 29);
             this.cmbCategory.TabIndex = 19;
@@ -204,7 +204,7 @@
             this.btnAddCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddCategoryy.IconSize = 32;
             this.btnAddCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddCategoryy.Location = new System.Drawing.Point(104, 242);
+            this.btnAddCategoryy.Location = new System.Drawing.Point(64, 298);
             this.btnAddCategoryy.Name = "btnAddCategoryy";
             this.btnAddCategoryy.Size = new System.Drawing.Size(245, 34);
             this.btnAddCategoryy.TabIndex = 24;
@@ -225,7 +225,7 @@
             this.btnRemoveCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRemoveCategoryy.IconSize = 32;
             this.btnRemoveCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveCategoryy.Location = new System.Drawing.Point(503, 234);
+            this.btnRemoveCategoryy.Location = new System.Drawing.Point(332, 298);
             this.btnRemoveCategoryy.Name = "btnRemoveCategoryy";
             this.btnRemoveCategoryy.Size = new System.Drawing.Size(277, 34);
             this.btnRemoveCategoryy.TabIndex = 23;
@@ -249,16 +249,17 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvFood.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFood.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFood.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvFood.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvFood.EnableHeadersVisualStyles = false;
-            this.dgvFood.Location = new System.Drawing.Point(365, 49);
+            this.dgvFood.Location = new System.Drawing.Point(0, 338);
             this.dgvFood.MultiSelect = false;
             this.dgvFood.Name = "dgvFood";
             this.dgvFood.ReadOnly = true;
@@ -276,7 +277,9 @@
             this.dgvFood.RowTemplate.Height = 35;
             this.dgvFood.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFood.Size = new System.Drawing.Size(412, 169);
+
+            this.dgvFood.Size = new System.Drawing.Size(620, 317);
+
             this.dgvFood.TabIndex = 25;
             // 
             // grpFoodInformations
@@ -305,14 +308,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(789, 307);
-            this.Controls.Add(this.grpFoodInformations);
+            this.ClientSize = new System.Drawing.Size(620, 655);
             this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.btnAddCategoryy);
             this.Controls.Add(this.btnRemoveCategoryy);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreateFood";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateFood";
             this.Load += new System.EventHandler(this.CreateFood_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();

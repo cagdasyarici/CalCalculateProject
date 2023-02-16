@@ -1,5 +1,6 @@
 ﻿using CalCalculatorEntities;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +14,16 @@ namespace Proje
 {
     public partial class MainFormDeneme : Form
     {
+        
         bool sidebarExpand;
         bool homeExpand;
-        public MainFormDeneme()
+        User user;
+        public MainFormDeneme(User currentUser)
         {
             InitializeComponent();
             IsMdiContainer = true;
+            user = currentUser;
+            BackColor = Color.FromArgb(54, 60, 73);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,21 +99,41 @@ namespace Proje
         {
             homeTimer.Start();
         }
-        User user;
         Form1 MealForm;
         private void btnCalorieTracker_Click(object sender, EventArgs e)
         {
             if (MealForm == null)
             {
-                MealForm = new(user);
+                MealForm = new(user, this);
                 MealForm.MdiParent = this;
-                int height = this.Size.Height - 5;
-                int width = this.Size.Width - sidebarContainer.Width - 5;
-                MealForm.Size = new Size(width, height);
+                int height = MealForm.Height + 35;
+                int width = MealForm.Width + 238;
+                this.Size = new Size(width, height);
                 MealForm.Show();
             }
            
         }
 
+        private void btnShutDown_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Uygulamadan çıkmak istediğinize emin misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK) // OK butonuna basılırsa
+            {
+                // Uygulamayı kapat
+                Application.Exit();
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Oturumu kapatmak istediğinize emin misiniz?", "Oturumu Kapat", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK) // OK butonuna basılırsa
+            {
+                //Oturumu kapat
+                LoginFormDeneme loginForm = new();
+                loginForm.Show();
+                this.Close();
+            }
+        }
     }
 }
