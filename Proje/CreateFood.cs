@@ -29,11 +29,25 @@ namespace Proje
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnContinue_Click(object sender, EventArgs e)
         {
             
+            Form1 frm = new Form1(user);
+            frm.Show();
+            this.Hide();
+        }
+
+        private void CreateFood_Load(object sender, EventArgs e)
+        {
+            FoodServices foodServices=new FoodServices();
+            dgvFood.DataSource = foodServices.BringTList();
+        }
+
+        private void btnAddCategoryy_Click(object sender, EventArgs e)
+        {
+
             CategoryServices categoryServices = new CategoryServices();
-            
+
             IList<Category> categoryList = categoryServices.SearchCategoryByName(cmbCategory.SelectedItem.ToString());
             string foodName = txtFoodName.Text;
             int foodCarb = Convert.ToInt32(txtCarbonh.Text);
@@ -41,7 +55,7 @@ namespace Proje
             int foodProt = Convert.ToInt32(txtProt.Text);
             int foodCal = Convert.ToInt32(txtCal.Text);
             int categoryID = 0;
-            foreach(Category category in categoryList)
+            foreach (Category category in categoryList)
             {
                 categoryID = category.CategoryId;
             }
@@ -58,31 +72,13 @@ namespace Proje
             dgvFood.DataSource = foodServices.BringTList();
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void btnRemoveCategoryy_Click(object sender, EventArgs e)
         {
-            
-            Form1 frm = new Form1(user);
-            frm.Show();
-            this.Hide();
-        }
 
-        private void CreateFood_Load(object sender, EventArgs e)
-        {
-            FoodServices foodServices=new FoodServices();
-            dgvFood.DataSource = foodServices.BringTList();
-        }
-
-        
-
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
             FoodServices foodServices = new FoodServices();
             Food selectedFood = (Food)dgvFood.CurrentRow.DataBoundItem;
             foodServices.RemoveEntity(selectedFood);
             dgvFood.DataSource = foodServices.BringTList();
-
         }
-
     }
 }

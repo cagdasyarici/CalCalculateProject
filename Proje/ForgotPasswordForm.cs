@@ -28,42 +28,6 @@ namespace Proje
             userInfo = user;
         }
 
-        /// <summary>
-        /// Girilen bilgiler databasedekilerle uyuşuyorsa sıradaki adımı açar  
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            using (_db=new())
-            {
-                var SecurityList = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).Select(x => new { x.SecurityQuestion, x.SecurityAnswer }).ToList();
-                bool isUserExist = false;
-                foreach (var item in SecurityList)
-                {
-                    
-
-                    if (item.SecurityAnswer.Equals(txtSecurityAnswer.Text) && item.SecurityQuestion.Equals(cmbSecurityQuestions.SelectedItem as string))
-
-                    {
-                        grpMail.Enabled = true;
-                        txtEMailAdress.Enabled = false;
-
-                        txtEMailAdress.Text = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Email;
-                        grpSecurity.Enabled = false;
-                        isUserExist = true;
-                    }
-
-                   
-                }
-
-                if (!isUserExist)
-                {
-                    MessageBox.Show("Please check your informations","Wrong Information",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                }
-            }
-        }
-
         private void ForgotPasswordForm_Load(object sender, EventArgs e)
         {
             grpMail.Enabled = false;
@@ -72,85 +36,7 @@ namespace Proje
             cmbSecurityQuestions.SelectedItem = cmbSecurityQuestions.Items[0].ToString();
 
         }
-        /// <summary>
-        /// Kullanıcının databasede bulunan Mail adresine 6 haneli bir doğrulama kodu gönderir        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnVerificationCode_Click(object sender, EventArgs e)
-        {
-            code = Generate6DigitCode();
-
-
-            if (txtEMailAdress.Text.Contains("@gmail.com"))
-            {
-                GmailSendVerificationCode();
-            }
-            else if (txtEMailAdress.Text.Contains("@hotmail.com"))
-            {
-                HotmailSendVerificationCode();
-            }
-
-           
-           
-            #region Eski Kısım
-
-            //MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text,txtUsername.Text);
-            //MailAddress MailSender = new MailAddress("CalculatorCodeSender@hotmail.com","CodeSender");
-            //MailMessage verificationMessage = new MailMessage();
-
-
-            //verificationMessage.To.Add(MailReceiver);
-            //verificationMessage.From = MailSender;
-            //verificationMessage.Subject = "Change Password";
-            //verificationMessage.Body = "Verification Code to Change Password : " + code;
-
-            //SmtpClient smtp = new SmtpClient("smtp.outlook.com", 587);
-            //smtp.Credentials = new System.Net.NetworkCredential("CalculatorCodeSender@hotmail.com", "Cal.5224");
-            //smtp.EnableSsl = true;
-            //smtp.Send(verificationMessage); 
-            #endregion
-
-
-        }
-
-        /// <summary>
-        /// Girilen değer doğrulama koduyla aynıysa sonraki adımı açar
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnApply_Click(object sender, EventArgs e)
-        {
-            if (txtVerificationCode.Text.Equals(code))
-            {
-                grpChangePassword.Enabled = true;
-                grpMail.Enabled=false;
-            }
-            else if (txtVerificationCode.Text==String.Empty)
-            {
-                MessageBox.Show("Please Fill The Verification Code Textbox","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            }
-            else
-            {
-                MessageBox.Show("Incorrect Code!");     
-            }
-            
-        }
-
-        /// <summary>
-        /// Girilen 2 şifre birbiriyle uyuşuyorsa databasedeki şifreyi değiştirir
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnChange_Click(object sender, EventArgs e)
-        {
-
-            using (_db = new CalCalculateDB())
-            {
-                CheckPassword(txtPassword.Text, txtPasswordConfirm.Text);
-            }
-            
-        }
-
+       
 
         private void CheckPassword(string _password,string _confirmPassword)
         {
@@ -233,6 +119,112 @@ namespace Proje
                 //smtp.Timeout   // Duruma göre bunu da ekle
                 smtp.Send(verificationMessage);
 
+        }
+
+        private void btnNexxt_Click(object sender, EventArgs e)
+        {
+            using (_db = new())
+            {
+                var SecurityList = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).Select(x => new { x.SecurityQuestion, x.SecurityAnswer }).ToList();
+                bool isUserExist = false;
+                foreach (var item in SecurityList)
+                {
+
+
+                    if (item.SecurityAnswer.Equals(txtSecurityAnswer.Text) && item.SecurityQuestion.Equals(cmbSecurityQuestions.SelectedItem as string))
+
+                    {
+                        grpMail.Enabled = true;
+                        txtEMailAdress.Enabled = false;
+
+                        txtEMailAdress.Text = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Email;
+                        grpSecurity.Enabled = false;
+                        isUserExist = true;
+                    }
+
+
+                }
+
+                if (!isUserExist)
+                {
+                    MessageBox.Show("Please check your informations", "Wrong Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+        /// <summary>
+        /// Girilen değer doğrulama koduyla aynıysa sonraki adımı açar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnApplyy_Click(object sender, EventArgs e)
+        {
+           
+                if (txtVerificationCode.Text.Equals(code))
+                {
+                    grpChangePassword.Enabled = true;
+                    grpMail.Enabled = false;
+                }
+                else if (txtVerificationCode.Text == String.Empty)
+                {
+                    MessageBox.Show("Please Fill The Verification Code Textbox", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Code!");
+                }
+
+        }
+        /// <summary>
+        /// Girilen 2 şifre birbiriyle uyuşuyorsa databasedeki şifreyi değiştirir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChangee_Click(object sender, EventArgs e)
+        {
+                using (_db = new CalCalculateDB())
+                {
+                    CheckPassword(txtPassword.Text, txtPasswordConfirm.Text);
+                }
+        }
+        /// <summary>
+        /// Kullanıcının databasede bulunan Mail adresine 6 haneli bir doğrulama kodu gönderir        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSendVerificationn_Click(object sender, EventArgs e)
+        {
+           
+                code = Generate6DigitCode();
+
+
+                if (txtEMailAdress.Text.Contains("@gmail.com"))
+                {
+                    GmailSendVerificationCode();
+                }
+                else if (txtEMailAdress.Text.Contains("@hotmail.com"))
+                {
+                    HotmailSendVerificationCode();
+                }
+
+                #region Eski Kısım
+
+                //MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text,txtUsername.Text);
+                //MailAddress MailSender = new MailAddress("CalculatorCodeSender@hotmail.com","CodeSender");
+                //MailMessage verificationMessage = new MailMessage();
+
+
+                //verificationMessage.To.Add(MailReceiver);
+                //verificationMessage.From = MailSender;
+                //verificationMessage.Subject = "Change Password";
+                //verificationMessage.Body = "Verification Code to Change Password : " + code;
+
+                //SmtpClient smtp = new SmtpClient("smtp.outlook.com", 587);
+                //smtp.Credentials = new System.Net.NetworkCredential("CalculatorCodeSender@hotmail.com", "Cal.5224");
+                //smtp.EnableSsl = true;
+                //smtp.Send(verificationMessage); 
+                #endregion
+
+
+            
         }
     }
 }

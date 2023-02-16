@@ -21,18 +21,6 @@ namespace Proje
             InitializeComponent();
         }
 
-        private void btnAddCategory_Click(object sender, EventArgs e)
-        {
-            string categoryName = txtCategoryName.Text;
-            CategoryServices categoryServices = new CategoryServices();
-            if (categoryServices.BringCategoryNames().Contains(categoryName))
-            {
-                MessageBox.Show("Category already exist in database");
-            }
-            categoryServices.CreateCategoryIfNotExist(categoryName);
-            DGVFill();
-        }
-
         private void CreateCategory_Load(object sender, EventArgs e)
         {
             
@@ -45,7 +33,15 @@ namespace Proje
             dgvCategories.DataSource = categoryServices.BringTList();
         }
 
-        private void btnRemoveCategory_Click(object sender, EventArgs e)
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            
+            Form1 frm = new Form1(user);
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnRemoveCategoryy_Click(object sender, EventArgs e)
         {
             Category selectedCategory = (Category)dgvCategories.CurrentRow.DataBoundItem;
             CategoryServices categoryServices = new CategoryServices();
@@ -53,12 +49,16 @@ namespace Proje
             DGVFill();
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void btnAddCategoryy_Click(object sender, EventArgs e)
         {
-            
-            Form1 frm = new Form1(user);
-            frm.Show();
-            this.Hide();
+            string categoryName = txtCategoryName.Text;
+            CategoryServices categoryServices = new CategoryServices();
+            if (categoryServices.BringCategoryNames().Contains(categoryName))
+            {
+                MessageBox.Show("Category already exist in database");
+            }
+            categoryServices.CreateCategoryIfNotExist(categoryName);
+            DGVFill();
         }
     }
 }
