@@ -87,8 +87,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 25;
+
+            this.dataGridView1.RowTemplate.Height = 35;
+            this.dataGridView1.RowTemplate.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(781, 328);
             this.dataGridView1.TabIndex = 0;
@@ -165,14 +168,14 @@
             this.btnDeleteMeals.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDeleteMeals.IconSize = 32;
             this.btnDeleteMeals.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteMeals.Location = new System.Drawing.Point(590, 527);
-            this.btnDeleteMeals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+
+            this.btnDeleteMeals.Location = new System.Drawing.Point(413, 316);
             this.btnDeleteMeals.Name = "btnDeleteMeals";
-            this.btnDeleteMeals.Size = new System.Drawing.Size(187, 53);
+            this.btnDeleteMeals.Size = new System.Drawing.Size(131, 32);
             this.btnDeleteMeals.TabIndex = 31;
             this.btnDeleteMeals.Text = "       Delete Meal";
             this.btnDeleteMeals.UseVisualStyleBackColor = false;
-            this.btnDeleteMeals.Click += new System.EventHandler(this.btnDeleteMeals_Click);
+
             // 
             // btnDeleteMeal
             // 

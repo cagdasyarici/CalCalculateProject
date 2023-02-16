@@ -23,10 +23,12 @@ namespace Proje
 
         IList<Food> foodListDgv;
         Meal meal;
-        public AddFoodToMeal(Meal currentMeal)
+        User user;
+        public AddFoodToMeal(Meal currentMeal,User currentUser)
         {
             InitializeComponent();
             meal = currentMeal;
+            user = currentUser;
             txtGrams.Text = "0";
         }
 
@@ -218,5 +220,12 @@ namespace Proje
             mealServices.UpdateEntity(meal);
         }
 
+        private void ıconButton1_Click(object sender, EventArgs e)
+        {
+            Form1 frm = new(user);
+            frm.Show();
+            this.Close();
+
+        }
     }
 }
