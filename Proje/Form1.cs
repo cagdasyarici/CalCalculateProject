@@ -86,11 +86,34 @@ namespace Proje
 
         private void btnDeleteMeal_Click(object sender, EventArgs e)
         {
-            Meal meal;
-            meal = (Meal)dataGridView1.CurrentRow.DataBoundItem;
-            MealServices mealServices = new MealServices();
-            mealServices.RemoveEntity(meal);
-            DGVFill();
+            try
+            {
+                Meal? meal;
+                /* meal = (Meal)dataGridView1.CurrentRow.DataBoundItem; */ // Burda hata veriyor.Burda nasýl hata verebilir ki ?
+
+                if (dataGridView1.CurrentRow.DataBoundItem is not null)
+                {
+                    meal = (Meal)dataGridView1.CurrentRow.DataBoundItem;
+                MealServices mealServices = new MealServices();
+                    mealServices.RemoveEntity(meal);
+                    DGVFill();
+                }
+                else
+                {
+                    MessageBox.Show("error"); // sonra düzelt
+                }
+               
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Please,select a Meal to delete first","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error"); // todo: Buraya bir yazý düþün 
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
