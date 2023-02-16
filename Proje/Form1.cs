@@ -16,33 +16,13 @@ namespace Proje
     public partial class Form1 : Form
     {
         User user;
-
+        bool totalCalorieBrought;
         public Form1(User userInfo)
         {
             user = userInfo;
             InitializeComponent();
         }
-        private void btnAddMeal_Click(object sender, EventArgs e)
-        {
-            if (txtMealName.Text.Trim() != null && txtMealName.Text.Trim() != "")
-            {
-                MealServices mealServices = new MealServices();
-                mealServices.CreateMeal(txtMealName.Text, user.UserID);
-            }
-            else
-            {
-                MessageBox.Show("Meal name cannot be empty");
-            }
-            DGVFill();
 
-        }
-        bool totalCalorieBrought;
-        private void btnShowMeals_Click(object sender, EventArgs e)
-        {
-            DGVFill();
-
-
-        }
         private void DGVFill()
         {
             MealServices mealServices = new MealServices();
@@ -71,7 +51,7 @@ namespace Proje
         {
             DataGridView dtgw = (DataGridView)sender;
             Meal meal = (Meal)dtgw.SelectedCells[0].OwningRow.DataBoundItem;
-            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal,user);
+            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user);
             addFoodToMeal.Show();
             this.Close();
         }
@@ -118,6 +98,25 @@ namespace Proje
 
                 MessageBox.Show("Error"); // todo: Buraya bir yazý düþün 
             }
+        }
+
+        private void BtnShowMeal_Click(object sender, EventArgs e)
+        {
+            DGVFill();
+        }
+
+        private void btnAddCategoryy_Click(object sender, EventArgs e)
+        {
+            if (txtMealName.Text.Trim() != null && txtMealName.Text.Trim() != "")
+            {
+                MealServices mealServices = new MealServices();
+                mealServices.CreateMeal(txtMealName.Text, user.UserID);
+            }
+            else
+            {
+                MessageBox.Show("Meal name cannot be empty");
+            }
+            DGVFill();
         }
     }
 }

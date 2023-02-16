@@ -36,7 +36,6 @@
             this.txtPassControl = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMail = new System.Windows.Forms.TextBox();
-            this.btnRegister = new System.Windows.Forms.Button();
             this.lblWarning = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -55,7 +54,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(173, 32);
+            this.txtPassword.Size = new System.Drawing.Size(226, 32);
             this.txtPassword.TabIndex = 5;
             // 
             // txtUsername
@@ -67,7 +66,7 @@
             this.txtUsername.Location = new System.Drawing.Point(317, 78);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(173, 32);
+            this.txtUsername.Size = new System.Drawing.Size(226, 32);
             this.txtUsername.TabIndex = 6;
             // 
             // label2
@@ -116,7 +115,7 @@
             this.txtPassControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassControl.Name = "txtPassControl";
             this.txtPassControl.PasswordChar = '*';
-            this.txtPassControl.Size = new System.Drawing.Size(173, 32);
+            this.txtPassControl.Size = new System.Drawing.Size(226, 32);
             this.txtPassControl.TabIndex = 5;
             // 
             // label4
@@ -124,7 +123,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label4.Location = new System.Drawing.Point(197, 340);
+            this.label4.Location = new System.Drawing.Point(107, 339);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 29);
@@ -137,22 +136,11 @@
             this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.txtMail.Location = new System.Drawing.Point(317, 338);
+            this.txtMail.Location = new System.Drawing.Point(227, 337);
             this.txtMail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(173, 32);
+            this.txtMail.Size = new System.Drawing.Size(316, 32);
             this.txtMail.TabIndex = 5;
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.Location = new System.Drawing.Point(317, 608);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(173, 73);
-            this.btnRegister.TabIndex = 7;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // lblWarning
             // 
@@ -168,7 +156,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label5.Location = new System.Drawing.Point(30, 410);
+            this.label5.Location = new System.Drawing.Point(16, 410);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(191, 25);
@@ -185,10 +173,10 @@
             "What is your favorite meal?",
             "Which pokemon do you like the most?",
             "What is your best friend\'s name?"});
-            this.comboBox1.Location = new System.Drawing.Point(241, 407);
+            this.comboBox1.Location = new System.Drawing.Point(227, 407);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(313, 33);
+            this.comboBox1.Size = new System.Drawing.Size(316, 33);
             this.comboBox1.TabIndex = 9;
             // 
             // txtSecurity
@@ -197,10 +185,10 @@
             this.txtSecurity.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSecurity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtSecurity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.txtSecurity.Location = new System.Drawing.Point(280, 463);
+            this.txtSecurity.Location = new System.Drawing.Point(227, 462);
             this.txtSecurity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSecurity.Name = "txtSecurity";
-            this.txtSecurity.Size = new System.Drawing.Size(276, 32);
+            this.txtSecurity.Size = new System.Drawing.Size(316, 32);
             this.txtSecurity.TabIndex = 10;
             // 
             // label6
@@ -208,7 +196,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label6.Location = new System.Drawing.Point(140, 470);
+            this.label6.Location = new System.Drawing.Point(87, 469);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 25);
@@ -228,10 +216,10 @@
             this.btnSignUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSignUp.IconSize = 32;
             this.btnSignUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSignUp.Location = new System.Drawing.Point(317, 537);
+            this.btnSignUp.Location = new System.Drawing.Point(382, 536);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(173, 62);
+            this.btnSignUp.Size = new System.Drawing.Size(161, 64);
             this.btnSignUp.TabIndex = 11;
             this.btnSignUp.Text = "       Register";
             this.btnSignUp.UseVisualStyleBackColor = false;
@@ -242,12 +230,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(573, 735);
+            this.ClientSize = new System.Drawing.Size(573, 641);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.txtSecurity);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblWarning);
-            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtPassControl);
             this.Controls.Add(this.txtPassword);
@@ -277,7 +264,6 @@
         private TextBox txtPassControl;
         private Label label4;
         private TextBox txtMail;
-        private Button btnRegister;
         private Label lblWarning;
         private Label label5;
         private ComboBox comboBox1;
