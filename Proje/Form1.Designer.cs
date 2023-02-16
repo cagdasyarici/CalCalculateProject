@@ -34,13 +34,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMealName = new System.Windows.Forms.TextBox();
-            this.btnAddMeal = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDeleteMeals = new FontAwesome.Sharp.IconButton();
             this.btnDeleteMeal = new System.Windows.Forms.Button();
             this.BtnShowMeal = new FontAwesome.Sharp.IconButton();
             this.btnAddCategoryy = new FontAwesome.Sharp.IconButton();
-            this.btnShowMeals = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -87,11 +85,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
-
+            this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 35;
             this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(781, 328);
             this.dataGridView1.TabIndex = 0;
@@ -121,28 +118,15 @@
             this.txtMealName.Size = new System.Drawing.Size(143, 32);
             this.txtMealName.TabIndex = 2;
             // 
-            // btnAddMeal
-            // 
-            this.btnAddMeal.Location = new System.Drawing.Point(670, 625);
-            this.btnAddMeal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAddMeal.Name = "btnAddMeal";
-            this.btnAddMeal.Size = new System.Drawing.Size(107, 38);
-            this.btnAddMeal.TabIndex = 3;
-            this.btnAddMeal.Text = "Add Meal";
-            this.btnAddMeal.UseVisualStyleBackColor = true;
-            this.btnAddMeal.Click += new System.EventHandler(this.btnAddMeal_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnDeleteMeals);
             this.groupBox1.Controls.Add(this.btnDeleteMeal);
             this.groupBox1.Controls.Add(this.BtnShowMeal);
             this.groupBox1.Controls.Add(this.btnAddCategoryy);
-            this.groupBox1.Controls.Add(this.btnShowMeals);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.btnAddMeal);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtMealName);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -168,14 +152,12 @@
             this.btnDeleteMeals.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDeleteMeals.IconSize = 32;
             this.btnDeleteMeals.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
             this.btnDeleteMeals.Location = new System.Drawing.Point(413, 316);
             this.btnDeleteMeals.Name = "btnDeleteMeals";
             this.btnDeleteMeals.Size = new System.Drawing.Size(131, 32);
             this.btnDeleteMeals.TabIndex = 31;
             this.btnDeleteMeals.Text = "       Delete Meal";
             this.btnDeleteMeals.UseVisualStyleBackColor = false;
-
             // 
             // btnDeleteMeal
             // 
@@ -206,6 +188,7 @@
             this.BtnShowMeal.TabIndex = 27;
             this.BtnShowMeal.Text = "      Show Meal";
             this.BtnShowMeal.UseVisualStyleBackColor = false;
+            this.BtnShowMeal.Click += new System.EventHandler(this.BtnShowMeal_Click);
             // 
             // btnAddCategoryy
             // 
@@ -227,17 +210,7 @@
             this.btnAddCategoryy.TabIndex = 26;
             this.btnAddCategoryy.Text = "       Add Meal";
             this.btnAddCategoryy.UseVisualStyleBackColor = false;
-            // 
-            // btnShowMeals
-            // 
-            this.btnShowMeals.Location = new System.Drawing.Point(9, 622);
-            this.btnShowMeals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnShowMeals.Name = "btnShowMeals";
-            this.btnShowMeals.Size = new System.Drawing.Size(143, 38);
-            this.btnShowMeals.TabIndex = 5;
-            this.btnShowMeals.Text = "Show Meals";
-            this.btnShowMeals.UseVisualStyleBackColor = true;
-            this.btnShowMeals.Click += new System.EventHandler(this.btnShowMeals_Click);
+            this.btnAddCategoryy.Click += new System.EventHandler(this.btnAddCategoryy_Click);
             // 
             // dateTimePicker2
             // 
@@ -293,9 +266,7 @@
         private DataGridView dataGridView1;
         private Label label1;
         private TextBox txtMealName;
-        private Button btnAddMeal;
         private GroupBox groupBox1;
-        private Button btnShowMeals;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private FontAwesome.Sharp.IconButton btnAddCategoryy;

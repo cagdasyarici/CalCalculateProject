@@ -17,12 +17,6 @@ namespace Proje
         {
             InitializeComponent();
         }
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            /// Şimdilik bırakıyorum
-        }
-
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             UserServices userServices = new UserServices();
