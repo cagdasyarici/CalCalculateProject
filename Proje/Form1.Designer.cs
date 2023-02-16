@@ -99,12 +99,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label1.Location = new System.Drawing.Point(156, 625);
+            this.label1.Location = new System.Drawing.Point(96, 638);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 32);
+            this.label1.Size = new System.Drawing.Size(157, 32);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Meal Name";
+            this.label1.Text = "Meal Name : ";
             // 
             // txtMealName
             // 
@@ -112,10 +112,10 @@
             this.txtMealName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMealName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMealName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.txtMealName.Location = new System.Drawing.Point(293, 627);
+            this.txtMealName.Location = new System.Drawing.Point(243, 638);
             this.txtMealName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMealName.Name = "txtMealName";
-            this.txtMealName.Size = new System.Drawing.Size(143, 32);
+            this.txtMealName.Size = new System.Drawing.Size(193, 32);
             this.txtMealName.TabIndex = 2;
             // 
             // groupBox1
@@ -203,10 +203,10 @@
             this.btnAddCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddCategoryy.IconSize = 32;
             this.btnAddCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddCategoryy.Location = new System.Drawing.Point(444, 617);
+            this.btnAddCategoryy.Location = new System.Drawing.Point(458, 610);
             this.btnAddCategoryy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddCategoryy.Name = "btnAddCategoryy";
-            this.btnAddCategoryy.Size = new System.Drawing.Size(187, 53);
+            this.btnAddCategoryy.Size = new System.Drawing.Size(187, 60);
             this.btnAddCategoryy.TabIndex = 26;
             this.btnAddCategoryy.Text = "       Add Meal";
             this.btnAddCategoryy.UseVisualStyleBackColor = false;

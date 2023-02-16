@@ -28,17 +28,6 @@ namespace Proje
         {
             SignUpForm frm = new SignUpForm();
             frm.ShowDialog();
-
-            //CalCalculatorEntities.User user = new CalCalculatorEntities.User()
-            //{
-            //    UserName = "yusa",
-            //    Password = "123",
-            //    Email = "yusa@gmail.com"
-            //};
-
-            //_db.Users.Add(user);
-            //_db.SaveChanges();
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

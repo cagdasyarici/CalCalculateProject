@@ -22,7 +22,7 @@ namespace Proje
             UserServices userServices = new UserServices();
             bool UserDetailNullOrWhiteSpace = userServices.CheckUserDetailsNullOrWhiteSpace(txtUsername.Text, txtMail.Text, txtPassword.Text, txtPassControl.Text, txtSecurity.Text);
 
-            if (UserDetailNullOrWhiteSpace)
+            if (UserDetailNullOrWhiteSpace) // todo:Aşağıda da benzer bi işlem yapılmış buna bi bak (yuşa)
             {
                 string userName = txtUsername.Text;
                 string password = txtPassword.Text;

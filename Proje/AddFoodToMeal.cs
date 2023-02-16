@@ -88,23 +88,13 @@ namespace Proje
             dgvMealDetails.Columns["FoodID"].Visible = false;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        /// <summary>
+        /// tring girilen gram değerinin bir sayı olduğunu,sıfırdan büyük olduğunu ve integer sınırları içerisi olduğunu kontrol eder
+        /// </summary>
+        /// <param name="gram"></param>
+        /// <returns>Girilen string cinsinden gram değeri bu şartları sağlıyorsa True,sağlamıyorsa False döner</returns>
         private bool CheckGramCount(string gram)
         {
-
             int gramCount = 0;
             bool isGramNumber = int.TryParse(txtGrams.Text,out gramCount);
 
