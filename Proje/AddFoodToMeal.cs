@@ -39,7 +39,7 @@ namespace Proje
 
 
             foodListDgv = foodServices.BringTList();
-            dgv_FoodList.DataSource = foodListDgv;
+            dgvFoodList.DataSource = foodListDgv;
 
             #endregion
 
@@ -74,7 +74,7 @@ namespace Proje
             {
                 meal.FoodMeals.Clear(); // todo: Çağdaşa bu kısmı sor.Böyle olması sorun çıkarmıyor mu ?(Yuşa)
 
-                Food? selectedFood = dgv_FoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
+                Food? selectedFood = dgvFoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
                 FoodServices foodServices = new FoodServices();
                 Food food = foodServices.FindEntity(selectedFood.FoodID);
                 
@@ -118,7 +118,7 @@ namespace Proje
 
             try
             {
-                TempFood? tmpFood = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
+                TempFood? tmpFood = dgvMealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
                 int FoodID = 0;
 
 
@@ -161,16 +161,16 @@ namespace Proje
         {
             //dgv_FoodList.Rows.Clear();
 
-            dgv_FoodList.DataSource = null;
-            dgv_FoodList.DataSource = foodListDgv.Where(x => x.FoodName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            dgvFoodList.DataSource = null;
+            dgvFoodList.DataSource = foodListDgv.Where(x => x.FoodName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
         }
 
         private void ListMealRefresh(List<TempFood> list)
         {
-            dgv_MealDetails.DataSource = null;
+            dgvMealDetails.DataSource = null;
 
-            dgv_MealDetails.DataSource = list;
-            dgv_MealDetails.Columns["FoodID"].Visible = false;
+            dgvMealDetails.DataSource = list;
+            dgvMealDetails.Columns["FoodID"].Visible = false;
         }
 
 
@@ -209,9 +209,9 @@ namespace Proje
         private void btnAddMeal_Click(object sender, EventArgs e) // todo: Deniz Sanırım ben bunun buttonunu sildim (Yuşa)
         {
             double sum = 0;
-            for (int i = 0; i < dgv_MealDetails.Rows.Count; ++i)
+            for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
             {
-                sum += Convert.ToInt32(dgv_MealDetails.Rows[i].Cells[1].Value);
+                sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
             }
             meal.TotalCalorie = sum;
             MealServices mealServices = new MealServices();

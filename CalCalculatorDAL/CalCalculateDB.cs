@@ -27,12 +27,12 @@ namespace CalCalculatorDAL
 
             //ÇAĞDAŞ
 
-            //optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculateDB5;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculateDB6;Trusted_Connection=True");
 
 
             //YUŞA
 
-            optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-GT7LVIF\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
