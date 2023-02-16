@@ -41,9 +41,11 @@
             // txtCategoryName
             // 
             this.txtCategoryName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
-            this.txtCategoryName.Location = new System.Drawing.Point(201, 27);
+            this.txtCategoryName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCategoryName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCategoryName.Location = new System.Drawing.Point(201, 32);
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(245, 23);
+            this.txtCategoryName.Size = new System.Drawing.Size(245, 22);
             this.txtCategoryName.TabIndex = 0;
             // 
             // label1
@@ -65,6 +67,7 @@
             this.btnAddCategory.TabIndex = 2;
             this.btnAddCategory.Text = "Add Category Into Database";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Visible = false;
             this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // dgvCategories
@@ -86,6 +89,7 @@
             this.btnRemoveCategory.TabIndex = 2;
             this.btnRemoveCategory.Text = "Remove Category From Database";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
+            this.btnRemoveCategory.Visible = false;
             this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
             // 
             // btnRemoveCategoryy
@@ -101,7 +105,7 @@
             this.btnRemoveCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRemoveCategoryy.IconSize = 32;
             this.btnRemoveCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveCategoryy.Location = new System.Drawing.Point(274, 192);
+            this.btnRemoveCategoryy.Location = new System.Drawing.Point(274, 184);
             this.btnRemoveCategoryy.Name = "btnRemoveCategoryy";
             this.btnRemoveCategoryy.Size = new System.Drawing.Size(277, 34);
             this.btnRemoveCategoryy.TabIndex = 4;
@@ -116,12 +120,12 @@
             this.btnAddCategoryy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCategoryy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddCategoryy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.btnAddCategoryy.IconChar = FontAwesome.Sharp.IconChar.SquarePlus;
+            this.btnAddCategoryy.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.btnAddCategoryy.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.btnAddCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddCategoryy.IconSize = 32;
             this.btnAddCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddCategoryy.Location = new System.Drawing.Point(201, 66);
+            this.btnAddCategoryy.Location = new System.Drawing.Point(201, 58);
             this.btnAddCategoryy.Name = "btnAddCategoryy";
             this.btnAddCategoryy.Size = new System.Drawing.Size(245, 34);
             this.btnAddCategoryy.TabIndex = 5;

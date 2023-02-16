@@ -50,7 +50,6 @@ namespace Proje
             dataGridView1.Columns["User"].Visible = false;
             dataGridView1.Columns["FoodMeals"].Visible = false;
             dataGridView1.Columns["ContactUserID"].Visible = false;
-
             if (!totalCalorieBrought)
             {
                 //totalCalorieBrought = true;
