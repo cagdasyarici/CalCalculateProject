@@ -107,7 +107,7 @@ namespace Proje
 
         private void btnAddCategoryy_Click(object sender, EventArgs e)
         {
-            if (txtMealName.Text.Trim() != null && txtMealName.Text.Trim() != "")
+            if (txtMealName.Text.Trim() != null && txtMealName.Text.Trim() != string.Empty)
             {
                 MealServices mealServices = new MealServices();
                 mealServices.CreateMeal(txtMealName.Text, user.UserID);
