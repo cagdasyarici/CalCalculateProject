@@ -33,9 +33,17 @@ namespace Proje
                 bool result = password.Any(c => char.IsLetter(c)) && password.Any(c => char.IsDigit(c));
                 if (userName != null && password != null && email != null && result && securityQuestion != null && securityAnswer != null && confirmPassword == password && password.Length > 6)
                 {
-
-                    userServices.CreateUser(userName, password, email, securityQuestion, securityAnswer);
-                    MessageBox.Show("User created successfully!");
+                    bool userCreated;
+                    userCreated = userServices.CreateUser(userName, password, email, securityQuestion, securityAnswer);
+                    if (userCreated)
+                    {
+                        MessageBox.Show("User created successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("User name or E-mail is already used");
+                    }
+                    
                     this.Hide();
                 }
                 else if (!result)
@@ -61,6 +69,6 @@ namespace Proje
             }
            
         }
-
+        
     }
 }

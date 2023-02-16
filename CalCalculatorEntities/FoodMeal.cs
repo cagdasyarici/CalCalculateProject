@@ -12,6 +12,6 @@ namespace CalCalculatorEntities
         public virtual Food Food { get; set; }
         public int MealID { get; set; }
         public virtual Meal Meal { get; set; }
-        public int Grams { get; set; }
+        public double Grams { get; set; }
     }
 }

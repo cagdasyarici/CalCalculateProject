@@ -13,7 +13,7 @@ namespace CalCalculatorEntities
         public int FoodCarb { get; set; }
         public int FoodFat { get; set; }
         public int FoodProt { get; set; }
-        public int FoodCal { get; set; }
+        public double FoodCal { get; set; }
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
         public virtual Category Category { get; set; }
         public int CategoryId { get; set; }

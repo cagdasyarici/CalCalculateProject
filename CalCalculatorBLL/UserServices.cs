@@ -26,7 +26,7 @@ namespace CalCalculatorBLL
         /// <param name="email"></param>
         /// <param name="securityQuestion"></param>
         /// <param name="securityAnswer"></param>
-        public void CreateUser(string name,string password,string email, string securityQuestion, string securityAnswer)
+        public bool CreateUser(string name,string password,string email, string securityQuestion, string securityAnswer)
         {
             using (_db = new CalCalculateDB())
             {
@@ -38,7 +38,7 @@ namespace CalCalculatorBLL
                     SecurityQuestion = securityQuestion,
                     SecurityAnswer = securityAnswer
                 };
-                AddEntity(user);
+                return AddEntity(user);
             }
             
         }

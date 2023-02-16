@@ -15,10 +15,19 @@ namespace CalCalculatorDAL.Repositories
             _db.Remove(foodMeal); // Value Cannot Be Null Hatası
             _db.SaveChanges();  
         }
-        public void AddEntity(T entity) //Nesneyi Class fark etmeksizin database'e ekleyen metot..
+        public bool AddEntity(T entity) //Nesneyi Class fark etmeksizin database'e ekleyen metot..
         {
-            _db.Set<T>().Add(entity);
-            _db.SaveChanges();
+            try
+            {
+                _db.Set<T>().Add(entity);
+                _db.SaveChanges();
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
+                
         }
 
         public T FindEntity(int id) //Nesneyi Class fark etmeksizin id'sine göre getiren metot.
