@@ -38,7 +38,7 @@
             this.btnDeleteMeals = new FontAwesome.Sharp.IconButton();
             this.btnDeleteMeal = new System.Windows.Forms.Button();
             this.BtnShowMeal = new FontAwesome.Sharp.IconButton();
-            this.btnAddCategoryy = new FontAwesome.Sharp.IconButton();
+            this.btnAddMeal = new FontAwesome.Sharp.IconButton();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -112,10 +112,10 @@
             this.txtMealName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMealName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMealName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.txtMealName.Location = new System.Drawing.Point(243, 638);
+            this.txtMealName.Location = new System.Drawing.Point(261, 638);
             this.txtMealName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMealName.Name = "txtMealName";
-            this.txtMealName.Size = new System.Drawing.Size(193, 32);
+            this.txtMealName.Size = new System.Drawing.Size(214, 32);
             this.txtMealName.TabIndex = 2;
             // 
             // groupBox1
@@ -123,7 +123,7 @@
             this.groupBox1.Controls.Add(this.btnDeleteMeals);
             this.groupBox1.Controls.Add(this.btnDeleteMeal);
             this.groupBox1.Controls.Add(this.BtnShowMeal);
-            this.groupBox1.Controls.Add(this.btnAddCategoryy);
+            this.groupBox1.Controls.Add(this.btnAddMeal);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.dataGridView1);
@@ -190,27 +190,27 @@
             this.BtnShowMeal.UseVisualStyleBackColor = false;
             this.BtnShowMeal.Click += new System.EventHandler(this.BtnShowMeal_Click);
             // 
-            // btnAddCategoryy
+            // btnAddMeal
             // 
-            this.btnAddCategoryy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.btnAddCategoryy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddCategoryy.FlatAppearance.BorderSize = 0;
-            this.btnAddCategoryy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCategoryy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddCategoryy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.btnAddCategoryy.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.btnAddCategoryy.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.btnAddCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAddCategoryy.IconSize = 32;
-            this.btnAddCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddCategoryy.Location = new System.Drawing.Point(458, 610);
-            this.btnAddCategoryy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAddCategoryy.Name = "btnAddCategoryy";
-            this.btnAddCategoryy.Size = new System.Drawing.Size(187, 60);
-            this.btnAddCategoryy.TabIndex = 26;
-            this.btnAddCategoryy.Text = "       Add Meal";
-            this.btnAddCategoryy.UseVisualStyleBackColor = false;
-            this.btnAddCategoryy.Click += new System.EventHandler(this.btnAddCategoryy_Click);
+            this.btnAddMeal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.btnAddMeal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddMeal.FlatAppearance.BorderSize = 0;
+            this.btnAddMeal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMeal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddMeal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnAddMeal.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.btnAddMeal.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnAddMeal.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddMeal.IconSize = 32;
+            this.btnAddMeal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddMeal.Location = new System.Drawing.Point(498, 610);
+            this.btnAddMeal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddMeal.Name = "btnAddMeal";
+            this.btnAddMeal.Size = new System.Drawing.Size(187, 60);
+            this.btnAddMeal.TabIndex = 26;
+            this.btnAddMeal.Text = "       Add Meal";
+            this.btnAddMeal.UseVisualStyleBackColor = false;
+            this.btnAddMeal.Click += new System.EventHandler(this.btnAddMeal_Click);
             // 
             // dateTimePicker2
             // 
@@ -269,7 +269,7 @@
         private GroupBox groupBox1;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
-        private FontAwesome.Sharp.IconButton btnAddCategoryy;
+        private FontAwesome.Sharp.IconButton btnAddMeal;
         private Button btnDeleteMeal;
         private FontAwesome.Sharp.IconButton BtnShowMeal;
         private FontAwesome.Sharp.IconButton btnDeleteMeals;

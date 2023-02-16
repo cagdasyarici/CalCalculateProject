@@ -105,12 +105,21 @@ namespace Proje
             DGVFill();
         }
 
-        private void btnAddCategoryy_Click(object sender, EventArgs e)
+        private void btnAddMeal_Click(object sender, EventArgs e)
         {
             if (txtMealName.Text.Trim() != null && txtMealName.Text.Trim() != string.Empty)
-            {
+            { 
+
                 MealServices mealServices = new MealServices();
-                mealServices.CreateMeal(txtMealName.Text, user.UserID);
+                if (!mealServices.CheckIsMealNameExist(txtMealName.Text))
+                {
+                    mealServices.CreateMeal(txtMealName.Text, user.UserID);
+                }
+                else
+                {
+                    MessageBox.Show("You can not add same meal twice!","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
+                
             }
             else
             {
@@ -118,5 +127,6 @@ namespace Proje
             }
             DGVFill();
         }
+
     }
 }
