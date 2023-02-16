@@ -4,6 +4,7 @@ using CalCalculatorEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,14 @@ namespace CalCalculatorBLL
         {
 
         }
+        /// <summary>
+        /// Girilen parametrelere sahip kullanıcıyı yaratıp database'e kaydeder
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
+        /// <param name="email"></param>
+        /// <param name="securityQuestion"></param>
+        /// <param name="securityAnswer"></param>
         public void CreateUser(string name,string password,string email, string securityQuestion, string securityAnswer)
         {
             using (_db = new CalCalculateDB())
@@ -33,6 +42,11 @@ namespace CalCalculatorBLL
             }
             
         }
+        /// <summary>
+        /// KullanıcıAdı girilen kullanıcıyı database'de bulur
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns>Bulduğu kullanıcıyı User tipinde geri döndürür</returns>
         public User FindUser(string userName)
         {
             using (_db= new CalCalculateDB())
@@ -42,41 +56,37 @@ namespace CalCalculatorBLL
             }
         }
 
-        //private void CheckPassword(string _password, string _confirmPassword)
-        //{
-
-        //    bool result = _password.Any(c => char.IsLetter(c)) && _password.Any(c => char.IsDigit(c));
-
-        //    if ((_password == _confirmPassword) && !string.IsNullOrEmpty(_password))
-        //    {
-        //        if (result)
-        //        {
-
-        //            _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Password = _password; ///todo:Burayı sonra değiştir
-
-        //            _db.SaveChanges();
-
-        //            MessageBox.Show($"Your Password has been changed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-
-        //        else
-        //        {
-        //            MessageBox.Show("Weak Password!", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-
-        //    }
-
-        //    else
-        //    {
-        //        MessageBox.Show("Please enter proper values", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-
-        //}
-
-
+        /// <summary>
+        /// Kullanıcının Null olup olmadığını kontrol eder
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>Kullanıcı Null'sa True,Değilse Flase döner</returns>
         public bool CheckUserIsNullOrEmpty(User user)
         {
           return  user == null ? true : false;
+        }
+
+
+        /// <summary>
+        /// Sign-Up ekranında Kullanıcının bütün bilgilerini eksiksiz girip girmediğini kontrol eder
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="mail"></param>
+        /// <param name="password"></param>
+        /// <param name="passwordControl"></param>
+        /// <param name="security"></param>
+        /// <returns>TextBoxların tamamı doluysa True,Değilse Flase döner</returns>
+        public bool CheckUserDetailsNullOrWhiteSpace(string username,string mail,string password,string passwordControl,string security)
+        {
+            if (!string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(mail) && !string.IsNullOrWhiteSpace(password) && !string.IsNullOrWhiteSpace(passwordControl) && !string.IsNullOrWhiteSpace(security))
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
     

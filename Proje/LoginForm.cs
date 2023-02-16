@@ -71,12 +71,12 @@ namespace Proje
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password");
+                    MessageBox.Show("Invalid username or password","",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Invalid username or password");
+                MessageBox.Show("Invalid username or password", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 

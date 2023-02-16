@@ -83,17 +83,23 @@ namespace Proje
             this.Hide();
         }
 
-        private void btnDeleteMeal_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            totalCalorieBrought = false;
+            DGVFill();
+        }
+
+        private void btnDeleteMeals_Click(object sender, EventArgs e)
         {
             try
             {
                 Meal? meal;
                 /* meal = (Meal)dataGridView1.CurrentRow.DataBoundItem; */ // Burda hata veriyor.Burda nasýl hata verebilir ki ?
 
-                if (dataGridView1.CurrentRow.DataBoundItem is not null)
+                if (dataGridView1.CurrentRow.DataBoundItem is not null) // burayý sona býrak (yuþa)
                 {
                     meal = (Meal)dataGridView1.CurrentRow.DataBoundItem;
-                MealServices mealServices = new MealServices();
+                    MealServices mealServices = new MealServices();
                     mealServices.RemoveEntity(meal);
                     DGVFill();
                 }
@@ -101,24 +107,17 @@ namespace Proje
                 {
                     MessageBox.Show("error"); // sonra düzelt
                 }
-               
+
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Please,select a Meal to delete first","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Please,select a Meal to delete first", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception)
             {
 
                 MessageBox.Show("Error"); // todo: Buraya bir yazý düþün 
             }
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            totalCalorieBrought = false;
-            DGVFill();
         }
     }
 }
