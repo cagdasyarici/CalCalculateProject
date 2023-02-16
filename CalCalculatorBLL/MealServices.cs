@@ -76,6 +76,24 @@ namespace CalCalculatorBLL
             }
         }
 
-
+        /// <summary>
+        /// Girilen mealName değerinin database'de var olup olmadığını kontrol eder
+        /// </summary>
+        /// <param name="mealName"></param>
+        /// <returns>Eğer girilen mealName database'de mevcutsa True,değilse False değer döner</returns>
+        public bool CheckIsMealNameExist(string mealName)
+        {
+            using (_db=new())
+            {
+                if (_db.Meals.Any(x=>x.MealName.Equals(mealName)))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
