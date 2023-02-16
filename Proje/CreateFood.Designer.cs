@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtFat = new System.Windows.Forms.TextBox();
             this.txtProt = new System.Windows.Forms.TextBox();
             this.txtCarbonh = new System.Windows.Forms.TextBox();
@@ -42,10 +45,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.dgvFood = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAddCategoryy = new FontAwesome.Sharp.IconButton();
             this.btnRemoveCategoryy = new FontAwesome.Sharp.IconButton();
+            this.dgvFood = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,7 +165,6 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Create Food";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
@@ -198,16 +200,6 @@
             this.cmbCategory.Size = new System.Drawing.Size(121, 29);
             this.cmbCategory.TabIndex = 19;
             // 
-            // dgvFood
-            // 
-            this.dgvFood.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
-            this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFood.Location = new System.Drawing.Point(365, 49);
-            this.dgvFood.Name = "dgvFood";
-            this.dgvFood.RowTemplate.Height = 25;
-            this.dgvFood.Size = new System.Drawing.Size(412, 169);
-            this.dgvFood.TabIndex = 21;
-            // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(638, 265);
@@ -216,7 +208,6 @@
             this.btnDelete.TabIndex = 22;
             this.btnDelete.Text = "Delete Selected Food";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAddCategoryy
@@ -259,16 +250,61 @@
             this.btnRemoveCategoryy.Text = "      Remove Food From Database";
             this.btnRemoveCategoryy.UseVisualStyleBackColor = false;
             // 
+            // dgvFood
+            // 
+            this.dgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFood.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            this.dgvFood.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFood.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvFood.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFood.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFood.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvFood.EnableHeadersVisualStyles = false;
+            this.dgvFood.Location = new System.Drawing.Point(365, 49);
+            this.dgvFood.MultiSelect = false;
+            this.dgvFood.Name = "dgvFood";
+            this.dgvFood.ReadOnly = true;
+            this.dgvFood.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFood.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvFood.RowHeadersVisible = false;
+            this.dgvFood.RowTemplate.Height = 35;
+            this.dgvFood.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFood.Size = new System.Drawing.Size(412, 169);
+            this.dgvFood.TabIndex = 25;
+            // 
             // CreateFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(789, 307);
+            this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.btnAddCategoryy);
             this.Controls.Add(this.btnRemoveCategoryy);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
@@ -308,9 +344,9 @@
         private Label label6;
         private Label label7;
         private ComboBox cmbCategory;
-        private DataGridView dgvFood;
         private Button btnDelete;
         private FontAwesome.Sharp.IconButton btnAddCategoryy;
         private FontAwesome.Sharp.IconButton btnRemoveCategoryy;
+        private DataGridView dgvFood;
     }
 }
