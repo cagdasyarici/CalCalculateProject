@@ -28,62 +28,109 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMealName = new System.Windows.Forms.TextBox();
             this.btnAddMeal = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCreateFoodForm = new System.Windows.Forms.Button();
+            this.BtnShowMeal = new FontAwesome.Sharp.IconButton();
+            this.btnAddCategoryy = new FontAwesome.Sharp.IconButton();
+            this.btnRemoveCategoryy = new FontAwesome.Sharp.IconButton();
+            this.btnDeleteMeal = new System.Windows.Forms.Button();
             this.btnShowMeals = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnDeleteMeal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 61);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 104);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(267, 197);
+            this.dataGridView1.Size = new System.Drawing.Size(547, 197);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 296);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.label1.Location = new System.Drawing.Point(109, 375);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 15);
+            this.label1.Size = new System.Drawing.Size(90, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Meal Name";
             // 
             // txtMealName
             // 
-            this.txtMealName.Location = new System.Drawing.Point(107, 293);
+            this.txtMealName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.txtMealName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMealName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMealName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.txtMealName.Location = new System.Drawing.Point(205, 376);
             this.txtMealName.Name = "txtMealName";
-            this.txtMealName.Size = new System.Drawing.Size(100, 23);
+            this.txtMealName.Size = new System.Drawing.Size(100, 22);
             this.txtMealName.TabIndex = 2;
             // 
             // btnAddMeal
             // 
-            this.btnAddMeal.Location = new System.Drawing.Point(213, 292);
+            this.btnAddMeal.Location = new System.Drawing.Point(478, 375);
             this.btnAddMeal.Name = "btnAddMeal";
             this.btnAddMeal.Size = new System.Drawing.Size(75, 23);
             this.btnAddMeal.TabIndex = 3;
             this.btnAddMeal.Text = "Add Meal";
             this.btnAddMeal.UseVisualStyleBackColor = true;
+            this.btnAddMeal.Visible = false;
             this.btnAddMeal.Click += new System.EventHandler(this.btnAddMeal_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnShowMeal);
+            this.groupBox1.Controls.Add(this.btnAddCategoryy);
+            this.groupBox1.Controls.Add(this.btnRemoveCategoryy);
             this.groupBox1.Controls.Add(this.btnDeleteMeal);
-            this.groupBox1.Controls.Add(this.btnCreateFoodForm);
             this.groupBox1.Controls.Add(this.btnShowMeals);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -91,64 +138,130 @@
             this.groupBox1.Controls.Add(this.btnAddMeal);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtMealName);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(308, 357);
+            this.groupBox1.Size = new System.Drawing.Size(559, 433);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Meal Table";
             // 
-            // btnCreateFoodForm
+            // BtnShowMeal
             // 
-            this.btnCreateFoodForm.Location = new System.Drawing.Point(91, 322);
-            this.btnCreateFoodForm.Name = "btnCreateFoodForm";
-            this.btnCreateFoodForm.Size = new System.Drawing.Size(133, 23);
-            this.btnCreateFoodForm.TabIndex = 6;
-            this.btnCreateFoodForm.Text = "CreateFoodForm";
-            this.btnCreateFoodForm.UseVisualStyleBackColor = true;
-            this.btnCreateFoodForm.Click += new System.EventHandler(this.btnCreateFoodForm_Click);
+            this.BtnShowMeal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.BtnShowMeal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnShowMeal.FlatAppearance.BorderSize = 0;
+            this.BtnShowMeal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShowMeal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnShowMeal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.BtnShowMeal.IconChar = FontAwesome.Sharp.IconChar.RectangleList;
+            this.BtnShowMeal.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.BtnShowMeal.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnShowMeal.IconSize = 32;
+            this.BtnShowMeal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnShowMeal.Location = new System.Drawing.Point(205, 53);
+            this.BtnShowMeal.Name = "BtnShowMeal";
+            this.BtnShowMeal.Size = new System.Drawing.Size(131, 32);
+            this.BtnShowMeal.TabIndex = 27;
+            this.BtnShowMeal.Text = "      Show Meal";
+            this.BtnShowMeal.UseVisualStyleBackColor = false;
             // 
-            // btnShowMeals
+            // btnAddCategoryy
             // 
-            this.btnShowMeals.Location = new System.Drawing.Point(21, 264);
-            this.btnShowMeals.Name = "btnShowMeals";
-            this.btnShowMeals.Size = new System.Drawing.Size(100, 23);
-            this.btnShowMeals.TabIndex = 5;
-            this.btnShowMeals.Text = "Show Meals";
-            this.btnShowMeals.UseVisualStyleBackColor = true;
-            this.btnShowMeals.Click += new System.EventHandler(this.btnShowMeals_Click);
+            this.btnAddCategoryy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.btnAddCategoryy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCategoryy.FlatAppearance.BorderSize = 0;
+            this.btnAddCategoryy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCategoryy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddCategoryy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnAddCategoryy.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.btnAddCategoryy.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnAddCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddCategoryy.IconSize = 32;
+            this.btnAddCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddCategoryy.Location = new System.Drawing.Point(311, 370);
+            this.btnAddCategoryy.Name = "btnAddCategoryy";
+            this.btnAddCategoryy.Size = new System.Drawing.Size(131, 32);
+            this.btnAddCategoryy.TabIndex = 26;
+            this.btnAddCategoryy.Text = "       Add Meal";
+            this.btnAddCategoryy.UseVisualStyleBackColor = false;
             // 
-            // dateTimePicker2
+            // btnRemoveCategoryy
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(176, 22);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(112, 23);
-            this.dateTimePicker2.TabIndex = 4;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(21, 22);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(112, 23);
-            this.dateTimePicker1.TabIndex = 4;
+            this.btnRemoveCategoryy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.btnRemoveCategoryy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveCategoryy.FlatAppearance.BorderSize = 0;
+            this.btnRemoveCategoryy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveCategoryy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemoveCategoryy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnRemoveCategoryy.IconChar = FontAwesome.Sharp.IconChar.SquareMinus;
+            this.btnRemoveCategoryy.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnRemoveCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRemoveCategoryy.IconSize = 32;
+            this.btnRemoveCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveCategoryy.Location = new System.Drawing.Point(401, 309);
+            this.btnRemoveCategoryy.Name = "btnRemoveCategoryy";
+            this.btnRemoveCategoryy.Size = new System.Drawing.Size(152, 31);
+            this.btnRemoveCategoryy.TabIndex = 25;
+            this.btnRemoveCategoryy.Text = "      Remove Meal";
+            this.btnRemoveCategoryy.UseVisualStyleBackColor = false;
             // 
             // btnDeleteMeal
             // 
-            this.btnDeleteMeal.Location = new System.Drawing.Point(188, 263);
+            this.btnDeleteMeal.Location = new System.Drawing.Point(295, 315);
             this.btnDeleteMeal.Name = "btnDeleteMeal";
             this.btnDeleteMeal.Size = new System.Drawing.Size(100, 23);
             this.btnDeleteMeal.TabIndex = 7;
             this.btnDeleteMeal.Text = "Delete Meal";
             this.btnDeleteMeal.UseVisualStyleBackColor = true;
+            this.btnDeleteMeal.Visible = false;
             this.btnDeleteMeal.Click += new System.EventHandler(this.btnDeleteMeal_Click);
+            // 
+            // btnShowMeals
+            // 
+            this.btnShowMeals.Location = new System.Drawing.Point(82, 347);
+            this.btnShowMeals.Name = "btnShowMeals";
+            this.btnShowMeals.Size = new System.Drawing.Size(100, 23);
+            this.btnShowMeals.TabIndex = 5;
+            this.btnShowMeals.Text = "Show Meals";
+            this.btnShowMeals.UseVisualStyleBackColor = true;
+            this.btnShowMeals.Visible = false;
+            this.btnShowMeals.Click += new System.EventHandler(this.btnShowMeals_Click);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.dateTimePicker2.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.dateTimePicker2.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.dateTimePicker2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.dateTimePicker2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(401, 56);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(134, 29);
+            this.dateTimePicker2.TabIndex = 4;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(36, 56);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(115, 29);
+            this.dateTimePicker1.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 384);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
+            this.ClientSize = new System.Drawing.Size(583, 457);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -170,8 +283,10 @@
         private GroupBox groupBox1;
         private Button btnShowMeals;
         private DateTimePicker dateTimePicker1;
-        private Button btnCreateFoodForm;
         private DateTimePicker dateTimePicker2;
+        private FontAwesome.Sharp.IconButton btnAddCategoryy;
+        private FontAwesome.Sharp.IconButton btnRemoveCategoryy;
         private Button btnDeleteMeal;
+        private FontAwesome.Sharp.IconButton BtnShowMeal;
     }
 }

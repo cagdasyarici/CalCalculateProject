@@ -157,6 +157,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Create Food";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
@@ -209,6 +210,7 @@
             this.btnDelete.TabIndex = 22;
             this.btnDelete.Text = "Delete Selected Food";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAddCategoryy
