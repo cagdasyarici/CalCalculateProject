@@ -116,7 +116,7 @@
             // 
             // btnAddMeal
             // 
-            this.btnAddMeal.Location = new System.Drawing.Point(478, 375);
+            this.btnAddMeal.Location = new System.Drawing.Point(469, 375);
             this.btnAddMeal.Name = "btnAddMeal";
             this.btnAddMeal.Size = new System.Drawing.Size(75, 23);
             this.btnAddMeal.TabIndex = 3;
@@ -186,40 +186,17 @@
             this.btnAddCategoryy.Text = "       Add Meal";
             this.btnAddCategoryy.UseVisualStyleBackColor = false;
             // 
-            // btnRemoveCategoryy
-            // 
-            this.btnRemoveCategoryy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.btnRemoveCategoryy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRemoveCategoryy.FlatAppearance.BorderSize = 0;
-            this.btnRemoveCategoryy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveCategoryy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemoveCategoryy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.btnRemoveCategoryy.IconChar = FontAwesome.Sharp.IconChar.SquareMinus;
-            this.btnRemoveCategoryy.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.btnRemoveCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRemoveCategoryy.IconSize = 32;
-            this.btnRemoveCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveCategoryy.Location = new System.Drawing.Point(401, 309);
-            this.btnRemoveCategoryy.Name = "btnRemoveCategoryy";
-            this.btnRemoveCategoryy.Size = new System.Drawing.Size(152, 31);
-            this.btnRemoveCategoryy.TabIndex = 25;
-            this.btnRemoveCategoryy.Text = "      Remove Meal";
-            this.btnRemoveCategoryy.UseVisualStyleBackColor = false;
-            // 
-            // btnDeleteMeal
-            // 
-            this.btnDeleteMeal.Location = new System.Drawing.Point(295, 315);
-            this.btnDeleteMeal.Name = "btnDeleteMeal";
-            this.btnDeleteMeal.Size = new System.Drawing.Size(100, 23);
-            this.btnDeleteMeal.TabIndex = 7;
-            this.btnDeleteMeal.Text = "Delete Meal";
-            this.btnDeleteMeal.UseVisualStyleBackColor = true;
-            this.btnDeleteMeal.Visible = false;
-            this.btnDeleteMeal.Click += new System.EventHandler(this.btnDeleteMeal_Click);
+            this.btnCreateFoodForm.Location = new System.Drawing.Point(91, 322);
+            this.btnCreateFoodForm.Name = "btnCreateFoodForm";
+            this.btnCreateFoodForm.Size = new System.Drawing.Size(133, 23);
+            this.btnCreateFoodForm.TabIndex = 6;
+            this.btnCreateFoodForm.Text = "CreateFoodForm";
+            this.btnCreateFoodForm.UseVisualStyleBackColor = true;
+            this.btnCreateFoodForm.Click += new System.EventHandler(this.btnCreateFoodForm_Click);
             // 
             // btnShowMeals
             // 
-            this.btnShowMeals.Location = new System.Drawing.Point(82, 347);
+            this.btnShowMeals.Location = new System.Drawing.Point(21, 264);
             this.btnShowMeals.Name = "btnShowMeals";
             this.btnShowMeals.Size = new System.Drawing.Size(100, 23);
             this.btnShowMeals.TabIndex = 5;
