@@ -16,9 +16,8 @@ namespace Proje
     public partial class CreateFood : Form
     {
         User user;
-        public CreateFood(User userInfo)
+        public CreateFood()
         {
-            user=userInfo;
             InitializeComponent();
             CategoryServices categoryServices = new CategoryServices();
             categoryServices.CreateDefaultCategoriesIfNotExist();
@@ -29,13 +28,7 @@ namespace Proje
             }
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
-        {
-            
-            Form1 frm = new Form1(user);
-            frm.Show();
-            this.Hide();
-        }
+        
 
         private void CreateFood_Load(object sender, EventArgs e)
         {

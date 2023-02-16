@@ -24,9 +24,11 @@ namespace Proje
         IList<Food> foodListDgv;
         Meal meal;
         User user;
-        public AddFoodToMeal(Meal currentMeal,User currentUser)
+        MainFormDeneme mainFormDeneme;
+        public AddFoodToMeal(Meal currentMeal, User currentUser, MainFormDeneme CurrentMainFormDeneme)
         {
             InitializeComponent();
+            mainFormDeneme = CurrentMainFormDeneme;
             meal = currentMeal;
             user = currentUser;
             txtGrams.Text = "0";
@@ -91,22 +93,11 @@ namespace Proje
 
 
 
-
-
-
-
-
-
-
-
-
-
-
         private bool CheckGramCount(string gram)
         {
 
             int gramCount = 0;
-            bool isGramNumber = int.TryParse(txtGrams.Text,out gramCount);
+            bool isGramNumber = int.TryParse(txtGrams.Text, out gramCount);
 
             if (isGramNumber && gramCount > 0)
             {
@@ -116,7 +107,7 @@ namespace Proje
             {
                 return false;
             }
-           
+
         }
 
 
@@ -135,10 +126,13 @@ namespace Proje
 
         private void ıconButton1_Click(object sender, EventArgs e)
         {
-            Form1 frm = new(user);
-            frm.Show();
+            Form1 MealForm = new(user, mainFormDeneme);
+            MealForm.MdiParent = mainFormDeneme;
+            int height = MealForm.Height+35;
+            int width = MealForm.Width+238;
+            mainFormDeneme.Size = new Size(width, height);
+            MealForm.Show();
             this.Close();
-
         }
 
         private void btnAddMealDetails_Click(object sender, EventArgs e)

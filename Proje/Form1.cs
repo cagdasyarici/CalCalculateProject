@@ -16,10 +16,12 @@ namespace Proje
     public partial class Form1 : Form
     {
         User user;
+        MainFormDeneme mainFormDeneme;
         bool totalCalorieBrought;
-        public Form1(User userInfo)
+        public Form1(User userInfo, MainFormDeneme CurrentMainFormDeneme)
         {
             user = userInfo;
+            mainFormDeneme = CurrentMainFormDeneme;
             InitializeComponent();
         }
 
@@ -51,17 +53,15 @@ namespace Proje
         {
             DataGridView dtgw = (DataGridView)sender;
             Meal meal = (Meal)dtgw.SelectedCells[0].OwningRow.DataBoundItem;
-            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user);
+            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user,mainFormDeneme);
+            addFoodToMeal.MdiParent = mainFormDeneme;
+            int height = addFoodToMeal.Height + 35;
+            int width = addFoodToMeal.Width + 238;
+            mainFormDeneme.Size = new Size(width, height);
             addFoodToMeal.Show();
             this.Close();
         }
 
-        private void btnCreateFoodForm_Click(object sender, EventArgs e)
-        {
-            CreateFood createFood = new CreateFood(user);
-            createFood.Show();
-            this.Hide();
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -117,6 +117,11 @@ namespace Proje
                 MessageBox.Show("Meal name cannot be empty");
             }
             DGVFill();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

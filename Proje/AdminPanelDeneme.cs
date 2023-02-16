@@ -14,10 +14,14 @@ namespace Proje
     public partial class AdminPanelDeneme : Form
     {
         bool sidebarExpand;
-        public AdminPanelDeneme()
+        User user;
+        CreateFood createFoodForm;
+        CreateCategory createCategoryForm;
+        public AdminPanelDeneme(User currentUser)
         {
             InitializeComponent();
             IsMdiContainer = true;
+            user = currentUser;
         }
 
 
@@ -54,15 +58,72 @@ namespace Proje
             {
                 homeContainer.Visible = false;
             }
-            else if (!homeContainer.Visible  && sidebarContainer.Width < 85)
+            else if (!homeContainer.Visible && sidebarContainer.Width < 85)
             {
                 homeContainer.Visible = true;
             }
 
         }
-        
-        
 
+        private void btnContinueAsAnUser_Click(object sender, EventArgs e)
+        {
+
+            MainFormDeneme mainForm = new(user);
+            mainForm.Show();
+            this.Close();
+        }
+        private void btnCreateFood_Click(object sender, EventArgs e)
+        {
+
+            createFoodForm = new();
+            createFoodForm.MdiParent = this;
+            int height = createFoodForm.Height + 35;
+            int width = createFoodForm.Width + 238;
+            this.Size = new Size(width, height);
+            if (this.ActiveMdiChild == null )
+            {
+                createFoodForm.Show();
+            }
+            else if(this.ActiveMdiChild != null ) 
+            {
+                this.ActiveMdiChild.Close();
+                createFoodForm.Show();
+            }
+            
+            
+
+        }
+
+        private void btnCreateCategory_Click(object sender, EventArgs e)
+        {
+
+            createCategoryForm = new();
+            createCategoryForm.MdiParent = this;
+            int height = createCategoryForm.Height + 35;
+            int width = createCategoryForm.Width + 238;
+            this.Size = new Size(width, height);
+            if (this.ActiveMdiChild == null)
+            {
+                createCategoryForm.Show();
+            }
+            else if (this.ActiveMdiChild != null)
+            {
+                this.ActiveMdiChild.Close();
+                createCategoryForm.Show();
+            }
+            
+            
+        }
+
+        private void btnShutDown_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Uygulamadan çıkmak istediğinize emin misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK) // OK butonuna basıldı
+            {
+                // Uygulamayı kapat
+                Application.Exit();
+            }
+        }
     }
 }
 

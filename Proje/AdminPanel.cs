@@ -30,23 +30,27 @@ namespace Proje
 
         private void btnCreateFood_Click(object sender, EventArgs e)
         {
-            CreateFood createFood = new CreateFood(user);
-            createFood.Show();
-            this.Hide();
+            //CreateFood createFood = new CreateFood(user);
+            //createFood.Show();
+            //this.Hide();
         }
 
         private void btnCreateCategory_Click(object sender, EventArgs e)
         {
-            CreateCategory createCategory = new CreateCategory(user);
-            createCategory.Show();
-            this.Hide();
+            //CreateCategory createCategory = new CreateCategory(user);
+            //createCategory.Show();
+            //this.Hide();
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            
-            Form1 frm = new Form1(user);
-            frm.Show();
+
+            //Form1 frm = new Form1(user);
+            //frm.Show();
+            //this.Hide();
+            MainFormDeneme mainForm = new MainFormDeneme(user);
+
+            mainForm.Show();
             this.Hide();
         }
     }
