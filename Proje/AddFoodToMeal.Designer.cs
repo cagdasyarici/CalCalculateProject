@@ -37,14 +37,12 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnDeleteMeals = new FontAwesome.Sharp.IconButton();
             this.dgvMealDetails = new System.Windows.Forms.DataGridView();
-            this.btn_Delete = new System.Windows.Forms.Button();
             this.dgvFoodList = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddMealDetails = new FontAwesome.Sharp.IconButton();
             this.txtGrams = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnAddMealDetail = new System.Windows.Forms.Button();
             this.ıconButton1 = new FontAwesome.Sharp.IconButton();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMealDetails)).BeginInit();
@@ -56,12 +54,13 @@
             // 
             this.groupBox4.Controls.Add(this.btnDeleteMeals);
             this.groupBox4.Controls.Add(this.dgvMealDetails);
-            this.groupBox4.Controls.Add(this.btn_Delete);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.groupBox4.Location = new System.Drawing.Point(44, 50);
+            this.groupBox4.Location = new System.Drawing.Point(63, 83);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(489, 370);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox4.Size = new System.Drawing.Size(699, 617);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Meal Details";
@@ -79,12 +78,14 @@
             this.btnDeleteMeals.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDeleteMeals.IconSize = 32;
             this.btnDeleteMeals.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteMeals.Location = new System.Drawing.Point(263, 295);
+            this.btnDeleteMeals.Location = new System.Drawing.Point(503, 495);
+            this.btnDeleteMeals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDeleteMeals.Name = "btnDeleteMeals";
-            this.btnDeleteMeals.Size = new System.Drawing.Size(131, 32);
+            this.btnDeleteMeals.Size = new System.Drawing.Size(187, 51);
             this.btnDeleteMeals.TabIndex = 31;
             this.btnDeleteMeals.Text = "       Delete";
             this.btnDeleteMeals.UseVisualStyleBackColor = false;
+            this.btnDeleteMeals.Click += new System.EventHandler(this.btnDeleteMeals_Click);
             // 
             // dgvMealDetails
             // 
@@ -111,7 +112,8 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMealDetails.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMealDetails.EnableHeadersVisualStyles = false;
-            this.dgvMealDetails.Location = new System.Drawing.Point(6, 22);
+            this.dgvMealDetails.Location = new System.Drawing.Point(9, 37);
+            this.dgvMealDetails.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvMealDetails.MultiSelect = false;
             this.dgvMealDetails.Name = "dgvMealDetails";
             this.dgvMealDetails.ReadOnly = true;
@@ -125,21 +127,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvMealDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMealDetails.RowHeadersVisible = false;
+            this.dgvMealDetails.RowHeadersWidth = 62;
             this.dgvMealDetails.RowTemplate.Height = 35;
             this.dgvMealDetails.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMealDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMealDetails.Size = new System.Drawing.Size(477, 254);
+            this.dgvMealDetails.Size = new System.Drawing.Size(681, 423);
             this.dgvMealDetails.TabIndex = 9;
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.Location = new System.Drawing.Point(400, 298);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(75, 27);
-            this.btn_Delete.TabIndex = 8;
-            this.btn_Delete.Text = "Delete";
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // dgvFoodList
             // 
@@ -166,7 +159,8 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFoodList.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvFoodList.EnableHeadersVisualStyles = false;
-            this.dgvFoodList.Location = new System.Drawing.Point(6, 55);
+            this.dgvFoodList.Location = new System.Drawing.Point(9, 92);
+            this.dgvFoodList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvFoodList.MultiSelect = false;
             this.dgvFoodList.Name = "dgvFoodList";
             this.dgvFoodList.ReadOnly = true;
@@ -180,10 +174,11 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvFoodList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFoodList.RowHeadersVisible = false;
+            this.dgvFoodList.RowHeadersWidth = 62;
             this.dgvFoodList.RowTemplate.Height = 35;
             this.dgvFoodList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFoodList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFoodList.Size = new System.Drawing.Size(658, 254);
+            this.dgvFoodList.Size = new System.Drawing.Size(940, 423);
             this.dgvFoodList.TabIndex = 13;
             // 
             // groupBox2
@@ -193,12 +188,13 @@
             this.groupBox2.Controls.Add(this.txtGrams);
             this.groupBox2.Controls.Add(this.txtSearch);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.btnAddMealDetail);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.groupBox2.Location = new System.Drawing.Point(539, 50);
+            this.groupBox2.Location = new System.Drawing.Point(770, 83);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(670, 370);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(957, 617);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Food List";
@@ -216,20 +212,23 @@
             this.btnAddMealDetails.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddMealDetails.IconSize = 32;
             this.btnAddMealDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddMealDetails.Location = new System.Drawing.Point(503, 323);
+            this.btnAddMealDetails.Location = new System.Drawing.Point(703, 543);
+            this.btnAddMealDetails.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddMealDetails.Name = "btnAddMealDetails";
-            this.btnAddMealDetails.Size = new System.Drawing.Size(161, 32);
+            this.btnAddMealDetails.Size = new System.Drawing.Size(230, 43);
             this.btnAddMealDetails.TabIndex = 32;
             this.btnAddMealDetails.Text = "       Add Meal Detail";
             this.btnAddMealDetails.UseVisualStyleBackColor = false;
+            this.btnAddMealDetails.Click += new System.EventHandler(this.btnAddMealDetails_Click);
             // 
             // txtGrams
             // 
             this.txtGrams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtGrams.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGrams.Location = new System.Drawing.Point(229, 329);
+            this.txtGrams.Location = new System.Drawing.Point(515, 554);
+            this.txtGrams.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGrams.Name = "txtGrams";
-            this.txtGrams.Size = new System.Drawing.Size(115, 22);
+            this.txtGrams.Size = new System.Drawing.Size(164, 32);
             this.txtGrams.TabIndex = 12;
             // 
             // txtSearch
@@ -237,9 +236,10 @@
             this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtSearch.Location = new System.Drawing.Point(481, 22);
+            this.txtSearch.Location = new System.Drawing.Point(687, 37);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(183, 22);
+            this.txtSearch.Size = new System.Drawing.Size(261, 32);
             this.txtSearch.TabIndex = 6;
             this.txtSearch.Text = "Search...";
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
@@ -248,22 +248,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 329);
+            this.label2.Location = new System.Drawing.Point(135, 554);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 21);
+            this.label2.Size = new System.Drawing.Size(339, 32);
             this.label2.TabIndex = 11;
             this.label2.Text = "How many grams did you eat?";
-            // 
-            // btnAddMealDetail
-            // 
-            this.btnAddMealDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddMealDetail.Location = new System.Drawing.Point(350, 325);
-            this.btnAddMealDetail.Name = "btnAddMealDetail";
-            this.btnAddMealDetail.Size = new System.Drawing.Size(147, 30);
-            this.btnAddMealDetail.TabIndex = 8;
-            this.btnAddMealDetail.Text = "Add Meal Detail";
-            this.btnAddMealDetail.UseVisualStyleBackColor = true;
-            this.btnAddMealDetail.Click += new System.EventHandler(this.btnAddMealDetail_Click);
             // 
             // ıconButton1
             // 
@@ -274,23 +264,25 @@
             this.ıconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.ıconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ıconButton1.IconSize = 32;
-            this.ıconButton1.Location = new System.Drawing.Point(6, 12);
+            this.ıconButton1.Location = new System.Drawing.Point(9, 20);
+            this.ıconButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ıconButton1.Name = "ıconButton1";
-            this.ıconButton1.Size = new System.Drawing.Size(46, 41);
+            this.ıconButton1.Size = new System.Drawing.Size(66, 68);
             this.ıconButton1.TabIndex = 18;
             this.ıconButton1.UseVisualStyleBackColor = false;
             this.ıconButton1.Click += new System.EventHandler(this.ıconButton1_Click);
             // 
             // AddFoodToMeal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1259, 432);
+            this.ClientSize = new System.Drawing.Size(1799, 720);
             this.Controls.Add(this.ıconButton1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddFoodToMeal";
             this.Text = "AddFoodToMeal";
             this.Load += new System.EventHandler(this.AddFoodToMeal_Load);
@@ -313,8 +305,6 @@
         private TextBox txtSearch;
         private Label label2;
         private Button button1;
-        private Button btnAddMealDetail;
-        private Button btn_Delete;
         private DataGridView dgv_MealDetails;
         private DataGridView dgvFoodList;
         private FontAwesome.Sharp.IconButton btnDeleteMeals;

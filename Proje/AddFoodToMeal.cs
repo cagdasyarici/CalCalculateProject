@@ -67,93 +67,6 @@ namespace Proje
 
         }
 
-        private void btnAddMealDetail_Click(object sender, EventArgs e)
-        {
-
-            #region Yeni Kısım 
-
-            if (CheckGramCount(txtGrams.Text))
-            {
-                meal.FoodMeals.Clear(); // todo: Çağdaşa bu kısmı sor.Böyle olması sorun çıkarmıyor mu ?(Yuşa)
-
-                Food? selectedFood = dgvFoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
-                FoodServices foodServices = new FoodServices();
-                Food food = foodServices.FindEntity(selectedFood.FoodID);
-                
-                meal.FoodMeals.Add(new FoodMeal()
-                {
-                    //MealID = meal.MealID,
-                    //FoodID = selectedFood.FoodID, BUNLARA GEREK YOK SANIRIM. DENEME AMAÇLI.
-                    //Meal = meal,
-                    Food = food,
-                    Grams = int.Parse(txtGrams.Text)
-                    
-                    
-                });
-
-                MealServices mealServices = new MealServices();
-                mealServices.AttachEntity(meal);
-
-                var mealList = mealServices.ListeOlustur(meal);
-
-                ListMealRefresh(mealList);
-            }
-
-            else
-            {
-                MessageBox.Show("Please enter a proper value", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-          
-
-            #endregion
-
-        }
-
-        private void btn_Delete_Click(object sender, EventArgs e)
-        {
-
-            #region Yeni Kısım
-            //string foodDetail = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem.ToString();
-
-            //int FoodID = Convert.ToInt32((foodDetail[foodDetail.Length - 3]).ToString());
-
-
-            try
-            {
-                TempFood? tmpFood = dgvMealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
-                int FoodID = 0;
-
-
-                FoodID = tmpFood.FoodID;
-
-                FoodMealServices foodMealServices = new FoodMealServices();
-
-                FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
-                foodMealServices.DatabaseRemove(selectedFoodMeal2);
-
-
-                MealServices mealServices = new MealServices();
-                var mealList = mealServices.ListeOlustur(meal);
-
-                ListMealRefresh(mealList);
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-
-                MessageBox.Show("Please,choose a food to delete from Meal Details Table");
-            }
-          
-            catch (Exception)
-            {
-
-                MessageBox.Show("Error","",MessageBoxButtons.OK,MessageBoxIcon.Error); //todo: daha sonra uygun bi yazı düşün (yuşa)
-            }
-          
-           
-            #endregion
-
-        }
-
         private void txtSearch_Click(object sender, EventArgs e)
         {
             txtSearch.Text = "";
@@ -226,6 +139,89 @@ namespace Proje
             frm.Show();
             this.Close();
 
+        }
+
+        private void btnAddMealDetails_Click(object sender, EventArgs e)
+        {
+            #region Yeni Kısım 
+
+            if (CheckGramCount(txtGrams.Text))
+            {
+                meal.FoodMeals.Clear(); // todo: Çağdaşa bu kısmı sor.Böyle olması sorun çıkarmıyor mu ?(Yuşa)
+
+                Food? selectedFood = dgvFoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
+                FoodServices foodServices = new FoodServices();
+                Food food = foodServices.FindEntity(selectedFood.FoodID);
+
+                meal.FoodMeals.Add(new FoodMeal()
+                {
+                    //MealID = meal.MealID,
+                    //FoodID = selectedFood.FoodID, BUNLARA GEREK YOK SANIRIM. DENEME AMAÇLI.
+                    //Meal = meal,
+                    Food = food,
+                    Grams = int.Parse(txtGrams.Text)
+
+
+                });
+
+                MealServices mealServices = new MealServices();
+                mealServices.AttachEntity(meal);
+
+                var mealList = mealServices.ListeOlustur(meal);
+
+                ListMealRefresh(mealList);
+            }
+
+            else
+            {
+                MessageBox.Show("Please enter a proper value", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            #endregion
+        }
+
+        private void btnDeleteMeals_Click(object sender, EventArgs e)
+        {
+            #region Yeni Kısım
+            //string foodDetail = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem.ToString();
+
+            //int FoodID = Convert.ToInt32((foodDetail[foodDetail.Length - 3]).ToString());
+
+
+            try
+            {
+                TempFood? tmpFood = dgvMealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
+                int FoodID = 0;
+
+
+                FoodID = tmpFood.FoodID;
+
+                FoodMealServices foodMealServices = new FoodMealServices();
+
+                FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
+                foodMealServices.DatabaseRemove(selectedFoodMeal2);
+
+
+                MealServices mealServices = new MealServices();
+                var mealList = mealServices.ListeOlustur(meal);
+
+                ListMealRefresh(mealList);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+                MessageBox.Show("Please,choose a food to delete from Meal Details Table");
+            }
+
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error", "", MessageBoxButtons.OK, MessageBoxIcon.Error); //todo: daha sonra uygun bi yazı düşün (yuşa)
+            }
+
+
+            #endregion
         }
     }
 }
