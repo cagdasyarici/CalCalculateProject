@@ -13,6 +13,12 @@ namespace CalCalculatorBLL
     public class MealServices : BaseRepository<Meal>
     {
         CalCalculateDB _db;
+
+        /// <summary>
+        /// ID'si girilen kullanıcıya girilen isimde bir Meal ekler
+        /// </summary>
+        /// <param name="mealName"></param>
+        /// <param name="userId"></param>
         public void CreateMeal(string mealName, int userId)
         {
             using (_db = new CalCalculateDB())
@@ -28,11 +34,24 @@ namespace CalCalculatorBLL
             }
 
         }
+        /// <summary>
+        /// Girilen kullanıcının girilen tarihteki meal'larını bulur 
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="user"></param>
+        /// <returns>Bulunan meal'ları Meal Listesi olarak döner</returns>
         public List<Meal> SearchByDate(DateTime date, User user)
         {
             return QueryableList().Where(x => x.CreateTime.Date == date.Date && x.ContactUserID == user.UserID).ToList();
         }
 
+        /// <summary>
+        /// Girilen kullanıcının,girilen iki tarih arasındaki meal'larını bulur
+        /// </summary>
+        /// <param name="date1"></param>
+        /// <param name="date2"></param>
+        /// <param name="user"></param>
+        /// <returns>Bulunan mealları Meal Listesi olarak döndürür</returns>
         public List<Meal> SearchByDate(DateTime date1, DateTime date2, User user)
         {
 
