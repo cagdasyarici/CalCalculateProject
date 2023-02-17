@@ -53,25 +53,9 @@ namespace Proje
             dataGridViewColumn.HeaderText = "Category";
             dataGridViewColumn.ValueType = typeof(String);
             dataGridViewColumn.CellTemplate = new DataGridViewTextBoxCell();
-            
             dgvFoodList.Columns.Add(dataGridViewColumn);
-            dgvFoodList.Columns["Category1"].Visible = true;
-            int columnIndex = dgvFoodList.Columns["Category1"].Index;
-            int categoryID;
-            Food food;
-            Category category;
-            CategoryServices categoryServices = new CategoryServices();
-            //for(int i=0; i < dgvFoodList.Rows.Count; i++) 
-            //{
-            //    food = foodServices.FindEntity((int)dgvFoodList.Rows[i].Cells[0].Value);
-            //    categoryID= food.CategoryId;
-            //    category = categoryServices.FindEntity(categoryID);
-            //    dgvFoodList.Rows[i].Cells[columnIndex].Value = category.CategoryName;
+            dgvFoodList.Rows[0].Cells[4].Value = "değer";
 
-
-            //}
-            dgvFoodList.Rows[0].Cells[columnIndex].Value = "sdfasdf";
-            dgvFoodList.Refresh();
 
 
             #endregion
