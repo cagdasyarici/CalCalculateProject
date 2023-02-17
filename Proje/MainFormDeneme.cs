@@ -135,5 +135,12 @@ namespace Proje
                 this.Close();
             }
         }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            Statistics statistics = new Statistics(user);
+            statistics.Show();
+            this.Hide(); //todo:Duruma göre Close'a çevir
+        }
     }
 }
