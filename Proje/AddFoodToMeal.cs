@@ -48,13 +48,13 @@ namespace Proje
             dgvFoodList.Columns["CategoryID"].Visible = false;
             dgvFoodList.Columns["FoodMeals"].Visible = false;
             dgvFoodList.Columns["Category"].Visible = false;
-            DataGridViewColumn dataGridViewColumn = new DataGridViewColumn();
-            dataGridViewColumn.Name = "Category1";
-            dataGridViewColumn.HeaderText = "Category";
-            dataGridViewColumn.ValueType = typeof(String);
-            dataGridViewColumn.CellTemplate = new DataGridViewTextBoxCell();
-            dgvFoodList.Columns.Add(dataGridViewColumn);
-            dgvFoodList.Rows[0].Cells[4].Value = "değer";
+            //DataGridViewColumn dataGridViewColumn = new DataGridViewColumn();
+            //dataGridViewColumn.Name = "Category1";
+            //dataGridViewColumn.HeaderText = "Category";
+            //dataGridViewColumn.ValueType = typeof(String);
+            //dataGridViewColumn.CellTemplate = new DataGridViewTextBoxCell();
+            //dgvFoodList.Columns.Add(dataGridViewColumn);
+            //dgvFoodList.Rows[0].Cells[4].Value = "değer";
 
 
 

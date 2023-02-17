@@ -365,6 +365,7 @@
             this.IsMdiContainer = true;
             this.Name = "MainFormDeneme";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainFormDeneme";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainFormDeneme_KeyDown);
             this.sidebarContainer.ResumeLayout(false);

@@ -32,8 +32,8 @@ namespace Proje
             dataGridView1.Columns["User"].Visible = false;
             dataGridView1.Columns["FoodMeals"].Visible = false;
             dataGridView1.Columns["ContactUserID"].Visible = false;
-            if (!totalCalorieBrought)
-            {
+            //if (!totalCalorieBrought)
+            //{
                 //totalCalorieBrought = true;
                 //dataGridView1.Columns.Add("TotalCalorie", "Total Calorie");
                 //List<int> mealIDs =  mealServices.QueryableList().Select(x=>x.MealID).ToList();
@@ -46,7 +46,7 @@ namespace Proje
                 //        break;
                 //    }
                 //}
-            }
+            //}
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

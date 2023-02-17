@@ -90,7 +90,7 @@ namespace Proje
 
         private void btnShutDown_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Şifre değiştirmeden çıkmak istediğinize emin misiniz?", "Çıkış", MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show("Üyelik oluşturmadan çıkmak istediğinize emin misiniz?", "Çıkış", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK) // OK butonuna basıldı
             {
                 // Uygulamayı kapat

@@ -306,6 +306,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.Name = "AdminPanelDeneme";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanelDeneme";
             this.sidebarContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
