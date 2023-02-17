@@ -1,5 +1,6 @@
 ﻿using CalCalculatorDAL;
 using CalCalculatorEntities;
+using CalCalculatorEntities.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,14 @@ namespace Proje
                     }
 
                     txtTopcal.Text = TopCal.ToString();
+                }
+
+
+                if (rdnCategories.Checked==true)
+                {
+                    TempCategoryStatistics tmp = new();
+
+
                 }
             }
         }
