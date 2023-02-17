@@ -47,6 +47,18 @@
             this.btnRemoveCategoryy = new FontAwesome.Sharp.IconButton();
             this.dgvFood = new System.Windows.Forms.DataGridView();
             this.grpFoodInformations = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.grpFoodInformations.SuspendLayout();
             this.SuspendLayout();
@@ -205,7 +217,7 @@
             this.btnAddCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddCategoryy.Location = new System.Drawing.Point(37, 298);
             this.btnAddCategoryy.Name = "btnAddCategoryy";
-            this.btnAddCategoryy.Size = new System.Drawing.Size(245, 34);
+            this.btnAddCategoryy.Size = new System.Drawing.Size(258, 34);
             this.btnAddCategoryy.TabIndex = 24;
             this.btnAddCategoryy.Text = "       Add Food Into Database";
             this.btnAddCategoryy.UseVisualStyleBackColor = false;
@@ -224,7 +236,7 @@
             this.btnRemoveCategoryy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRemoveCategoryy.IconSize = 32;
             this.btnRemoveCategoryy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveCategoryy.Location = new System.Drawing.Point(318, 298);
+            this.btnRemoveCategoryy.Location = new System.Drawing.Point(321, 298);
             this.btnRemoveCategoryy.Name = "btnRemoveCategoryy";
             this.btnRemoveCategoryy.Size = new System.Drawing.Size(277, 34);
             this.btnRemoveCategoryy.TabIndex = 23;
@@ -292,12 +304,151 @@
             this.grpFoodInformations.TabStop = false;
             this.grpFoodInformations.Text = "Food Informations";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(174, 246);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 29);
+            this.comboBox1.TabIndex = 37;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(174, 206);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 22);
+            this.textBox1.TabIndex = 32;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(174, 165);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 22);
+            this.textBox2.TabIndex = 33;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(174, 126);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(121, 22);
+            this.textBox3.TabIndex = 34;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.label8.Location = new System.Drawing.Point(57, 246);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 20);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Category:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.label9.Location = new System.Drawing.Point(64, 205);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 20);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Calories:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox4.Location = new System.Drawing.Point(174, 86);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(121, 22);
+            this.textBox4.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.label10.Location = new System.Drawing.Point(102, 165);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 20);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Fat:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox5.Location = new System.Drawing.Point(174, 48);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(121, 22);
+            this.textBox5.TabIndex = 36;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.label11.Location = new System.Drawing.Point(72, 126);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 20);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "Protein:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.label12.Location = new System.Drawing.Point(11, 86);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(132, 20);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Carbonhydrate:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.label13.Location = new System.Drawing.Point(37, 48);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(106, 20);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Food Name:";
+            // 
             // CreateFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(620, 655);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.btnAddCategoryy);
             this.Controls.Add(this.btnRemoveCategoryy);
@@ -333,5 +484,17 @@
         private FontAwesome.Sharp.IconButton btnRemoveCategoryy;
         private DataGridView dgvFood;
         private GroupBox grpFoodInformations;
+        private ComboBox comboBox1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private Label label8;
+        private Label label9;
+        private TextBox textBox4;
+        private Label label10;
+        private TextBox textBox5;
+        private Label label11;
+        private Label label12;
+        private Label label13;
     }
 }
