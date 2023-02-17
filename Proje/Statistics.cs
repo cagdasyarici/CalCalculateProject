@@ -1,6 +1,7 @@
 ﻿using CalCalculatorDAL;
 using CalCalculatorEntities;
 using CalCalculatorEntities.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +18,11 @@ namespace Proje
     {
         CalCalculateDB _db;
         User user;
-        
+
 
         public Statistics(User currentUser)
         {
-            user= currentUser;
+            user = currentUser;
             InitializeComponent();
         }
 
@@ -29,31 +30,41 @@ namespace Proje
         {
             using (_db = new())
             {
-                if (rdnToplamCal.Checked==true)
+                //if (rdnToplamCal.Checked == true)
+                //{
+                //    /// user'ın meal listesine ulaş 
+                //    /// tarihe göre ayıkla(Created Time)
+                //    /// 
+                //    double TopCal = 0;
+                //    //var sonuc = user.Meals.Where(x => x.CreateTime <= dtpEndDate.Value && x.CreateTime>=dtpStartDate.Value).ToList();
+                //    List<Meal> selectedMeals = _db.Meals.Where(x => x.CreateTime.Day <= dtpEndDate.Value.Day && x.CreateTime.Day >= dtpStartDate.Value.Day && x.ContactUserID == user.UserID).ToList();
+
+                //    foreach (Meal item in selectedMeals)
+                //    {
+                //        TopCal = item.TotalCalorie + TopCal;
+                //    }
+
+                //    txtTopcal.Text = TopCal.ToString();
+                //}
+
+
+                if (rdnCategories.Checked == true)
                 {
-                    /// user'ın meal listesine ulaş 
-                    /// tarihe göre ayıkla(Created Time)
-                    /// 
-                    double TopCal = 0;
-                   //var sonuc = user.Meals.Where(x => x.CreateTime <= dtpEndDate.Value && x.CreateTime>=dtpStartDate.Value).ToList();
-                   List<Meal> selectedMeals = _db.Meals.Where(x => x.CreateTime <= dtpEndDate.Value && x.CreateTime>=dtpStartDate.Value&& x.ContactUserID==user.UserID).ToList();
-                   
-                    foreach (Meal item in selectedMeals)
+                    TempCategoryStatistics temp = new();
+
+                    List<Meal> mealList = _db.Meals.Where(x => x.CreateTime.Day <= dtpEndDate.Value.Day && x.CreateTime.Day >= dtpStartDate.Value.Day && x.ContactUserID == user.UserID).ToList();
+
+                    foreach (var item in mealList)
                     {
-                        TopCal = item.TotalCalorie + TopCal;
+                        
                     }
 
-                    txtTopcal.Text = TopCal.ToString();
-                }
-
-
-                if (rdnCategories.Checked==true)
-                {
-                    TempCategoryStatistics tmp = new();
-
 
                 }
+
+
             }
         }
+
     }
 }

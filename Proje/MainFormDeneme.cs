@@ -140,7 +140,7 @@ namespace Proje
         {
             Statistics statistics = new Statistics(user);
             statistics.Show();
-            this.Hide(); //todo:Duruma göre Close'a çevir
+            this.Close(); 
         }
 
         private void MainFormDeneme_KeyDown(object sender, KeyEventArgs e)
