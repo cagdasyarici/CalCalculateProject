@@ -18,7 +18,7 @@ namespace Proje
 {
     public partial class AddFoodToMeal : Form
     {
-
+        CalCalculateDB _db;
 
 
         IList<Food> foodListDgv;
@@ -116,52 +116,51 @@ namespace Proje
 
         private void btnAddMeal_Click(object sender, EventArgs e) // todo: Deniz Sanırım ben bunun buttonunu sildim (Yuşa)
         {
-            
+
         }
 
-        private void ıconButton1_Click(object sender, EventArgs e)
+        private void ıconButton1_Click(object sender, EventArgs e) // todo:İsmi düzelt
         {
             Form1 MealForm = new(user, mainFormDeneme);
             MealForm.MdiParent = mainFormDeneme;
-            int height = MealForm.Height+35;
-            int width = MealForm.Width+238;
+            int height = MealForm.Height + 35;
+            int width = MealForm.Width + 238;
             mainFormDeneme.Size = new Size(width, height);
             MealForm.Show();
             this.Close();
         }
 
-        private void btnAddMealDetails_Click(object sender, EventArgs e)
+        private void btnAddMealDetails_Click(object sender, EventArgs e)  // todo:2 tane food eklenince hata veriyor 
         {
             #region Yeni Kısım 
             MealServices mealServices = new MealServices();
             if (CheckGramCount(txtGrams.Text))
             {
-                meal.FoodMeals.Clear(); // todo: Çağdaşa bu kısmı sor.Böyle olması sorun çıkarmıyor mu ?(Yuşa)
-
                 Food? selectedFood = dgvFoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
                 FoodServices foodServices = new FoodServices();
-                Food food = foodServices.FindEntity(selectedFood.FoodID);
+                Food food = foodServices.FindEntity(selectedFood.FoodID); // todo:Bu kodun amacı nedir ? Buraya tekrar bak
+
+                /// buraya başka food var mı kontrolü yapıcam
+             
+                    meal.FoodMeals.Add(new FoodMeal()
+                    {
+                        //MealID = meal.MealID,
+                        //FoodID = selectedFood.FoodID, BUNLARA GEREK YOK SANIRIM. DENEME AMAÇLI.
+                        //Meal = meal,
+                        Food = food,
+                        Grams = int.Parse(txtGrams.Text)
 
 
-               
-
-                meal.FoodMeals.Add(new FoodMeal()
-                {
-                    //MealID = meal.MealID,
-                    //FoodID = selectedFood.FoodID, BUNLARA GEREK YOK SANIRIM. DENEME AMAÇLI.
-                    //Meal = meal,
-                    Food = food,
-                    Grams = int.Parse(txtGrams.Text)
+                    });
 
 
-                });
+                    mealServices.AttachEntity(meal);
 
-                
-                mealServices.AttachEntity(meal);
+                    var mealList = mealServices.ListeOlustur(meal);
 
-                var mealList = mealServices.ListeOlustur(meal);
-
-                ListMealRefresh(mealList);
+                    ListMealRefresh(mealList);
+   
+             
             }
 
             else
@@ -174,7 +173,7 @@ namespace Proje
                 sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
             }
             meal.TotalCalorie = sum;
-            
+
             mealServices.UpdateEntity(meal);
 
             #endregion
@@ -221,6 +220,27 @@ namespace Proje
 
 
             #endregion
+        }
+
+        /// <summary>
+        /// Seçilen Food'un Meal Detail Listesinde Olup olmaığını kontrol eder
+        /// </summary>
+        /// <param name="selectedFood"></param>
+        /// <param name="selectedMeal"></param>
+        /// <returns>Food listede zaten mevcutsa True,Değilse False döndürür</returns>
+        public bool CheckIsFoodNameExist(Food selectedFood)
+        {
+            using (_db = new())
+            {
+                var item1 = dgvMealDetails.DataSource as List<TempFood>;
+
+
+
+
+
+                return true;
+            }
+
         }
     }
 }
