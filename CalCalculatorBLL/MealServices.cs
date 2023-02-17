@@ -100,11 +100,11 @@ namespace CalCalculatorBLL
         /// </summary>
         /// <param name="mealName"></param>
         /// <returns>Eğer girilen mealName database'de mevcutsa True,değilse False değer döner</returns>
-        public bool CheckIsMealNameExist(string mealName)
+        public bool CheckIsMealNameExist(string mealName,User user)
         {
             using (_db=new())
             {
-                if (_db.Meals.Any(x=>x.MealName.Equals(mealName)))
+                if (_db.Meals.Where(x=>x.ContactUserID==user.UserID).Any(x=>x.MealName.Equals(mealName)))
                 {
                     return true;
                 }
