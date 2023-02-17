@@ -205,6 +205,14 @@ namespace Proje
                 var mealList = mealServices.ListeOlustur(meal);
 
                 ListMealRefresh(mealList);
+                double sum = 0;
+                for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
+                {
+                    sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
+                }
+                meal.TotalCalorie = sum;
+
+                mealServices.UpdateEntity(meal);
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -217,7 +225,7 @@ namespace Proje
 
                 MessageBox.Show("Error", "", MessageBoxButtons.OK, MessageBoxIcon.Error); //todo: daha sonra uygun bi yazı düşün (yuşa)
             }
-
+            
 
             #endregion
         }
