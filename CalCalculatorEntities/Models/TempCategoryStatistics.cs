@@ -12,5 +12,6 @@ namespace CalCalculatorEntities.Models
         public double TotalColaries { get; set; }
         public double AverageCalories { get; set; }
 
+        public DateTime Date { get; set; }
     }
 }
