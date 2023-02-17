@@ -38,6 +38,7 @@ namespace Proje
             if (sidebarExpand)
             {
                 sidebarContainer.Width -= 10;
+                this.Width-= 10;
                 if (sidebarContainer.Width == sidebarContainer.MinimumSize.Width)
                 {
                     sidebarExpand = false;
@@ -47,6 +48,7 @@ namespace Proje
             else
             {
                 sidebarContainer.Width += 10;
+                this.Width += 10;
                 if (sidebarContainer.Width == sidebarContainer.MaximumSize.Width)
                 {
                     sidebarExpand = true;
