@@ -15,7 +15,7 @@ using System.Windows.Media;
 
 namespace Proje
 {
-    public partial class Statistics : Form
+    public partial class Statistics : Form   // todo:Bu kısımdaki tarihleri tekrar gözden geçir
     {
         CalCalculateDB _db;
         User user;
@@ -55,22 +55,22 @@ namespace Proje
 
                     List<Meal> mealList = _db.Meals.Where(x => x.CreateTime.Day <= dtpEndDate.Value.Day && x.CreateTime.Day >= dtpStartDate.Value.Day && x.ContactUserID == user.UserID).ToList();
 
-                    DateTime startDate = new DateTime(2023, 2, 1);
-                    DateTime endDate = new DateTime(2023, 2, 20);
+                    DateTime startDate = dtpStartDate.Value;
+                    DateTime endDate = dtpEndDate.Value;
 
-                    var categoryCalories = from meal in _db.Meals
+                    var categoryCalories = from meal in _db.Meals.Where(x=>x.ContactUserID==user.UserID)
                                            where meal.CreateTime >= startDate && meal.CreateTime <= endDate
                                            join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                            join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                            join category in _db.Categories on food.CategoryId equals category.CategoryId
                                            group foodMeal by category.CategoryName into g
                                            select new {
-                                               Category = g.Key,
+                                               Category = g.Key,  //todo: Aşırı önemli Nokta
                                                //TotalCalories = g.Sum(f => f.FoodCal * (_db.FoodMeals.Where(x => x.FoodID == f.FoodID).FirstOrDefault().Grams)) 
-                                               kalori = g.Sum(x=>x.Grams/100*(x.Food.FoodCal))
+                                               Calories = g.Sum(x=>x.Grams/100*(x.Food.FoodCal))
                        };
 
-                    dgvStatisticsTabşe.DataSource= categoryCalories.ToList();
+                    dgvStatisticsTable.DataSource= categoryCalories.ToList();
 
                 }
 
