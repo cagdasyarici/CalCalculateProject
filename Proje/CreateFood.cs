@@ -16,8 +16,9 @@ namespace Proje
     public partial class CreateFood : Form
     {
         User user;
-        public CreateFood()
         bool categorySelected;
+        public CreateFood()
+        
         {
             InitializeComponent();
             CategoryServices categoryServices = new CategoryServices();
