@@ -49,11 +49,14 @@
             this.flowLayoutPanel1.Controls.Add(this.btnShutDown);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.flowLayoutPanel1.Size = new System.Drawing.Size(700, 24);
             this.flowLayoutPanel1.TabIndex = 5;
+            this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AdminPanel_MouseDown);
+            this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AdminPanel_MouseMove);
+            this.flowLayoutPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AdminPanel_MouseUp);
             // 
             // btnShutDown
             // 
@@ -65,7 +68,7 @@
             this.btnShutDown.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnShutDown.IconSize = 24;
             this.btnShutDown.Location = new System.Drawing.Point(674, 2);
-            this.btnShutDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShutDown.Margin = new System.Windows.Forms.Padding(2);
             this.btnShutDown.Name = "btnShutDown";
             this.btnShutDown.Size = new System.Drawing.Size(24, 22);
             this.btnShutDown.TabIndex = 0;

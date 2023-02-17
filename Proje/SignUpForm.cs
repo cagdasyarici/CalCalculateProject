@@ -43,7 +43,7 @@ namespace Proje
                     {
                         MessageBox.Show("User name or E-mail is already used");
                     }
-                    
+
                     this.Hide();
                 }
                 else if (!result)
@@ -65,10 +65,37 @@ namespace Proje
             }
             else
             {
-                MessageBox.Show("Please Fill Information Boxes","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Please Fill Information Boxes", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-           
         }
-        
+             private Point lastPoint; // Son konum bilgisini tutmak için bir değişken tanımlıyoruz.
+        private void AdminPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y); // Son konum bilgisini alıyoruz.
+        }
+
+        private void AdminPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) // Sol fare düğmesine basılırsa formun konumu değiştiriliyor.
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void AdminPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
+        }
+
+        private void btnShutDown_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Şifre değiştirmeden çıkmak istediğinize emin misiniz?", "Çıkış", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK) // OK butonuna basıldı
+            {
+                // Uygulamayı kapat
+                this.Close();
+            }
+        }
     }
 }

@@ -236,5 +236,29 @@ namespace Proje
                 this.Close();
             }
         }
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private Point lastPoint; // Son konum bilgisini tutmak için bir değişken tanımlıyoruz.
+        private void AdminPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y); // Son konum bilgisini alıyoruz.
+        }
+
+        private void AdminPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) // Sol fare düğmesine basılırsa formun konumu değiştiriliyor.
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void AdminPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
+        }
     }
 }
