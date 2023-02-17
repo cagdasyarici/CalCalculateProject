@@ -64,7 +64,7 @@
             this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 2000);
             this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 480);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(233, 480);
+            this.sidebarContainer.Size = new System.Drawing.Size(80, 480);
             this.sidebarContainer.TabIndex = 0;
             // 
             // panel1
@@ -292,10 +292,10 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.flowLayoutPanel1.Controls.Add(this.btnShutDown);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(233, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(893, 30);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // btnShutDown
@@ -307,7 +307,7 @@
             this.btnShutDown.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.btnShutDown.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnShutDown.IconSize = 24;
-            this.btnShutDown.Location = new System.Drawing.Point(702, 3);
+            this.btnShutDown.Location = new System.Drawing.Point(855, 3);
             this.btnShutDown.Name = "btnShutDown";
             this.btnShutDown.Size = new System.Drawing.Size(35, 27);
             this.btnShutDown.TabIndex = 0;
