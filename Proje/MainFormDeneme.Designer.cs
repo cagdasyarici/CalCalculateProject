@@ -46,6 +46,8 @@
             this.homeTimer = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnShutDown = new FontAwesome.Sharp.IconButton();
+            this.btnMaximizeMinimize = new FontAwesome.Sharp.IconButton();
+            this.btnMinimize = new FontAwesome.Sharp.IconButton();
             this.sidebarContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homeContainer.SuspendLayout();
@@ -61,21 +63,19 @@
             this.sidebarContainer.Controls.Add(this.HelpAboutContainer);
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
-            this.sidebarContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.sidebarContainer.MaximumSize = new System.Drawing.Size(333, 3333);
-            this.sidebarContainer.MinimumSize = new System.Drawing.Size(114, 800);
+            this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 2000);
+            this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 480);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(114, 800);
+            this.sidebarContainer.Size = new System.Drawing.Size(80, 480);
             this.sidebarContainer.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.menuButton);
-            this.panel1.Location = new System.Drawing.Point(4, 5);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(324, 228);
+            this.panel1.Size = new System.Drawing.Size(227, 137);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -83,10 +83,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(136, 102);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(95, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 32);
+            this.label1.Size = new System.Drawing.Size(50, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "Menu";
             // 
@@ -99,10 +98,9 @@
             this.menuButton.IconChar = FontAwesome.Sharp.IconChar.Bars;
             this.menuButton.IconColor = System.Drawing.Color.White;
             this.menuButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuButton.Location = new System.Drawing.Point(27, 83);
-            this.menuButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.menuButton.Location = new System.Drawing.Point(19, 50);
             this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(59, 72);
+            this.menuButton.Size = new System.Drawing.Size(41, 43);
             this.menuButton.TabIndex = 1;
             this.menuButton.UseVisualStyleBackColor = true;
             this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
@@ -113,12 +111,11 @@
             this.homeContainer.Controls.Add(this.btnHome);
             this.homeContainer.Controls.Add(this.btnStatistics);
             this.homeContainer.Controls.Add(this.btnCalorieTracker);
-            this.homeContainer.Location = new System.Drawing.Point(4, 243);
-            this.homeContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.homeContainer.MaximumSize = new System.Drawing.Size(324, 293);
-            this.homeContainer.MinimumSize = new System.Drawing.Size(324, 88);
+            this.homeContainer.Location = new System.Drawing.Point(3, 146);
+            this.homeContainer.MaximumSize = new System.Drawing.Size(227, 176);
+            this.homeContainer.MinimumSize = new System.Drawing.Size(227, 53);
             this.homeContainer.Name = "homeContainer";
-            this.homeContainer.Size = new System.Drawing.Size(324, 293);
+            this.homeContainer.Size = new System.Drawing.Size(227, 176);
             this.homeContainer.TabIndex = 1;
             // 
             // ıconButton1
@@ -132,11 +129,10 @@
             this.ıconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ıconButton1.IconSize = 30;
             this.ıconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ıconButton1.Location = new System.Drawing.Point(4, 222);
-            this.ıconButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ıconButton1.Location = new System.Drawing.Point(3, 133);
             this.ıconButton1.Name = "ıconButton1";
-            this.ıconButton1.Padding = new System.Windows.Forms.Padding(64, 0, 0, 0);
-            this.ıconButton1.Size = new System.Drawing.Size(316, 63);
+            this.ıconButton1.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.ıconButton1.Size = new System.Drawing.Size(221, 38);
             this.ıconButton1.TabIndex = 4;
             this.ıconButton1.Text = "         YEDEK";
             this.ıconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -153,11 +149,10 @@
             this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHome.IconSize = 36;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 5);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnHome.Location = new System.Drawing.Point(0, 3);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(329, 78);
+            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(230, 47);
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "         Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,11 +171,10 @@
             this.btnStatistics.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStatistics.IconSize = 30;
             this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistics.Location = new System.Drawing.Point(4, 152);
-            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnStatistics.Location = new System.Drawing.Point(3, 91);
             this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Padding = new System.Windows.Forms.Padding(64, 0, 0, 0);
-            this.btnStatistics.Size = new System.Drawing.Size(316, 60);
+            this.btnStatistics.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.btnStatistics.Size = new System.Drawing.Size(221, 36);
             this.btnStatistics.TabIndex = 3;
             this.btnStatistics.Text = "         Statics";
             this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -199,11 +193,10 @@
             this.btnCalorieTracker.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCalorieTracker.IconSize = 30;
             this.btnCalorieTracker.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalorieTracker.Location = new System.Drawing.Point(4, 83);
-            this.btnCalorieTracker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCalorieTracker.Location = new System.Drawing.Point(3, 50);
             this.btnCalorieTracker.Name = "btnCalorieTracker";
-            this.btnCalorieTracker.Padding = new System.Windows.Forms.Padding(64, 0, 0, 0);
-            this.btnCalorieTracker.Size = new System.Drawing.Size(316, 58);
+            this.btnCalorieTracker.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.btnCalorieTracker.Size = new System.Drawing.Size(221, 35);
             this.btnCalorieTracker.TabIndex = 2;
             this.btnCalorieTracker.Text = "   Calorie Tracker";
             this.btnCalorieTracker.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -216,10 +209,9 @@
             this.HelpAboutContainer.Controls.Add(this.btnLogout);
             this.HelpAboutContainer.Controls.Add(this.btnHelp);
             this.HelpAboutContainer.Controls.Add(this.btnAbout);
-            this.HelpAboutContainer.Location = new System.Drawing.Point(4, 546);
-            this.HelpAboutContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 328);
             this.HelpAboutContainer.Name = "HelpAboutContainer";
-            this.HelpAboutContainer.Size = new System.Drawing.Size(324, 258);
+            this.HelpAboutContainer.Size = new System.Drawing.Size(227, 155);
             this.HelpAboutContainer.TabIndex = 6;
             // 
             // btnLogout
@@ -233,11 +225,10 @@
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.IconSize = 36;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 178);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogout.Location = new System.Drawing.Point(0, 107);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
-            this.btnLogout.Size = new System.Drawing.Size(324, 73);
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(227, 44);
             this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "        Logout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -256,11 +247,10 @@
             this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHelp.IconSize = 36;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 5);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnHelp.Location = new System.Drawing.Point(0, 3);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
-            this.btnHelp.Size = new System.Drawing.Size(324, 80);
+            this.btnHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHelp.Size = new System.Drawing.Size(227, 48);
             this.btnHelp.TabIndex = 4;
             this.btnHelp.Text = "          Help";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -278,11 +268,10 @@
             this.btnAbout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAbout.IconSize = 36;
             this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbout.Location = new System.Drawing.Point(0, 95);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAbout.Location = new System.Drawing.Point(0, 57);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
-            this.btnAbout.Size = new System.Drawing.Size(324, 73);
+            this.btnAbout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnAbout.Size = new System.Drawing.Size(227, 44);
             this.btnAbout.TabIndex = 5;
             this.btnAbout.Text = "         About";
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -303,12 +292,13 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.flowLayoutPanel1.Controls.Add(this.btnShutDown);
+            this.flowLayoutPanel1.Controls.Add(this.btnMaximizeMinimize);
+            this.flowLayoutPanel1.Controls.Add(this.btnMinimize);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(114, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1276, 50);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(893, 30);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // btnShutDown
@@ -320,29 +310,60 @@
             this.btnShutDown.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.btnShutDown.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnShutDown.IconSize = 24;
-            this.btnShutDown.Location = new System.Drawing.Point(1222, 5);
-            this.btnShutDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnShutDown.Location = new System.Drawing.Point(854, 3);
             this.btnShutDown.Name = "btnShutDown";
-            this.btnShutDown.Size = new System.Drawing.Size(50, 45);
+            this.btnShutDown.Size = new System.Drawing.Size(36, 27);
             this.btnShutDown.TabIndex = 0;
             this.btnShutDown.UseVisualStyleBackColor = true;
             this.btnShutDown.Click += new System.EventHandler(this.btnShutDown_Click);
             // 
+            // btnMaximizeMinimize
+            // 
+            this.btnMaximizeMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMaximizeMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizeMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMaximizeMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
+            this.btnMaximizeMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMaximizeMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMaximizeMinimize.IconSize = 24;
+            this.btnMaximizeMinimize.Location = new System.Drawing.Point(811, 3);
+            this.btnMaximizeMinimize.Name = "btnMaximizeMinimize";
+            this.btnMaximizeMinimize.Size = new System.Drawing.Size(37, 27);
+            this.btnMaximizeMinimize.TabIndex = 1;
+            this.btnMaximizeMinimize.UseVisualStyleBackColor = true;
+            this.btnMaximizeMinimize.Click += new System.EventHandler(this.btnMaximizeMinimize_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMinimize.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.btnMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMinimize.IconSize = 24;
+            this.btnMinimize.Location = new System.Drawing.Point(768, 3);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(37, 27);
+            this.btnMinimize.TabIndex = 2;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
             // MainFormDeneme
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1390, 800);
+            this.ClientSize = new System.Drawing.Size(973, 480);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.sidebarContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainFormDeneme";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "MainFormDeneme";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainFormDeneme_KeyDown);
             this.sidebarContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -372,5 +393,7 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnShutDown;
         private FontAwesome.Sharp.IconButton btnLogout;
+        private FontAwesome.Sharp.IconButton btnMaximizeMinimize;
+        private FontAwesome.Sharp.IconButton btnMinimize;
     }
 }

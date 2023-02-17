@@ -124,6 +124,23 @@ namespace Proje
                 Application.Exit();
             }
         }
+
+        private void btnMaximizeMinimize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
 

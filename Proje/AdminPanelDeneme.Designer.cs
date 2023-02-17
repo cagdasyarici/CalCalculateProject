@@ -43,6 +43,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnShutDown = new FontAwesome.Sharp.IconButton();
+            this.btnMaximizeMinimize = new FontAwesome.Sharp.IconButton();
+            this.btnMinimize = new FontAwesome.Sharp.IconButton();
             this.sidebarContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homeContainer.SuspendLayout();
@@ -234,6 +236,8 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.flowLayoutPanel1.Controls.Add(this.btnShutDown);
+            this.flowLayoutPanel1.Controls.Add(this.btnMaximizeMinimize);
+            this.flowLayoutPanel1.Controls.Add(this.btnMinimize);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -256,6 +260,38 @@
             this.btnShutDown.TabIndex = 0;
             this.btnShutDown.UseVisualStyleBackColor = true;
             this.btnShutDown.Click += new System.EventHandler(this.btnShutDown_Click);
+            // 
+            // btnMaximizeMinimize
+            // 
+            this.btnMaximizeMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMaximizeMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizeMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMaximizeMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
+            this.btnMaximizeMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMaximizeMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMaximizeMinimize.IconSize = 24;
+            this.btnMaximizeMinimize.Location = new System.Drawing.Point(695, 3);
+            this.btnMaximizeMinimize.Name = "btnMaximizeMinimize";
+            this.btnMaximizeMinimize.Size = new System.Drawing.Size(37, 27);
+            this.btnMaximizeMinimize.TabIndex = 3;
+            this.btnMaximizeMinimize.UseVisualStyleBackColor = true;
+            this.btnMaximizeMinimize.Click += new System.EventHandler(this.btnMaximizeMinimize_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMinimize.IconChar = FontAwesome.Sharp.IconChar.Subtract;
+            this.btnMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMinimize.IconSize = 24;
+            this.btnMinimize.Location = new System.Drawing.Point(652, 3);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(37, 27);
+            this.btnMinimize.TabIndex = 4;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // AdminPanelDeneme
             // 
@@ -293,5 +329,7 @@
         private FontAwesome.Sharp.IconButton btnContinueAsAnUser;
         private FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnShutDown;
+        private FontAwesome.Sharp.IconButton btnMaximizeMinimize;
+        private FontAwesome.Sharp.IconButton btnMinimize;
     }
 }

@@ -14,7 +14,7 @@ namespace Proje
 {
     public partial class MainFormDeneme : Form
     {
-        
+
         bool sidebarExpand;
         bool homeExpand;
         User user;
@@ -60,17 +60,17 @@ namespace Proje
             sidebarTimer.Start();
 
             //If menu closed
-            if (homeContainer.Visible && HelpAboutContainer.Visible && sidebarContainer.Width>230)
+            if (homeContainer.Visible && HelpAboutContainer.Visible && sidebarContainer.Width > 230)
             {
                 homeContainer.Visible = false;
                 HelpAboutContainer.Visible = false;
             }
-            else if(!homeContainer.Visible && !HelpAboutContainer.Visible && sidebarContainer.Width < 85)
+            else if (!homeContainer.Visible && !HelpAboutContainer.Visible && sidebarContainer.Width < 85)
             {
                 homeContainer.Visible = true;
                 HelpAboutContainer.Visible = true;
             }
-           
+
         }
 
         private void homeTimer_Tick(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace Proje
                 this.Size = new Size(width, height);
                 MealForm.Show();
             }
-           
+
         }
 
         private void btnShutDown_Click(object sender, EventArgs e)
@@ -141,6 +141,31 @@ namespace Proje
             Statistics statistics = new Statistics(user);
             statistics.Show();
             this.Hide(); //todo:Duruma göre Close'a çevir
+        }
+
+        private void MainFormDeneme_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) // Burada örnek olarak Escape tuşuna basıldığında formu küçültüyoruz.
+            {
+                this.WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        private void btnMaximizeMinimize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
