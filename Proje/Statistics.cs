@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace Proje
 {
@@ -54,11 +55,22 @@ namespace Proje
 
                     List<Meal> mealList = _db.Meals.Where(x => x.CreateTime.Day <= dtpEndDate.Value.Day && x.CreateTime.Day >= dtpStartDate.Value.Day && x.ContactUserID == user.UserID).ToList();
 
-                    foreach (var item in mealList)
-                    {
-                        
-                    }
+                    DateTime startDate = new DateTime(2023, 2, 1);
+                    DateTime endDate = new DateTime(2023, 2, 20);
 
+                    var categoryCalories = from meal in _db.Meals
+                                           where meal.CreateTime >= startDate && meal.CreateTime <= endDate
+                                           join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                           join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                           join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                           group foodMeal by category.CategoryName into g
+                                           select new {
+                                               Category = g.Key,
+                                               //TotalCalories = g.Sum(f => f.FoodCal * (_db.FoodMeals.Where(x => x.FoodID == f.FoodID).FirstOrDefault().Grams)) 
+                                               kalori = g.Sum(x=>x.Grams/100*(x.Food.FoodCal))
+                       };
+
+                    dgvStatisticsTabşe.DataSource= categoryCalories.ToList();
 
                 }
 
