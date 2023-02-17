@@ -28,6 +28,7 @@ namespace Proje
         {
             CategoryServices categoryServices = new CategoryServices();
             dgvCategories.DataSource = categoryServices.BringTList();
+            dgvCategories.Columns["Foods"].Visible= false;
         }
 
        

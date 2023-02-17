@@ -46,10 +46,18 @@ namespace CalCalculatorDAL.Repositories
             _db.Set<T>().Update(entity);
             _db.SaveChanges();
         }
-        public void AttachEntity(T entity)
+        public bool AttachEntity(T entity)
         {
-            _db.Set<T>().Attach(entity);
-            _db.SaveChanges();
+            try
+            {
+                _db.Set<T>().Attach(entity);
+                _db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public IQueryable<T> QueryableList() //Sorgulanabilir listeye çeviren metot.

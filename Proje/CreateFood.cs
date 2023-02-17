@@ -28,6 +28,7 @@ namespace Proje
             {
                 cmbCategory.Items.Add(categoryName);
             }
+            
         }
 
         
@@ -36,7 +37,10 @@ namespace Proje
         {
             FoodServices foodServices=new FoodServices();
             dgvFood.DataSource = foodServices.BringTList();
-            
+            dgvFood.Columns["FoodMeals"].Visible = false;
+            dgvFood.Columns["Category"].Visible = false;
+
+
         }
 
         private void btnAddCategoryy_Click(object sender, EventArgs e)
@@ -46,7 +50,7 @@ namespace Proje
             FoodServices foodServices = new FoodServices();
 
 
-            if (txtFoodName.Text == null || txtCarbonh.Text == null || txtFat.Text == null || txtProt.Text == null || txtCal.Text == null||categorySelected!=true)
+            if (txtFoodName.Text.Trim() == "" || txtCarbonh.Text.Trim() == "" || txtFat.Text.Trim() == "" || txtProt.Text.Trim() == "" || txtCal.Text.Trim() == ""||categorySelected!=true)
             {
                 MessageBox.Show("Food informations cannot be null");
             }
@@ -91,6 +95,8 @@ namespace Proje
                 }
             }
             dgvFood.DataSource = foodServices.BringTList();
+            dgvFood.Columns["FoodMeals"].Visible = false;
+            dgvFood.Columns["Category"].Visible = false;
         }
 
         private void btnRemoveCategoryy_Click(object sender, EventArgs e)
@@ -99,12 +105,15 @@ namespace Proje
             FoodServices foodServices = new FoodServices();
             Food selectedFood = (Food)dgvFood.CurrentRow.DataBoundItem;
             foodServices.RemoveEntity(selectedFood);
-            dgvFood.DataSource = foodServices.BringTList();
+            dgvFood.DataSource = foodServices.BringTList(); 
+            dgvFood.Columns["FoodMeals"].Visible = false;
+            dgvFood.Columns["Category"].Visible = false;
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             categorySelected=true;
         }
+
     }
 }

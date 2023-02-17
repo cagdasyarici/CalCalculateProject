@@ -32,6 +32,7 @@ namespace Proje
             meal = currentMeal;
             user = currentUser;
             txtGrams.Text = "0";
+            
         }
 
         private void AddFoodToMeal_Load(object sender, EventArgs e)
@@ -44,6 +45,34 @@ namespace Proje
 
             foodListDgv = foodServices.BringTList();
             dgvFoodList.DataSource = foodListDgv;
+            dgvFoodList.Columns["CategoryID"].Visible = false;
+            dgvFoodList.Columns["FoodMeals"].Visible = false;
+            dgvFoodList.Columns["Category"].Visible = false;
+            DataGridViewColumn dataGridViewColumn = new DataGridViewColumn();
+            dataGridViewColumn.Name = "Category1";
+            dataGridViewColumn.HeaderText = "Category";
+            dataGridViewColumn.ValueType = typeof(String);
+            dataGridViewColumn.CellTemplate = new DataGridViewTextBoxCell();
+            
+            dgvFoodList.Columns.Add(dataGridViewColumn);
+            dgvFoodList.Columns["Category1"].Visible = true;
+            int columnIndex = dgvFoodList.Columns["Category1"].Index;
+            int categoryID;
+            Food food;
+            Category category;
+            CategoryServices categoryServices = new CategoryServices();
+            //for(int i=0; i < dgvFoodList.Rows.Count; i++) 
+            //{
+            //    food = foodServices.FindEntity((int)dgvFoodList.Rows[i].Cells[0].Value);
+            //    categoryID= food.CategoryId;
+            //    category = categoryServices.FindEntity(categoryID);
+            //    dgvFoodList.Rows[i].Cells[columnIndex].Value = category.CategoryName;
+
+
+            //}
+            dgvFoodList.Rows[0].Cells[columnIndex].Value = "sdfasdf";
+            dgvFoodList.Refresh();
+
 
             #endregion
 
@@ -65,10 +94,10 @@ namespace Proje
 
             #endregion
 
-
+            
 
         }
-
+        
         private void txtSearch_Click(object sender, EventArgs e)
         {
             txtSearch.Text = "";
@@ -153,12 +182,27 @@ namespace Proje
 
                     });
 
-
-                    mealServices.AttachEntity(meal);
-
+                bool foodCreated;
+                foodCreated = mealServices.AttachEntity(meal);
+                if (foodCreated==true)
+                {
                     var mealList = mealServices.ListeOlustur(meal);
 
                     ListMealRefresh(mealList);
+                    double sum = 0;
+                    for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
+                    {
+                        sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
+                    }
+                    meal.TotalCalorie = sum;
+
+                    mealServices.UpdateEntity(meal);
+                }
+                else
+                {
+                    MessageBox.Show("Vla aynı food zaten mealın içinde var sen niye bi daha ekliyon. Yanlış gramaj girdiysen eskisini sil doğru gramajla yeniden ekle");
+                }
+                    
    
              
             }
@@ -167,14 +211,7 @@ namespace Proje
             {
                 MessageBox.Show("Please enter a proper value", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            double sum = 0;
-            for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
-            {
-                sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
-            }
-            meal.TotalCalorie = sum;
-
-            mealServices.UpdateEntity(meal);
+           
 
             #endregion
         }
@@ -241,11 +278,6 @@ namespace Proje
             using (_db = new())
             {
                 var item1 = dgvMealDetails.DataSource as List<TempFood>;
-
-
-
-
-
                 return true;
             }
 

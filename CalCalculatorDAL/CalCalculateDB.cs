@@ -21,7 +21,7 @@ namespace CalCalculatorDAL
             //DENİZ
 
 
-            //optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculateDB;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculateDB;Trusted_Connection=True");
 
 
 
