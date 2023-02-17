@@ -33,10 +33,10 @@
             this.rdnToplamCal = new System.Windows.Forms.RadioButton();
             this.rdnCategories = new System.Windows.Forms.RadioButton();
             this.btn_Getir = new System.Windows.Forms.Button();
-            this.dgvStatisticsTabşe = new System.Windows.Forms.DataGridView();
+            this.dgvStatisticsTable = new System.Windows.Forms.DataGridView();
             this.txtTopcal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStatisticsTabşe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatisticsTable)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpStartDate
@@ -67,7 +67,7 @@
             // rdnCategories
             // 
             this.rdnCategories.AutoSize = true;
-            this.rdnCategories.Location = new System.Drawing.Point(370, 120);
+            this.rdnCategories.Location = new System.Drawing.Point(276, 120);
             this.rdnCategories.Name = "rdnCategories";
             this.rdnCategories.Size = new System.Drawing.Size(121, 29);
             this.rdnCategories.TabIndex = 1;
@@ -85,15 +85,15 @@
             this.btn_Getir.UseVisualStyleBackColor = true;
             this.btn_Getir.Click += new System.EventHandler(this.btn_Getir_Click);
             // 
-            // dgvStatisticsTabşe
+            // dgvStatisticsTable
             // 
-            this.dgvStatisticsTabşe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStatisticsTabşe.Location = new System.Drawing.Point(342, 182);
-            this.dgvStatisticsTabşe.Name = "dgvStatisticsTabşe";
-            this.dgvStatisticsTabşe.RowHeadersWidth = 62;
-            this.dgvStatisticsTabşe.RowTemplate.Height = 33;
-            this.dgvStatisticsTabşe.Size = new System.Drawing.Size(789, 556);
-            this.dgvStatisticsTabşe.TabIndex = 3;
+            this.dgvStatisticsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStatisticsTable.Location = new System.Drawing.Point(342, 182);
+            this.dgvStatisticsTable.Name = "dgvStatisticsTable";
+            this.dgvStatisticsTable.RowHeadersWidth = 62;
+            this.dgvStatisticsTable.RowTemplate.Height = 33;
+            this.dgvStatisticsTable.Size = new System.Drawing.Size(789, 556);
+            this.dgvStatisticsTable.TabIndex = 3;
             // 
             // txtTopcal
             // 
@@ -118,7 +118,7 @@
             this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTopcal);
-            this.Controls.Add(this.dgvStatisticsTabşe);
+            this.Controls.Add(this.dgvStatisticsTable);
             this.Controls.Add(this.btn_Getir);
             this.Controls.Add(this.rdnCategories);
             this.Controls.Add(this.rdnToplamCal);
@@ -127,7 +127,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Statistics";
             this.Text = "Statistics";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStatisticsTabşe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatisticsTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,7 +140,7 @@
         private RadioButton rdnToplamCal;
         private RadioButton rdnCategories;
         private Button btn_Getir;
-        private DataGridView dgvStatisticsTabşe;
+        private DataGridView dgvStatisticsTable;
         private TextBox txtTopcal;
         private Label label1;
     }
