@@ -38,7 +38,7 @@ namespace Proje
         }
 
 
-        private void CheckPassword(string _password, string _confirmPassword)
+        private void CheckPassword(string _username,string _password, string _confirmPassword)
         {
 
             bool result = _password.Any(c => char.IsLetter(c)) && _password.Any(c => char.IsDigit(c));
@@ -47,10 +47,14 @@ namespace Proje
             {
                 if (result)
                 {
+                     MailServices mailServices = new MailServices();
+                    mailServices.ChangePassword(_username,_password, _confirmPassword);
 
-                    _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Password = _password; ///todo:Burayı sonra değiştir (Yuşa)
+                    #region ESKİ
+                    //_db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Password = _password; ///todo:Burayı sonra değiştir (Yuşa)
 
-                    _db.SaveChanges();
+                    //_db.SaveChanges(); 
+                    #endregion
 
                     MessageBox.Show($"Your Password has been changed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -130,7 +134,7 @@ namespace Proje
         {
             using (_db = new CalCalculateDB())
             {
-                CheckPassword(txtPassword.Text, txtPasswordConfirm.Text);
+                CheckPassword(txtUsername.Text,txtPassword.Text, txtPasswordConfirm.Text);
             }
         }
         /// <summary>
