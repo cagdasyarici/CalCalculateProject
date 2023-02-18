@@ -63,7 +63,7 @@
             this.sidebarContainer.Controls.Add(this.HelpAboutContainer);
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
-            this.sidebarContainer.MaximumSize = new System.Drawing.Size(233, 2000);
+            this.sidebarContainer.MaximumSize = new System.Drawing.Size(240, 2000);
             this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 480);
             this.sidebarContainer.Name = "sidebarContainer";
             this.sidebarContainer.Size = new System.Drawing.Size(80, 480);
@@ -117,6 +117,7 @@
             this.homeContainer.Name = "homeContainer";
             this.homeContainer.Size = new System.Drawing.Size(227, 176);
             this.homeContainer.TabIndex = 1;
+            this.homeContainer.Visible = false;
             // 
             // ıconButton1
             // 
@@ -213,6 +214,7 @@
             this.HelpAboutContainer.Name = "HelpAboutContainer";
             this.HelpAboutContainer.Size = new System.Drawing.Size(227, 155);
             this.HelpAboutContainer.TabIndex = 6;
+            this.HelpAboutContainer.Visible = false;
             // 
             // btnLogout
             // 
@@ -356,6 +358,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(973, 480);

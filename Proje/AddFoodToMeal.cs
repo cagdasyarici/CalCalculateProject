@@ -25,12 +25,14 @@ namespace Proje
         Meal meal;
         User user;
         MainFormDeneme mainFormDeneme;
-        public AddFoodToMeal(Meal currentMeal, User currentUser, MainFormDeneme CurrentMainFormDeneme)
+        FlowLayoutPanel sideBarContainer;
+        public AddFoodToMeal(Meal currentMeal, User currentUser, MainFormDeneme CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
         {
             InitializeComponent();
             mainFormDeneme = CurrentMainFormDeneme;
             meal = currentMeal;
             user = currentUser;
+            sideBarContainer = currentSideBarContainer;
             txtGrams.Text = "0";
             
         }
@@ -137,10 +139,10 @@ namespace Proje
 
         private void ıconButton1_Click(object sender, EventArgs e) // todo:İsmi düzelt
         {
-            Form1 MealForm = new(user, mainFormDeneme);
+            Form1 MealForm = new(user, mainFormDeneme,sideBarContainer);
             MealForm.MdiParent = mainFormDeneme;
             int height = MealForm.Height + 35;
-            int width = MealForm.Width + 238;
+            int width = MealForm.Width + sideBarContainer.Width + 6;
             mainFormDeneme.Size = new Size(width, height);
             MealForm.Show();
             this.Close();
