@@ -53,20 +53,20 @@ namespace Proje
                     //txtTopcal.Text = TopCal.ToString(); 
                     #endregion
 
-                    var totalCalList = from meal in _db.Meals.Where(x=>x.ContactUserID== user.UserID)
-                                     where meal.CreateTime >= startDate && meal.CreateTime <= endDate
-                                     join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                                     join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                                     join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                     group foodMeal by meal.CreateTime.Date into g
-                                     select new
-                                     {
-                                         Date = g.Key,
-                                         Calorie= g.Sum(x=>x.Grams/100*x.Food.FoodCal)
-                                        
+                    var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
+                                       where meal.CreateTime >= startDate && meal.CreateTime <= endDate
+                                       join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                       join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                       join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                       group foodMeal by meal.CreateTime.Date into g
+                                       select new
+                                       {
+                                           Date = g.Key,
+                                           Calorie = g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
 
 
-                                     };
+
+                                       };
 
                     dgvStatisticsTable.DataSource = totalCalList.ToList();
 
@@ -76,22 +76,22 @@ namespace Proje
 
                 if (rdnCategories.Checked == true)
                 {
-                    
+
 
                     var categoryCalList = from meal in _db.Meals
-                                     where meal.CreateTime >= startDate && meal.CreateTime <= endDate
-                                     join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                                     join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                                     join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                     group foodMeal by category.CategoryName into g
-                                     select new
-                                     {
-                                         Category = g.Key,
-                                         Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                         AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal))/_db.Users.Count()
-                                         
+                                          where meal.CreateTime >= startDate && meal.CreateTime <= endDate
+                                          join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                          join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                          join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                          group foodMeal by category.CategoryName into g
+                                          select new
+                                          {
+                                              Category = g.Key,
+                                              Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                              AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
 
-                                     };
+
+                                          };
 
                     dgvStatisticsTable.DataSource = categoryCalList.ToList();
 
@@ -130,6 +130,32 @@ namespace Proje
 
                     //dgvStatisticsTable.DataSource = categoryCalories.ToList(); 
                     #endregion
+
+
+                }
+
+
+                if (rdnFiltre3.Checked == true)
+                {
+                    #region Deneme
+                    var List1 = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
+                                where meal.CreateTime.Day >= startDate.Day && meal.CreateTime.Day <= endDate.Day
+                                join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                group foodMeal by new { meal.MealName,food.FoodName } into g
+                                select new
+                                {
+                                    Meal = g.Key.MealName,
+                                    Food = g.Key.FoodName,
+                                    Grams = g.Sum(x => x.Grams)
+
+                                };
+                    #endregion
+
+
+                    dgvStatisticsTable.DataSource = List1.ToList();
+
 
 
                 }
