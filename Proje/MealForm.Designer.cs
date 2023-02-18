@@ -224,7 +224,7 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(115, 29);
             this.dateTimePicker1.TabIndex = 4;
             // 
-            // Form1
+            // MealForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,7 +233,7 @@
             this.ClientSize = new System.Drawing.Size(583, 512);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "MealForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

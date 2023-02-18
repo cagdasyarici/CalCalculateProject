@@ -34,8 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuButton = new FontAwesome.Sharp.IconButton();
             this.homeContainer = new System.Windows.Forms.Panel();
-            this.ıconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnHome = new FontAwesome.Sharp.IconButton();
+            this.ıconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnStatistics = new FontAwesome.Sharp.IconButton();
             this.btnCalorieTracker = new FontAwesome.Sharp.IconButton();
             this.HelpAboutContainer = new System.Windows.Forms.Panel();
@@ -107,8 +107,8 @@
             // 
             // homeContainer
             // 
-            this.homeContainer.Controls.Add(this.ıconButton1);
             this.homeContainer.Controls.Add(this.btnHome);
+            this.homeContainer.Controls.Add(this.ıconButton1);
             this.homeContainer.Controls.Add(this.btnStatistics);
             this.homeContainer.Controls.Add(this.btnCalorieTracker);
             this.homeContainer.Location = new System.Drawing.Point(3, 146);
@@ -118,6 +118,28 @@
             this.homeContainer.Size = new System.Drawing.Size(227, 53);
             this.homeContainer.TabIndex = 1;
             this.homeContainer.Visible = false;
+            // 
+            // btnHome
+            // 
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.btnHome.IconColor = System.Drawing.Color.White;
+            this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHome.IconSize = 36;
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(0, 3);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(230, 47);
+            this.btnHome.TabIndex = 5;
+            this.btnHome.Text = "         Home";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // ıconButton1
             // 
@@ -138,29 +160,6 @@
             this.ıconButton1.Text = "         YEDEK";
             this.ıconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ıconButton1.UseVisualStyleBackColor = true;
-            // 
-            // btnHome
-            // 
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.btnHome.IconColor = System.Drawing.Color.White;
-            this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHome.IconSize = 36;
-            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 3);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(230, 47);
-            this.btnHome.TabIndex = 1;
-            this.btnHome.Text = "         Home";
-            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Visible = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnStatistics
             // 
@@ -215,6 +214,7 @@
             this.HelpAboutContainer.Name = "HelpAboutContainer";
             this.HelpAboutContainer.Size = new System.Drawing.Size(227, 155);
             this.HelpAboutContainer.TabIndex = 6;
+            this.HelpAboutContainer.Visible = false;
             // 
             // btnLogout
             // 
@@ -387,7 +387,6 @@
         private Panel panel1;
         private Label label1;
         private FontAwesome.Sharp.IconButton menuButton;
-        private FontAwesome.Sharp.IconButton btnHome;
         private FontAwesome.Sharp.IconButton btnCalorieTracker;
         private FontAwesome.Sharp.IconButton btnStatistics;
         private FontAwesome.Sharp.IconButton btnHelp;
@@ -402,5 +401,6 @@
         private FontAwesome.Sharp.IconButton btnLogout;
         private FontAwesome.Sharp.IconButton btnMaximizeMinimize;
         private FontAwesome.Sharp.IconButton btnMinimize;
+        private FontAwesome.Sharp.IconButton btnHome;
     }
 }
