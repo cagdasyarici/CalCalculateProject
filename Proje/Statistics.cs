@@ -54,7 +54,7 @@ namespace Proje
                     #endregion
 
                     var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
-                                       where meal.CreateTime >= startDate && meal.CreateTime <= endDate
+                                       where meal.CreateTime.Day >= startDate.Day && meal.CreateTime.Day <= endDate.Day
                                        join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                        join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                        join category in _db.Categories on food.CategoryId equals category.CategoryId
@@ -137,7 +137,7 @@ namespace Proje
 
                 if (rdnFiltre3.Checked == true)
                 {
-                    #region Deneme
+                 
                     var List1 = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
                                 where meal.CreateTime.Day >= startDate.Day && meal.CreateTime.Day <= endDate.Day
                                 join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
@@ -151,7 +151,7 @@ namespace Proje
                                     Grams = g.Sum(x => x.Grams)
 
                                 };
-                    #endregion
+                  
 
 
                     dgvStatisticsTable.DataSource = List1.ToList();
@@ -164,5 +164,100 @@ namespace Proje
             }
         }
 
+        private void btnDailyReport_Click(object sender, EventArgs e)
+        {
+            using (_db=new())
+            {
+
+                #region ESKİ
+                //var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
+                //                   where meal.CreateTime.Day == DateTime.Now.Day
+                //                   join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                //                   join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                //                   join category in _db.Categories on food.CategoryId equals category.CategoryId
+                //                   group foodMeal by meal.MealName into g
+                //                   orderby g.Sum(x => x.Grams) descending
+                //                   select new
+                //                   {
+                //                       Meal = g.Key,
+                //                       Calorie = g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
+
+
+
+                //                   };
+
+                //dgvStatisticsTable.DataSource = totalCalList.ToList();
+                #endregion
+
+                var DailyReportList = from meal in _db.Meals
+                                      where meal.CreateTime.Day==DateTime.Now.Day
+                                      join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                      join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                      join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                      group foodMeal by category.CategoryName into g
+                                      select new
+                                      {
+                                          Category = g.Key,
+                                          Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                          AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+
+
+                                      };
+
+                dgvStatisticsTable.DataSource = DailyReportList.ToList();
+            }
+        
+
+        }
+
+        private void btnMonthlyReport_Click(object sender, EventArgs e)
+        {
+            using (_db = new())
+            {
+
+                var MonthlyReportList = from meal in _db.Meals
+                                      where meal.CreateTime.Month == DateTime.Now.Month
+                                      join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                      join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                      join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                      group foodMeal by category.CategoryName into g
+                                      select new
+                                      {
+                                          Category = g.Key,
+                                          Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                          AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+
+
+                                      };
+
+                dgvStatisticsTable.DataSource = MonthlyReportList.ToList();
+
+            }
+        }
+
+        private void btnWeeklyReport_Click(object sender, EventArgs e)
+        {
+            using (_db = new())
+            {
+
+                var WeeklyReportList = from meal in _db.Meals
+                                        where meal.CreateTime >= DateTime.Now.AddDays(-7) && meal.CreateTime<= DateTime.Now
+                                        join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                        join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                        join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                        group foodMeal by category.CategoryName into g
+                                        select new
+                                        {
+                                            Category = g.Key,
+                                            Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                            AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+
+
+                                        };
+
+                dgvStatisticsTable.DataSource = WeeklyReportList.ToList();
+
+            }
+        }
     }
 }
