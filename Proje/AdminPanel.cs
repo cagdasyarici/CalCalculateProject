@@ -33,7 +33,8 @@ namespace Proje
             if (sidebarExpand)
             {
                 sidebarContainer.Width -= 10;
-                if (sidebarContainer.Width == sidebarContainer.MinimumSize.Width)
+                this.Width -= 10;
+                if (sidebarContainer.Width <= sidebarContainerMinWidth)
                 {
                     sidebarExpand = false;
                     sidebarTimer.Stop();
@@ -42,27 +43,32 @@ namespace Proje
             else
             {
                 sidebarContainer.Width += 10;
-                if (sidebarContainer.Width == sidebarContainer.MaximumSize.Width)
+                this.Width += 10;
+                if (sidebarContainer.Width >= sidebarContainerMaxWidth)
                 {
                     sidebarExpand = true;
                     sidebarTimer.Stop();
                 }
             }
         }
-
+        int sidebarContainerMaxWidth;
+        int sidebarContainerMinWidth;
         private void menuButton_Click(object sender, EventArgs e)
         {
-            sidebarTimer.Start();
+
 
             //If menu closed
-            if (homeContainer.Visible && sidebarContainer.Width > 230)
+            if (homeContainer.Visible && sidebarExpand)
             {
+                sidebarContainerMinWidth = sidebarContainer.Width / 3;
                 homeContainer.Visible = false;
             }
-            else if (!homeContainer.Visible && sidebarContainer.Width < 85)
+            else if (!homeContainer.Visible && !sidebarExpand)
             {
+                sidebarContainerMaxWidth = sidebarContainer.Width * 3;
                 homeContainer.Visible = true;
             }
+            sidebarTimer.Start();
 
         }
 

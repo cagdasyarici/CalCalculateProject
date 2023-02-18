@@ -112,5 +112,56 @@ namespace Proje
             lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
         }
 
+        private void LoginFormDeneme_Load(object sender, EventArgs e)
+        {
+            txtUsername.Padding = new Padding(10, 0, 0, 0); 
+            txtPassword.Padding = new Padding(10, 0, 0, 0);
+
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            TxtFocus((TextBox)sender);
+        }
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            TxtFocus((TextBox)sender);
+        }
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            TxtFocus((TextBox)sender);
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            TxtFocus((TextBox)sender);
+        }
+        /// <summary>
+        /// Textboxlara focuslanınca renk değiştirme methodu
+        /// </summary>
+        /// <param name="textBox"></param>
+        private void TxtFocus(TextBox textBox)
+        {
+            if (textBox.BackColor == Color.FromArgb(112, 117, 132))
+            {
+                textBox.BackColor = Color.FromArgb(148,153,168);
+                textBox.ForeColor = Color.Black;
+            }
+            else
+            {
+                textBox.BackColor = Color.FromArgb(112, 117, 132);
+                textBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void btnPasswordShow_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtPassword.PasswordChar = '\0';
+        }
+
+        private void btnPasswordShow_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtPassword.PasswordChar = '*';
+        }
     }
 }
