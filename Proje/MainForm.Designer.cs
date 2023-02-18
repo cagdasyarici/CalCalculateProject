@@ -28,265 +28,379 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnOgunEkle = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnGoster = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.components = new System.ComponentModel.Container();
+            this.sidebarContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.menuButton = new FontAwesome.Sharp.IconButton();
+            this.homeContainer = new System.Windows.Forms.Panel();
+            this.ıconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnHome = new FontAwesome.Sharp.IconButton();
+            this.btnStatistics = new FontAwesome.Sharp.IconButton();
+            this.btnCalorieTracker = new FontAwesome.Sharp.IconButton();
+            this.HelpAboutContainer = new System.Windows.Forms.Panel();
+            this.btnLogout = new FontAwesome.Sharp.IconButton();
+            this.btnHelp = new FontAwesome.Sharp.IconButton();
+            this.btnAbout = new FontAwesome.Sharp.IconButton();
+            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.homeTimer = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnShutDown = new FontAwesome.Sharp.IconButton();
+            this.btnMaximizeMinimize = new FontAwesome.Sharp.IconButton();
+            this.btnMinimize = new FontAwesome.Sharp.IconButton();
+            this.sidebarContainer.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.homeContainer.SuspendLayout();
+            this.HelpAboutContainer.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // sidebarContainer
             // 
-            this.groupBox1.Location = new System.Drawing.Point(24, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(362, 144);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "UserInfo";
+            this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.sidebarContainer.Controls.Add(this.panel1);
+            this.sidebarContainer.Controls.Add(this.homeContainer);
+            this.sidebarContainer.Controls.Add(this.HelpAboutContainer);
+            this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
+            this.sidebarContainer.MaximumSize = new System.Drawing.Size(240, 2000);
+            this.sidebarContainer.MinimumSize = new System.Drawing.Size(80, 480);
+            this.sidebarContainer.Name = "sidebarContainer";
+            this.sidebarContainer.Size = new System.Drawing.Size(80, 480);
+            this.sidebarContainer.TabIndex = 0;
             // 
-            // btnOgunEkle
+            // panel1
             // 
-            this.btnOgunEkle.Location = new System.Drawing.Point(398, 210);
-            this.btnOgunEkle.Name = "btnOgunEkle";
-            this.btnOgunEkle.Size = new System.Drawing.Size(77, 27);
-            this.btnOgunEkle.TabIndex = 4;
-            this.btnOgunEkle.Text = "Add Meal";
-            this.btnOgunEkle.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.DarkKhaki;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 22);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(469, 182);
-            this.dataGridView3.TabIndex = 7;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(21, 24);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 25);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Add Food";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Bisque;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 75);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(337, 381);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // btnGoster
-            // 
-            this.btnGoster.Location = new System.Drawing.Point(199, 46);
-            this.btnGoster.Name = "btnGoster";
-            this.btnGoster.Size = new System.Drawing.Size(144, 23);
-            this.btnGoster.TabIndex = 4;
-            this.btnGoster.Text = "Show my meals";
-            this.btnGoster.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(189, 17);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(154, 23);
-            this.dateTimePicker2.TabIndex = 3;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(6, 46);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(144, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Compare with others";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(148, 17);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            365,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(35, 23);
-            this.numericUpDown1.TabIndex = 9;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.menuButton);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(227, 137);
+            this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(20, 19);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(95, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "How many days?";
+            this.label1.Size = new System.Drawing.Size(50, 21);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Menu";
             // 
-            // label2
+            // menuButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 325);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 15);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "How many grams did you eat?";
+            this.menuButton.FlatAppearance.BorderSize = 0;
+            this.menuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.menuButton.ForeColor = System.Drawing.Color.White;
+            this.menuButton.IconChar = FontAwesome.Sharp.IconChar.Bars;
+            this.menuButton.IconColor = System.Drawing.Color.White;
+            this.menuButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuButton.Location = new System.Drawing.Point(19, 50);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(41, 43);
+            this.menuButton.TabIndex = 1;
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
-            // textBox1
+            // homeContainer
             // 
-            this.textBox1.Location = new System.Drawing.Point(207, 322);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(77, 23);
-            this.textBox1.TabIndex = 12;
+            this.homeContainer.Controls.Add(this.ıconButton1);
+            this.homeContainer.Controls.Add(this.btnHome);
+            this.homeContainer.Controls.Add(this.btnStatistics);
+            this.homeContainer.Controls.Add(this.btnCalorieTracker);
+            this.homeContainer.Location = new System.Drawing.Point(3, 146);
+            this.homeContainer.MaximumSize = new System.Drawing.Size(227, 176);
+            this.homeContainer.MinimumSize = new System.Drawing.Size(227, 53);
+            this.homeContainer.Name = "homeContainer";
+            this.homeContainer.Size = new System.Drawing.Size(227, 176);
+            this.homeContainer.TabIndex = 1;
+            this.homeContainer.Visible = false;
             // 
-            // txtSearch
+            // ıconButton1
             // 
-            this.txtSearch.Location = new System.Drawing.Point(292, 26);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(183, 23);
-            this.txtSearch.TabIndex = 6;
-            this.txtSearch.Text = "Search...";
+            this.ıconButton1.FlatAppearance.BorderSize = 0;
+            this.ıconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ıconButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ıconButton1.ForeColor = System.Drawing.Color.White;
+            this.ıconButton1.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            this.ıconButton1.IconColor = System.Drawing.Color.White;
+            this.ıconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ıconButton1.IconSize = 30;
+            this.ıconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ıconButton1.Location = new System.Drawing.Point(3, 133);
+            this.ıconButton1.Name = "ıconButton1";
+            this.ıconButton1.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.ıconButton1.Size = new System.Drawing.Size(221, 38);
+            this.ıconButton1.TabIndex = 4;
+            this.ıconButton1.Text = "         YEDEK";
+            this.ıconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ıconButton1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnHome
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(311, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 38);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Add Meal\'s";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.btnHome.IconColor = System.Drawing.Color.White;
+            this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHome.IconSize = 36;
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(0, 3);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(230, 47);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "         Home";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // dataGridView2
+            // btnStatistics
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Info;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(21, 55);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(454, 251);
-            this.dataGridView2.TabIndex = 1;
+            this.btnStatistics.FlatAppearance.BorderSize = 0;
+            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistics.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStatistics.ForeColor = System.Drawing.Color.White;
+            this.btnStatistics.IconChar = FontAwesome.Sharp.IconChar.CircleNodes;
+            this.btnStatistics.IconColor = System.Drawing.Color.White;
+            this.btnStatistics.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnStatistics.IconSize = 30;
+            this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.Location = new System.Drawing.Point(3, 91);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.btnStatistics.Size = new System.Drawing.Size(221, 36);
+            this.btnStatistics.TabIndex = 3;
+            this.btnStatistics.Text = "         Statics";
+            this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStatistics.UseVisualStyleBackColor = true;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
-            // groupBox2
+            // btnCalorieTracker
             // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.txtSearch);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(407, 272);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(489, 369);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Add Food";
+            this.btnCalorieTracker.FlatAppearance.BorderSize = 0;
+            this.btnCalorieTracker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalorieTracker.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCalorieTracker.ForeColor = System.Drawing.Color.White;
+            this.btnCalorieTracker.IconChar = FontAwesome.Sharp.IconChar.CircleHalfStroke;
+            this.btnCalorieTracker.IconColor = System.Drawing.Color.White;
+            this.btnCalorieTracker.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCalorieTracker.IconSize = 30;
+            this.btnCalorieTracker.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalorieTracker.Location = new System.Drawing.Point(3, 50);
+            this.btnCalorieTracker.Name = "btnCalorieTracker";
+            this.btnCalorieTracker.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.btnCalorieTracker.Size = new System.Drawing.Size(221, 35);
+            this.btnCalorieTracker.TabIndex = 2;
+            this.btnCalorieTracker.Text = "   Calorie Tracker";
+            this.btnCalorieTracker.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalorieTracker.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCalorieTracker.UseVisualStyleBackColor = true;
+            this.btnCalorieTracker.Click += new System.EventHandler(this.btnCalorieTracker_Click);
             // 
-            // groupBox3
+            // HelpAboutContainer
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Controls.Add(this.btnGoster);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.numericUpDown1);
-            this.groupBox3.Controls.Add(this.dateTimePicker2);
-            this.groupBox3.Location = new System.Drawing.Point(24, 169);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(362, 472);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Meals";
+            this.HelpAboutContainer.Controls.Add(this.btnLogout);
+            this.HelpAboutContainer.Controls.Add(this.btnHelp);
+            this.HelpAboutContainer.Controls.Add(this.btnAbout);
+            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 328);
+            this.HelpAboutContainer.Name = "HelpAboutContainer";
+            this.HelpAboutContainer.Size = new System.Drawing.Size(227, 155);
+            this.HelpAboutContainer.TabIndex = 6;
+            this.HelpAboutContainer.Visible = false;
             // 
-            // groupBox4
+            // btnLogout
             // 
-            this.groupBox4.Controls.Add(this.dataGridView3);
-            this.groupBox4.Controls.Add(this.btnOgunEkle);
-            this.groupBox4.Location = new System.Drawing.Point(407, 19);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(489, 247);
-            this.groupBox4.TabIndex = 15;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Add Meal";
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.btnLogout.IconColor = System.Drawing.Color.White;
+            this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogout.IconSize = 36;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 107);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(227, 44);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "        Logout";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // MainForm
+            // btnHelp
+            // 
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            this.btnHelp.IconColor = System.Drawing.Color.White;
+            this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHelp.IconSize = 36;
+            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.Location = new System.Drawing.Point(0, 3);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHelp.Size = new System.Drawing.Size(227, 48);
+            this.btnHelp.TabIndex = 4;
+            this.btnHelp.Text = "          Help";
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.FlatAppearance.BorderSize = 0;
+            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAbout.ForeColor = System.Drawing.Color.White;
+            this.btnAbout.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
+            this.btnAbout.IconColor = System.Drawing.Color.White;
+            this.btnAbout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAbout.IconSize = 36;
+            this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbout.Location = new System.Drawing.Point(0, 57);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnAbout.Size = new System.Drawing.Size(227, 44);
+            this.btnAbout.TabIndex = 5;
+            this.btnAbout.Text = "         About";
+            this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbout.UseVisualStyleBackColor = true;
+            // 
+            // sidebarTimer
+            // 
+            this.sidebarTimer.Interval = 10;
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
+            // 
+            // homeTimer
+            // 
+            this.homeTimer.Interval = 10;
+            this.homeTimer.Tick += new System.EventHandler(this.homeTimer_Tick);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.flowLayoutPanel1.Controls.Add(this.btnShutDown);
+            this.flowLayoutPanel1.Controls.Add(this.btnMaximizeMinimize);
+            this.flowLayoutPanel1.Controls.Add(this.btnMinimize);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(893, 30);
+            this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.flowLayoutPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
+            // 
+            // btnShutDown
+            // 
+            this.btnShutDown.FlatAppearance.BorderSize = 0;
+            this.btnShutDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShutDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnShutDown.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            this.btnShutDown.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnShutDown.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnShutDown.IconSize = 24;
+            this.btnShutDown.Location = new System.Drawing.Point(854, 3);
+            this.btnShutDown.Name = "btnShutDown";
+            this.btnShutDown.Size = new System.Drawing.Size(36, 27);
+            this.btnShutDown.TabIndex = 0;
+            this.btnShutDown.UseVisualStyleBackColor = true;
+            this.btnShutDown.Click += new System.EventHandler(this.btnShutDown_Click);
+            // 
+            // btnMaximizeMinimize
+            // 
+            this.btnMaximizeMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMaximizeMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizeMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMaximizeMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
+            this.btnMaximizeMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMaximizeMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMaximizeMinimize.IconSize = 24;
+            this.btnMaximizeMinimize.Location = new System.Drawing.Point(811, 3);
+            this.btnMaximizeMinimize.Name = "btnMaximizeMinimize";
+            this.btnMaximizeMinimize.Size = new System.Drawing.Size(37, 27);
+            this.btnMaximizeMinimize.TabIndex = 1;
+            this.btnMaximizeMinimize.UseVisualStyleBackColor = true;
+            this.btnMaximizeMinimize.Click += new System.EventHandler(this.btnMaximizeMinimize_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMinimize.IconChar = FontAwesome.Sharp.IconChar.Subtract;
+            this.btnMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMinimize.IconSize = 24;
+            this.btnMinimize.Location = new System.Drawing.Point(768, 3);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(37, 27);
+            this.btnMinimize.TabIndex = 2;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // MainFormDeneme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 564);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "MainForm";
-            this.Text = "MainForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(973, 480);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.sidebarContainer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IsMdiContainer = true;
+            this.Name = "MainFormDeneme";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "MainFormDeneme";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainFormDeneme_KeyDown);
+            this.sidebarContainer.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.homeContainer.ResumeLayout(false);
+            this.HelpAboutContainer.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private GroupBox groupBox1;
-        private Button btnOgunEkle;
-        private DataGridView dataGridView3;
-        private Button button2;
-        private DataGridView dataGridView1;
-        private Button btnGoster;
-        private DateTimePicker dateTimePicker2;
-        private Button button3;
-        private NumericUpDown numericUpDown1;
+        private FlowLayoutPanel sidebarContainer;
+        private Panel panel1;
         private Label label1;
-        private Label label2;
-        private TextBox textBox1;
-        private TextBox txtSearch;
-        private Button button1;
-        private DataGridView dataGridView2;
-        private GroupBox groupBox2;
-        private GroupBox groupBox3;
-        private GroupBox groupBox4;
+        private FontAwesome.Sharp.IconButton menuButton;
+        private FontAwesome.Sharp.IconButton btnHome;
+        private FontAwesome.Sharp.IconButton btnCalorieTracker;
+        private FontAwesome.Sharp.IconButton btnStatistics;
+        private FontAwesome.Sharp.IconButton btnHelp;
+        private FontAwesome.Sharp.IconButton btnAbout;
+        private System.Windows.Forms.Timer sidebarTimer;
+        private Panel homeContainer;
+        private System.Windows.Forms.Timer homeTimer;
+        private FontAwesome.Sharp.IconButton ıconButton1;
+        private Panel HelpAboutContainer;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconButton btnShutDown;
+        private FontAwesome.Sharp.IconButton btnLogout;
+        private FontAwesome.Sharp.IconButton btnMaximizeMinimize;
+        private FontAwesome.Sharp.IconButton btnMinimize;
     }
 }

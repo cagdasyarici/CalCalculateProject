@@ -104,7 +104,7 @@ namespace CalCalculatorBLL
         {
             using (_db=new())
             {
-                if (_db.Meals.Where(x=>x.ContactUserID==user.UserID).Any(x=>x.MealName.Equals(mealName)))
+                if (_db.Meals.Where(x=>x.ContactUserID==user.UserID).Any(x=>x.MealName.Equals(mealName)&& x.CreateTime.Day==DateTime.Now.Day))
                 {
                     return true;
                 }

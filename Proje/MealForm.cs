@@ -13,13 +13,13 @@ using System.Windows.Forms;
 
 namespace Proje
 {
-    public partial class Form1 : Form
+    public partial class MealForm : Form
     {
         User user;
-        MainFormDeneme mainFormDeneme;
+        MainForm mainFormDeneme;
         FlowLayoutPanel sideBarContainer;
         bool totalCalorieBrought;
-        public Form1(User userInfo, MainFormDeneme CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
+        public MealForm(User userInfo, MainForm CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
         {
             user = userInfo;
             mainFormDeneme = CurrentMainFormDeneme;
