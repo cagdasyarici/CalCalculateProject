@@ -62,13 +62,13 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 104);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 141);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -87,7 +87,7 @@
             this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(547, 248);
+            this.dataGridView1.Size = new System.Drawing.Size(587, 248);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -125,9 +125,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtMealName);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(559, 488);
+            this.groupBox1.Size = new System.Drawing.Size(599, 488);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Meal Table";
@@ -145,7 +146,7 @@
             this.btnDeleteMeals.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDeleteMeals.IconSize = 32;
             this.btnDeleteMeals.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteMeals.Location = new System.Drawing.Point(454, 366);
+            this.btnDeleteMeals.Location = new System.Drawing.Point(494, 394);
             this.btnDeleteMeals.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteMeals.Name = "btnDeleteMeals";
             this.btnDeleteMeals.Size = new System.Drawing.Size(99, 31);
@@ -167,9 +168,9 @@
             this.BtnShowMeal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnShowMeal.IconSize = 32;
             this.BtnShowMeal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnShowMeal.Location = new System.Drawing.Point(205, 56);
+            this.BtnShowMeal.Location = new System.Drawing.Point(235, 106);
             this.BtnShowMeal.Name = "BtnShowMeal";
-            this.BtnShowMeal.Size = new System.Drawing.Size(131, 29);
+            this.BtnShowMeal.Size = new System.Drawing.Size(141, 29);
             this.BtnShowMeal.TabIndex = 27;
             this.BtnShowMeal.Text = "      Show Meal";
             this.BtnShowMeal.UseVisualStyleBackColor = false;
@@ -204,10 +205,9 @@
             this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(36, 56);
+            this.dateTimePicker1.Location = new System.Drawing.Point(6, 62);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(115, 29);
+            this.dateTimePicker1.Size = new System.Drawing.Size(254, 29);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // MealForm
@@ -216,7 +216,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(583, 512);
+            this.ClientSize = new System.Drawing.Size(623, 512);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MealForm";
