@@ -187,7 +187,7 @@ namespace Proje
                 }
                 else
                 {
-                    MessageBox.Show("Vla aynı food zaten mealın içinde var sen niye bi daha ekliyon. Yanlış gramaj girdiysen eskisini sil doğru gramajla yeniden ekle");
+                    MessageBox.Show("This food is already exists.");
                 }
                     
    
