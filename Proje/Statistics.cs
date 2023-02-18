@@ -328,5 +328,83 @@ namespace Proje
 
         }
 
+        private void btnDailyTotalCalorie_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = dtpStartDate.Value;
+            DateTime endDate = dtpEndDate.Value;
+            using (_db = new())
+            {
+                var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
+                                   where meal.CreateTime.Date >= startDate.Date && meal.CreateTime.Date <= endDate.Date
+                                   join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                   join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                   join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                   group foodMeal by meal.CreateTime.Date into g
+                                   select new
+                                   {
+                                       Date = g.Key,
+                                       Calorie = g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
+
+
+
+                                   };
+
+                dgvStatisticsTable.DataSource = totalCalList.ToList();
+            }
+            
+        }
+
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = dtpStartDate.Value;
+            DateTime endDate = dtpEndDate.Value;
+            using (_db = new())
+            {
+                var categoryCalList = from meal in _db.Meals
+                                      where meal.CreateTime.Date >= startDate.Date && meal.CreateTime.Date <= endDate.Date // todo: Date - Day kullanımına daha sonra bak 
+                                      join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                      join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                      join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                      group foodMeal by category.CategoryName into g
+                                      select new
+                                      {
+                                          Category = g.Key,
+                                          Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                          AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+
+
+                                      };
+
+                dgvStatisticsTable.DataSource = categoryCalList.ToList();
+            }
+            
+        }
+
+        private void btnTotalCalForCategory_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = dtpStartDate.Value;
+            DateTime endDate = dtpEndDate.Value;
+            using (_db = new())
+            {
+                var List1 = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
+                            where meal.CreateTime.Date >= startDate.Date && meal.CreateTime.Date <= endDate.Date
+                            join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                            join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                            join category in _db.Categories on food.CategoryId equals category.CategoryId
+                            group foodMeal by new { meal.MealName, food.FoodName } into g
+                            select new
+                            {
+                                Meal = g.Key.MealName,
+                                Food = g.Key.FoodName,
+                                Grams = g.Sum(x => x.Grams)
+
+                            };
+
+
+
+                dgvStatisticsTable.DataSource = List1.ToList();
+            }
+            
+        }
     }
 }

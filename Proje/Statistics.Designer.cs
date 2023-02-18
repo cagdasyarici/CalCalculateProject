@@ -77,6 +77,7 @@
             this.rdnToplamCal.TabStop = true;
             this.rdnToplamCal.Text = "Daily Total Calorie";
             this.rdnToplamCal.UseVisualStyleBackColor = false;
+            this.rdnToplamCal.Visible = false;
             // 
             // rdnCategories
             // 
@@ -89,6 +90,7 @@
             this.rdnCategories.TabStop = true;
             this.rdnCategories.Text = "Categories";
             this.rdnCategories.UseVisualStyleBackColor = true;
+            this.rdnCategories.Visible = false;
             // 
             // btn_Getir
             // 
@@ -99,6 +101,7 @@
             this.btn_Getir.TabIndex = 2;
             this.btn_Getir.Text = "Show ";
             this.btn_Getir.UseVisualStyleBackColor = true;
+            this.btn_Getir.Visible = false;
             this.btn_Getir.Click += new System.EventHandler(this.btn_Getir_Click);
             // 
             // dgvStatisticsTable
@@ -123,6 +126,7 @@
             this.rdnFiltre3.TabStop = true;
             this.rdnFiltre3.Text = "Total Cal For Category";
             this.rdnFiltre3.UseVisualStyleBackColor = true;
+            this.rdnFiltre3.Visible = false;
             // 
             // btnDailyReport
             // 
@@ -159,7 +163,7 @@
             // 
             // btnSendMail
             // 
-            this.btnSendMail.Location = new System.Drawing.Point(534, 472);
+            this.btnSendMail.Location = new System.Drawing.Point(526, 479);
             this.btnSendMail.Margin = new System.Windows.Forms.Padding(2);
             this.btnSendMail.Name = "btnSendMail";
             this.btnSendMail.Size = new System.Drawing.Size(128, 24);
@@ -187,6 +191,7 @@
             this.btnDailyTotalCalorie.TabIndex = 33;
             this.btnDailyTotalCalorie.Text = "       Daily Total Calorie";
             this.btnDailyTotalCalorie.UseVisualStyleBackColor = false;
+            this.btnDailyTotalCalorie.Click += new System.EventHandler(this.btnDailyTotalCalorie_Click);
             // 
             // groupBox1
             // 
@@ -221,6 +226,7 @@
             this.btnTotalCalForCategory.TabIndex = 35;
             this.btnTotalCalForCategory.Text = "       Total Cal For Category";
             this.btnTotalCalForCategory.UseVisualStyleBackColor = false;
+            this.btnTotalCalForCategory.Click += new System.EventHandler(this.btnTotalCalForCategory_Click);
             // 
             // btnCategories
             // 
@@ -241,13 +247,14 @@
             this.btnCategories.TabIndex = 34;
             this.btnCategories.Text = "    Categories";
             this.btnCategories.UseVisualStyleBackColor = false;
+            this.btnCategories.Click += new System.EventHandler(this.btnCategories_Click);
             // 
             // Statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(674, 514);
+            this.ClientSize = new System.Drawing.Size(674, 521);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rdnToplamCal);
             this.Controls.Add(this.rdnCategories);
@@ -260,6 +267,7 @@
             this.Controls.Add(this.btn_Getir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Statistics";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Statistics";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatisticsTable)).EndInit();
             this.groupBox1.ResumeLayout(false);

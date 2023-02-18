@@ -15,7 +15,7 @@ namespace Proje
     public partial class MainForm : Form
     {
 
-        bool sidebarExpand=false;
+        bool sidebarExpand = false;
         bool homeExpand;
         User user;
         public MainForm(User currentUser)
@@ -30,7 +30,7 @@ namespace Proje
         {
 
         }
-        
+
         private void sidebarTimer_Tick(object sender, EventArgs e)
         {
 
@@ -38,7 +38,7 @@ namespace Proje
             if (sidebarExpand)
             {
                 sidebarContainer.Width -= 10;
-                this.Width-= 10;
+                this.Width -= 10;
                 if (sidebarContainer.Width <= sidebarContainerMinWidth)
                 {
                     sidebarExpand = false;
@@ -60,7 +60,7 @@ namespace Proje
         int sidebarContainerMinWidth;
         private void menuButton_Click(object sender, EventArgs e)
         {
-            
+
 
             //If menu closed
             if (homeContainer.Visible && HelpAboutContainer.Visible && sidebarExpand)
@@ -108,15 +108,19 @@ namespace Proje
         MealForm MealForm;
         private void btnCalorieTracker_Click(object sender, EventArgs e)
         {
-            if (MealForm == null)
-            {
-                MealForm = new(user, this,sidebarContainer);
+            
+                MealForm = new(user, this, sidebarContainer);
                 MealForm.MdiParent = this;
                 int height = MealForm.Height + 35;
-                int width = MealForm.Width + sidebarContainer.Width +6;
+                int width = MealForm.Width + sidebarContainer.Width + 6;
                 this.Size = new Size(width, height);
+                if (this.ActiveMdiChild != null)
+                {
+                    this.ActiveMdiChild.Close();
+                }
+
                 MealForm.Show();
-            }
+            
 
         }
 
@@ -141,12 +145,26 @@ namespace Proje
                 this.Close();
             }
         }
-
+        Statistics statisticsForm;
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-            Statistics statistics = new Statistics(user);
-            statistics.Show();
-            this.Close(); 
+            
+                statisticsForm = new(user);
+                statisticsForm.MdiParent = this;
+                int height = statisticsForm.Height + 35;
+                int width = statisticsForm.Width + sidebarContainer.Width + 6;
+                this.Size = new Size(width, height);
+                if (this.ActiveMdiChild != null)
+                {
+                    this.ActiveMdiChild.Close();
+                }
+                statisticsForm.Show();
+            
+
+
+            //Statistics statistics = new Statistics(user);
+            //statistics.Show();
+            //this.Close(); 
         }
 
         private void MainFormDeneme_KeyDown(object sender, KeyEventArgs e)
@@ -205,5 +223,7 @@ namespace Proje
             pictureBox1.Image = image;
 
         }
+
+        
     }
 }

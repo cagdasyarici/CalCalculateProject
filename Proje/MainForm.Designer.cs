@@ -117,7 +117,7 @@
             this.homeContainer.MaximumSize = new System.Drawing.Size(227, 176);
             this.homeContainer.MinimumSize = new System.Drawing.Size(227, 53);
             this.homeContainer.Name = "homeContainer";
-            this.homeContainer.Size = new System.Drawing.Size(227, 53);
+            this.homeContainer.Size = new System.Drawing.Size(227, 176);
             this.homeContainer.TabIndex = 1;
             this.homeContainer.Visible = false;
             // 
@@ -212,7 +212,7 @@
             this.HelpAboutContainer.Controls.Add(this.btnLogout);
             this.HelpAboutContainer.Controls.Add(this.btnHelp);
             this.HelpAboutContainer.Controls.Add(this.btnAbout);
-            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 205);
+            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 328);
             this.HelpAboutContainer.Name = "HelpAboutContainer";
             this.HelpAboutContainer.Size = new System.Drawing.Size(227, 155);
             this.HelpAboutContainer.TabIndex = 6;
@@ -364,6 +364,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // MainForm
             // 
