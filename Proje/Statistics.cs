@@ -31,46 +31,106 @@ namespace Proje
         {
             using (_db = new())
             {
-                //if (rdnToplamCal.Checked == true)
-                //{
-                //    /// user'ın meal listesine ulaş 
-                //    /// tarihe göre ayıkla(Created Time)
-                //    /// 
-                //    double TopCal = 0;
-                //    //var sonuc = user.Meals.Where(x => x.CreateTime <= dtpEndDate.Value && x.CreateTime>=dtpStartDate.Value).ToList();
-                //    List<Meal> selectedMeals = _db.Meals.Where(x => x.CreateTime.Day <= dtpEndDate.Value.Day && x.CreateTime.Day >= dtpStartDate.Value.Day && x.ContactUserID == user.UserID).ToList();
+                DateTime startDate = dtpStartDate.Value;
+                DateTime endDate = dtpEndDate.Value;
 
-                //    foreach (Meal item in selectedMeals)
-                //    {
-                //        TopCal = item.TotalCalorie + TopCal;
-                //    }
 
-                //    txtTopcal.Text = TopCal.ToString();
-                //}
+                if (rdnToplamCal.Checked == true)
+                {
+                    /// user'ın meal listesine ulaş 
+                    /// tarihe göre ayıkla(Created Time)
+                    /// 
+                    #region ESKİ1
+                    //double TopCal = 0;
+                    ////var sonuc = user.Meals.Where(x => x.CreateTime <= dtpEndDate.Value && x.CreateTime>=dtpStartDate.Value).ToList();
+                    //List<Meal> selectedMeals = _db.Meals.Where(x => x.CreateTime.Day <= dtpEndDate.Value.Day && x.CreateTime.Day >= dtpStartDate.Value.Day && x.ContactUserID == user.UserID).ToList();
+
+                    //foreach (Meal item in selectedMeals)
+                    //{
+                    //    TopCal = item.TotalCalorie + TopCal;
+                    //}
+
+                    //txtTopcal.Text = TopCal.ToString(); 
+                    #endregion
+
+                    var totalCalList = from meal in _db.Meals.Where(x=>x.ContactUserID== user.UserID)
+                                     where meal.CreateTime >= startDate && meal.CreateTime <= endDate
+                                     join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                     join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                     join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                     group foodMeal by meal.CreateTime.Date into g
+                                     select new
+                                     {
+                                         Date = g.Key,
+                                         Calorie= g.Sum(x=>x.Grams/100*x.Food.FoodCal)
+                                        
+
+
+                                     };
+
+                    dgvStatisticsTable.DataSource = totalCalList.ToList();
+
+
+                }
 
 
                 if (rdnCategories.Checked == true)
                 {
-                    TempCategoryStatistics temp = new();
+                    
 
-                    List<Meal> mealList = _db.Meals.Where(x => x.CreateTime.Day <= dtpEndDate.Value.Day && x.CreateTime.Day >= dtpStartDate.Value.Day && x.ContactUserID == user.UserID).ToList();
+                    var categoryCalList = from meal in _db.Meals
+                                     where meal.CreateTime >= startDate && meal.CreateTime <= endDate
+                                     join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                     join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                     join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                     group foodMeal by category.CategoryName into g
+                                     select new
+                                     {
+                                         Category = g.Key,
+                                         Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                         AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal))/_db.Users.Count()
+                                         
 
-                    DateTime startDate = dtpStartDate.Value;
-                    DateTime endDate = dtpEndDate.Value;
+                                     };
 
-                    var categoryCalories = from meal in _db.Meals.Where(x=>x.ContactUserID==user.UserID)
-                                           where meal.CreateTime >= startDate && meal.CreateTime <= endDate
-                                           join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                                           join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                                           join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                           group foodMeal by category.CategoryName into g
-                                           select new {
-                                               Category = g.Key,  //todo: Aşırı önemli Nokta
-                                               //TotalCalories = g.Sum(f => f.FoodCal * (_db.FoodMeals.Where(x => x.FoodID == f.FoodID).FirstOrDefault().Grams)) 
-                                               Calories = g.Sum(x=>x.Grams/100*(x.Food.FoodCal))
-                       };
+                    dgvStatisticsTable.DataSource = categoryCalList.ToList();
 
-                    dgvStatisticsTable.DataSource= categoryCalories.ToList();
+
+
+                    #region Eski1
+                    //foreach (var item in TotalCalorieList)
+                    //{
+                    //    var AverageCaloryList = new
+                    //    {
+                    //        Category = item.Category,
+                    //        Calories = item.Calories,
+                    //        AvgCalories = item.Calories / (_db.Users.Count())
+
+
+                    //    };
+                    //}
+                    //dgvStatisticsTable.DataSource = TotalCalorieList.ToList(); 
+                    #endregion
+                    #region ESKİ2
+                    //var categoryCalories = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
+                    //                       where meal.CreateTime >= startDate && meal.CreateTime <= endDate
+                    //                       join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                    //                       join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                    //                       join category in _db.Categories on food.CategoryId equals category.CategoryId
+                    //                       group foodMeal by category.CategoryName into g
+                    //                       select new
+                    //                       {
+                    //                           Category = g.Key,  //todo: Aşırı önemli Nokta
+                    //                           //TotalCalories = g.Sum(f => f.FoodCal * (_db.FoodMeals.Where(x => x.FoodID == f.FoodID).FirstOrDefault().Grams)) 
+                    //                           Calories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+
+                    //                       };
+
+                    ////var categoryCaloriesList = categoryCalories.ToList();
+
+                    //dgvStatisticsTable.DataSource = categoryCalories.ToList(); 
+                    #endregion
+
 
                 }
 

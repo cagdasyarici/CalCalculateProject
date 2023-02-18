@@ -111,7 +111,7 @@ namespace Proje
             { 
 
                 MealServices mealServices = new MealServices();
-                if (!mealServices.CheckIsMealNameExist(txtMealName.Text))
+                if (!mealServices.CheckIsMealNameExist(txtMealName.Text,user))
                 {
                     mealServices.CreateMeal(txtMealName.Text, user.UserID);
                 }
