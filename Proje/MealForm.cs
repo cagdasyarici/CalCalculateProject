@@ -13,15 +13,17 @@ using System.Windows.Forms;
 
 namespace Proje
 {
-    public partial class Form1 : Form
+    public partial class MealForm : Form
     {
         User user;
-        MainFormDeneme mainFormDeneme;
+        MainForm mainFormDeneme;
+        FlowLayoutPanel sideBarContainer;
         bool totalCalorieBrought;
-        public Form1(User userInfo, MainFormDeneme CurrentMainFormDeneme)
+        public MealForm(User userInfo, MainForm CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
         {
             user = userInfo;
             mainFormDeneme = CurrentMainFormDeneme;
+            sideBarContainer= currentSideBarContainer;
             InitializeComponent();
         }
 
@@ -53,10 +55,10 @@ namespace Proje
         {
             DataGridView dtgw = (DataGridView)sender;
             Meal meal = (Meal)dtgw.SelectedCells[0].OwningRow.DataBoundItem;
-            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user,mainFormDeneme);
+            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user,mainFormDeneme,sideBarContainer);
             addFoodToMeal.MdiParent = mainFormDeneme;
             int height = addFoodToMeal.Height + 35;
-            int width = addFoodToMeal.Width + 238;
+            int width = addFoodToMeal.Width + sideBarContainer.Width + 6;
             mainFormDeneme.Size = new Size(width, height);
             addFoodToMeal.Show();
             this.Close();
@@ -73,20 +75,14 @@ namespace Proje
         {
             try
             {
-                Meal? meal;
+                
                 /* meal = (Meal)dataGridView1.CurrentRow.DataBoundItem; */ // Burda hata veriyor.Burda nasýl hata verebilir ki ?
 
-                if (dataGridView1.CurrentRow.DataBoundItem is not null) // burayý sona býrak (yuþa)
-                {
-                    meal = (Meal)dataGridView1.CurrentRow.DataBoundItem;
+                   Meal? meal = dataGridView1.CurrentRow.DataBoundItem as Meal;
                     MealServices mealServices = new MealServices();
                     mealServices.RemoveEntity(meal);
                     DGVFill();
-                }
-                else
-                {
-                    MessageBox.Show("error"); // sonra düzelt
-                }
+                
 
             }
             catch (NullReferenceException)

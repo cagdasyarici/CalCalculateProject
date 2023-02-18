@@ -24,13 +24,15 @@ namespace Proje
         IList<Food> foodListDgv;
         Meal meal;
         User user;
-        MainFormDeneme mainFormDeneme;
-        public AddFoodToMeal(Meal currentMeal, User currentUser, MainFormDeneme CurrentMainFormDeneme)
+        MainForm mainFormDeneme;
+        FlowLayoutPanel sideBarContainer;
+        public AddFoodToMeal(Meal currentMeal, User currentUser, MainForm CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
         {
             InitializeComponent();
             mainFormDeneme = CurrentMainFormDeneme;
             meal = currentMeal;
             user = currentUser;
+            sideBarContainer = currentSideBarContainer;
             txtGrams.Text = "0";
             
         }
@@ -137,10 +139,10 @@ namespace Proje
 
         private void ıconButton1_Click(object sender, EventArgs e) // todo:İsmi düzelt
         {
-            Form1 MealForm = new(user, mainFormDeneme);
+            MealForm MealForm = new(user, mainFormDeneme,sideBarContainer);
             MealForm.MdiParent = mainFormDeneme;
             int height = MealForm.Height + 35;
-            int width = MealForm.Width + 238;
+            int width = MealForm.Width + sideBarContainer.Width + 6;
             mainFormDeneme.Size = new Size(width, height);
             MealForm.Show();
             this.Close();
@@ -213,30 +215,34 @@ namespace Proje
 
             try
             {
-                TempFood? tmpFood = dgvMealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
-                int FoodID = 0;
+               
+                    TempFood? tmpFood = dgvMealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
+                    int FoodID = 0;
 
 
-                FoodID = tmpFood.FoodID;
+                    FoodID = tmpFood.FoodID;
 
-                FoodMealServices foodMealServices = new FoodMealServices();
+                    FoodMealServices foodMealServices = new FoodMealServices();
 
-                FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
-                foodMealServices.DatabaseRemove(selectedFoodMeal2);
+                    FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
+                    foodMealServices.DatabaseRemove(selectedFoodMeal2);
 
 
-                MealServices mealServices = new MealServices();
-                var mealList = mealServices.ListeOlustur(meal);
+                    MealServices mealServices = new MealServices();
+                    var mealList = mealServices.ListeOlustur(meal);
 
-                ListMealRefresh(mealList);
-                double sum = 0;
-                for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
-                {
-                    sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
-                }
-                meal.TotalCalorie = sum;
+                    ListMealRefresh(mealList);
+                    double sum = 0;
+                    for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
+                    {
+                        sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
+                    }
+                    meal.TotalCalorie = sum;
 
-                mealServices.UpdateEntity(meal);
+                    mealServices.UpdateEntity(meal);
+               
+
+                
             }
             catch (ArgumentOutOfRangeException)
             {

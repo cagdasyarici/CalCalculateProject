@@ -2,16 +2,19 @@
 using CalCalculatorEntities;
 using CalCalculatorEntities.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Proje
 {
@@ -54,7 +57,7 @@ namespace Proje
                     #endregion
 
                     var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
-                                       where meal.CreateTime >= startDate && meal.CreateTime <= endDate
+                                       where meal.CreateTime.Day >= startDate.Day && meal.CreateTime.Day <= endDate.Day
                                        join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                        join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                        join category in _db.Categories on food.CategoryId equals category.CategoryId
@@ -137,7 +140,7 @@ namespace Proje
 
                 if (rdnFiltre3.Checked == true)
                 {
-                    #region Deneme
+                 
                     var List1 = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
                                 where meal.CreateTime.Day >= startDate.Day && meal.CreateTime.Day <= endDate.Day
                                 join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
@@ -151,12 +154,12 @@ namespace Proje
                                     Grams = g.Sum(x => x.Grams)
 
                                 };
-                    #endregion
+                  
 
 
                     dgvStatisticsTable.DataSource = List1.ToList();
 
-
+                    //dgvStatisticsTable.SelectedCells[0].OwningRow.DataBoundItem.ToString();
 
                 }
 
@@ -164,5 +167,165 @@ namespace Proje
             }
         }
 
+        private void btnDailyReport_Click(object sender, EventArgs e)
+        {
+            using (_db=new())
+            {
+
+                #region ESKİ
+                //var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
+                //                   where meal.CreateTime.Day == DateTime.Now.Day
+                //                   join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                //                   join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                //                   join category in _db.Categories on food.CategoryId equals category.CategoryId
+                //                   group foodMeal by meal.MealName into g
+                //                   orderby g.Sum(x => x.Grams) descending
+                //                   select new
+                //                   {
+                //                       Meal = g.Key,
+                //                       Calorie = g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
+
+
+
+                //                   };
+
+                //dgvStatisticsTable.DataSource = totalCalList.ToList();
+                #endregion
+
+                var DailyReportList = from meal in _db.Meals
+                                      where meal.CreateTime.Day==DateTime.Now.Day
+                                      join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                      join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                      join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                      group foodMeal by category.CategoryName into g
+                                      select new
+                                      {
+                                          Category = g.Key,
+                                          Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                          AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+
+
+                                      };
+
+                dgvStatisticsTable.DataSource = DailyReportList.ToList();
+            }
+        
+
+        }
+
+        private void btnMonthlyReport_Click(object sender, EventArgs e)
+        {
+            using (_db = new())
+            {
+
+                var MonthlyReportList = from meal in _db.Meals
+                                      where meal.CreateTime.Month == DateTime.Now.Month
+                                      join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                      join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                      join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                      group foodMeal by category.CategoryName into g
+                                      select new
+                                      {
+                                          Category = g.Key,
+                                          Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                          AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+
+
+                                      };
+
+                dgvStatisticsTable.DataSource = MonthlyReportList.ToList();
+
+            }
+        }
+
+        private void btnWeeklyReport_Click(object sender, EventArgs e)
+        {
+            using (_db = new())
+            {
+
+                var WeeklyReportList = from meal in _db.Meals
+                                        where meal.CreateTime >= DateTime.Now.AddDays(-7) && meal.CreateTime<= DateTime.Now
+                                        join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
+                                        join food in _db.Foods on foodMeal.FoodID equals food.FoodID
+                                        join category in _db.Categories on food.CategoryId equals category.CategoryId
+                                        group foodMeal by category.CategoryName into g
+                                        select new
+                                        {
+                                            Category = g.Key,
+                                            Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                            AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+
+
+                                        };
+
+                dgvStatisticsTable.DataSource = WeeklyReportList.ToList();
+
+            }
+        }
+
+        private void btnSendMail_Click(object sender, EventArgs e)
+        {
+            string data = "";
+            StringBuilder str = new StringBuilder();
+            str.Append(data);
+            foreach (DataGridViewRow row in dgvStatisticsTable.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Her hücrenin değerini string değişkenimize ekleyin
+                  str.Append(cell.Value.ToString() + " ");
+                }
+
+                // Satırlar arasına bir satır sonu karakteri ekleyin
+                str.AppendLine();
+            }
+
+            // Elde edilen tüm verileri string değişkeninde tutun
+            //MessageBox.Show(str.ToString());
+
+            if (user.Email.Contains("@gmail.com"))
+            {
+                MailAddress MailReceiver = new MailAddress(user.Email, user.UserName);
+                MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "Diet Application");
+                MailMessage verificationMessage = new MailMessage();
+
+
+                verificationMessage.To.Add(MailReceiver);
+                verificationMessage.From = MailSender;
+                verificationMessage.Subject = "Report";
+                verificationMessage.Body = "Your Report : \n" + str.ToString();
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                //smtp.Timeout   // Duruma göre bunu da ekle
+                smtp.Send(verificationMessage);
+            }
+
+
+
+            #region Yedek
+            //string data = "";
+            //StringBuilder str = new StringBuilder();
+            //str.Append(data);
+            //foreach (DataGridViewRow row in dgvStatisticsTable.Rows)
+            //{
+            //    foreach (DataGridViewCell cell in row.Cells)
+            //    {
+            //        // Her hücrenin değerini string değişkenimize ekleyin
+            //        data += cell.Value.ToString() + " ";
+            //    }
+
+            //    // Satırlar arasına bir satır sonu karakteri ekleyin
+            //    data += Environment.NewLine;
+            //}
+
+            //// Elde edilen tüm verileri string değişkeninde tutun
+            //MessageBox.Show(data);
+            #endregion
+
+
+        }
     }
 }
