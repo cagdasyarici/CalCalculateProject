@@ -2,16 +2,19 @@
 using CalCalculatorEntities;
 using CalCalculatorEntities.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Proje
 {
@@ -258,6 +261,71 @@ namespace Proje
                 dgvStatisticsTable.DataSource = WeeklyReportList.ToList();
 
             }
+        }
+
+        private void btnSendMail_Click(object sender, EventArgs e)
+        {
+            string data = "";
+            StringBuilder str = new StringBuilder();
+            str.Append(data);
+            foreach (DataGridViewRow row in dgvStatisticsTable.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Her hücrenin değerini string değişkenimize ekleyin
+                  str.Append(cell.Value.ToString() + " ");
+                }
+
+                // Satırlar arasına bir satır sonu karakteri ekleyin
+                str.AppendLine();
+            }
+
+            // Elde edilen tüm verileri string değişkeninde tutun
+            //MessageBox.Show(str.ToString());
+
+            if (user.Email.Contains("@gmail.com"))
+            {
+                MailAddress MailReceiver = new MailAddress(user.Email, user.UserName);
+                MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "Diet Application");
+                MailMessage verificationMessage = new MailMessage();
+
+
+                verificationMessage.To.Add(MailReceiver);
+                verificationMessage.From = MailSender;
+                verificationMessage.Subject = "Report";
+                verificationMessage.Body = "Your Report : \n" + str.ToString();
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                //smtp.Timeout   // Duruma göre bunu da ekle
+                smtp.Send(verificationMessage);
+            }
+
+
+
+            #region Yedek
+            //string data = "";
+            //StringBuilder str = new StringBuilder();
+            //str.Append(data);
+            //foreach (DataGridViewRow row in dgvStatisticsTable.Rows)
+            //{
+            //    foreach (DataGridViewCell cell in row.Cells)
+            //    {
+            //        // Her hücrenin değerini string değişkenimize ekleyin
+            //        data += cell.Value.ToString() + " ";
+            //    }
+
+            //    // Satırlar arasına bir satır sonu karakteri ekleyin
+            //    data += Environment.NewLine;
+            //}
+
+            //// Elde edilen tüm verileri string değişkeninde tutun
+            //MessageBox.Show(data);
+            #endregion
+
+
         }
     }
 }
