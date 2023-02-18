@@ -30,7 +30,7 @@ namespace Proje
         private void DGVFill()
         {
             MealServices mealServices = new MealServices();
-            dataGridView1.DataSource = mealServices.SearchByDate(dateTimePicker1.Value, dateTimePicker2.Value, user);
+            dataGridView1.DataSource = mealServices.SearchByDate(dateTimePicker1.Value, user);
             dataGridView1.Columns["User"].Visible = false;
             dataGridView1.Columns["FoodMeals"].Visible = false;
             dataGridView1.Columns["ContactUserID"].Visible = false;
