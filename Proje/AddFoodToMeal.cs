@@ -93,6 +93,9 @@ namespace Proje
 
             dgvFoodList.DataSource = null;
             dgvFoodList.DataSource = foodListDgv.Where(x => x.FoodName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            dgvFoodList.Columns["CategoryID"].Visible = false;
+            dgvFoodList.Columns["FoodMeals"].Visible = false;
+            dgvFoodList.Columns["Category"].Visible = false;
         }
 
         private void ListMealRefresh(List<TempFood> list)
