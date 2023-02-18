@@ -24,9 +24,9 @@ namespace Proje
         IList<Food> foodListDgv;
         Meal meal;
         User user;
-        MainFormDeneme mainFormDeneme;
+        MainForm mainFormDeneme;
         FlowLayoutPanel sideBarContainer;
-        public AddFoodToMeal(Meal currentMeal, User currentUser, MainFormDeneme CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
+        public AddFoodToMeal(Meal currentMeal, User currentUser, MainForm CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
         {
             InitializeComponent();
             mainFormDeneme = CurrentMainFormDeneme;
@@ -139,7 +139,7 @@ namespace Proje
 
         private void ıconButton1_Click(object sender, EventArgs e) // todo:İsmi düzelt
         {
-            Form1 MealForm = new(user, mainFormDeneme,sideBarContainer);
+            MealForm MealForm = new(user, mainFormDeneme,sideBarContainer);
             MealForm.MdiParent = mainFormDeneme;
             int height = MealForm.Height + 35;
             int width = MealForm.Width + sideBarContainer.Width + 6;

@@ -1,5 +1,4 @@
-﻿using CalCalculatorBLL;
-using CalCalculatorEntities;
+﻿using CalCalculatorEntities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,44 +13,155 @@ namespace Proje
 {
     public partial class AdminPanel : Form
     {
+        
+        bool sidebarExpand;
         User user;
-        public AdminPanel(User userInfo)
+        CreateFood createFoodForm;
+        CreateCategory createCategoryForm;
+        public AdminPanel(User currentUser)
         {
-            user=userInfo;
             InitializeComponent();
+            IsMdiContainer = true;
+            user = currentUser;
         }
 
-        private void AdminPanel_Load(object sender, EventArgs e)
+
+        private void sidebarTimer_Tick(object sender, EventArgs e)
         {
 
-            lblUserName.Text = user.UserName;
-            lblEmail.Text = user.Email;
+
+            if (sidebarExpand)
+            {
+                sidebarContainer.Width -= 10;
+                if (sidebarContainer.Width == sidebarContainer.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebarTimer.Stop();
+                }
+            }
+            else
+            {
+                sidebarContainer.Width += 10;
+                if (sidebarContainer.Width == sidebarContainer.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebarTimer.Stop();
+                }
+            }
         }
 
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
+
+            //If menu closed
+            if (homeContainer.Visible && sidebarContainer.Width > 230)
+            {
+                homeContainer.Visible = false;
+            }
+            else if (!homeContainer.Visible && sidebarContainer.Width < 85)
+            {
+                homeContainer.Visible = true;
+            }
+
+        }
+
+        private void btnContinueAsAnUser_Click(object sender, EventArgs e)
+        {
+
+            MainForm mainForm = new(user);
+            mainForm.Show();
+            this.Close();
+        }
         private void btnCreateFood_Click(object sender, EventArgs e)
         {
-            //CreateFood createFood = new CreateFood(user);
-            //createFood.Show();
-            //this.Hide();
+
+            createFoodForm = new();
+            createFoodForm.MdiParent = this;
+            int height = createFoodForm.Height + 35;
+            int width = createFoodForm.Width + 238;
+            this.Size = new Size(width, height);
+            if (this.ActiveMdiChild == null )
+            {
+                createFoodForm.Show();
+            }
+            else if(this.ActiveMdiChild != null ) 
+            {
+                this.ActiveMdiChild.Close();
+                createFoodForm.Show();
+            }
+            
+            
+
         }
 
         private void btnCreateCategory_Click(object sender, EventArgs e)
         {
-            //CreateCategory createCategory = new CreateCategory(user);
-            //createCategory.Show();
-            //this.Hide();
+
+            createCategoryForm = new();
+            createCategoryForm.MdiParent = this;
+            int height = createCategoryForm.Height + 35;
+            int width = createCategoryForm.Width + 238;
+            this.Size = new Size(width, height);
+            if (this.ActiveMdiChild == null)
+            {
+                createCategoryForm.Show();
+            }
+            else if (this.ActiveMdiChild != null)
+            {
+                this.ActiveMdiChild.Close();
+                createCategoryForm.Show();
+            }
+            
+            
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void btnShutDown_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Uygulamadan çıkmak istediğinize emin misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK) // OK butonuna basıldı
+            {
+                // Uygulamayı kapat
+                Application.Exit();
+            }
+        }
 
-            //Form1 frm = new Form1(user);
-            //frm.Show();
-            //this.Hide();
-            MainFormDeneme mainForm = new MainFormDeneme(user);
+        private void btnMaximizeMinimize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
 
-            mainForm.Show();
-            this.Hide();
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private Point lastPoint; // Son konum bilgisini tutmak için bir değişken tanımlıyoruz.
+        private void AdminPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y); // Son konum bilgisini alıyoruz.
+        }
+
+        private void AdminPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) // Sol fare düğmesine basılırsa formun konumu değiştiriliyor.
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void AdminPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
         }
     }
 }
+

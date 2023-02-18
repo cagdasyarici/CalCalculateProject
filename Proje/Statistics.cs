@@ -156,7 +156,7 @@ namespace Proje
 
                     dgvStatisticsTable.DataSource = List1.ToList();
 
-
+                    //dgvStatisticsTable.SelectedCells[0].OwningRow.DataBoundItem.ToString();
 
                 }
 

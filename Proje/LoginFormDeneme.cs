@@ -50,14 +50,14 @@ namespace Proje
                     if (!user.IsAdmin)
                     {
                         //Form1 frm = new Form1(user);
-                        MainFormDeneme mainForm = new MainFormDeneme(user);
+                        MainForm mainForm = new MainForm(user);
 
                         mainForm.Show();
                         this.Hide();
                     }
                     else
                     {
-                        AdminPanelDeneme panel = new AdminPanelDeneme(user);
+                        AdminPanel panel = new AdminPanel(user);
                         panel.Show();
                         this.Hide();
                     }
