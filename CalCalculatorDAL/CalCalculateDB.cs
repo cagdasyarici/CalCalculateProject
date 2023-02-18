@@ -40,33 +40,33 @@ namespace CalCalculatorDAL
                 .ApplyConfiguration(new FoodMealConfigurations());
             base.OnModelCreating(modelBuilder);
             #region Seed Data
-            modelBuilder.Entity<Category>().HasData(CreateCategory(1,"Desserts"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(2,"Drinks"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(3,"Sea Foods"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(4,"Pastries"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(5,"Fast Foods"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(6,"Fruits"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(7,"Vegetable"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(8,"Snacks"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(9,"Kebabs"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(10,"Legumes"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(11,"Salads"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(12,"Breakfast Foods"));
-            modelBuilder.Entity<Category>().HasData(CreateCategory(13,"Bakery"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(1, "Desserts"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(2, "Drinks"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(3, "Sea Foods"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(4, "Pastries"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(5, "Fast Foods"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(6, "Fruits"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(7, "Vegetable"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(8, "Snacks"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(9, "Kebabs"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(10, "Legumes"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(11, "Salads"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(12, "Breakfast Foods"));
+            modelBuilder.Entity<Category>().HasData(CreateCategory(13, "Bakery"));
 
-            modelBuilder.Entity<Food>().HasData(CreateFood(1,"Coke", 37, 10, 0, 0, 2));
-            modelBuilder.Entity<Food>().HasData(CreateFood(2,"Juice", 54, 13, 0, 0, 2));
-            modelBuilder.Entity<Food>().HasData(CreateFood(3,"Tea", 1, 0, 0, 0, 2));
-            modelBuilder.Entity<Food>().HasData(CreateFood(4,"Coffee", 1, 0, 0, 0, 2));
-            modelBuilder.Entity<Food>().HasData(CreateFood(5,"Soda", 95, 24, 0, 0, 2));
-            modelBuilder.Entity<Food>().HasData(CreateFood(6,"Turkish Delight", 359, 90, 0, 0, 1));
-            modelBuilder.Entity<Food>().HasData(CreateFood(7,"Baklava", 428, 38, 29, 7, 1));
-            modelBuilder.Entity<Food>().HasData(CreateFood(8,"Kazandibi", 130, 20, 4, 3, 1));
-            modelBuilder.Entity<Food>().HasData(CreateFood(9,"Caramel Waffle", 452, 62, 21, 3, 1));
+            modelBuilder.Entity<Food>().HasData(CreateFood(1, "Coke", 37, 10, 0, 0, 2));
+            modelBuilder.Entity<Food>().HasData(CreateFood(2, "Juice", 54, 13, 0, 0, 2));
+            modelBuilder.Entity<Food>().HasData(CreateFood(3, "Tea", 1, 0, 0, 0, 2));
+            modelBuilder.Entity<Food>().HasData(CreateFood(4, "Coffee", 1, 0, 0, 0, 2));
+            modelBuilder.Entity<Food>().HasData(CreateFood(5, "Soda", 95, 24, 0, 0, 2));
+            modelBuilder.Entity<Food>().HasData(CreateFood(6, "Turkish Delight", 359, 90, 0, 0, 1));
+            modelBuilder.Entity<Food>().HasData(CreateFood(7, "Baklava", 428, 38, 29, 7, 1));
+            modelBuilder.Entity<Food>().HasData(CreateFood(8, "Kazandibi", 130, 20, 4, 3, 1));
+            modelBuilder.Entity<Food>().HasData(CreateFood(9, "Caramel Waffle", 452, 62, 21, 3, 1));
             modelBuilder.Entity<Food>().HasData(CreateFood(10, "Profiterole", 429, 56, 20, 6, 1));
-            modelBuilder.Entity<Food>().HasData(CreateFood(11,"Bonito", 216, 0, 15, 20, 3));
-            modelBuilder.Entity<Food>().HasData(CreateFood(12,"Red Mullet", 124, 0, 3, 20, 3));
-            modelBuilder.Entity<Food>().HasData(CreateFood(13,"Bream", 96, 0, 2, 20, 3));
+            modelBuilder.Entity<Food>().HasData(CreateFood(11, "Bonito", 216, 0, 15, 20, 3));
+            modelBuilder.Entity<Food>().HasData(CreateFood(12, "Red Mullet", 124, 0, 3, 20, 3));
+            modelBuilder.Entity<Food>().HasData(CreateFood(13, "Bream", 96, 0, 2, 20, 3));
             modelBuilder.Entity<Food>().HasData(CreateFood(14, "Octopus", 164, 5, 2, 30, 3));
             modelBuilder.Entity<Food>().HasData(CreateFood(15, "Moules Provencales", 89, 3, 5, 8, 3));
             modelBuilder.Entity<Food>().HasData(CreateFood(16, "Chocolate Cake", 385, 27, 29, 5, 4));
@@ -106,7 +106,7 @@ namespace CalCalculatorDAL
             modelBuilder.Entity<Food>().HasData(CreateFood(50, "Bagel", 275, 58, 4, 10, 13));
             modelBuilder.Entity<Food>().HasData(CreateFood(51, "Savory Bun", 275, 58, 4, 10, 13));
 
-            modelBuilder.Entity<User>().HasData(CreateUser(1,"admin", "admin", "admin@", "adminSecurityQuestion", "adminSecurityAnswer",true));
+            modelBuilder.Entity<User>().HasData(CreateUser(1, "admin", "admin", "admin@", "adminSecurityQuestion", "adminSecurityAnswer", true));
             #endregion
         }
 
