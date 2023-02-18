@@ -57,7 +57,7 @@ namespace Proje
                     #endregion
 
                     var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
-                                       where meal.CreateTime.Day >= startDate.Day && meal.CreateTime.Day <= endDate.Day
+                                       where meal.CreateTime.Date >= startDate.Date && meal.CreateTime.Date <= endDate.Date
                                        join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                        join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                        join category in _db.Categories on food.CategoryId equals category.CategoryId
@@ -82,7 +82,7 @@ namespace Proje
 
 
                     var categoryCalList = from meal in _db.Meals
-                                          where meal.CreateTime >= startDate && meal.CreateTime <= endDate
+                                          where meal.CreateTime.Date >= startDate.Date && meal.CreateTime.Date <= endDate.Date // todo: Date - Day kullanımına daha sonra bak 
                                           join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                           join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                           join category in _db.Categories on food.CategoryId equals category.CategoryId
@@ -142,7 +142,7 @@ namespace Proje
                 {
                  
                     var List1 = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
-                                where meal.CreateTime.Day >= startDate.Day && meal.CreateTime.Day <= endDate.Day
+                                where meal.CreateTime.Date >= startDate.Date && meal.CreateTime.Date <= endDate.Date
                                 join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                 join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                 join category in _db.Categories on food.CategoryId equals category.CategoryId
@@ -193,7 +193,7 @@ namespace Proje
                 #endregion
 
                 var DailyReportList = from meal in _db.Meals
-                                      where meal.CreateTime.Day==DateTime.Now.Day
+                                      where meal.CreateTime.Date == DateTime.Now.Date
                                       join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                       join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                       join category in _db.Categories on food.CategoryId equals category.CategoryId
@@ -244,7 +244,7 @@ namespace Proje
             {
 
                 var WeeklyReportList = from meal in _db.Meals
-                                        where meal.CreateTime >= DateTime.Now.AddDays(-7) && meal.CreateTime<= DateTime.Now
+                                        where meal.CreateTime.Date >= DateTime.Now.AddDays(-7).Date && meal.CreateTime.Date<= DateTime.Now.Date // todo:Burada date yapmaktan emin emin değilim
                                         join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                         join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                         join category in _db.Categories on food.CategoryId equals category.CategoryId
