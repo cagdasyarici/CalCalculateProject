@@ -73,20 +73,14 @@ namespace Proje
         {
             try
             {
-                Meal? meal;
+                
                 /* meal = (Meal)dataGridView1.CurrentRow.DataBoundItem; */ // Burda hata veriyor.Burda nasýl hata verebilir ki ?
 
-                if (dataGridView1.CurrentRow.DataBoundItem is not null) // burayý sona býrak (yuþa)
-                {
-                    meal = (Meal)dataGridView1.CurrentRow.DataBoundItem;
+                   Meal? meal = dataGridView1.CurrentRow.DataBoundItem as Meal;
                     MealServices mealServices = new MealServices();
                     mealServices.RemoveEntity(meal);
                     DGVFill();
-                }
-                else
-                {
-                    MessageBox.Show("error"); // sonra düzelt
-                }
+                
 
             }
             catch (NullReferenceException)
