@@ -181,6 +181,8 @@
             this.txtCal.Name = "txtCal";
             this.txtCal.Size = new System.Drawing.Size(121, 22);
             this.txtCal.TabIndex = 45;
+            this.txtCal.Enter += new System.EventHandler(this.txtFocus);
+            this.txtCal.Leave += new System.EventHandler(this.txtFocus);
             // 
             // txtFat
             // 
@@ -191,6 +193,8 @@
             this.txtFat.Name = "txtFat";
             this.txtFat.Size = new System.Drawing.Size(121, 22);
             this.txtFat.TabIndex = 46;
+            this.txtFat.Enter += new System.EventHandler(this.txtFocus);
+            this.txtFat.Leave += new System.EventHandler(this.txtFocus);
             // 
             // txtProt
             // 
@@ -201,6 +205,8 @@
             this.txtProt.Name = "txtProt";
             this.txtProt.Size = new System.Drawing.Size(121, 22);
             this.txtProt.TabIndex = 47;
+            this.txtProt.Enter += new System.EventHandler(this.txtFocus);
+            this.txtProt.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label8
             // 
@@ -233,6 +239,8 @@
             this.txtCarbonh.Name = "txtCarbonh";
             this.txtCarbonh.Size = new System.Drawing.Size(121, 22);
             this.txtCarbonh.TabIndex = 48;
+            this.txtCarbonh.Enter += new System.EventHandler(this.txtFocus);
+            this.txtCarbonh.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label10
             // 
@@ -254,6 +262,8 @@
             this.txtFoodName.Name = "txtFoodName";
             this.txtFoodName.Size = new System.Drawing.Size(121, 22);
             this.txtFoodName.TabIndex = 49;
+            this.txtFoodName.Enter += new System.EventHandler(this.txtFocus);
+            this.txtFoodName.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label11
             // 

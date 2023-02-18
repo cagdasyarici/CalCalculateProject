@@ -58,6 +58,8 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(158, 22);
             this.txtPassword.TabIndex = 5;
+            this.txtPassword.Enter += new System.EventHandler(this.txtFocus);
+            this.txtPassword.Leave += new System.EventHandler(this.txtFocus);
             // 
             // txtUsername
             // 
@@ -69,6 +71,8 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(158, 22);
             this.txtUsername.TabIndex = 6;
+            this.txtUsername.Enter += new System.EventHandler(this.txtFocus);
+            this.txtUsername.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label2
             // 
@@ -114,6 +118,8 @@
             this.txtPassControl.PasswordChar = '*';
             this.txtPassControl.Size = new System.Drawing.Size(158, 22);
             this.txtPassControl.TabIndex = 5;
+            this.txtPassControl.Enter += new System.EventHandler(this.txtFocus);
+            this.txtPassControl.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label4
             // 
@@ -136,6 +142,8 @@
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(221, 22);
             this.txtMail.TabIndex = 5;
+            this.txtMail.Enter += new System.EventHandler(this.txtFocus);
+            this.txtMail.Leave += new System.EventHandler(this.txtFocus);
             // 
             // lblWarning
             // 
@@ -181,6 +189,8 @@
             this.txtSecurity.Name = "txtSecurity";
             this.txtSecurity.Size = new System.Drawing.Size(221, 22);
             this.txtSecurity.TabIndex = 10;
+            this.txtSecurity.Enter += new System.EventHandler(this.txtFocus);
+            this.txtSecurity.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label6
             // 

@@ -113,6 +113,8 @@
             this.txtMealName.Name = "txtMealName";
             this.txtMealName.Size = new System.Drawing.Size(100, 22);
             this.txtMealName.TabIndex = 2;
+            this.txtMealName.Enter += new System.EventHandler(this.txtFocus);
+            this.txtMealName.Leave += new System.EventHandler(this.txtFocus);
             // 
             // groupBox1
             // 

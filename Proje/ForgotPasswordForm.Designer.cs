@@ -121,6 +121,8 @@
             this.txtSecurityAnswer.Name = "txtSecurityAnswer";
             this.txtSecurityAnswer.Size = new System.Drawing.Size(134, 22);
             this.txtSecurityAnswer.TabIndex = 1;
+            this.txtSecurityAnswer.Enter += new System.EventHandler(this.txtFocus);
+            this.txtSecurityAnswer.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label3
             // 
@@ -149,6 +151,8 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(134, 22);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.Enter += new System.EventHandler(this.txtFocus);
+            this.txtUsername.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label1
             // 
@@ -227,6 +231,8 @@
             this.txtVerificationCode.Name = "txtVerificationCode";
             this.txtVerificationCode.Size = new System.Drawing.Size(129, 22);
             this.txtVerificationCode.TabIndex = 3;
+            this.txtVerificationCode.Enter += new System.EventHandler(this.txtFocus);
+            this.txtVerificationCode.Leave += new System.EventHandler(this.txtFocus);
             // 
             // txtEMailAdress
             // 
@@ -237,6 +243,8 @@
             this.txtEMailAdress.Name = "txtEMailAdress";
             this.txtEMailAdress.Size = new System.Drawing.Size(164, 22);
             this.txtEMailAdress.TabIndex = 1;
+            this.txtEMailAdress.Enter += new System.EventHandler(this.txtFocus);
+            this.txtEMailAdress.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label5
             // 
@@ -302,6 +310,8 @@
             this.txtPasswordConfirm.Name = "txtPasswordConfirm";
             this.txtPasswordConfirm.Size = new System.Drawing.Size(164, 22);
             this.txtPasswordConfirm.TabIndex = 1;
+            this.txtPasswordConfirm.Enter += new System.EventHandler(this.txtFocus);
+            this.txtPasswordConfirm.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label6
             // 
@@ -321,6 +331,8 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(164, 22);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.Enter += new System.EventHandler(this.txtFocus);
+            this.txtPassword.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label7
             // 

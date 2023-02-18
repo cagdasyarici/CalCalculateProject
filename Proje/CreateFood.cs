@@ -114,6 +114,23 @@ namespace Proje
         {
             categorySelected=true;
         }
+        private void txtFocus(object sender, EventArgs e)
+        {
+            TxtFocus((TextBox)sender);
+        }
+        private void TxtFocus(TextBox textBox)
+        {
+            if (textBox.BackColor == Color.FromArgb(112, 117, 132))
+            {
+                textBox.BackColor = Color.FromArgb(148, 153, 168);
+                textBox.ForeColor = Color.Black;
+            }
+            else
+            {
+                textBox.BackColor = Color.FromArgb(112, 117, 132);
+                textBox.ForeColor = Color.Black;
+            }
+        }
 
     }
 }
