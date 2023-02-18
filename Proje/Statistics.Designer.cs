@@ -38,6 +38,7 @@
             this.btnDailyReport = new System.Windows.Forms.Button();
             this.btnMonthlyReport = new System.Windows.Forms.Button();
             this.btnWeeklyReport = new System.Windows.Forms.Button();
+            this.btnSendMail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatisticsTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,11 +139,22 @@
             this.btnWeeklyReport.UseVisualStyleBackColor = true;
             this.btnWeeklyReport.Click += new System.EventHandler(this.btnWeeklyReport_Click);
             // 
+            // btnSendMail
+            // 
+            this.btnSendMail.Location = new System.Drawing.Point(839, 118);
+            this.btnSendMail.Name = "btnSendMail";
+            this.btnSendMail.Size = new System.Drawing.Size(274, 40);
+            this.btnSendMail.TabIndex = 9;
+            this.btnSendMail.Text = "Send Mail to Me";
+            this.btnSendMail.UseVisualStyleBackColor = true;
+            this.btnSendMail.Click += new System.EventHandler(this.btnSendMail_Click);
+            // 
             // Statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 750);
+            this.Controls.Add(this.btnSendMail);
             this.Controls.Add(this.btnWeeklyReport);
             this.Controls.Add(this.btnMonthlyReport);
             this.Controls.Add(this.btnDailyReport);
@@ -174,5 +186,6 @@
         private Button btnDailyReport;
         private Button btnMonthlyReport;
         private Button btnWeeklyReport;
+        private Button btnSendMail;
     }
 }
