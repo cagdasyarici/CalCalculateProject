@@ -32,6 +32,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnShutDown = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPasswordShow = new FontAwesome.Sharp.IconButton();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.btnLogin = new FontAwesome.Sharp.IconButton();
             this.ıconButton1 = new FontAwesome.Sharp.IconButton();
@@ -78,6 +79,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
+            this.panel1.Controls.Add(this.btnPasswordShow);
             this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.ıconButton1);
@@ -90,6 +92,28 @@
             this.panel1.Size = new System.Drawing.Size(271, 289);
             this.panel1.TabIndex = 6;
             // 
+            // btnPasswordShow
+            // 
+            this.btnPasswordShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.btnPasswordShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPasswordShow.FlatAppearance.BorderSize = 0;
+            this.btnPasswordShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPasswordShow.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPasswordShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnPasswordShow.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnPasswordShow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.btnPasswordShow.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPasswordShow.IconSize = 20;
+            this.btnPasswordShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPasswordShow.Location = new System.Drawing.Point(202, 101);
+            this.btnPasswordShow.Margin = new System.Windows.Forms.Padding(1);
+            this.btnPasswordShow.Name = "btnPasswordShow";
+            this.btnPasswordShow.Size = new System.Drawing.Size(28, 22);
+            this.btnPasswordShow.TabIndex = 6;
+            this.btnPasswordShow.UseVisualStyleBackColor = false;
+            this.btnPasswordShow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnPasswordShow_MouseDown);
+            this.btnPasswordShow.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnPasswordShow_MouseUp);
+            // 
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
@@ -99,6 +123,8 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(135, 22);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // btnLogin
             // 
@@ -153,7 +179,7 @@
             this.btnSignUp.Location = new System.Drawing.Point(24, 199);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(101, 34);
-            this.btnSignUp.TabIndex = 3;
+            this.btnSignUp.TabIndex = 4;
             this.btnSignUp.Text = "       Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = false;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
@@ -183,7 +209,7 @@
             this.lblForgotPass.Location = new System.Drawing.Point(130, 143);
             this.lblForgotPass.Name = "lblForgotPass";
             this.lblForgotPass.Size = new System.Drawing.Size(100, 15);
-            this.lblForgotPass.TabIndex = 2;
+            this.lblForgotPass.TabIndex = 5;
             this.lblForgotPass.TabStop = true;
             this.lblForgotPass.Text = "Forgot password?";
             this.lblForgotPass.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(45)))), ((int)(((byte)(13)))));
@@ -196,8 +222,11 @@
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.Location = new System.Drawing.Point(95, 101);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(135, 22);
-            this.txtPassword.TabIndex = 1;
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(108, 22);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // LoginFormDeneme
             // 
@@ -213,6 +242,7 @@
             this.Name = "LoginFormDeneme";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginFormDeneme";
+            this.Load += new System.EventHandler(this.LoginFormDeneme_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -231,5 +261,6 @@
         private FontAwesome.Sharp.IconButton ıconButton2;
         private LinkLabel lblForgotPass;
         private TextBox txtPassword;
+        private FontAwesome.Sharp.IconButton btnPasswordShow;
     }
 }
