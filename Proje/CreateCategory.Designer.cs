@@ -48,6 +48,8 @@
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(245, 22);
             this.txtCategoryName.TabIndex = 0;
+            this.txtCategoryName.Enter += new System.EventHandler(this.txtFocus);
+            this.txtCategoryName.Leave += new System.EventHandler(this.txtFocus);
             // 
             // label1
             // 
