@@ -36,6 +36,7 @@
             this.dgvStatisticsTable = new System.Windows.Forms.DataGridView();
             this.txtTopcal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.rdnFiltre3 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatisticsTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,11 +112,23 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Toplam Kalori : ";
             // 
+            // rdnFiltre3
+            // 
+            this.rdnFiltre3.AutoSize = true;
+            this.rdnFiltre3.Location = new System.Drawing.Point(413, 120);
+            this.rdnFiltre3.Name = "rdnFiltre3";
+            this.rdnFiltre3.Size = new System.Drawing.Size(85, 29);
+            this.rdnFiltre3.TabIndex = 6;
+            this.rdnFiltre3.TabStop = true;
+            this.rdnFiltre3.Text = "Filtre3";
+            this.rdnFiltre3.UseVisualStyleBackColor = true;
+            // 
             // Statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 750);
+            this.Controls.Add(this.rdnFiltre3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTopcal);
             this.Controls.Add(this.dgvStatisticsTable);
@@ -143,5 +156,6 @@
         private DataGridView dgvStatisticsTable;
         private TextBox txtTopcal;
         private Label label1;
+        private RadioButton rdnFiltre3;
     }
 }
