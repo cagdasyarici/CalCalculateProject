@@ -17,11 +17,13 @@ namespace Proje
     {
         User user;
         MainFormDeneme mainFormDeneme;
+        FlowLayoutPanel sideBarContainer;
         bool totalCalorieBrought;
-        public Form1(User userInfo, MainFormDeneme CurrentMainFormDeneme)
+        public Form1(User userInfo, MainFormDeneme CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
         {
             user = userInfo;
             mainFormDeneme = CurrentMainFormDeneme;
+            sideBarContainer= currentSideBarContainer;
             InitializeComponent();
         }
 
@@ -53,10 +55,10 @@ namespace Proje
         {
             DataGridView dtgw = (DataGridView)sender;
             Meal meal = (Meal)dtgw.SelectedCells[0].OwningRow.DataBoundItem;
-            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user,mainFormDeneme);
+            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user,mainFormDeneme,sideBarContainer);
             addFoodToMeal.MdiParent = mainFormDeneme;
             int height = addFoodToMeal.Height + 35;
-            int width = addFoodToMeal.Width + 238;
+            int width = addFoodToMeal.Width + sideBarContainer.Width + 6;
             mainFormDeneme.Size = new Size(width, height);
             addFoodToMeal.Show();
             this.Close();

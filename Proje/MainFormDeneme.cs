@@ -15,7 +15,7 @@ namespace Proje
     public partial class MainFormDeneme : Form
     {
 
-        bool sidebarExpand;
+        bool sidebarExpand=false;
         bool homeExpand;
         User user;
         public MainFormDeneme(User currentUser)
@@ -30,7 +30,7 @@ namespace Proje
         {
 
         }
-
+        
         private void sidebarTimer_Tick(object sender, EventArgs e)
         {
 
@@ -39,7 +39,7 @@ namespace Proje
             {
                 sidebarContainer.Width -= 10;
                 this.Width-= 10;
-                if (sidebarContainer.Width == sidebarContainer.MinimumSize.Width)
+                if (sidebarContainer.Width <= sidebarContainerMinWidth)
                 {
                     sidebarExpand = false;
                     sidebarTimer.Stop();
@@ -49,29 +49,33 @@ namespace Proje
             {
                 sidebarContainer.Width += 10;
                 this.Width += 10;
-                if (sidebarContainer.Width == sidebarContainer.MaximumSize.Width)
+                if (sidebarContainer.Width >= sidebarContainerMaxWidth)
                 {
                     sidebarExpand = true;
                     sidebarTimer.Stop();
                 }
             }
         }
-
+        int sidebarContainerMaxWidth;
+        int sidebarContainerMinWidth;
         private void menuButton_Click(object sender, EventArgs e)
         {
-            sidebarTimer.Start();
+            
 
             //If menu closed
-            if (homeContainer.Visible && HelpAboutContainer.Visible && sidebarContainer.Width > 230)
+            if (homeContainer.Visible && HelpAboutContainer.Visible && sidebarExpand)
             {
+                sidebarContainerMinWidth = sidebarContainer.Width / 3;
                 homeContainer.Visible = false;
                 HelpAboutContainer.Visible = false;
             }
-            else if (!homeContainer.Visible && !HelpAboutContainer.Visible && sidebarContainer.Width < 85)
+            else if (!homeContainer.Visible && !HelpAboutContainer.Visible && !sidebarExpand)
             {
+                sidebarContainerMaxWidth = sidebarContainer.Width * 3;
                 homeContainer.Visible = true;
                 HelpAboutContainer.Visible = true;
             }
+            sidebarTimer.Start();
 
         }
 
@@ -106,10 +110,10 @@ namespace Proje
         {
             if (MealForm == null)
             {
-                MealForm = new(user, this);
+                MealForm = new(user, this,sidebarContainer);
                 MealForm.MdiParent = this;
                 int height = MealForm.Height + 35;
-                int width = MealForm.Width + 238;
+                int width = MealForm.Width + sidebarContainer.Width +6;
                 this.Size = new Size(width, height);
                 MealForm.Show();
             }
