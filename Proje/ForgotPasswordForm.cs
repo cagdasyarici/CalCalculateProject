@@ -20,7 +20,7 @@ namespace Proje
         string code;
         User user;
         public ForgotPasswordForm()
-        {   
+        {
             InitializeComponent();
         }
         public ForgotPasswordForm(User userInfo)
@@ -36,9 +36,9 @@ namespace Proje
             cmbSecurityQuestions.SelectedItem = cmbSecurityQuestions.Items[0].ToString();
 
         }
-       
 
-        private void CheckPassword(string _password,string _confirmPassword)
+
+        private void CheckPassword(string _password, string _confirmPassword)
         {
 
             bool result = _password.Any(c => char.IsLetter(c)) && _password.Any(c => char.IsDigit(c));
@@ -59,7 +59,7 @@ namespace Proje
                 {
                     MessageBox.Show("Weak Password!", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
             }
 
             else
@@ -68,59 +68,6 @@ namespace Proje
             }
 
         }
-        /// <summary>
-        /// 6 Haneli Kod Üretir
-        /// </summary>
-        /// <returns></returns>
-        public string Generate6DigitCode()
-        {
-            Random rnd = new Random();
-            return rnd.Next(100000, 999999).ToString();
-        }
-        /// <summary>
-        /// Hotmail.com mail adresleri için doğrulama Kodu gönderir
-        /// </summary>
-        public void HotmailSendVerificationCode()
-        {
-
-            MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text, txtUsername.Text);
-            MailAddress MailSender = new MailAddress("CalculatorCodeSender@hotmail.com", "CodeSender");
-            MailMessage verificationMessage = new MailMessage();
-
-
-            verificationMessage.To.Add(MailReceiver);
-            verificationMessage.From = MailSender;
-            verificationMessage.Subject = "Change Password";
-            verificationMessage.Body = "Verification Code to Change Password : " + code;
-
-            SmtpClient smtp = new SmtpClient("smtp.outlook.com", 587);
-            smtp.Credentials = new System.Net.NetworkCredential("CalculatorCodeSender@hotmail.com", "Cal.5224");
-            smtp.EnableSsl = true;
-            smtp.Send(verificationMessage);
-        }
-
-        public void GmailSendVerificationCode()
-        {
-         
-                MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text, txtUsername.Text);
-                MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "CodeSender");
-                MailMessage verificationMessage = new MailMessage();
-
-
-                verificationMessage.To.Add(MailReceiver);
-                verificationMessage.From = MailSender;
-                verificationMessage.Subject = "Change Password";
-                verificationMessage.Body = "Verification Code to Change Password : " + code;
-
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc
-                smtp.EnableSsl = true;
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                //smtp.Timeout   // Duruma göre bunu da ekle
-                smtp.Send(verificationMessage);
-
-        }
-
         private void btnNexxt_Click(object sender, EventArgs e)
         {
             using (_db = new())
@@ -158,20 +105,20 @@ namespace Proje
         /// <param name="e"></param>
         private void btnApplyy_Click(object sender, EventArgs e)
         {
-           
-                if (txtVerificationCode.Text.Equals(code))
-                {
-                    grpChangePassword.Enabled = true;
-                    grpMail.Enabled = false;
-                }
-                else if (txtVerificationCode.Text == String.Empty)
-                {
-                    MessageBox.Show("Please Fill The Verification Code Textbox", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect Code!");
-                }
+
+            if (txtVerificationCode.Text.Equals(code))
+            {
+                grpChangePassword.Enabled = true;
+                grpMail.Enabled = false;
+            }
+            else if (txtVerificationCode.Text == String.Empty)
+            {
+                MessageBox.Show("Please Fill The Verification Code Textbox", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Code!");
+            }
 
         }
         /// <summary>
@@ -181,10 +128,10 @@ namespace Proje
         /// <param name="e"></param>
         private void btnChangee_Click(object sender, EventArgs e)
         {
-                using (_db = new CalCalculateDB())
-                {
-                    CheckPassword(txtPassword.Text, txtPasswordConfirm.Text);
-                }
+            using (_db = new CalCalculateDB())
+            {
+                CheckPassword(txtPassword.Text, txtPasswordConfirm.Text);
+            }
         }
         /// <summary>
         /// Kullanıcının databasede bulunan Mail adresine 6 haneli bir doğrulama kodu gönderir        /// </summary>
@@ -192,39 +139,39 @@ namespace Proje
         /// <param name="e"></param>
         private void btnSendVerificationn_Click(object sender, EventArgs e)
         {
+            MailServices mailServices = new MailServices();
+            code =mailServices.Generate6DigitCode();
            
-                code = Generate6DigitCode();
+
+            if (txtEMailAdress.Text.Contains("@gmail.com"))
+            {
+                mailServices.GmailSendVerificationCode(txtEMailAdress.Text, txtUsername.Text, code);
+            }
+            else if (txtEMailAdress.Text.Contains("@hotmail.com"))
+            {
+                mailServices.HotmailSendVerificationCode(txtEMailAdress.Text, txtUsername.Text, code);
+            }
+
+            #region Eski Kısım
+
+            //MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text,txtUsername.Text);
+            //MailAddress MailSender = new MailAddress("CalculatorCodeSender@hotmail.com","CodeSender");
+            //MailMessage verificationMessage = new MailMessage();
 
 
-                if (txtEMailAdress.Text.Contains("@gmail.com"))
-                {
-                    GmailSendVerificationCode();
-                }
-                else if (txtEMailAdress.Text.Contains("@hotmail.com"))
-                {
-                    HotmailSendVerificationCode();
-                }
+            //verificationMessage.To.Add(MailReceiver);
+            //verificationMessage.From = MailSender;
+            //verificationMessage.Subject = "Change Password";
+            //verificationMessage.Body = "Verification Code to Change Password : " + code;
 
-                #region Eski Kısım
-
-                //MailAddress MailReceiver = new MailAddress(txtEMailAdress.Text,txtUsername.Text);
-                //MailAddress MailSender = new MailAddress("CalculatorCodeSender@hotmail.com","CodeSender");
-                //MailMessage verificationMessage = new MailMessage();
+            //SmtpClient smtp = new SmtpClient("smtp.outlook.com", 587);
+            //smtp.Credentials = new System.Net.NetworkCredential("CalculatorCodeSender@hotmail.com", "Cal.5224");
+            //smtp.EnableSsl = true;
+            //smtp.Send(verificationMessage); 
+            #endregion
 
 
-                //verificationMessage.To.Add(MailReceiver);
-                //verificationMessage.From = MailSender;
-                //verificationMessage.Subject = "Change Password";
-                //verificationMessage.Body = "Verification Code to Change Password : " + code;
 
-                //SmtpClient smtp = new SmtpClient("smtp.outlook.com", 587);
-                //smtp.Credentials = new System.Net.NetworkCredential("CalculatorCodeSender@hotmail.com", "Cal.5224");
-                //smtp.EnableSsl = true;
-                //smtp.Send(verificationMessage); 
-                #endregion
-
-
-            
         }
 
         private void btnShutDown_Click(object sender, EventArgs e)

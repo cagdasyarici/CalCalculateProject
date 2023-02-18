@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalCalculatorEntities.Models
 {
-    public class TempCategoryStatistics
+    public class TempCategoryStatistics  // todo: Daha sonra duruma göre sil
     {
         public string Category { get; set; }
         public double TotalColaries { get; set; }
