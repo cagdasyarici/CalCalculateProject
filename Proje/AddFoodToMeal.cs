@@ -210,30 +210,34 @@ namespace Proje
 
             try
             {
-                TempFood? tmpFood = dgvMealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
-                int FoodID = 0;
+               
+                    TempFood? tmpFood = dgvMealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
+                    int FoodID = 0;
 
 
-                FoodID = tmpFood.FoodID;
+                    FoodID = tmpFood.FoodID;
 
-                FoodMealServices foodMealServices = new FoodMealServices();
+                    FoodMealServices foodMealServices = new FoodMealServices();
 
-                FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
-                foodMealServices.DatabaseRemove(selectedFoodMeal2);
+                    FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
+                    foodMealServices.DatabaseRemove(selectedFoodMeal2);
 
 
-                MealServices mealServices = new MealServices();
-                var mealList = mealServices.ListeOlustur(meal);
+                    MealServices mealServices = new MealServices();
+                    var mealList = mealServices.ListeOlustur(meal);
 
-                ListMealRefresh(mealList);
-                double sum = 0;
-                for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
-                {
-                    sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
-                }
-                meal.TotalCalorie = sum;
+                    ListMealRefresh(mealList);
+                    double sum = 0;
+                    for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
+                    {
+                        sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
+                    }
+                    meal.TotalCalorie = sum;
 
-                mealServices.UpdateEntity(meal);
+                    mealServices.UpdateEntity(meal);
+               
+
+                
             }
             catch (ArgumentOutOfRangeException)
             {
