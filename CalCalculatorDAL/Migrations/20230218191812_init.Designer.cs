@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalCalculatorDAL.Migrations
 {
     [DbContext(typeof(CalCalculateDB))]
-    [Migration("20230218152136_init")]
+    [Migration("20230218191812_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,7 +149,7 @@ namespace CalCalculatorDAL.Migrations
                             FoodCal = 37.0,
                             FoodCarb = 10,
                             FoodFat = 0,
-                            FoodName = "Cola",
+                            FoodName = "Coke",
                             FoodProt = 0
                         },
                         new
@@ -185,6 +185,16 @@ namespace CalCalculatorDAL.Migrations
                         new
                         {
                             FoodID = 5,
+                            CategoryId = 2,
+                            FoodCal = 95.0,
+                            FoodCarb = 24,
+                            FoodFat = 0,
+                            FoodName = "Soda",
+                            FoodProt = 0
+                        },
+                        new
+                        {
+                            FoodID = 6,
                             CategoryId = 1,
                             FoodCal = 359.0,
                             FoodCarb = 90,
@@ -194,7 +204,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 6,
+                            FoodID = 7,
                             CategoryId = 1,
                             FoodCal = 428.0,
                             FoodCarb = 38,
@@ -204,7 +214,37 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 7,
+                            FoodID = 8,
+                            CategoryId = 1,
+                            FoodCal = 130.0,
+                            FoodCarb = 20,
+                            FoodFat = 4,
+                            FoodName = "Kazandibi",
+                            FoodProt = 3
+                        },
+                        new
+                        {
+                            FoodID = 9,
+                            CategoryId = 1,
+                            FoodCal = 452.0,
+                            FoodCarb = 62,
+                            FoodFat = 21,
+                            FoodName = "Caramel Waffle",
+                            FoodProt = 3
+                        },
+                        new
+                        {
+                            FoodID = 10,
+                            CategoryId = 1,
+                            FoodCal = 429.0,
+                            FoodCarb = 56,
+                            FoodFat = 20,
+                            FoodName = "Profiterole",
+                            FoodProt = 6
+                        },
+                        new
+                        {
+                            FoodID = 11,
                             CategoryId = 3,
                             FoodCal = 216.0,
                             FoodCarb = 0,
@@ -214,7 +254,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 8,
+                            FoodID = 12,
                             CategoryId = 3,
                             FoodCal = 124.0,
                             FoodCarb = 0,
@@ -224,7 +264,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 9,
+                            FoodID = 13,
                             CategoryId = 3,
                             FoodCal = 96.0,
                             FoodCarb = 0,
@@ -234,7 +274,27 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 10,
+                            FoodID = 14,
+                            CategoryId = 3,
+                            FoodCal = 164.0,
+                            FoodCarb = 5,
+                            FoodFat = 2,
+                            FoodName = "Octopus",
+                            FoodProt = 30
+                        },
+                        new
+                        {
+                            FoodID = 15,
+                            CategoryId = 3,
+                            FoodCal = 89.0,
+                            FoodCarb = 3,
+                            FoodFat = 5,
+                            FoodName = "Moules Provencales",
+                            FoodProt = 8
+                        },
+                        new
+                        {
+                            FoodID = 16,
                             CategoryId = 4,
                             FoodCal = 385.0,
                             FoodCarb = 27,
@@ -244,7 +304,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 11,
+                            FoodID = 17,
                             CategoryId = 4,
                             FoodCal = 172.0,
                             FoodCarb = 27,
@@ -254,7 +314,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 12,
+                            FoodID = 18,
                             CategoryId = 5,
                             FoodCal = 165.0,
                             FoodCarb = 20,
@@ -264,7 +324,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 13,
+                            FoodID = 19,
                             CategoryId = 5,
                             FoodCal = 186.0,
                             FoodCarb = 31,
@@ -274,7 +334,37 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 14,
+                            FoodID = 20,
+                            CategoryId = 5,
+                            FoodCal = 253.0,
+                            FoodCarb = 28,
+                            FoodFat = 12,
+                            FoodName = "Hotdog",
+                            FoodProt = 9
+                        },
+                        new
+                        {
+                            FoodID = 21,
+                            CategoryId = 5,
+                            FoodCal = 128.0,
+                            FoodCarb = 9,
+                            FoodFat = 20,
+                            FoodName = "Doner",
+                            FoodProt = 9
+                        },
+                        new
+                        {
+                            FoodID = 22,
+                            CategoryId = 5,
+                            FoodCal = 280.0,
+                            FoodCarb = 37,
+                            FoodFat = 13,
+                            FoodName = "Fried Potatoes",
+                            FoodProt = 4
+                        },
+                        new
+                        {
+                            FoodID = 23,
                             CategoryId = 6,
                             FoodCal = 56.0,
                             FoodCarb = 14,
@@ -284,7 +374,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 15,
+                            FoodID = 24,
                             CategoryId = 6,
                             FoodCal = 28.0,
                             FoodCarb = 7,
@@ -294,7 +384,37 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 16,
+                            FoodID = 25,
+                            CategoryId = 6,
+                            FoodCal = 100.0,
+                            FoodCarb = 25,
+                            FoodFat = 1,
+                            FoodName = "Watermelon",
+                            FoodProt = 0
+                        },
+                        new
+                        {
+                            FoodID = 26,
+                            CategoryId = 6,
+                            FoodCal = 69.0,
+                            FoodCarb = 18,
+                            FoodFat = 0,
+                            FoodName = "Grape",
+                            FoodProt = 1
+                        },
+                        new
+                        {
+                            FoodID = 27,
+                            CategoryId = 6,
+                            FoodCal = 74.0,
+                            FoodCarb = 19,
+                            FoodFat = 0,
+                            FoodName = "Fig",
+                            FoodProt = 1
+                        },
+                        new
+                        {
+                            FoodID = 28,
                             CategoryId = 7,
                             FoodCal = 24.0,
                             FoodCarb = 5,
@@ -304,17 +424,47 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 17,
+                            FoodID = 29,
                             CategoryId = 7,
-                            FoodCal = 53.0,
-                            FoodCarb = 12,
-                            FoodFat = 1,
-                            FoodName = "Cauliflower",
+                            FoodCal = 17.0,
+                            FoodCarb = 3,
+                            FoodFat = 0,
+                            FoodName = "Eggplant",
                             FoodProt = 2
                         },
                         new
                         {
-                            FoodID = 18,
+                            FoodID = 30,
+                            CategoryId = 7,
+                            FoodCal = 26.0,
+                            FoodCarb = 3,
+                            FoodFat = 0,
+                            FoodName = "Broccoli",
+                            FoodProt = 4
+                        },
+                        new
+                        {
+                            FoodID = 31,
+                            CategoryId = 7,
+                            FoodCal = 53.0,
+                            FoodCarb = 12,
+                            FoodFat = 1,
+                            FoodName = "Artichoke",
+                            FoodProt = 3
+                        },
+                        new
+                        {
+                            FoodID = 32,
+                            CategoryId = 7,
+                            FoodCal = 226.0,
+                            FoodCarb = 2,
+                            FoodFat = 25,
+                            FoodName = "Fried Cabbage",
+                            FoodProt = 2
+                        },
+                        new
+                        {
+                            FoodID = 33,
                             CategoryId = 8,
                             FoodCal = 539.0,
                             FoodCarb = 57,
@@ -324,17 +474,47 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 19,
+                            FoodID = 34,
                             CategoryId = 8,
                             FoodCal = 532.0,
                             FoodCarb = 8,
                             FoodFat = 56,
-                            FoodName = "Corn Chips",
+                            FoodName = "Potato Chips",
                             FoodProt = 1
                         },
                         new
                         {
-                            FoodID = 20,
+                            FoodID = 35,
+                            CategoryId = 8,
+                            FoodCal = 474.0,
+                            FoodCarb = 72,
+                            FoodFat = 4,
+                            FoodName = "Oreos",
+                            FoodProt = 19
+                        },
+                        new
+                        {
+                            FoodID = 36,
+                            CategoryId = 8,
+                            FoodCal = 525.0,
+                            FoodCarb = 40,
+                            FoodFat = 37,
+                            FoodName = "Popcorn",
+                            FoodProt = 7
+                        },
+                        new
+                        {
+                            FoodID = 37,
+                            CategoryId = 8,
+                            FoodCal = 335.0,
+                            FoodCarb = 76,
+                            FoodFat = 0,
+                            FoodName = "Jelly Bears",
+                            FoodProt = 7
+                        },
+                        new
+                        {
+                            FoodID = 38,
                             CategoryId = 9,
                             FoodCal = 239.0,
                             FoodCarb = 1,
@@ -344,7 +524,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 21,
+                            FoodID = 39,
                             CategoryId = 9,
                             FoodCal = 151.0,
                             FoodCarb = 16,
@@ -354,7 +534,17 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 22,
+                            FoodID = 40,
+                            CategoryId = 9,
+                            FoodCal = 141.0,
+                            FoodCarb = 12,
+                            FoodFat = 1,
+                            FoodName = "Chicken Kebab",
+                            FoodProt = 21
+                        },
+                        new
+                        {
+                            FoodID = 41,
                             CategoryId = 11,
                             FoodCal = 54.0,
                             FoodCarb = 5,
@@ -364,7 +554,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 23,
+                            FoodID = 42,
                             CategoryId = 11,
                             FoodCal = 128.0,
                             FoodCarb = 7,
@@ -374,7 +564,17 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 24,
+                            FoodID = 43,
+                            CategoryId = 11,
+                            FoodCal = 128.0,
+                            FoodCarb = 7,
+                            FoodFat = 5,
+                            FoodName = "Caesar Salad",
+                            FoodProt = 14
+                        },
+                        new
+                        {
+                            FoodID = 44,
                             CategoryId = 12,
                             FoodCal = 310.0,
                             FoodCarb = 3,
@@ -384,7 +584,7 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 25,
+                            FoodID = 45,
                             CategoryId = 12,
                             FoodCal = 207.0,
                             FoodCarb = 2,
@@ -394,7 +594,27 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 26,
+                            FoodID = 46,
+                            CategoryId = 12,
+                            FoodCal = 378.0,
+                            FoodCarb = 81,
+                            FoodFat = 2,
+                            FoodName = "Cereal",
+                            FoodProt = 7
+                        },
+                        new
+                        {
+                            FoodID = 47,
+                            CategoryId = 12,
+                            FoodCal = 229.0,
+                            FoodCarb = 25,
+                            FoodFat = 11,
+                            FoodName = "French Toast",
+                            FoodProt = 8
+                        },
+                        new
+                        {
+                            FoodID = 48,
                             CategoryId = 13,
                             FoodCal = 256.0,
                             FoodCarb = 53,
@@ -404,13 +624,33 @@ namespace CalCalculatorDAL.Migrations
                         },
                         new
                         {
-                            FoodID = 27,
+                            FoodID = 49,
                             CategoryId = 13,
                             FoodCal = 216.0,
                             FoodCarb = 45,
                             FoodFat = 2,
                             FoodName = "Wholewheat Bread",
                             FoodProt = 6
+                        },
+                        new
+                        {
+                            FoodID = 50,
+                            CategoryId = 13,
+                            FoodCal = 275.0,
+                            FoodCarb = 58,
+                            FoodFat = 4,
+                            FoodName = "Bagel",
+                            FoodProt = 10
+                        },
+                        new
+                        {
+                            FoodID = 51,
+                            CategoryId = 13,
+                            FoodCal = 275.0,
+                            FoodCarb = 58,
+                            FoodFat = 4,
+                            FoodName = "Savory Bun",
+                            FoodProt = 10
                         });
                 });
 
