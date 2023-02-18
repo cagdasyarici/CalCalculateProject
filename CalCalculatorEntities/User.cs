@@ -16,7 +16,7 @@ namespace CalCalculatorEntities
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
         public bool IsAdmin { get; set; }
-
+        public byte[]? Photo { get; set; }
         public User()
         {
             Meals = new List<Meal>();

@@ -17,19 +17,19 @@ namespace CalCalculatorBLL
         {
             using (_db = new CalCalculateDB())
             {
-                CreateCategoryIfNotExist("Desserts");
-                CreateCategoryIfNotExist("Drinks");
-                CreateCategoryIfNotExist("Sea Foods");
-                CreateCategoryIfNotExist("Pastries");
-                CreateCategoryIfNotExist("Fast Foods");
-                CreateCategoryIfNotExist("Fruits");
-                CreateCategoryIfNotExist("Vegetable");
-                CreateCategoryIfNotExist("Snacks");
-                CreateCategoryIfNotExist("Kebabs");
-                CreateCategoryIfNotExist("Legumes");
-                CreateCategoryIfNotExist("Salads");
-                CreateCategoryIfNotExist("Breakfast Foods");
-                CreateCategoryIfNotExist("Bakery");
+                //CreateCategoryIfNotExist("Desserts");
+                //CreateCategoryIfNotExist("Drinks");
+                //CreateCategoryIfNotExist("Sea Foods");
+                //CreateCategoryIfNotExist("Pastries");
+                //CreateCategoryIfNotExist("Fast Foods");
+                //CreateCategoryIfNotExist("Fruits");
+                //CreateCategoryIfNotExist("Vegetable");
+                //CreateCategoryIfNotExist("Snacks");
+                //CreateCategoryIfNotExist("Kebabs");
+                //CreateCategoryIfNotExist("Legumes");
+                //CreateCategoryIfNotExist("Salads");
+                //CreateCategoryIfNotExist("Breakfast Foods");
+                //CreateCategoryIfNotExist("Bakery");
             }
         }
         public void CreateCategoryIfNotExist(string categoryName)

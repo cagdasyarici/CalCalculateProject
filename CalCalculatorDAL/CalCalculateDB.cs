@@ -16,6 +16,7 @@ namespace CalCalculatorDAL
         public DbSet<Meal> Meals { get; set; }
         public DbSet<FoodMeal> FoodMeals { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Image> Images { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //DENİZ
@@ -27,12 +28,28 @@ namespace CalCalculatorDAL
 
             //ÇAĞDAŞ
 
-            optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculateDB7;Trusted_Connection=True");
+            //optionsBuilder.UseSqlServer("Server=CHADO\\MSSQLKD14;Database=CalCalculateDB7;Trusted_Connection=True");
 
 
             //YUŞA
 
             //optionsBuilder.UseSqlServer("Server=YUSATOSUN\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True;");
+        }
+        public class Image
+        {
+            public int Id { get; set; }
+            public byte[] ImageData { get; set; }
+        }
+        public byte[] GetImageData(string imagePath)
+        {
+            using (FileStream fileStream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    fileStream.CopyTo(memoryStream);
+                    return memoryStream.ToArray();
+                }
+            }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -40,6 +57,11 @@ namespace CalCalculatorDAL
                 .ApplyConfiguration(new FoodMealConfigurations());
             base.OnModelCreating(modelBuilder);
             #region Seed Data
+
+
+
+            byte[] userImage = GetImageData("C:\\ProfilePhoto.png");
+
             modelBuilder.Entity<Category>().HasData(CreateCategory(1, "Desserts"));
             modelBuilder.Entity<Category>().HasData(CreateCategory(2, "Drinks"));
             modelBuilder.Entity<Category>().HasData(CreateCategory(3, "Sea Foods"));
@@ -96,17 +118,16 @@ namespace CalCalculatorDAL
             modelBuilder.Entity<Food>().HasData(CreateFood(40, "Chicken Kebab", 141, 12, 1, 21, 9));
             modelBuilder.Entity<Food>().HasData(CreateFood(41, "Iceberg Lettuce Salad", 54, 5, 4, 1, 11));
             modelBuilder.Entity<Food>().HasData(CreateFood(42, "Caesar Salad", 128, 7, 5, 14, 11));
-            modelBuilder.Entity<Food>().HasData(CreateFood(43, "Caesar Salad", 128, 7, 5, 14, 11));
-            modelBuilder.Entity<Food>().HasData(CreateFood(44, "Feta Cheese", 310, 3, 25, 21, 12));
-            modelBuilder.Entity<Food>().HasData(CreateFood(45, "Olive", 207, 2, 21, 2, 12));
-            modelBuilder.Entity<Food>().HasData(CreateFood(46, "Cereal", 378, 81, 2, 7, 12));
-            modelBuilder.Entity<Food>().HasData(CreateFood(47, "French Toast", 229, 25, 11, 8, 12));
-            modelBuilder.Entity<Food>().HasData(CreateFood(48, "Bread", 256, 53, 1, 8, 13));
-            modelBuilder.Entity<Food>().HasData(CreateFood(49, "Wholewheat Bread", 216, 45, 2, 6, 13));
-            modelBuilder.Entity<Food>().HasData(CreateFood(50, "Bagel", 275, 58, 4, 10, 13));
-            modelBuilder.Entity<Food>().HasData(CreateFood(51, "Savory Bun", 275, 58, 4, 10, 13));
+            modelBuilder.Entity<Food>().HasData(CreateFood(43, "Feta Cheese", 310, 3, 25, 21, 12));
+            modelBuilder.Entity<Food>().HasData(CreateFood(44, "Olive", 207, 2, 21, 2, 12));
+            modelBuilder.Entity<Food>().HasData(CreateFood(45, "Cereal", 378, 81, 2, 7, 12));
+            modelBuilder.Entity<Food>().HasData(CreateFood(46, "French Toast", 229, 25, 11, 8, 12));
+            modelBuilder.Entity<Food>().HasData(CreateFood(47, "Bread", 256, 53, 1, 8, 13));
+            modelBuilder.Entity<Food>().HasData(CreateFood(48, "Wholewheat Bread", 216, 45, 2, 6, 13));
+            modelBuilder.Entity<Food>().HasData(CreateFood(49, "Bagel", 275, 58, 4, 10, 13));
+            modelBuilder.Entity<Food>().HasData(CreateFood(50, "Savory Bun", 275, 58, 4, 10, 13));
 
-            modelBuilder.Entity<User>().HasData(CreateUser(1, "admin", "admin", "admin@", "adminSecurityQuestion", "adminSecurityAnswer", true));
+            modelBuilder.Entity<User>().HasData(CreateUser(1, "admin", "admin", "admin@", "adminSecurityQuestion", "adminSecurityAnswer", true, userImage));
             #endregion
         }
 
@@ -130,24 +151,54 @@ namespace CalCalculatorDAL
             };
             return food;
         }
+        public Food CreateFood(int foodID, string foodName, double foodCal, int foodCarb, int foodFat, int foodProt, int categoryID, byte[] photo)
+        {
+            var food = new Food
+            {
+                FoodID = foodID,
+                FoodName = foodName,
+                FoodCal = foodCal,
+                FoodCarb = foodCarb,
+                FoodFat = foodFat,
+                FoodProt = foodProt,
+                CategoryId = categoryID,
+                Photo= photo
+            };
+            return food;
+        }
 
-        public User CreateUser(int userID,string name, string password, string email, string securityQuestion, string securityAnswer, bool isAdmin)
+        public User CreateUser(int userID, string name, string password, string email, string securityQuestion, string securityAnswer, bool isAdmin)
         {
 
             User user = new User
             {
-                UserID= userID,
+                UserID = userID,
                 UserName = name,
                 Password = password,
                 Email = email,
                 SecurityQuestion = securityQuestion,
                 SecurityAnswer = securityAnswer,
                 IsAdmin = true
-                    
-            };
-                return user;
-        }
 
+            };
+            return user;
+        }
+        public User CreateUser(int userID, string name, string password, string email, string securityQuestion, string securityAnswer, bool isAdmin, byte[] photo)
+        {
+
+            User user = new User
+            {
+                UserID = userID,
+                UserName = name,
+                Password = password,
+                Email = email,
+                SecurityQuestion = securityQuestion,
+                SecurityAnswer = securityAnswer,
+                IsAdmin = true,
+                Photo = photo
+            };
+            return user;
+        }
         public Category CreateCategory(int categoryID,string categoryName)
         {
             Category category = new Category

@@ -195,5 +195,15 @@ namespace Proje
             lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Image image;
+            using (MemoryStream ms = new MemoryStream(user.Photo))
+            {
+                image = Image.FromStream(ms);
+            }
+            pictureBox1.Image = image;
+
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace CalCalculatorEntities
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
         public virtual Category Category { get; set; }
         public int CategoryId { get; set; }
+        public byte[]? Photo { get; set; }
         public Food()
         {
             FoodMeals = new List<FoodMeal>();
