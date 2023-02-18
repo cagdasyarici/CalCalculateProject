@@ -56,7 +56,7 @@
             // rdnToplamCal
             // 
             this.rdnToplamCal.AutoSize = true;
-            this.rdnToplamCal.Location = new System.Drawing.Point(180, 120);
+            this.rdnToplamCal.Location = new System.Drawing.Point(156, 120);
             this.rdnToplamCal.Name = "rdnToplamCal";
             this.rdnToplamCal.Size = new System.Drawing.Size(90, 29);
             this.rdnToplamCal.TabIndex = 1;
