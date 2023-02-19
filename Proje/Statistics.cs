@@ -65,7 +65,7 @@ namespace Proje
                                        select new
                                        {
                                            Date = g.Key,
-                                           Calorie = g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
+                                           Calorie = (int)g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
 
 
 
@@ -90,8 +90,8 @@ namespace Proje
                                           select new
                                           {
                                               Category = g.Key,
-                                              Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                              AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+                                              Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                              AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
 
 
                                           };
@@ -151,7 +151,7 @@ namespace Proje
                                 {
                                     Meal = g.Key.MealName,
                                     Food = g.Key.FoodName,
-                                    Grams = g.Sum(x => x.Grams)
+                                    Grams = (int)g.Sum(x => x.Grams)
 
                                 };
                   
@@ -197,12 +197,12 @@ namespace Proje
                                       join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                       join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                       join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                      group foodMeal by category.CategoryName into g
+                                      group foodMeal by meal.MealName into g
                                       select new
                                       {
-                                          Category = g.Key,
-                                          Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                          AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+                                          Meal = g.Key,
+                                          Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                          AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
 
 
                                       };
@@ -223,12 +223,13 @@ namespace Proje
                                       join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                       join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                       join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                      group foodMeal by category.CategoryName into g
+                                      group foodMeal by new { meal.MealName, food.FoodName } into g
                                       select new
                                       {
-                                          Category = g.Key,
-                                          Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                          AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+                                          Meal = g.Key.MealName,
+                                          Food = g.Key.FoodName,
+                                          Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                          AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
 
 
                                       };
@@ -248,12 +249,13 @@ namespace Proje
                                         join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                         join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                                         join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                        group foodMeal by category.CategoryName into g
+                                        group foodMeal by new { meal.MealName, food.FoodName } into g
                                         select new
                                         {
-                                            Category = g.Key,
-                                            Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                            AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+                                            Meal = g.Key.MealName,
+                                            Food = g.Key.FoodName,
+                                            Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                            AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
 
 
                                         };
@@ -343,7 +345,7 @@ namespace Proje
                                    select new
                                    {
                                        Date = g.Key,
-                                       Calorie = g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
+                                       Calorie = (int)g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
 
 
 
@@ -369,8 +371,8 @@ namespace Proje
                                       select new
                                       {
                                           Category = g.Key,
-                                          Calorie = g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                          AvgCalories = g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+                                          Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
+                                          AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
 
 
                                       };
@@ -396,7 +398,7 @@ namespace Proje
                             {
                                 Meal = g.Key.MealName,
                                 Food = g.Key.FoodName,
-                                Grams = g.Sum(x => x.Grams)
+                                Grams = (int)g.Sum(x => x.Grams)
 
                             };
 
