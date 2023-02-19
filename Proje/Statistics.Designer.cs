@@ -87,7 +87,7 @@
             this.btnMonthlyReport.TabIndex = 7;
             this.btnMonthlyReport.Text = "Montly Compare";
             this.btnMonthlyReport.UseVisualStyleBackColor = true;
-            this.btnMonthlyReport.Click += new System.EventHandler(this.btnMonthlyReport_Click);
+            this.btnMonthlyReport.Click += new System.EventHandler(this.btnMonthlyCompare_Click);
             // 
             // btnWeeklyReport
             // 
@@ -97,7 +97,7 @@
             this.btnWeeklyReport.TabIndex = 8;
             this.btnWeeklyReport.Text = "Weekly Compare";
             this.btnWeeklyReport.UseVisualStyleBackColor = true;
-            this.btnWeeklyReport.Click += new System.EventHandler(this.btnWeeklyReport_Click);
+            this.btnWeeklyReport.Click += new System.EventHandler(this.btnWeeklyCompare_Click);
             // 
             // btnSendMail
             // 
@@ -127,10 +127,10 @@
             this.btnDailyTotalCalorie.Name = "btnDailyTotalCalorie";
             this.btnDailyTotalCalorie.Size = new System.Drawing.Size(222, 58);
             this.btnDailyTotalCalorie.TabIndex = 33;
-            this.btnDailyTotalCalorie.Text = "      Group By Day";
+            this.btnDailyTotalCalorie.Text = "      Group By Date";
             this.btnDailyTotalCalorie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDailyTotalCalorie.UseVisualStyleBackColor = false;
-            this.btnDailyTotalCalorie.Click += new System.EventHandler(this.btnDailyTotalCalorie_Click);
+            this.btnDailyTotalCalorie.Click += new System.EventHandler(this.btnGroupByDate_Click);
             // 
             // groupBox1
             // 
@@ -170,7 +170,7 @@
             this.btnTotalCalForCategory.TabIndex = 35;
             this.btnTotalCalForCategory.Text = "Group By Food-Meal";
             this.btnTotalCalForCategory.UseVisualStyleBackColor = false;
-            this.btnTotalCalForCategory.Click += new System.EventHandler(this.btnTotalCalForCategory_Click);
+            this.btnTotalCalForCategory.Click += new System.EventHandler(this.btnGroupByFoodMeal_Click);
             // 
             // btnCategories
             // 
@@ -192,7 +192,7 @@
             this.btnCategories.TabIndex = 34;
             this.btnCategories.Text = "Group By Category";
             this.btnCategories.UseVisualStyleBackColor = false;
-            this.btnCategories.Click += new System.EventHandler(this.btnCategories_Click);
+            this.btnCategories.Click += new System.EventHandler(this.btnGroupByCategory_Click);
             // 
             // Statistics
             // 

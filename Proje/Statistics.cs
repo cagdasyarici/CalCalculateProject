@@ -1,4 +1,5 @@
-﻿using CalCalculatorDAL;
+﻿using CalCalculatorBLL;
+using CalCalculatorDAL;
 using CalCalculatorEntities;
 using CalCalculatorEntities.Models;
 using Microsoft.EntityFrameworkCore;
@@ -171,100 +172,26 @@ namespace Proje
 
         private void btnDailyReport_Click(object sender, EventArgs e)
         {
-            using (_db=new())
-            {
 
-                #region ESKİ
-                //var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
-                //                   where meal.CreateTime.Day == DateTime.Now.Day
-                //                   join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                //                   join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                //                   join category in _db.Categories on food.CategoryId equals category.CategoryId
-                //                   group foodMeal by meal.MealName into g
-                //                   orderby g.Sum(x => x.Grams) descending
-                //                   select new
-                //                   {
-                //                       Meal = g.Key,
-                //                       Calorie = g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
+            StatisticsServices statisticsServices = new StatisticsServices();
 
-
-
-                //                   };
-
-                //dgvStatisticsTable.DataSource = totalCalList.ToList();
-                #endregion
-
-                var DailyReportList = from meal in _db.Meals
-                                      where meal.CreateTime.Date == DateTime.Now.Date
-                                      join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                                      join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                                      join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                      group foodMeal by meal.MealName into g
-                                      select new
-                                      {
-                                          Meal = g.Key,
-                                          Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                          AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
-
-
-                                      };
-
-                dgvStatisticsTable.DataSource = DailyReportList.ToList();
-            }
-        
-
+            dgvStatisticsTable.DataSource = statisticsServices.DailyReport(user);
         }
 
-        private void btnMonthlyReport_Click(object sender, EventArgs e)
+        private void btnMonthlyCompare_Click(object sender, EventArgs e)
         {
-            using (_db = new())
-            {
 
-                var MonthlyReportList = from meal in _db.Meals
-                                      where meal.CreateTime.Month == DateTime.Now.Month
-                                      join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                                      join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                                      join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                      group foodMeal by new { meal.MealName, food.FoodName } into g
-                                      select new
-                                      {
-                                          Meal = g.Key.MealName,
-                                          Food = g.Key.FoodName,
-                                          Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                          AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+            StatisticsServices statisticsServices = new StatisticsServices();
 
-
-                                      };
-
-                dgvStatisticsTable.DataSource = MonthlyReportList.ToList();
-
-            }
+            dgvStatisticsTable.DataSource = statisticsServices.MonthlyCompare(user);
         }
 
-        private void btnWeeklyReport_Click(object sender, EventArgs e)
+        private void btnWeeklyCompare_Click(object sender, EventArgs e)
         {
-            using (_db = new())
-            {
+            StatisticsServices statisticsServices = new StatisticsServices();
 
-                var WeeklyReportList = from meal in _db.Meals
-                                        where meal.CreateTime.Date >= DateTime.Now.AddDays(-7).Date && meal.CreateTime.Date<= DateTime.Now.Date // todo:Burada date yapmaktan emin emin değilim
-                                        join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                                        join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                                        join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                        group foodMeal by new { meal.MealName, food.FoodName } into g
-                                        select new
-                                        {
-                                            Meal = g.Key.MealName,
-                                            Food = g.Key.FoodName,
-                                            Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                            AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
+            dgvStatisticsTable.DataSource = statisticsServices.WeeklyCompare(user);
 
-
-                                        };
-
-                dgvStatisticsTable.DataSource = WeeklyReportList.ToList();
-
-            }
         }
 
         private void btnSendMail_Click(object sender, EventArgs e)
@@ -277,7 +204,7 @@ namespace Proje
                 foreach (DataGridViewCell cell in row.Cells)
                 {
                     // Her hücrenin değerini string değişkenimize ekleyin
-                  str.Append(cell.Value.ToString() + " ");
+                    str.Append(cell.Value.ToString() + " ");
                 }
 
                 // Satırlar arasına bir satır sonu karakteri ekleyin
@@ -332,83 +259,38 @@ namespace Proje
 
         }
 
-        private void btnDailyTotalCalorie_Click(object sender, EventArgs e)
+        private void btnGroupByDate_Click(object sender, EventArgs e)
         {
             DateTime startDate = dtpStartDate.Value;
             DateTime endDate = dtpEndDate.Value;
-            using (_db = new())
-            {
-                var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
-                                   where meal.CreateTime.Date >= startDate.Date && meal.CreateTime.Date <= endDate.Date
-                                   join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                                   join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                                   join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                   group foodMeal by meal.CreateTime.Date into g
-                                   select new
-                                   {
-                                       Date = g.Key,
-                                       Calorie = (int)g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
-
-
-
-                                   };
-
-                dgvStatisticsTable.DataSource = totalCalList.ToList();
-            }
             
+            StatisticsServices statisticsServices = new StatisticsServices();
+
+            dgvStatisticsTable.DataSource = statisticsServices.GroupByDate(startDate, endDate, user);
+
         }
 
-        private void btnCategories_Click(object sender, EventArgs e)
+        private void btnGroupByCategory_Click(object sender, EventArgs e)
         {
             DateTime startDate = dtpStartDate.Value;
             DateTime endDate = dtpEndDate.Value;
-            using (_db = new())
-            {
-                var categoryCalList = from meal in _db.Meals
-                                      where meal.CreateTime.Date >= startDate.Date && meal.CreateTime.Date <= endDate.Date // todo: Date - Day kullanımına daha sonra bak 
-                                      join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                                      join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                                      join category in _db.Categories on food.CategoryId equals category.CategoryId
-                                      group foodMeal by category.CategoryName into g
-                                      select new
-                                      {
-                                          Category = g.Key,
-                                          Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
-                                          AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
-
-
-                                      };
-
-                dgvStatisticsTable.DataSource = categoryCalList.ToList();
-            }
             
+            StatisticsServices statisticsServices = new StatisticsServices();
+
+            dgvStatisticsTable.DataSource = statisticsServices.GroupByCategory(startDate, endDate, user);
+
         }
 
-        private void btnTotalCalForCategory_Click(object sender, EventArgs e)
+        private void btnGroupByFoodMeal_Click(object sender, EventArgs e)
         {
             DateTime startDate = dtpStartDate.Value;
             DateTime endDate = dtpEndDate.Value;
-            using (_db = new())
-            {
-                var List1 = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
-                            where meal.CreateTime.Date >= startDate.Date && meal.CreateTime.Date <= endDate.Date
-                            join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
-                            join food in _db.Foods on foodMeal.FoodID equals food.FoodID
-                            join category in _db.Categories on food.CategoryId equals category.CategoryId
-                            group foodMeal by new { meal.MealName, food.FoodName } into g
-                            select new
-                            {
-                                Meal = g.Key.MealName,
-                                Food = g.Key.FoodName,
-                                Grams = (int)g.Sum(x => x.Grams)
 
-                            };
+            StatisticsServices statisticsServices = new StatisticsServices();
+
+            dgvStatisticsTable.DataSource = statisticsServices.GroupByFoodMeal(startDate, endDate, user);
 
 
-
-                dgvStatisticsTable.DataSource = List1.ToList();
-            }
-            
         }
     }
 }
