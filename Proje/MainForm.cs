@@ -240,7 +240,7 @@ namespace Proje
         HelpForm helpForm;
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            helpForm = new();
+            helpForm = new(user);
             helpForm.MdiParent = this;
             int height = helpForm.Height + 35;
             int width = helpForm.Width + sidebarContainer.Width + 6;
