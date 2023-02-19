@@ -237,6 +237,19 @@ namespace Proje
             }
             aboutForm.Show();
         }
-
+        HelpForm helpForm;
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            helpForm = new();
+            helpForm.MdiParent = this;
+            int height = helpForm.Height + 35;
+            int width = helpForm.Width + sidebarContainer.Width + 6;
+            this.Size = new Size(width, height);
+            if (this.ActiveMdiChild != null)
+            {
+                this.ActiveMdiChild.Close();
+            }
+            helpForm.Show();
+        }
     }
 }
