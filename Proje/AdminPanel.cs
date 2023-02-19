@@ -71,9 +71,10 @@ namespace Proje
             }
             sidebarTimer.Start();
 
-        } 
+        }
         #endregion
 
+        #region MdiChildbutonlar
         private void btnContinueAsAnUser_Click(object sender, EventArgs e)
         {
 
@@ -89,11 +90,11 @@ namespace Proje
             int height = createFoodForm.Height + 35;
             int width = createFoodForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
-           
-            if(this.ActiveMdiChild != null ) 
+
+            if (this.ActiveMdiChild != null)
             {
                 this.ActiveMdiChild.Close();
-                
+
             }
             createFoodForm.Show();
 
@@ -108,7 +109,7 @@ namespace Proje
             int height = createCategoryForm.Height + 35;
             int width = createCategoryForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
-           
+
             if (this.ActiveMdiChild != null)
             {
                 this.ActiveMdiChild.Close();
@@ -144,7 +145,8 @@ namespace Proje
                 this.ActiveMdiChild.Close();
             }
             aboutForm.Show();
-        }
+        } 
+        #endregion
         #region Form kapama büyütme ve alta alma kodları
         private void btnShutDown_Click(object sender, EventArgs e)
         {
