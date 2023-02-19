@@ -18,7 +18,7 @@ namespace Proje
 {
     public partial class AddFoodToMeal : Form
     {
-        CalCalculateDB _db;
+     
 
 
         IList<Food> foodListDgv;
@@ -278,15 +278,7 @@ namespace Proje
         /// <param name="selectedFood"></param>
         /// <param name="selectedMeal"></param>
         /// <returns>Food listede zaten mevcutsa True,Değilse False döndürür</returns>
-        public bool CheckIsFoodNameExist(Food selectedFood)
-        {
-            using (_db = new())
-            {
-                var item1 = dgvMealDetails.DataSource as List<TempFood>;
-                return true;
-            }
-
-        }
+      
         private void txtFocus(object sender, EventArgs e)
         {
             TxtFocus((TextBox)sender);
