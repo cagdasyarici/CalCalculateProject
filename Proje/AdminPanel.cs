@@ -128,14 +128,14 @@ namespace Proje
 
         private void btnMaximizeMinimize_Click(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
+            //if (this.WindowState == FormWindowState.Normal)
+            //{
+            //    this.WindowState = FormWindowState.Maximized;
+            //}
+            //else if (this.WindowState == FormWindowState.Maximized)
+            //{
+            //    this.WindowState = FormWindowState.Normal;
+            //}
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
