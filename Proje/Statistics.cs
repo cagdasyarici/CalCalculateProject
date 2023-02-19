@@ -211,31 +211,35 @@ namespace Proje
                 str.AppendLine();
             }
 
-            // Elde edilen tüm verileri string değişkeninde tutun
-            //MessageBox.Show(str.ToString());
-
-            if (user.Email.Contains("@gmail.com"))
-            {
-                MailAddress MailReceiver = new MailAddress(user.Email, user.UserName);
-                MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "Diet Application");
-                MailMessage verificationMessage = new MailMessage();
+            MailServices mailServices = new MailServices();
+            mailServices.StatisticsReportMail(user, str);
+            MessageBox.Show("Your Message Has Been Sent", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                verificationMessage.To.Add(MailReceiver);
-                verificationMessage.From = MailSender;
-                verificationMessage.Subject = "Report";
-                verificationMessage.Body = "Your Report : \n" + str.ToString();
+            #region EskiKod
+            //// Elde edilen tüm verileri string değişkeninde tutun
+            ////MessageBox.Show(str.ToString());
 
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc
-                smtp.EnableSsl = true;
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                //smtp.Timeout   // Duruma göre bunu da ekle
-                smtp.Send(verificationMessage);
-            }
+            //if (user.Email.Contains("@gmail.com"))
+            //{
+            //    MailAddress MailReceiver = new MailAddress(user.Email, user.UserName);
+            //    MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "Diet Application");
+            //    MailMessage verificationMessage = new MailMessage();
 
 
+            //    verificationMessage.To.Add(MailReceiver);
+            //    verificationMessage.From = MailSender;
+            //    verificationMessage.Subject = "Report";
+            //    verificationMessage.Body = "Your Report : \n" + str.ToString();
 
+            //    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            //    smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc
+            //    smtp.EnableSsl = true;
+            //    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //    //smtp.Timeout   // Duruma göre bunu da ekle
+            //    smtp.Send(verificationMessage);
+            //} 
+            #endregion
             #region Yedek
             //string data = "";
             //StringBuilder str = new StringBuilder();
