@@ -68,9 +68,9 @@
             this.grpSecurity.Controls.Add(this.label1);
             this.grpSecurity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpSecurity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.grpSecurity.Location = new System.Drawing.Point(12, 29);
+            this.grpSecurity.Location = new System.Drawing.Point(29, 35);
             this.grpSecurity.Name = "grpSecurity";
-            this.grpSecurity.Size = new System.Drawing.Size(358, 210);
+            this.grpSecurity.Size = new System.Drawing.Size(419, 258);
             this.grpSecurity.TabIndex = 0;
             this.grpSecurity.TabStop = false;
             this.grpSecurity.Text = "Security Section";
@@ -88,7 +88,7 @@
             this.btnNexxt.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNexxt.IconSize = 32;
             this.btnNexxt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNexxt.Location = new System.Drawing.Point(164, 155);
+            this.btnNexxt.Location = new System.Drawing.Point(164, 176);
             this.btnNexxt.Name = "btnNexxt";
             this.btnNexxt.Size = new System.Drawing.Size(96, 32);
             this.btnNexxt.TabIndex = 31;
@@ -107,7 +107,7 @@
             "What is your favorite meal?",
             "Which pokemon do you like the most?",
             "What is your best friend\'s name?"});
-            this.cmbSecurityQuestions.Location = new System.Drawing.Point(164, 76);
+            this.cmbSecurityQuestions.Location = new System.Drawing.Point(164, 80);
             this.cmbSecurityQuestions.Name = "cmbSecurityQuestions";
             this.cmbSecurityQuestions.Size = new System.Drawing.Size(176, 29);
             this.cmbSecurityQuestions.TabIndex = 3;
@@ -117,7 +117,7 @@
             this.txtSecurityAnswer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtSecurityAnswer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSecurityAnswer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.txtSecurityAnswer.Location = new System.Drawing.Point(164, 117);
+            this.txtSecurityAnswer.Location = new System.Drawing.Point(164, 132);
             this.txtSecurityAnswer.Name = "txtSecurityAnswer";
             this.txtSecurityAnswer.Size = new System.Drawing.Size(134, 22);
             this.txtSecurityAnswer.TabIndex = 1;
@@ -127,7 +127,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 117);
+            this.label3.Location = new System.Drawing.Point(17, 132);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 21);
             this.label3.TabIndex = 0;
@@ -136,7 +136,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 79);
+            this.label2.Location = new System.Drawing.Point(6, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 21);
             this.label2.TabIndex = 0;
@@ -157,7 +157,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 40);
+            this.label1.Location = new System.Drawing.Point(58, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 21);
             this.label1.TabIndex = 0;
@@ -173,12 +173,13 @@
             this.grpMail.Controls.Add(this.label4);
             this.grpMail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.grpMail.Location = new System.Drawing.Point(394, 29);
+            this.grpMail.Location = new System.Drawing.Point(454, 35);
             this.grpMail.Name = "grpMail";
-            this.grpMail.Size = new System.Drawing.Size(345, 193);
+            this.grpMail.Size = new System.Drawing.Size(419, 258);
             this.grpMail.TabIndex = 1;
             this.grpMail.TabStop = false;
             this.grpMail.Text = "Mail Section";
+            this.grpMail.Visible = false;
             // 
             // btnApplyy
             // 
@@ -193,7 +194,7 @@
             this.btnApplyy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnApplyy.IconSize = 32;
             this.btnApplyy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnApplyy.Location = new System.Drawing.Point(187, 155);
+            this.btnApplyy.Location = new System.Drawing.Point(217, 166);
             this.btnApplyy.Name = "btnApplyy";
             this.btnApplyy.Size = new System.Drawing.Size(96, 32);
             this.btnApplyy.TabIndex = 33;
@@ -214,9 +215,9 @@
             this.btnSendVerificationn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSendVerificationn.IconSize = 32;
             this.btnSendVerificationn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendVerificationn.Location = new System.Drawing.Point(135, 54);
+            this.btnSendVerificationn.Location = new System.Drawing.Point(177, 57);
             this.btnSendVerificationn.Name = "btnSendVerificationn";
-            this.btnSendVerificationn.Size = new System.Drawing.Size(171, 32);
+            this.btnSendVerificationn.Size = new System.Drawing.Size(204, 32);
             this.btnSendVerificationn.TabIndex = 32;
             this.btnSendVerificationn.Text = "     Send Verification";
             this.btnSendVerificationn.UseVisualStyleBackColor = false;
@@ -227,21 +228,21 @@
             this.txtVerificationCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtVerificationCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtVerificationCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.txtVerificationCode.Location = new System.Drawing.Point(154, 121);
+            this.txtVerificationCode.Location = new System.Drawing.Point(192, 125);
             this.txtVerificationCode.Name = "txtVerificationCode";
-            this.txtVerificationCode.Size = new System.Drawing.Size(129, 22);
+            this.txtVerificationCode.Size = new System.Drawing.Size(142, 22);
             this.txtVerificationCode.TabIndex = 3;
             this.txtVerificationCode.Enter += new System.EventHandler(this.txtFocus);
             this.txtVerificationCode.Leave += new System.EventHandler(this.txtFocus);
             // 
             // txtEMailAdress
             // 
-            this.txtEMailAdress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
+            this.txtEMailAdress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtEMailAdress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEMailAdress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.txtEMailAdress.Location = new System.Drawing.Point(135, 26);
+            this.txtEMailAdress.ForeColor = System.Drawing.Color.Black;
+            this.txtEMailAdress.Location = new System.Drawing.Point(177, 29);
             this.txtEMailAdress.Name = "txtEMailAdress";
-            this.txtEMailAdress.Size = new System.Drawing.Size(164, 22);
+            this.txtEMailAdress.Size = new System.Drawing.Size(204, 22);
             this.txtEMailAdress.TabIndex = 1;
             this.txtEMailAdress.Enter += new System.EventHandler(this.txtFocus);
             this.txtEMailAdress.Leave += new System.EventHandler(this.txtFocus);
@@ -249,7 +250,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 122);
+            this.label5.Location = new System.Drawing.Point(25, 126);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 21);
             this.label5.TabIndex = 0;
@@ -258,7 +259,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 29);
+            this.label4.Location = new System.Drawing.Point(25, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 21);
             this.label4.TabIndex = 0;
@@ -273,12 +274,13 @@
             this.grpChangePassword.Controls.Add(this.label7);
             this.grpChangePassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpChangePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.grpChangePassword.Location = new System.Drawing.Point(394, 262);
+            this.grpChangePassword.Location = new System.Drawing.Point(75, 299);
             this.grpChangePassword.Name = "grpChangePassword";
-            this.grpChangePassword.Size = new System.Drawing.Size(345, 193);
+            this.grpChangePassword.Size = new System.Drawing.Size(419, 258);
             this.grpChangePassword.TabIndex = 1;
             this.grpChangePassword.TabStop = false;
             this.grpChangePassword.Text = "Password Section";
+            this.grpChangePassword.Visible = false;
             // 
             // btnChangee
             // 
@@ -293,7 +295,7 @@
             this.btnChangee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnChangee.IconSize = 32;
             this.btnChangee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChangee.Location = new System.Drawing.Point(154, 103);
+            this.btnChangee.Location = new System.Drawing.Point(184, 164);
             this.btnChangee.Name = "btnChangee";
             this.btnChangee.Size = new System.Drawing.Size(129, 32);
             this.btnChangee.TabIndex = 32;
@@ -306,7 +308,7 @@
             this.txtPasswordConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtPasswordConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPasswordConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.txtPasswordConfirm.Location = new System.Drawing.Point(154, 68);
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(177, 113);
             this.txtPasswordConfirm.Name = "txtPasswordConfirm";
             this.txtPasswordConfirm.Size = new System.Drawing.Size(164, 22);
             this.txtPasswordConfirm.TabIndex = 1;
@@ -316,7 +318,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 68);
+            this.label6.Location = new System.Drawing.Point(29, 113);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(148, 21);
             this.label6.TabIndex = 0;
@@ -327,7 +329,7 @@
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(117)))), ((int)(((byte)(132)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.txtPassword.Location = new System.Drawing.Point(154, 39);
+            this.txtPassword.Location = new System.Drawing.Point(177, 64);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(164, 22);
             this.txtPassword.TabIndex = 1;
@@ -337,7 +339,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(67, 39);
+            this.label7.Location = new System.Drawing.Point(90, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 21);
             this.label7.TabIndex = 0;
@@ -352,7 +354,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 24);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(480, 24);
             this.flowLayoutPanel1.TabIndex = 6;
             this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AdminPanel_MouseDown);
             this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AdminPanel_MouseMove);
@@ -367,7 +369,7 @@
             this.btnShutDown.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.btnShutDown.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnShutDown.IconSize = 24;
-            this.btnShutDown.Location = new System.Drawing.Point(774, 2);
+            this.btnShutDown.Location = new System.Drawing.Point(454, 2);
             this.btnShutDown.Margin = new System.Windows.Forms.Padding(2);
             this.btnShutDown.Name = "btnShutDown";
             this.btnShutDown.Size = new System.Drawing.Size(24, 22);
@@ -380,7 +382,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(800, 466);
+            this.ClientSize = new System.Drawing.Size(480, 328);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.grpChangePassword);
             this.Controls.Add(this.grpMail);
