@@ -26,7 +26,9 @@ namespace Proje
             sideBarContainer= currentSideBarContainer;
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Datagridview doldurma
+        /// </summary>
         private void DGVFill()
         {
             MealServices mealServices = new MealServices();
@@ -63,7 +65,6 @@ namespace Proje
             addFoodToMeal.Show();
             this.Close();
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
