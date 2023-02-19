@@ -143,7 +143,11 @@ namespace Proje
         {
 
         }
-
+        /// <summary>
+        /// Meal detaylarından meal menüsüne dönmek için bir buton.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ıconButton1_Click(object sender, EventArgs e) // todo:İsmi düzelt
         {
             MealForm MealForm = new(user, mainFormDeneme,sideBarContainer);
@@ -287,6 +291,10 @@ namespace Proje
         {
             TxtFocus((TextBox)sender);
         }
+        /// <summary>
+        /// Textboxların focus olaylarında backcolorını değiştiren kod!
+        /// </summary>
+        /// <param name="textBox"></param>
         private void TxtFocus(TextBox textBox)
         {
             if (textBox.BackColor == Color.FromArgb(112, 117, 132))

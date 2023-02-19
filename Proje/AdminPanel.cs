@@ -26,6 +26,7 @@ namespace Proje
         }
 
 
+        #region Sidebar kodları
         private void sidebarTimer_Tick(object sender, EventArgs e)
         {
 
@@ -70,7 +71,8 @@ namespace Proje
             }
             sidebarTimer.Start();
 
-        }
+        } 
+        #endregion
 
         private void btnContinueAsAnUser_Click(object sender, EventArgs e)
         {
@@ -115,63 +117,6 @@ namespace Proje
 
 
         }
-
-        private void btnShutDown_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Uygulamadan çıkmak istediğinize emin misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK) // OK butonuna basıldı
-            {
-                // Uygulamayı kapat
-                Application.Exit();
-            }
-        }
-
-        private void btnMaximizeMinimize_Click(object sender, EventArgs e)
-        {
-            //if (this.WindowState == FormWindowState.Normal)
-            //{
-            //    this.WindowState = FormWindowState.Maximized;
-            //}
-            //else if (this.WindowState == FormWindowState.Maximized)
-            //{
-            //    this.WindowState = FormWindowState.Normal;
-            //}
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private Point lastPoint; // Son konum bilgisini tutmak için bir değişken tanımlıyoruz.
-        private void AdminPanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            lastPoint = new Point(e.X, e.Y); // Son konum bilgisini alıyoruz.
-        }
-
-        private void AdminPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left) // Sol fare düğmesine basılırsa formun konumu değiştiriliyor.
-            {
-                this.Left += e.X - lastPoint.X;
-                this.Top += e.Y - lastPoint.Y;
-            }
-        }
-
-        private void AdminPanel_MouseUp(object sender, MouseEventArgs e)
-        {
-            lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
-        }
-
-        private void AdminPanel_Load(object sender, EventArgs e)
-        {
-            //Image image;
-            //using (MemoryStream ms = new MemoryStream(user.Photo))
-            //{
-            //    image = Image.FromStream(ms);
-            //}
-            //pictureBox1.Image = image;
-        }
         HelpForm helpForm;
         private void btnHelp_Click(object sender, EventArgs e)
         {
@@ -200,6 +145,70 @@ namespace Proje
             }
             aboutForm.Show();
         }
+        #region Form kapama büyütme ve alta alma kodları
+        private void btnShutDown_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Uygulamadan çıkmak istediğinize emin misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK) // OK butonuna basıldı
+            {
+                // Uygulamayı kapat
+                Application.Exit();
+            }
+        }
+
+        private void btnMaximizeMinimize_Click(object sender, EventArgs e)
+        {
+            //if (this.WindowState == FormWindowState.Normal)
+            //{
+            //    this.WindowState = FormWindowState.Maximized;
+            //}
+            //else if (this.WindowState == FormWindowState.Maximized)
+            //{
+            //    this.WindowState = FormWindowState.Normal;
+            //}
+        }
+        /// <summary>
+        /// Formu alta alma kodu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        } 
+        #endregion
+        #region Form Taşıma kodları
+        private Point lastPoint; // Son konum bilgisini tutmak için bir değişken tanımlıyoruz.
+        private void AdminPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y); // Son konum bilgisini alıyoruz.
+        }
+
+        private void AdminPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) // Sol fare düğmesine basılırsa formun konumu değiştiriliyor.
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+        private void AdminPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
+        }
+        #endregion
+
+
+        private void AdminPanel_Load(object sender, EventArgs e)
+        {
+            //Image image;
+            //using (MemoryStream ms = new MemoryStream(user.Photo))
+            //{
+            //    image = Image.FromStream(ms);
+            //}
+            //pictureBox1.Image = image;
+        }
+       
     }
 }
 

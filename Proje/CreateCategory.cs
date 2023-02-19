@@ -64,6 +64,7 @@ namespace Proje
             }
             
         }
+
         private void txtFocus(object sender, EventArgs e)
         {
             TxtFocus((TextBox)sender);
