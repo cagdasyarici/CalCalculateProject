@@ -215,12 +215,12 @@ namespace Proje
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Image image;
-            using (MemoryStream ms = new MemoryStream(user.Photo))
-            {
-                image = Image.FromStream(ms);
-            }
-            pictureBox1.Image = image;
+            //Image image;
+            //using (MemoryStream ms = new MemoryStream(user.Photo))
+            //{
+            //    image = Image.FromStream(ms);
+            //}
+            //pictureBox1.Image = image;
 
         }
         AboutForm aboutForm;

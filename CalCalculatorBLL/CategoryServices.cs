@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CalCalculatorBLL
 {
-    public class CategoryServices:BaseRepository<Category>
+    public class CategoryServices : BaseRepository<Category>
     {
         CalCalculateDB _db;
         int categoryId;
@@ -32,21 +32,25 @@ namespace CalCalculatorBLL
                 //CreateCategoryIfNotExist("Bakery");
             }
         }
-        public void CreateCategoryIfNotExist(string categoryName)
+        public bool CreateCategoryIfNotExist(string categoryName)
         {
             using (_db = new CalCalculateDB())
             {
                 if (!_db.Categories.Select(x => x.CategoryName).Contains(categoryName))
                 {
-                        Category category = new Category
-                        {
-                            CategoryName = categoryName,
-                        };
-                        AddEntity(category);
-                   
+                    Category category = new Category
+                    {
+                        CategoryName = categoryName,
+                    };
+                    AddEntity(category);
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
-            
+
         }
 
         public List<string> BringCategoryNames()
@@ -69,9 +73,9 @@ namespace CalCalculatorBLL
             {
                 return _db.Categories.Where(x => x.CategoryName == categoryName).ToList();
             }
-                
+
         }
-        
+
 
     }
 }

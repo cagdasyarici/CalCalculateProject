@@ -47,13 +47,11 @@
             this.btnShutDown = new FontAwesome.Sharp.IconButton();
             this.btnMaximizeMinimize = new FontAwesome.Sharp.IconButton();
             this.btnMinimize = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sidebarContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homeContainer.SuspendLayout();
             this.HelpAboutContainer.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebarContainer
@@ -115,7 +113,7 @@
             this.homeContainer.MaximumSize = new System.Drawing.Size(227, 132);
             this.homeContainer.MinimumSize = new System.Drawing.Size(227, 53);
             this.homeContainer.Name = "homeContainer";
-            this.homeContainer.Size = new System.Drawing.Size(227, 132);
+            this.homeContainer.Size = new System.Drawing.Size(227, 53);
             this.homeContainer.TabIndex = 1;
             this.homeContainer.Visible = false;
             // 
@@ -190,7 +188,7 @@
             this.HelpAboutContainer.Controls.Add(this.btnLogout);
             this.HelpAboutContainer.Controls.Add(this.btnHelp);
             this.HelpAboutContainer.Controls.Add(this.btnAbout);
-            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 284);
+            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 205);
             this.HelpAboutContainer.Name = "HelpAboutContainer";
             this.HelpAboutContainer.Size = new System.Drawing.Size(227, 155);
             this.HelpAboutContainer.TabIndex = 6;
@@ -336,16 +334,6 @@
             this.btnMinimize.UseVisualStyleBackColor = true;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(347, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(334, 298);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -354,7 +342,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(973, 480);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.sidebarContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -371,7 +358,6 @@
             this.homeContainer.ResumeLayout(false);
             this.HelpAboutContainer.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -396,6 +382,5 @@
         private FontAwesome.Sharp.IconButton btnMaximizeMinimize;
         private FontAwesome.Sharp.IconButton btnMinimize;
         private FontAwesome.Sharp.IconButton btnHome;
-        private PictureBox pictureBox1;
     }
 }
