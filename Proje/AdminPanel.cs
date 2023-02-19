@@ -87,17 +87,14 @@ namespace Proje
             int height = createFoodForm.Height + 35;
             int width = createFoodForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
-            if (this.ActiveMdiChild == null )
-            {
-                createFoodForm.Show();
-            }
-            else if(this.ActiveMdiChild != null ) 
+           
+            if(this.ActiveMdiChild != null ) 
             {
                 this.ActiveMdiChild.Close();
-                createFoodForm.Show();
+                
             }
-            
-            
+            createFoodForm.Show();
+
 
         }
 
@@ -109,17 +106,14 @@ namespace Proje
             int height = createCategoryForm.Height + 35;
             int width = createCategoryForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
-            if (this.ActiveMdiChild == null)
-            {
-                createCategoryForm.Show();
-            }
-            else if (this.ActiveMdiChild != null)
+           
+            if (this.ActiveMdiChild != null)
             {
                 this.ActiveMdiChild.Close();
-                createCategoryForm.Show();
             }
-            
-            
+            createCategoryForm.Show();
+
+
         }
 
         private void btnShutDown_Click(object sender, EventArgs e)
