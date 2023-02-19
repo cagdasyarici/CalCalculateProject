@@ -1,4 +1,5 @@
 ﻿using CalCalculatorDAL;
+using CalCalculatorEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +82,27 @@ namespace CalCalculatorBLL
 
                 _db.SaveChanges();
             }
+        }
+
+        public void ContactUsMail(User user,string ContactUsText)
+        {
+            MailAddress MailReceiver = new MailAddress("CalCalculateContactUS@gmail.com", "CalCalculate Team"); //Mail Adresi : CalCalculateContactUS@gmail.com   Şifre: Cal.5224  Üyeler App'in geliştirici takımına bu mail adresinden ulaşacaklar
+
+            MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "CodeSender");
+            MailMessage ContactUsMessage = new MailMessage();
+
+            ContactUsMessage.To.Add(MailReceiver);
+            ContactUsMessage.From = MailSender;
+            ContactUsMessage.Subject = $"From {user.UserName}";
+            ContactUsMessage.Body = $"Dear CalCalculate Team : " + ContactUsText;
+
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc
+            smtp.EnableSsl = true;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //smtp.Timeout   // Duruma göre bunu da ekle
+            smtp.Send(ContactUsMessage);
         }
     }
 }
