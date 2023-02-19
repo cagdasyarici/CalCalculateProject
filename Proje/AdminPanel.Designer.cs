@@ -160,6 +160,7 @@
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // btnHelp
             // 
@@ -181,6 +182,7 @@
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnCreateCategory
             // 
