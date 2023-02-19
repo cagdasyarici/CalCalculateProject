@@ -35,7 +35,6 @@
             this.menuButton = new FontAwesome.Sharp.IconButton();
             this.homeContainer = new System.Windows.Forms.Panel();
             this.btnHome = new FontAwesome.Sharp.IconButton();
-            this.ıconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnStatistics = new FontAwesome.Sharp.IconButton();
             this.btnCalorieTracker = new FontAwesome.Sharp.IconButton();
             this.HelpAboutContainer = new System.Windows.Forms.Panel();
@@ -110,14 +109,13 @@
             // homeContainer
             // 
             this.homeContainer.Controls.Add(this.btnHome);
-            this.homeContainer.Controls.Add(this.ıconButton1);
             this.homeContainer.Controls.Add(this.btnStatistics);
             this.homeContainer.Controls.Add(this.btnCalorieTracker);
             this.homeContainer.Location = new System.Drawing.Point(3, 146);
-            this.homeContainer.MaximumSize = new System.Drawing.Size(227, 176);
+            this.homeContainer.MaximumSize = new System.Drawing.Size(227, 132);
             this.homeContainer.MinimumSize = new System.Drawing.Size(227, 53);
             this.homeContainer.Name = "homeContainer";
-            this.homeContainer.Size = new System.Drawing.Size(227, 53);
+            this.homeContainer.Size = new System.Drawing.Size(227, 132);
             this.homeContainer.TabIndex = 1;
             this.homeContainer.Visible = false;
             // 
@@ -143,33 +141,13 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // ıconButton1
-            // 
-            this.ıconButton1.FlatAppearance.BorderSize = 0;
-            this.ıconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ıconButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ıconButton1.ForeColor = System.Drawing.Color.White;
-            this.ıconButton1.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
-            this.ıconButton1.IconColor = System.Drawing.Color.White;
-            this.ıconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ıconButton1.IconSize = 30;
-            this.ıconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ıconButton1.Location = new System.Drawing.Point(3, 133);
-            this.ıconButton1.Name = "ıconButton1";
-            this.ıconButton1.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.ıconButton1.Size = new System.Drawing.Size(221, 38);
-            this.ıconButton1.TabIndex = 4;
-            this.ıconButton1.Text = "         YEDEK";
-            this.ıconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ıconButton1.UseVisualStyleBackColor = true;
-            // 
             // btnStatistics
             // 
             this.btnStatistics.FlatAppearance.BorderSize = 0;
             this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistics.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnStatistics.ForeColor = System.Drawing.Color.White;
-            this.btnStatistics.IconChar = FontAwesome.Sharp.IconChar.CircleNodes;
+            this.btnStatistics.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
             this.btnStatistics.IconColor = System.Drawing.Color.White;
             this.btnStatistics.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStatistics.IconSize = 30;
@@ -212,7 +190,7 @@
             this.HelpAboutContainer.Controls.Add(this.btnLogout);
             this.HelpAboutContainer.Controls.Add(this.btnHelp);
             this.HelpAboutContainer.Controls.Add(this.btnAbout);
-            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 205);
+            this.HelpAboutContainer.Location = new System.Drawing.Point(3, 284);
             this.HelpAboutContainer.Name = "HelpAboutContainer";
             this.HelpAboutContainer.Size = new System.Drawing.Size(227, 155);
             this.HelpAboutContainer.TabIndex = 6;
@@ -410,7 +388,6 @@
         private System.Windows.Forms.Timer sidebarTimer;
         private Panel homeContainer;
         private System.Windows.Forms.Timer homeTimer;
-        private FontAwesome.Sharp.IconButton ıconButton1;
         private Panel HelpAboutContainer;
         private FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnShutDown;
