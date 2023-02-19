@@ -57,11 +57,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Who are we? We are three friends who founded the Three Eyes of Wise Man Company. We wanted to present our application, which we brought to life through teamwork, to you because of the shortcomings of similar applications. We are quite new and will continue to add brand new features. One of our goals in creating this application is to improve ourselves. CalCalculate will progress and develop according to the reports you send us. You can contact us through the Help section. We love you!</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAArwAAAK8CAYAAAANumxDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF7MvVfb5DaSbtvTRu3lWy3vvVdJJam8995bqSS1HbNnzv+/yRMrAi8R
+        wAAADsABataJCQAA/7JJREFUeF7MvVfb5DaSbtvTRu3lWy3vvVdJJam8995bqSS1HbNnzv+/yRMrAi8R
         AMHM/Erq2fvifUjCESRBYDEYBH928tyVFTplOn3u6uqMiaXCJcK21anzVacvXFvUmYvXXaM46eylG1M6
         6dT5iFPePr7qhudXGVpH5y7fXJ2/tJ0uXL61VuevzHXh6u2H1sVrdx5Kl67fbTSKu3zj3uqyLa9cv+e6
         fK2ub6PLyMqYxd2877p8I5ZXb33TKOK/XV258a2lQRY2TPvt6trtzbp668Hq2q3vimw9xV2/82BB3/ny

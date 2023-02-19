@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CalCalculatorBLL;
+using CalCalculatorEntities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +15,12 @@ namespace Proje
 {
     public partial class HelpForm : Form
     {
-        public HelpForm()
+        User user;
+        public HelpForm(User currentUser)
         {
             InitializeComponent();
+            user = currentUser;
+           
         }
 
 
@@ -35,6 +40,12 @@ namespace Proje
                 rtbContact.Font = fontDialog.Font;
             }
 
+        }
+
+        private void btnSendUs_Click(object sender, EventArgs e)
+        {
+            MailServices mailServices = new MailServices();
+            mailServices.ContactUsMail(user,rtbContact.Text);
         }
     }
 }

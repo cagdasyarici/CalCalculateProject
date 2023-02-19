@@ -50,6 +50,13 @@ namespace Proje
             dgvFoodList.Columns["CategoryID"].Visible = false;
             dgvFoodList.Columns["FoodMeals"].Visible = false;
             dgvFoodList.Columns["Category"].Visible = false;
+            foreach (DataGridViewColumn col in dgvFoodList.Columns)
+            {
+                if (col is DataGridViewImageColumn)
+                {
+                    ((DataGridViewImageColumn)col).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                }
+            }
             //DataGridViewColumn dataGridViewColumn = new DataGridViewColumn();
             //dataGridViewColumn.Name = "Category1";
             //dataGridViewColumn.HeaderText = "Category";

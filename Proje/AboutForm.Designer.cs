@@ -47,15 +47,14 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
-            this.label2.Location = new System.Drawing.Point(243, 360);
+            this.label2.Location = new System.Drawing.Point(55, 355);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 25);
+            this.label2.Size = new System.Drawing.Size(599, 283);
             this.label2.TabIndex = 1;
-            this.label2.Text = "BURASI DOLDURULACAK";
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // AboutForm
             // 
