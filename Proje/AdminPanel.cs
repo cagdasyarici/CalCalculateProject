@@ -85,7 +85,7 @@ namespace Proje
             createFoodForm = new();
             createFoodForm.MdiParent = this;
             int height = createFoodForm.Height + 35;
-            int width = createFoodForm.Width + 238;
+            int width = createFoodForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
             if (this.ActiveMdiChild == null )
             {
@@ -107,7 +107,7 @@ namespace Proje
             createCategoryForm = new();
             createCategoryForm.MdiParent = this;
             int height = createCategoryForm.Height + 35;
-            int width = createCategoryForm.Width + 238;
+            int width = createCategoryForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
             if (this.ActiveMdiChild == null)
             {
