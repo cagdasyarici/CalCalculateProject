@@ -51,7 +51,11 @@ namespace Proje
                 {
                     MessageBox.Show("Category already exist in database");
                 }
-                categoryServices.CreateCategoryIfNotExist(categoryName);
+                bool categoryCreated = categoryServices.CreateCategoryIfNotExist(categoryName);
+                if (categoryCreated)
+                {
+                    MessageBox.Show("Category successfully created.");
+                }
                 DGVFill();
             }
             else
