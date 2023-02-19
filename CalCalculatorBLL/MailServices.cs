@@ -104,5 +104,33 @@ namespace CalCalculatorBLL
             //smtp.Timeout   // Duruma göre bunu da ekle
             smtp.Send(ContactUsMessage);
         }
+
+        public void StatisticsReportMail(User user,StringBuilder str)
+        {
+           
+
+            // Elde edilen tüm verileri string değişkeninde tutun
+            //MessageBox.Show(str.ToString());
+
+            if (user.Email.Contains("@gmail.com"))
+            {
+                MailAddress MailReceiver = new MailAddress(user.Email, user.UserName);
+                MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "Diet Application");
+                MailMessage verificationMessage = new MailMessage();
+
+
+                verificationMessage.To.Add(MailReceiver);
+                verificationMessage.From = MailSender;
+                verificationMessage.Subject = "Report";
+                verificationMessage.Body = "Your Report : \n" + str.ToString();
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                //smtp.Timeout   // Duruma göre bunu da ekle
+                smtp.Send(verificationMessage);
+            }
+        }
     }
 }
