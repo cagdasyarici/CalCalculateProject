@@ -119,6 +119,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HelpForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "HelpForm";
             this.ResumeLayout(false);
             this.PerformLayout();

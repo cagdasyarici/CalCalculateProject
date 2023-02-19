@@ -19,8 +19,6 @@ namespace Proje
         public LoginFormDeneme()
         {
             InitializeComponent();
-            CategoryServices categoryServices = new CategoryServices();
-            categoryServices.CreateDefaultCategoriesIfNotExist();
         }
         private void lblForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
