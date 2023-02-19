@@ -20,7 +20,6 @@ namespace Proje
         {
             InitializeComponent();
             user = currentUser;
-           
         }
 
 

@@ -5,6 +5,7 @@ using CalCalculatorEntities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -81,8 +82,8 @@ namespace CalCalculatorBLL
             using (_db = new CalCalculateDB())
             {
 
-                return _db.FoodMeals.Where(x => x.MealID == meal.MealID).Select(x=>
-                
+                return _db.FoodMeals.Where(x => x.MealID == meal.MealID).Select(x =>
+
                 new TempFood
                 {
                     FoodName = x.Food.FoodName,
@@ -100,11 +101,11 @@ namespace CalCalculatorBLL
         /// </summary>
         /// <param name="mealName"></param>
         /// <returns>Eğer girilen mealName database'de mevcutsa True,değilse False değer döner</returns>
-        public bool CheckIsMealNameExist(string mealName,User user)
+        public bool CheckIsMealNameExist(string mealName, User user)
         {
-            using (_db=new())
+            using (_db = new())
             {
-                if (_db.Meals.Where(x=>x.ContactUserID==user.UserID).Any(x=>x.MealName.Equals(mealName)&& x.CreateTime.Day==DateTime.Now.Day))
+                if (_db.Meals.Where(x => x.ContactUserID == user.UserID).Any(x => x.MealName.Equals(mealName) && x.CreateTime.Day == DateTime.Now.Day))
                 {
                     return true;
                 }
@@ -113,6 +114,10 @@ namespace CalCalculatorBLL
                     return false;
                 }
             }
+        }
+        public void ContactUsMail(User user, string ContactUsText)
+        {
+            MailAddress MailReceiver = new MailAddress("CalCalculateContactUS@gmail.com", "CalCalculate Team"); //Mail Adresi : CalCalculateContactUS@gmail.com   Şifre: Cal.5224  Üyeler App'in geliştirici takımına bu mail adresinden ulaşacaklar              MailAddress MailSender = new MailAddress("calculatorcodesender@gmail.com", "CodeSender");             MailMessage ContactUsMessage = new MailMessage();              ContactUsMessage.To.Add(MailReceiver);             ContactUsMessage.From = MailSender;             ContactUsMessage.Subject = $"From {user.UserName}";             ContactUsMessage.Body = $"Dear CalCalculate Team : " + ContactUsText;               SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);             smtp.Credentials = new System.Net.NetworkCredential("calculatorcodesender@gmail.com", "ijsqrsxodaulvybc");  //ijsqrsxodaulvybc             smtp.EnableSsl = true;             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;             //smtp.Timeout   // Duruma göre bunu da ekle             smtp.Send(ContactUsMessage);         }
         }
     }
 }
