@@ -29,12 +29,12 @@ namespace CalCalculatorDAL
 
             //ÇAĞDAŞ
 
-            optionsBuilder.UseSqlServer("server=chado\\mssqlkd14;database=calcalculatedb8;trusted_connection=true");
+            //optionsBuilder.UseSqlServer("server=chado\\mssqlkd14;database=calcalculatedb8;trusted_connection=true");
 
 
             //YUŞA
 
-            //optionsBuilder.UseSqlServer("Server=YUSATOSUN\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=YUSATOSUN\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True;");
         }
         //public class Image
         //{

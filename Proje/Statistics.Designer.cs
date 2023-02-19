@@ -163,12 +163,12 @@
             this.btnTotalCalForCategory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnTotalCalForCategory.IconSize = 32;
             this.btnTotalCalForCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTotalCalForCategory.Location = new System.Drawing.Point(570, 107);
+            this.btnTotalCalForCategory.Location = new System.Drawing.Point(571, 107);
             this.btnTotalCalForCategory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTotalCalForCategory.Name = "btnTotalCalForCategory";
-            this.btnTotalCalForCategory.Size = new System.Drawing.Size(300, 58);
+            this.btnTotalCalForCategory.Size = new System.Drawing.Size(297, 58);
             this.btnTotalCalForCategory.TabIndex = 35;
-            this.btnTotalCalForCategory.Text = "Group By Total Cal";
+            this.btnTotalCalForCategory.Text = "Group By Food-Meal";
             this.btnTotalCalForCategory.UseVisualStyleBackColor = false;
             this.btnTotalCalForCategory.Click += new System.EventHandler(this.btnTotalCalForCategory_Click);
             // 
