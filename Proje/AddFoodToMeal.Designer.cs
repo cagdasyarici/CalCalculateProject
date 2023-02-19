@@ -220,7 +220,7 @@
             this.txtGrams.Location = new System.Drawing.Point(360, 332);
             this.txtGrams.Name = "txtGrams";
             this.txtGrams.Size = new System.Drawing.Size(115, 22);
-            this.txtGrams.TabIndex = 12;
+            this.txtGrams.TabIndex = 1;
             this.txtGrams.Enter += new System.EventHandler(this.txtFocus);
             this.txtGrams.Leave += new System.EventHandler(this.txtFocus);
             // 
@@ -232,7 +232,7 @@
             this.txtSearch.Location = new System.Drawing.Point(481, 22);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(183, 22);
-            this.txtSearch.TabIndex = 6;
+            this.txtSearch.TabIndex = 2;
             this.txtSearch.Text = "Search...";
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);

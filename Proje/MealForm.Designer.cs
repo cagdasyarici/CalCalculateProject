@@ -168,7 +168,7 @@
             this.BtnShowMeal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnShowMeal.IconSize = 32;
             this.BtnShowMeal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnShowMeal.Location = new System.Drawing.Point(235, 106);
+            this.BtnShowMeal.Location = new System.Drawing.Point(213, 84);
             this.BtnShowMeal.Name = "BtnShowMeal";
             this.BtnShowMeal.Size = new System.Drawing.Size(141, 29);
             this.BtnShowMeal.TabIndex = 27;
@@ -205,13 +205,14 @@
             this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 62);
+            this.dateTimePicker1.Location = new System.Drawing.Point(161, 37);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(254, 29);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // MealForm
             // 
+            this.AcceptButton = this.btnAddMeal;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;

@@ -30,8 +30,6 @@ namespace Proje
 
         private void ForgotPasswordForm_Load(object sender, EventArgs e)
         {
-            grpMail.Enabled = false;
-            grpChangePassword.Enabled = false;
 
             cmbSecurityQuestions.SelectedItem = cmbSecurityQuestions.Items[0].ToString();
 
@@ -85,11 +83,12 @@ namespace Proje
                     if (item.SecurityAnswer.Equals(txtSecurityAnswer.Text) && item.SecurityQuestion.Equals(cmbSecurityQuestions.SelectedItem as string))
 
                     {
-                        grpMail.Enabled = true;
+                        grpMail.Location = grpSecurity.Location;
+                        grpMail.Visible = true;
                         txtEMailAdress.Enabled = false;
 
                         txtEMailAdress.Text = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Email;
-                        grpSecurity.Enabled = false;
+                        grpSecurity.Visible = false;
                         isUserExist = true;
                     }
 
@@ -112,8 +111,9 @@ namespace Proje
 
             if (txtVerificationCode.Text.Equals(code))
             {
-                grpChangePassword.Enabled = true;
-                grpMail.Enabled = false;
+                grpChangePassword.Location = grpMail.Location;
+                grpChangePassword.Visible = true;
+                grpMail.Visible = false;
             }
             else if (txtVerificationCode.Text == String.Empty)
             {
