@@ -152,12 +152,13 @@ namespace Proje
         {
             #region Yeni Kısım 
             MealServices mealServices = new MealServices();
+            meal.FoodMeals.Clear();  // Çok önemli !!!!! Class seviyesinde eklenmiş olan foodların temizlenmesi gerekiyor !!!!!!
             if (CheckGramCount(txtGrams.Text))
             {
                 Food? selectedFood = dgvFoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
                 FoodServices foodServices = new FoodServices();
                 Food food = foodServices.FindEntity(selectedFood.FoodID); // todo:Bu kodun amacı nedir ? Buraya tekrar bak
-
+             
                 /// buraya başka food var mı kontrolü yapıcam
              
                     meal.FoodMeals.Add(new FoodMeal()
