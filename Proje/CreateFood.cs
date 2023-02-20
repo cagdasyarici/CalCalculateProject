@@ -39,7 +39,13 @@ namespace Proje
             dgvFood.DataSource = foodServices.BringTList();
             dgvFood.Columns["FoodMeals"].Visible = false;
             dgvFood.Columns["Category"].Visible = false;
-
+            foreach (DataGridViewColumn col in dgvFood.Columns)
+            {
+                if (col is DataGridViewImageColumn)
+                {
+                    ((DataGridViewImageColumn)col).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                }
+            }
 
         }
 

@@ -38,7 +38,7 @@ namespace CalCalculatorBLL
                 //dgvStatisticsTable.DataSource = totalCalList.ToList();
                 #endregion
 
-                var DailyReportList = from meal in _db.Meals
+                var DailyReportList = from meal in _db.Meals.Where(x=> x.User.UserName == user.UserName)
                                       where meal.CreateTime.Date == DateTime.Now.Date
                                       join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                       join food in _db.Foods on foodMeal.FoodID equals food.FoodID
