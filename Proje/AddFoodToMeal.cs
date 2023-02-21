@@ -50,6 +50,7 @@ namespace Proje
             dgvFoodList.Columns["CategoryID"].Visible = false;
             dgvFoodList.Columns["FoodMeals"].Visible = false;
             dgvFoodList.Columns["Category"].Visible = false;
+            dgvFoodList.Columns["FoodID"].Visible = false;
             foreach (DataGridViewColumn col in dgvFoodList.Columns)
             {
                 if (col is DataGridViewImageColumn)
@@ -105,6 +106,7 @@ namespace Proje
             dgvFoodList.Columns["CategoryID"].Visible = false;
             dgvFoodList.Columns["FoodMeals"].Visible = false;
             dgvFoodList.Columns["Category"].Visible = false;
+            dgvFoodList.Columns["FoodID"].Visible = false;
         }
 
         private void ListMealRefresh(List<TempFood> list)
