@@ -114,7 +114,7 @@ namespace CalCalculatorBLL
 
         }
 
-        public dynamic GroupByFoodMeal(DateTime startDate,DateTime endDate,User user)
+        public dynamic GroupByFoodMeal(DateTime startDate,DateTime endDate,User user) // food ve meal'a göre gruyp by'lar.Foodmeal'a göre değil !!!
         {
             
             using (_db = new())
@@ -125,6 +125,7 @@ namespace CalCalculatorBLL
                             join food in _db.Foods on foodMeal.FoodID equals food.FoodID
                             join category in _db.Categories on food.CategoryId equals category.CategoryId
                             group foodMeal by new { meal.MealName, food.FoodName } into g
+                            orderby g.Sum(x => x.Grams) descending
                             select new
                             {
                                 Meal = g.Key.MealName,
