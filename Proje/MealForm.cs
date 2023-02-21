@@ -19,11 +19,11 @@ namespace Proje
         MainForm mainFormDeneme;
         FlowLayoutPanel sideBarContainer;
         bool totalCalorieBrought;
-        public MealForm(User userInfo, MainForm CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
+        public MealForm(User userInfo, MainForm CurrentMainFormDeneme, FlowLayoutPanel currentSideBarContainer)
         {
             user = userInfo;
             mainFormDeneme = CurrentMainFormDeneme;
-            sideBarContainer= currentSideBarContainer;
+            sideBarContainer = currentSideBarContainer;
             InitializeComponent();
         }
         /// <summary>
@@ -32,6 +32,7 @@ namespace Proje
         private void DGVFill()
         {
             MealServices mealServices = new MealServices();
+
             dataGridView1.DataSource = mealServices.SearchByDate(dateTimePicker1.Value, user);
             dataGridView1.Columns["User"].Visible = false;
             dataGridView1.Columns["FoodMeals"].Visible = false;
@@ -58,7 +59,8 @@ namespace Proje
         {
             DataGridView dtgw = (DataGridView)sender;
             Meal meal = (Meal)dtgw.SelectedCells[0].OwningRow.DataBoundItem;
-            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user,mainFormDeneme,sideBarContainer);
+            AddFoodToMeal addFoodToMeal = new AddFoodToMeal(meal, user, mainFormDeneme, sideBarContainer);
+
             addFoodToMeal.MdiParent = mainFormDeneme;
             int height = addFoodToMeal.Height + 35;
             int width = addFoodToMeal.Width + sideBarContainer.Width + 6;
@@ -77,15 +79,12 @@ namespace Proje
         {
             try
             {
-                
                 /* meal = (Meal)dataGridView1.CurrentRow.DataBoundItem; */ // Burda hata veriyor.Burda nasýl hata verebilir ki ?
 
-                   Meal? meal = dataGridView1.CurrentRow.DataBoundItem as Meal;
-                    MealServices mealServices = new MealServices();
-                    mealServices.RemoveEntity(meal);
-                    DGVFill();
-                
-
+                Meal? meal = dataGridView1.CurrentRow.DataBoundItem as Meal;
+                MealServices mealServices = new MealServices();
+                mealServices.RemoveEntity(meal);
+                DGVFill();
             }
             catch (NullReferenceException)
             {
@@ -93,7 +92,6 @@ namespace Proje
             }
             catch (Exception)
             {
-
                 MessageBox.Show("Error"); // todo: Buraya bir yazý düþün 
             }
         }
@@ -106,23 +104,16 @@ namespace Proje
         private void btnAddMeal_Click(object sender, EventArgs e)
         {
             if (txtMealName.Text.Trim() != null && txtMealName.Text.Trim() != string.Empty)
-            { 
-
+            {
                 MealServices mealServices = new MealServices();
-                if (!mealServices.CheckIsMealNameExist(txtMealName.Text,user))
-                {
+
+                if (!mealServices.CheckIsMealNameExist(txtMealName.Text, user))
                     mealServices.CreateMeal(txtMealName.Text, user.UserID);
-                }
                 else
-                {
-                    MessageBox.Show("You can not add same meal twice!","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                }
-                
+                    MessageBox.Show("You can not add same meal twice!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-            {
                 MessageBox.Show("Meal name cannot be empty");
-            }
             DGVFill();
         }
 

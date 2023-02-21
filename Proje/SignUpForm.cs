@@ -30,45 +30,34 @@ namespace Proje
                 string email = txtMail.Text;
                 string securityQuestion = comboBox1.Text;
                 string securityAnswer = txtSecurity.Text;
+
                 bool result = password.Any(c => char.IsLetter(c)) && password.Any(c => char.IsDigit(c));
+
                 if (userName != null && password != null && email != null && result && securityQuestion != null && securityAnswer != null && confirmPassword == password && password.Length > 6)
                 {
                     bool userCreated;
                     userCreated = userServices.CreateUser(userName, password, email, securityQuestion, securityAnswer);
+
                     if (userCreated)
-                    {
                         MessageBox.Show("User created successfully!");
-                    }
                     else
-                    {
                         MessageBox.Show("User name or E-mail is already used");
-                    }
 
                     this.Hide();
                 }
                 else if (!result)
-                {
                     lblWarning.Text = "Password must contains at least 1 alphabet character and 1 number.";
-                }
                 else if (confirmPassword != password)
-                {
                     lblWarning.Text = "Password must be match";
-                }
                 else if (password.Length <= 6)
-                {
                     lblWarning.Text = "Password must be contains at least 7 character";
-                }
                 else
-                {
                     MessageBox.Show("User information can not be empty!");
-                }
             }
             else
-            {
                 MessageBox.Show("Please Fill Information Boxes", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
-             private Point lastPoint; // Son konum bilgisini tutmak için bir değişken tanımlıyoruz.
+        private Point lastPoint; // Son konum bilgisini tutmak için bir değişken tanımlıyoruz.
         private void AdminPanel_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y); // Son konum bilgisini alıyoruz.
@@ -91,6 +80,7 @@ namespace Proje
         private void btnShutDown_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Üyelik oluşturmadan çıkmak istediğinize emin misiniz?", "Çıkış", MessageBoxButtons.OKCancel);
+            
             if (result == DialogResult.OK) // OK butonuna basıldı
             {
                 // Uygulamayı kapat

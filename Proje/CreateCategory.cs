@@ -28,10 +28,8 @@ namespace Proje
         {
             CategoryServices categoryServices = new CategoryServices();
             dgvCategories.DataSource = categoryServices.BringTList();
-            dgvCategories.Columns["Foods"].Visible= false;
+            dgvCategories.Columns["Foods"].Visible = false;
         }
-
-       
 
         private void btnRemoveCategoryy_Click(object sender, EventArgs e)
         {
@@ -45,30 +43,27 @@ namespace Proje
         {
             string categoryName = txtCategoryName.Text;
             CategoryServices categoryServices = new CategoryServices();
-            if(categoryName !="") 
+            if (categoryName != "")
             {
                 if (categoryServices.BringCategoryNames().Contains(categoryName))
-                {
                     MessageBox.Show("Category already exist in database");
-                }
+
                 bool categoryCreated = categoryServices.CreateCategoryIfNotExist(categoryName);
+
                 if (categoryCreated)
-                {
                     MessageBox.Show("Category successfully created.");
-                }
+
                 DGVFill();
             }
             else
-            {
                 MessageBox.Show("Category name cannot be null");
-            }
-            
         }
 
         private void txtFocus(object sender, EventArgs e)
         {
             TxtFocus((TextBox)sender);
         }
+
         private void TxtFocus(TextBox textBox)
         {
             if (textBox.BackColor == Color.FromArgb(112, 117, 132))

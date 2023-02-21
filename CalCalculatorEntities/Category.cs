@@ -10,10 +10,12 @@ namespace CalCalculatorEntities
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
+
+        //Navigation
         public virtual ICollection<Food> Foods { get; set; }
         public Category()
         {
-            Foods = new List<Food>();
+            Foods = new HashSet<Food>();
         }
     }
 }

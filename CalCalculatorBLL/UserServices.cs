@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CalCalculatorBLL
 {
-    public class UserServices:BaseRepository<User>
+    public class UserServices : BaseRepository<User>
     {
         CalCalculateDB _db;
 
@@ -26,7 +26,7 @@ namespace CalCalculatorBLL
         /// <param name="email"></param>
         /// <param name="securityQuestion"></param>
         /// <param name="securityAnswer"></param>
-        public bool CreateUser(string name,string password,string email, string securityQuestion, string securityAnswer)
+        public bool CreateUser(string name, string password, string email, string securityQuestion, string securityAnswer)
         {
             using (_db = new CalCalculateDB())
             {
@@ -40,7 +40,6 @@ namespace CalCalculatorBLL
                 };
                 return AddEntity(user);
             }
-            
         }
         /// <summary>
         /// KullanıcıAdı girilen kullanıcıyı database'de bulur
@@ -49,7 +48,7 @@ namespace CalCalculatorBLL
         /// <returns>Bulduğu kullanıcıyı User tipinde geri döndürür</returns>
         public User FindUser(string userName)
         {
-            using (_db= new CalCalculateDB())
+            using (_db = new CalCalculateDB())
             {
                 User user = _db.Users.FirstOrDefault(x => x.UserName == userName);
                 return user;
@@ -63,9 +62,8 @@ namespace CalCalculatorBLL
         /// <returns>Kullanıcı Null'sa True,Değilse Flase döner</returns>
         public bool CheckUserIsNullOrEmpty(User user)
         {
-          return  user == null ? true : false;
+            return user == null ? true : false;
         }
-
 
         /// <summary>
         /// Sign-Up ekranında Kullanıcının bütün bilgilerini eksiksiz girip girmediğini kontrol eder
@@ -76,18 +74,13 @@ namespace CalCalculatorBLL
         /// <param name="passwordControl"></param>
         /// <param name="security"></param>
         /// <returns>TextBoxların tamamı doluysa True,Değilse Flase döner</returns>
-        public bool CheckUserDetailsNullOrWhiteSpace(string username,string mail,string password,string passwordControl,string security)
+        public bool CheckUserDetailsNullOrWhiteSpace(string username, string mail, string password, string passwordControl, string security)
         {
             if (!string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(mail) && !string.IsNullOrWhiteSpace(password) && !string.IsNullOrWhiteSpace(passwordControl) && !string.IsNullOrWhiteSpace(security))
-            {
                 return true;
-            }
-
             else
-            {
                 return false;
-            }
         }
     }
-    
+
 }

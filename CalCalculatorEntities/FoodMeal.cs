@@ -10,8 +10,10 @@ namespace CalCalculatorEntities
     {
         public int FoodID { get; set; }
         public virtual Food Food { get; set; }
+
         public int MealID { get; set; }
         public virtual Meal Meal { get; set; }
+
         public double Grams { get; set; }
     }
 }

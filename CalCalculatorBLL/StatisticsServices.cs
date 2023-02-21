@@ -12,7 +12,7 @@ namespace CalCalculatorBLL
     public class StatisticsServices
     {
         CalCalculateDB _db;
-  
+
         public dynamic DailyReport(User user)
         {
             using (_db = new())
@@ -38,7 +38,7 @@ namespace CalCalculatorBLL
                 //dgvStatisticsTable.DataSource = totalCalList.ToList();
                 #endregion
 
-                var DailyReportList = from meal in _db.Meals.Where(x=> x.User.UserName == user.UserName)
+                var DailyReportList = from meal in _db.Meals.Where(x => x.User.UserName == user.UserName)
                                       where meal.CreateTime.Date == DateTime.Now.Date
                                       join foodMeal in _db.FoodMeals on meal.MealID equals foodMeal.MealID
                                       join food in _db.Foods on foodMeal.FoodID equals food.FoodID
@@ -49,15 +49,10 @@ namespace CalCalculatorBLL
                                           Meal = g.Key,
                                           Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
                                           AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
-
-
                                       };
 
                 return DailyReportList.ToList();
             }
-
-
-
         }
 
         public dynamic WeeklyCompare(User user)
@@ -77,12 +72,9 @@ namespace CalCalculatorBLL
                                            Food = g.Key.FoodName,
                                            Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
                                            AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
-
-
                                        };
 
                 return WeeklyReportList.ToList();
-
             }
         }
 
@@ -103,20 +95,13 @@ namespace CalCalculatorBLL
                                             Food = g.Key.FoodName,
                                             Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
                                             AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
-
                                         };
-
                 return MonthlyReportList.ToList();
-
             }
-
-
-
         }
 
-        public dynamic GroupByFoodMeal(DateTime startDate,DateTime endDate,User user) // food ve meal'a göre gruyp by'lar.Foodmeal'a göre değil !!!
+        public dynamic GroupByFoodMeal(DateTime startDate, DateTime endDate, User user) // food ve meal'a göre gruyp by'lar.Foodmeal'a göre değil !!!
         {
-            
             using (_db = new())
             {
                 var List1 = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
@@ -131,20 +116,13 @@ namespace CalCalculatorBLL
                                 Meal = g.Key.MealName,
                                 Food = g.Key.FoodName,
                                 Grams = (int)g.Sum(x => x.Grams)
-
                             };
-
-
-
                 return List1.ToList();
             }
         }
-        
-        public dynamic GroupByDate(DateTime startDate,DateTime endDate,User user)
+
+        public dynamic GroupByDate(DateTime startDate, DateTime endDate, User user)
         {
-
-
-
             using (_db = new())
             {
                 var totalCalList = from meal in _db.Meals.Where(x => x.ContactUserID == user.UserID)
@@ -157,11 +135,7 @@ namespace CalCalculatorBLL
                                    {
                                        Date = g.Key,
                                        Calorie = (int)g.Sum(x => x.Grams / 100 * x.Food.FoodCal)
-
-
-
                                    };
-
                 return totalCalList.ToList();
             }
         }
@@ -181,14 +155,10 @@ namespace CalCalculatorBLL
                                           Category = g.Key,
                                           Calorie = (int)g.Where(x => x.Meal.ContactUserID == user.UserID).Sum(x => x.Grams / 100 * (x.Food.FoodCal)),
                                           AvgCalories = (int)g.Sum(x => x.Grams / 100 * (x.Food.FoodCal)) / _db.Users.Count()
-
-
                                       };
 
                 return categoryCalList.ToList();
             }
         }
-
-
     }
 }

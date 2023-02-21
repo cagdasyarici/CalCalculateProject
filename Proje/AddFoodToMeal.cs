@@ -18,15 +18,13 @@ namespace Proje
 {
     public partial class AddFoodToMeal : Form
     {
-     
-
-
         IList<Food> foodListDgv;
         Meal meal;
         User user;
         MainForm mainFormDeneme;
         FlowLayoutPanel sideBarContainer;
-        public AddFoodToMeal(Meal currentMeal, User currentUser, MainForm CurrentMainFormDeneme,FlowLayoutPanel currentSideBarContainer)
+
+        public AddFoodToMeal(Meal currentMeal, User currentUser, MainForm CurrentMainFormDeneme, FlowLayoutPanel currentSideBarContainer)
         {
             InitializeComponent();
             mainFormDeneme = CurrentMainFormDeneme;
@@ -34,13 +32,10 @@ namespace Proje
             user = currentUser;
             sideBarContainer = currentSideBarContainer;
             txtGrams.Text = "0";
-            
         }
 
         private void AddFoodToMeal_Load(object sender, EventArgs e)
         {
-
-
             #region Dgv2 Doldurma
             FoodServices foodServices = new FoodServices();
 
@@ -70,8 +65,6 @@ namespace Proje
 
             #endregion
 
-
-
             #region Dgv1 Doldurma
 
 
@@ -88,10 +81,8 @@ namespace Proje
 
             #endregion
 
-            
-
         }
-        
+
         private void txtSearch_Click(object sender, EventArgs e)
         {
             txtSearch.Text = "";
@@ -112,11 +103,9 @@ namespace Proje
         private void ListMealRefresh(List<TempFood> list)
         {
             dgvMealDetails.DataSource = null;
-
             dgvMealDetails.DataSource = list;
             dgvMealDetails.Columns["FoodID"].Visible = false;
         }
-
 
         /// <summary>
         /// tring girilen gram değerinin bir sayı olduğunu,sıfırdan büyük olduğunu ve integer sınırları içerisi olduğunu kontrol eder
@@ -129,17 +118,10 @@ namespace Proje
             bool isGramNumber = int.TryParse(txtGrams.Text, out gramCount);
 
             if (isGramNumber && gramCount > 0)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
-
         }
-
-
 
         private void btnAddMeal_Click(object sender, EventArgs e) // todo: Deniz Sanırım ben bunun buttonunu sildim (Yuşa)
         {
@@ -152,7 +134,7 @@ namespace Proje
         /// <param name="e"></param>
         private void ıconButton1_Click(object sender, EventArgs e) // todo:İsmi düzelt
         {
-            MealForm MealForm = new(user, mainFormDeneme,sideBarContainer);
+            MealForm MealForm = new(user, mainFormDeneme, sideBarContainer);
             MealForm.MdiParent = mainFormDeneme;
             int height = MealForm.Height + 35;
             int width = MealForm.Width + sideBarContainer.Width + 6;
@@ -171,27 +153,25 @@ namespace Proje
                 Food? selectedFood = dgvFoodList.SelectedCells[0].OwningRow.DataBoundItem as Food;
                 FoodServices foodServices = new FoodServices();
                 Food food = foodServices.FindEntity(selectedFood.FoodID); // todo:Bu kodun amacı nedir ? Buraya tekrar bak
-             
+
                 /// buraya başka food var mı kontrolü yapıcam
-             
-                    meal.FoodMeals.Add(new FoodMeal()
-                    {
-                        //MealID = meal.MealID,
-                        //FoodID = selectedFood.FoodID, BUNLARA GEREK YOK SANIRIM. DENEME AMAÇLI.
-                        //Meal = meal,
-                        Food = food,
-                        Grams = int.Parse(txtGrams.Text)
 
-
-                    });
+                meal.FoodMeals.Add(new FoodMeal()
+                {
+                    //MealID = meal.MealID,
+                    //FoodID = selectedFood.FoodID, BUNLARA GEREK YOK SANIRIM. DENEME AMAÇLI.
+                    //Meal = meal,
+                    Food = food,
+                    Grams = int.Parse(txtGrams.Text)
+                });
 
                 bool foodCreated;
                 foodCreated = mealServices.AttachEntity(meal);
-                if (foodCreated==true)
+                if (foodCreated == true)
                 {
                     var mealList = mealServices.ListeOlustur(meal);
-
                     ListMealRefresh(mealList);
+
                     double sum = 0;
                     for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
                     {
@@ -202,20 +182,10 @@ namespace Proje
                     mealServices.UpdateEntity(meal);
                 }
                 else
-                {
                     MessageBox.Show("This food is already exists.");
-                }
-                    
-   
-             
             }
-
             else
-            {
                 MessageBox.Show("Please enter a proper value", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-           
-
             #endregion
         }
 
@@ -225,52 +195,41 @@ namespace Proje
             //string foodDetail = dgv_MealDetails.SelectedCells[0].OwningRow.DataBoundItem.ToString();
 
             //int FoodID = Convert.ToInt32((foodDetail[foodDetail.Length - 3]).ToString());
-
-
             try
             {
-               
-                    TempFood? tmpFood = dgvMealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
-                    int FoodID = 0;
+                TempFood? tmpFood = dgvMealDetails.SelectedCells[0].OwningRow.DataBoundItem as TempFood;
+                int FoodID = 0;
+
+                FoodID = tmpFood.FoodID;
+
+                FoodMealServices foodMealServices = new FoodMealServices();
+
+                FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
+                foodMealServices.DatabaseRemove(selectedFoodMeal2);
 
 
-                    FoodID = tmpFood.FoodID;
+                MealServices mealServices = new MealServices();
+                var mealList = mealServices.ListeOlustur(meal);
 
-                    FoodMealServices foodMealServices = new FoodMealServices();
+                ListMealRefresh(mealList);
+                double sum = 0;
+                for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
+                {
+                    sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
+                }
+                meal.TotalCalorie = sum;
 
-                    FoodMeal? selectedFoodMeal2 = foodMealServices.FindFoodMeal(FoodID, meal.MealID);
-                    foodMealServices.DatabaseRemove(selectedFoodMeal2);
-
-
-                    MealServices mealServices = new MealServices();
-                    var mealList = mealServices.ListeOlustur(meal);
-
-                    ListMealRefresh(mealList);
-                    double sum = 0;
-                    for (int i = 0; i < dgvMealDetails.Rows.Count; ++i)
-                    {
-                        sum += Convert.ToInt32(dgvMealDetails.Rows[i].Cells[1].Value);
-                    }
-                    meal.TotalCalorie = sum;
-
-                    mealServices.UpdateEntity(meal);
-               
-
-                
+                mealServices.UpdateEntity(meal);
             }
             catch (ArgumentOutOfRangeException)
             {
-
                 MessageBox.Show("Please,choose a food to delete from Meal Details Table");
             }
 
             catch (Exception)
             {
-
                 MessageBox.Show("Error", "", MessageBoxButtons.OK, MessageBoxIcon.Error); //todo: daha sonra uygun bi yazı düşün (yuşa)
             }
-            
-
             #endregion
         }
 
@@ -280,7 +239,7 @@ namespace Proje
         /// <param name="selectedFood"></param>
         /// <param name="selectedMeal"></param>
         /// <returns>Food listede zaten mevcutsa True,Değilse False döndürür</returns>
-      
+
         private void txtFocus(object sender, EventArgs e)
         {
             TxtFocus((TextBox)sender);

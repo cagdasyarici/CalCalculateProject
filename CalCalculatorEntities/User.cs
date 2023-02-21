@@ -12,11 +12,13 @@ namespace CalCalculatorEntities
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public virtual ICollection<Meal> Meals { get; set; }
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
         public bool IsAdmin { get; set; }
         public byte[]? Photo { get; set; }
+
+        //Navigation
+        public virtual ICollection<Meal> Meals { get; set; }
         public User()
         {
             Meals = new List<Meal>();

@@ -39,7 +39,7 @@ namespace CalCalculatorBLL
         /// <summary>
         /// gmail.com mail adresleri için doğrulama Kodu gönderir
         /// </summary>
-        public void GmailSendVerificationCode(string mailAdress,string username,string code)
+        public void GmailSendVerificationCode(string mailAdress, string username, string code)
         {
 
             MailAddress MailReceiver = new MailAddress(mailAdress, username);
@@ -74,7 +74,7 @@ namespace CalCalculatorBLL
         /// </summary>
         /// <param name="_username"></param>
         /// <param name="_password"></param>
-        public void ChangePassword(string _username,string _password,string _confirmPassword)
+        public void ChangePassword(string _username, string _password, string _confirmPassword)
         {
             using (_db = new CalCalculateDB())
             {
@@ -84,7 +84,7 @@ namespace CalCalculatorBLL
             }
         }
 
-        public void ContactUsMail(User user,string ContactUsText)
+        public void ContactUsMail(User user, string ContactUsText)
         {
             MailAddress MailReceiver = new MailAddress("CalCalculateContactUS@gmail.com", "CalCalculate Team"); //Mail Adresi : CalCalculateContactUS@gmail.com   Şifre: Cal.5224  Üyeler App'in geliştirici takımına bu mail adresinden ulaşacaklar
 
@@ -105,9 +105,9 @@ namespace CalCalculatorBLL
             smtp.Send(ContactUsMessage);
         }
 
-        public void StatisticsReportMail(User user,StringBuilder str)
+        public void StatisticsReportMail(User user, StringBuilder str)
         {
-           
+
 
             // Elde edilen tüm verileri string değişkeninde tutun
             //MessageBox.Show(str.ToString());

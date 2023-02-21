@@ -13,7 +13,6 @@ namespace Proje
 {
     public partial class AdminPanel : Form
     {
-        
         bool sidebarExpand;
         User user;
         CreateFood createFoodForm;
@@ -25,16 +24,14 @@ namespace Proje
             user = currentUser;
         }
 
-
         #region Sidebar kodları
         private void sidebarTimer_Tick(object sender, EventArgs e)
         {
-
-
             if (sidebarExpand)
             {
                 sidebarContainer.Width -= 10;
                 this.Width -= 10;
+
                 if (sidebarContainer.Width <= sidebarContainerMinWidth)
                 {
                     sidebarExpand = false;
@@ -54,10 +51,9 @@ namespace Proje
         }
         int sidebarContainerMaxWidth;
         int sidebarContainerMinWidth;
+
         private void menuButton_Click(object sender, EventArgs e)
         {
-
-
             //If menu closed
             if (homeContainer.Visible && sidebarExpand)
             {
@@ -70,21 +66,18 @@ namespace Proje
                 homeContainer.Visible = true;
             }
             sidebarTimer.Start();
-
         }
         #endregion
 
         #region MdiChildbutonlar
         private void btnContinueAsAnUser_Click(object sender, EventArgs e)
         {
-
             MainForm mainForm = new(user);
             mainForm.Show();
             this.Close();
         }
         private void btnCreateFood_Click(object sender, EventArgs e)
         {
-
             createFoodForm = new();
             createFoodForm.MdiParent = this;
             int height = createFoodForm.Height + 35;
@@ -92,18 +85,13 @@ namespace Proje
             this.Size = new Size(width, height);
 
             if (this.ActiveMdiChild != null)
-            {
                 this.ActiveMdiChild.Close();
 
-            }
             createFoodForm.Show();
-
-
         }
 
         private void btnCreateCategory_Click(object sender, EventArgs e)
         {
-
             createCategoryForm = new();
             createCategoryForm.MdiParent = this;
             int height = createCategoryForm.Height + 35;
@@ -111,13 +99,11 @@ namespace Proje
             this.Size = new Size(width, height);
 
             if (this.ActiveMdiChild != null)
-            {
                 this.ActiveMdiChild.Close();
-            }
+
             createCategoryForm.Show();
-
-
         }
+
         HelpForm helpForm;
         private void btnHelp_Click(object sender, EventArgs e)
         {
@@ -126,12 +112,13 @@ namespace Proje
             int height = helpForm.Height + 35;
             int width = helpForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
+
             if (this.ActiveMdiChild != null)
-            {
                 this.ActiveMdiChild.Close();
-            }
+
             helpForm.Show();
         }
+
         AboutForm aboutForm;
         private void btnAbout_Click(object sender, EventArgs e)
         {
@@ -140,22 +127,21 @@ namespace Proje
             int height = aboutForm.Height + 35;
             int width = aboutForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
+
             if (this.ActiveMdiChild != null)
-            {
                 this.ActiveMdiChild.Close();
-            }
+
             aboutForm.Show();
-        } 
+        }
         #endregion
+
         #region Form kapama büyütme ve alta alma kodları
         private void btnShutDown_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Uygulamadan çıkmak istediğinize emin misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.OKCancel);
+
             if (result == DialogResult.OK) // OK butonuna basıldı
-            {
-                // Uygulamayı kapat
                 Application.Exit();
-            }
         }
 
         private void btnMaximizeMinimize_Click(object sender, EventArgs e)
@@ -177,8 +163,9 @@ namespace Proje
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        } 
+        }
         #endregion
+
         #region Form Taşıma kodları
         private Point lastPoint; // Son konum bilgisini tutmak için bir değişken tanımlıyoruz.
         private void AdminPanel_MouseDown(object sender, MouseEventArgs e)
@@ -194,12 +181,12 @@ namespace Proje
                 this.Top += e.Y - lastPoint.Y;
             }
         }
+
         private void AdminPanel_MouseUp(object sender, MouseEventArgs e)
         {
             lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
         }
         #endregion
-
 
         private void AdminPanel_Load(object sender, EventArgs e)
         {
@@ -210,7 +197,7 @@ namespace Proje
             //}
             //pictureBox1.Image = image;
         }
-       
+
     }
 }
 
