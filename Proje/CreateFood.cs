@@ -18,48 +18,39 @@ namespace Proje
         User user;
         bool categorySelected;
         public CreateFood()
-        
+
         {
             InitializeComponent();
             CategoryServices categoryServices = new CategoryServices();
             categoryServices.CreateDefaultCategoriesIfNotExist();
             List<string> categoryNames = categoryServices.BringCategoryNames();
-            foreach(string categoryName in categoryNames)
+            foreach (string categoryName in categoryNames)
             {
                 cmbCategory.Items.Add(categoryName);
             }
-            
-        }
 
-        
+        }
 
         private void CreateFood_Load(object sender, EventArgs e)
         {
-            FoodServices foodServices=new FoodServices();
+            FoodServices foodServices = new FoodServices();
             dgvFood.DataSource = foodServices.BringTList();
             dgvFood.Columns["FoodMeals"].Visible = false;
             dgvFood.Columns["Category"].Visible = false;
             foreach (DataGridViewColumn col in dgvFood.Columns)
             {
                 if (col is DataGridViewImageColumn)
-                {
                     ((DataGridViewImageColumn)col).ImageLayout = DataGridViewImageCellLayout.Zoom;
-                }
             }
-
         }
 
         private void btnAddCategoryy_Click(object sender, EventArgs e)
         {
-
             CategoryServices categoryServices = new CategoryServices();
             FoodServices foodServices = new FoodServices();
 
-
-            if (txtFoodName.Text.Trim() == "" || txtCarbonh.Text.Trim() == "" || txtFat.Text.Trim() == "" || txtProt.Text.Trim() == "" || txtCal.Text.Trim() == ""||categorySelected!=true)
-            {
+            if (txtFoodName.Text.Trim() == "" || txtCarbonh.Text.Trim() == "" || txtFat.Text.Trim() == "" || txtProt.Text.Trim() == "" || txtCal.Text.Trim() == "" || categorySelected != true)
                 MessageBox.Show("Food informations cannot be null");
-            }
             else
             {
                 try
@@ -75,31 +66,25 @@ namespace Proje
                     {
                         categoryID = category.CategoryId;
                     }
-                    
+
                     bool foodCreated = foodServices.CreateFood(foodName, foodCarb, foodFat, foodProt, foodCal, categoryID);
+
                     if (foodCreated)
-                    {
                         MessageBox.Show("Food created");
-                    }
                     else
-                    {
                         MessageBox.Show("Food already exists in database");
-                    }
-                    
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Food informations are incorrect");
                 }
-                
             }
             foreach (Control c in grpFoodInformations.Controls)
             {
                 if (c is TextBox)
-                {
                     c.Text = string.Empty;
-                }
             }
+
             dgvFood.DataSource = foodServices.BringTList();
             dgvFood.Columns["FoodMeals"].Visible = false;
             dgvFood.Columns["Category"].Visible = false;
@@ -111,14 +96,15 @@ namespace Proje
             FoodServices foodServices = new FoodServices();
             Food selectedFood = (Food)dgvFood.CurrentRow.DataBoundItem;
             foodServices.RemoveEntity(selectedFood);
-            dgvFood.DataSource = foodServices.BringTList(); 
+
+            dgvFood.DataSource = foodServices.BringTList();
             dgvFood.Columns["FoodMeals"].Visible = false;
             dgvFood.Columns["Category"].Visible = false;
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            categorySelected=true;
+            categorySelected = true;
         }
         private void txtFocus(object sender, EventArgs e)
         {

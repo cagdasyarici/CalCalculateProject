@@ -15,7 +15,9 @@ namespace CalCalculatorDAL.Repositories
             _db.Remove(foodMeal); // Value Cannot Be Null Hatası
             _db.SaveChanges();  
         }
-        public bool AddEntity(T entity) //Nesneyi Class fark etmeksizin database'e ekleyen metot..
+
+        //Nesneyi Class fark etmeksizin database'e ekleyen metot..
+        public bool AddEntity(T entity) 
         {
             try
             {
@@ -30,12 +32,14 @@ namespace CalCalculatorDAL.Repositories
                 
         }
 
-        public T FindEntity(int id) //Nesneyi Class fark etmeksizin id'sine göre getiren metot.
+        //Nesneyi Class fark etmeksizin id'sine göre getiren metot.
+        public T FindEntity(int id) 
         { 
            return _db.Set<T>().Find(id);
         }
 
-        public void RemoveEntity(T entity) //Neyneyi Class fark etmeksizin silen metot.
+        //Neyneyi Class fark etmeksizin silen metot.
+        public void RemoveEntity(T entity) 
         {
             _db.Set<T>().Remove(entity);
             _db.SaveChanges();
@@ -46,6 +50,7 @@ namespace CalCalculatorDAL.Repositories
             _db.Set<T>().Update(entity);
             _db.SaveChanges();
         }
+
         public bool AttachEntity(T entity)
         {
             try
@@ -60,10 +65,12 @@ namespace CalCalculatorDAL.Repositories
             }
         }
 
-        public IQueryable<T> QueryableList() //Sorgulanabilir listeye çeviren metot.
+        //Sorgulanabilir listeye çeviren metot.
+        public IQueryable<T> QueryableList() 
         {
             return _db.Set<T>().AsQueryable();
         }
+
         public IList<T> BringTList()
         {
             return _db.Set<T>().ToList();

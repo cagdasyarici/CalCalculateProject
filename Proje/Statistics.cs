@@ -23,8 +23,6 @@ namespace Proje
     {
         CalCalculateDB _db;
         User user;
-
-
         public Statistics(User currentUser)
         {
             user = currentUser;
@@ -172,7 +170,6 @@ namespace Proje
 
         private void btnDailyReport_Click(object sender, EventArgs e)
         {
-
             StatisticsServices statisticsServices = new StatisticsServices();
 
             dgvStatisticsTable.DataSource = statisticsServices.DailyReport(user);
@@ -180,7 +177,6 @@ namespace Proje
 
         private void btnMonthlyCompare_Click(object sender, EventArgs e)
         {
-
             StatisticsServices statisticsServices = new StatisticsServices();
 
             dgvStatisticsTable.DataSource = statisticsServices.MonthlyCompare(user);
@@ -191,14 +187,15 @@ namespace Proje
             StatisticsServices statisticsServices = new StatisticsServices();
 
             dgvStatisticsTable.DataSource = statisticsServices.WeeklyCompare(user);
-
         }
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
             string data = "";
+
             StringBuilder str = new StringBuilder();
             str.Append(data);
+
             foreach (DataGridViewRow row in dgvStatisticsTable.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -206,15 +203,14 @@ namespace Proje
                     // Her hücrenin değerini string değişkenimize ekleyin
                     str.Append(cell.Value.ToString() + " ");
                 }
-
                 // Satırlar arasına bir satır sonu karakteri ekleyin
                 str.AppendLine();
             }
 
             MailServices mailServices = new MailServices();
             mailServices.StatisticsReportMail(user, str);
-            MessageBox.Show("Your Message Has Been Sent", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            MessageBox.Show("Your Message Has Been Sent", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             #region EskiKod
             //// Elde edilen tüm verileri string değişkeninde tutun
@@ -259,30 +255,26 @@ namespace Proje
             //// Elde edilen tüm verileri string değişkeninde tutun
             //MessageBox.Show(data);
             #endregion
-
-
         }
 
         private void btnGroupByDate_Click(object sender, EventArgs e)
         {
             DateTime startDate = dtpStartDate.Value;
             DateTime endDate = dtpEndDate.Value;
-            
+
             StatisticsServices statisticsServices = new StatisticsServices();
 
             dgvStatisticsTable.DataSource = statisticsServices.GroupByDate(startDate, endDate, user);
-
         }
 
         private void btnGroupByCategory_Click(object sender, EventArgs e)
         {
             DateTime startDate = dtpStartDate.Value;
             DateTime endDate = dtpEndDate.Value;
-            
+
             StatisticsServices statisticsServices = new StatisticsServices();
 
             dgvStatisticsTable.DataSource = statisticsServices.GroupByCategory(startDate, endDate, user);
-
         }
 
         private void btnGroupByFoodMeal_Click(object sender, EventArgs e)
@@ -293,8 +285,6 @@ namespace Proje
             StatisticsServices statisticsServices = new StatisticsServices();
 
             dgvStatisticsTable.DataSource = statisticsServices.GroupByFoodMeal(startDate, endDate, user);
-
-
         }
     }
 }

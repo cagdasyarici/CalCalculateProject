@@ -21,11 +21,8 @@ namespace Proje
             InitializeComponent();
             user = currentUser;
         }
-
-
         private void ıconButton2_Click(object sender, EventArgs e)
         {
-
             // FontDialog örneği oluşturun
             FontDialog fontDialog = new FontDialog();
 
@@ -38,13 +35,12 @@ namespace Proje
                 // Kullanıcının seçtiği yazı tipini ayarlayın
                 rtbContact.Font = fontDialog.Font;
             }
-
         }
 
         private void btnSendUs_Click(object sender, EventArgs e)
         {
             MailServices mailServices = new MailServices();
-            mailServices.ContactUsMail(user,rtbContact.Text);
+            mailServices.ContactUsMail(user, rtbContact.Text);
         }
     }
 }

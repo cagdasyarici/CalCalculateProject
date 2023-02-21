@@ -14,13 +14,14 @@ namespace CalCalculatorEntities
         public int FoodFat { get; set; }
         public int FoodProt { get; set; }
         public double FoodCal { get; set; }
+        //Navigation
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
         public virtual Category Category { get; set; }
         public int CategoryId { get; set; }
         public byte[]? Photo { get; set; }
         public Food()
         {
-            FoodMeals = new List<FoodMeal>();
+            FoodMeals = new HashSet<FoodMeal>();
         }
     }
 }

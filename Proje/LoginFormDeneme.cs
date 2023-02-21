@@ -30,7 +30,6 @@ namespace Proje
         {
             SignUpForm frm = new SignUpForm();
             frm.ShowDialog();
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -43,7 +42,6 @@ namespace Proje
             if (user is not null)
             {
                 if (user.Password == txtPassword.Text)
-
                 {
                     if (!user.IsAdmin)
                     {
@@ -59,19 +57,12 @@ namespace Proje
                         panel.Show();
                         this.Hide();
                     }
-
-
                 }
                 else
-                {
                     MessageBox.Show("Invalid username or password", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             else
-            {
                 MessageBox.Show("Invalid username or password", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
         }
 
         private void btnShutDown_Click(object sender, EventArgs e)
@@ -112,19 +103,20 @@ namespace Proje
 
         private void LoginFormDeneme_Load(object sender, EventArgs e)
         {
-            txtUsername.Padding = new Padding(10, 0, 0, 0); 
+            txtUsername.Padding = new Padding(10, 0, 0, 0);
             txtPassword.Padding = new Padding(10, 0, 0, 0);
-
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
         {
             TxtFocus((TextBox)sender);
         }
+
         private void txtUsername_Leave(object sender, EventArgs e)
         {
             TxtFocus((TextBox)sender);
         }
+
         private void txtPassword_Enter(object sender, EventArgs e)
         {
             TxtFocus((TextBox)sender);
@@ -142,7 +134,7 @@ namespace Proje
         {
             if (textBox.BackColor == Color.FromArgb(112, 117, 132))
             {
-                textBox.BackColor = Color.FromArgb(148,153,168);
+                textBox.BackColor = Color.FromArgb(148, 153, 168);
                 textBox.ForeColor = Color.Black;
             }
             else
@@ -157,11 +149,10 @@ namespace Proje
         {
             txtPassword.PasswordChar = '\0';
         }
-
         private void btnPasswordShow_MouseUp(object sender, MouseEventArgs e)
         {
             txtPassword.PasswordChar = '*';
-        } 
+        }
         #endregion
     }
 }

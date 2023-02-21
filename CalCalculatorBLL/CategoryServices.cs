@@ -59,21 +59,23 @@ namespace CalCalculatorBLL
             categoryNames = QueryableList().Select(x => x.CategoryName).ToList();
             return categoryNames;
         }
+
         public CategoryServices()
         {
 
         }
+
         public CategoryServices(Category category)
         {
             categoryId = category.CategoryId;
         }
+
         public IList<Category> SearchCategoryByName(string categoryName)
         {
             using (_db = new CalCalculateDB())
             {
                 return _db.Categories.Where(x => x.CategoryName == categoryName).ToList();
             }
-
         }
 
 

@@ -29,8 +29,6 @@ namespace Proje
         #region Sidebar ve Home kodları
         private void sidebarTimer_Tick(object sender, EventArgs e)
         {
-
-
             if (sidebarExpand)
             {
                 sidebarContainer.Width -= 10;
@@ -54,10 +52,9 @@ namespace Proje
         }
         int sidebarContainerMaxWidth;
         int sidebarContainerMinWidth;
+
         private void menuButton_Click(object sender, EventArgs e)
         {
-
-
             //If menu closed
             if (homeContainer.Visible && HelpAboutContainer.Visible && sidebarExpand)
             {
@@ -72,7 +69,6 @@ namespace Proje
                 HelpAboutContainer.Visible = true;
             }
             sidebarTimer.Start();
-
         }
 
         private void homeTimer_Tick(object sender, EventArgs e)
@@ -102,24 +98,22 @@ namespace Proje
             homeTimer.Start();
         }
         #endregion
+
         #region Mdichild buton 
         MealForm MealForm;
         private void btnCalorieTracker_Click(object sender, EventArgs e)
         {
-
             MealForm = new(user, this, sidebarContainer);
             MealForm.MdiParent = this;
+
             int height = MealForm.Height + 35;
             int width = MealForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
+
             if (this.ActiveMdiChild != null)
-            {
                 this.ActiveMdiChild.Close();
-            }
 
             MealForm.Show();
-
-
         }
 
         AboutForm aboutForm;
@@ -127,33 +121,36 @@ namespace Proje
         {
             aboutForm = new();
             aboutForm.MdiParent = this;
+
             int height = aboutForm.Height + 35;
             int width = aboutForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
+
             if (this.ActiveMdiChild != null)
-            {
                 this.ActiveMdiChild.Close();
-            }
             aboutForm.Show();
         }
+
         HelpForm helpForm;
+
         private void btnHelp_Click(object sender, EventArgs e)
         {
             helpForm = new(user);
             helpForm.MdiParent = this;
+
             int height = helpForm.Height + 35;
             int width = helpForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
+
             if (this.ActiveMdiChild != null)
-            {
                 this.ActiveMdiChild.Close();
-            }
             helpForm.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Oturumu kapatmak istediğinize emin misiniz?", "Oturumu Kapat", MessageBoxButtons.OKCancel);
+
             if (result == DialogResult.OK) // OK butonuna basılırsa
             {
                 //Oturumu kapat
@@ -162,35 +159,32 @@ namespace Proje
                 this.Close();
             }
         }
+
         Statistics statisticsForm;
+
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-
             statisticsForm = new(user);
             statisticsForm.MdiParent = this;
+
             int height = statisticsForm.Height + 35;
             int width = statisticsForm.Width + sidebarContainer.Width + 6;
             this.Size = new Size(width, height);
+
             if (this.ActiveMdiChild != null)
-            {
                 this.ActiveMdiChild.Close();
-            }
             statisticsForm.Show();
-
-
 
             //Statistics statistics = new Statistics(user);
             //statistics.Show();
             //this.Close(); 
         }
-
         #endregion
+
         private void MainFormDeneme_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) // Burada Escape tuşuna basıldığında formu küçültüyoruz.
-            {
                 this.WindowState = FormWindowState.Minimized;
-            }
         }
 
         #region Form kapama büyütme alta alma kodları
@@ -203,6 +197,7 @@ namespace Proje
                 Application.Exit();
             }
         }
+
         private void btnMaximizeMinimize_Click(object sender, EventArgs e)
         {
             //if (this.WindowState == FormWindowState.Normal)
@@ -218,7 +213,7 @@ namespace Proje
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        } 
+        }
         #endregion
 
         #region Form taşıma kodları
@@ -241,7 +236,7 @@ namespace Proje
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
             lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
-        } 
+        }
         #endregion
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -254,6 +249,5 @@ namespace Proje
             //pictureBox1.Image = image;
 
         }
-       
     }
 }

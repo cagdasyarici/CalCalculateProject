@@ -23,6 +23,7 @@ namespace Proje
         {
             InitializeComponent();
         }
+
         public ForgotPasswordForm(User userInfo)
         {
             userInfo = user;
@@ -30,58 +31,44 @@ namespace Proje
 
         private void ForgotPasswordForm_Load(object sender, EventArgs e)
         {
-
             cmbSecurityQuestions.SelectedItem = cmbSecurityQuestions.Items[0].ToString();
-
         }
 
-
-        private void CheckPassword(string _username,string _password, string _confirmPassword)
+        private void CheckPassword(string _username, string _password, string _confirmPassword)
         {
-
             bool result = _password.Any(c => char.IsLetter(c)) && _password.Any(c => char.IsDigit(c));
 
             if ((_password == _confirmPassword) && !string.IsNullOrEmpty(_password))
             {
                 if (result)
                 {
-                     MailServices mailServices = new MailServices();
-                    mailServices.ChangePassword(_username,_password, _confirmPassword);
-
+                    MailServices mailServices = new MailServices();
+                    mailServices.ChangePassword(_username, _password, _confirmPassword);
                     #region ESKİ
                     //_db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Password = _password; ///todo:Burayı sonra değiştir (Yuşa)
 
                     //_db.SaveChanges(); 
                     #endregion
-
                     MessageBox.Show($"Your Password has been changed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 else
-                {
                     MessageBox.Show("Weak Password!", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
             }
-
             else
-            {
                 MessageBox.Show("Please enter proper values", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
         }
+
         private void btnNexxt_Click(object sender, EventArgs e)
         {
             using (_db = new())
             {
                 var SecurityList = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).Select(x => new { x.SecurityQuestion, x.SecurityAnswer }).ToList();
                 bool isUserExist = false;
+
                 foreach (var item in SecurityList)
                 {
-
-
                     if (item.SecurityAnswer.Equals(txtSecurityAnswer.Text) && item.SecurityQuestion.Equals(cmbSecurityQuestions.SelectedItem as string))
-
                     {
                         grpMail.Location = grpSecurity.Location;
                         grpMail.Visible = true;
@@ -91,14 +78,10 @@ namespace Proje
                         grpSecurity.Visible = false;
                         isUserExist = true;
                     }
-
-
                 }
 
                 if (!isUserExist)
-                {
                     MessageBox.Show("Please check your informations", "Wrong Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
         }
         /// <summary>
@@ -116,14 +99,9 @@ namespace Proje
                 grpMail.Visible = false;
             }
             else if (txtVerificationCode.Text == String.Empty)
-            {
                 MessageBox.Show("Please Fill The Verification Code Textbox", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
             else
-            {
                 MessageBox.Show("Incorrect Code!");
-            }
-
         }
         /// <summary>
         /// Girilen 2 şifre birbiriyle uyuşuyorsa databasedeki şifreyi değiştirir
@@ -134,7 +112,7 @@ namespace Proje
         {
             using (_db = new CalCalculateDB())
             {
-                CheckPassword(txtUsername.Text,txtPassword.Text, txtPasswordConfirm.Text);
+                CheckPassword(txtUsername.Text, txtPassword.Text, txtPasswordConfirm.Text);
             }
         }
         /// <summary>
@@ -144,17 +122,14 @@ namespace Proje
         private void btnSendVerificationn_Click(object sender, EventArgs e)
         {
             MailServices mailServices = new MailServices();
-            code =mailServices.Generate6DigitCode();
-           
+            code = mailServices.Generate6DigitCode();
+
 
             if (txtEMailAdress.Text.Contains("@gmail.com"))
-            {
                 mailServices.GmailSendVerificationCode(txtEMailAdress.Text, txtUsername.Text, code);
-            }
+            
             else if (txtEMailAdress.Text.Contains("@hotmail.com"))
-            {
                 mailServices.HotmailSendVerificationCode(txtEMailAdress.Text, txtUsername.Text, code);
-            }
 
             #region Eski Kısım
 
@@ -173,14 +148,12 @@ namespace Proje
             //smtp.EnableSsl = true;
             //smtp.Send(verificationMessage); 
             #endregion
-
-
-
         }
 
         private void btnShutDown_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Şifre değiştirmeden çıkmak istediğinize emin misiniz?", "Çıkış", MessageBoxButtons.OKCancel);
+            
             if (result == DialogResult.OK) // OK butonuna basıldı
             {
                 // Uygulamayı kapat
@@ -211,10 +184,12 @@ namespace Proje
         {
             lastPoint = Point.Empty; // Son konum bilgisini temizliyoruz.
         }
+
         private void txtFocus(object sender, EventArgs e)
         {
             TxtFocus((TextBox)sender);
         }
+
         private void TxtFocus(TextBox textBox)
         {
             if (textBox.BackColor == Color.FromArgb(112, 117, 132))

@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace CalCalculatorBLL
 {
-    public class FoodServices:BaseRepository<Food>
+    public class FoodServices : BaseRepository<Food>
     {
         CalCalculateDB _db;
-        public bool CreateFood(string foodName, int foodCarb, int foodFat, int foodProt, int foodCal,int foodCategoryId)
+        public bool CreateFood(string foodName, int foodCarb, int foodFat, int foodProt, int foodCal, int foodCategoryId)
         {
-            
-            using (_db = new CalCalculateDB()) 
+
+            using (_db = new CalCalculateDB())
             {
                 bool foodCreated = false;
                 if (foodName != null || foodName != "")
                 {
-                    
+
                     if (!_db.Foods.Select(x => x.FoodName).Contains(foodName))
                     {
 
@@ -47,8 +47,8 @@ namespace CalCalculatorBLL
                 {
                     return foodCreated = false;
                 }
-                
-                
+
+
 
             }
         }

@@ -1,5 +1,5 @@
 
-﻿using CalCalculatorDAL;
+using CalCalculatorDAL;
 using CalCalculatorDAL.Repositories;
 using CalCalculatorEntities;
 using System;

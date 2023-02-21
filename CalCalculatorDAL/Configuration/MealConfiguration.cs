@@ -14,10 +14,14 @@ namespace CalCalculatorDAL.Configuration
         public void Configure(EntityTypeBuilder<Meal> builder)
         {
             builder.HasKey(x => x.MealID);
+
             builder.HasOne(x => x.User)
-                .WithMany(x => x.Meals)
-                .HasForeignKey(x => x.ContactUserID);
-            builder.Property(x => x.MealName).IsRequired().HasMaxLength(50);
+                   .WithMany(x => x.Meals)
+                   .HasForeignKey(x => x.ContactUserID);
+
+            builder.Property(x => x.MealName)
+                   .IsRequired()
+                   .HasMaxLength(50);
         }
     }
 }

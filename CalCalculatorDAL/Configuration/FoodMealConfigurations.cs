@@ -17,9 +17,15 @@ namespace CalCalculatorDAL.Configuration
             //builder.HasOne(x => x.Meal).WithMany(x => x.FoodMeals).HasForeignKey(x => x.MealID);
 
 
-            builder.HasKey(x => new { x.MealID, x.FoodID }); 
-            builder.HasOne(x => x.Food).WithMany(x => x.FoodMeals).HasForeignKey(x => x.FoodID); 
-            builder.HasOne(x => x.Meal).WithMany(x => x.FoodMeals).HasForeignKey(x => x.MealID);
+            builder.HasKey(x => new { x.MealID, x.FoodID });
+            
+            builder.HasOne(x => x.Food)
+                   .WithMany(x => x.FoodMeals)
+                   .HasForeignKey(x => x.FoodID); 
+
+            builder.HasOne(x => x.Meal)
+                   .WithMany(x => x.FoodMeals)
+                   .HasForeignKey(x => x.MealID);
         }
     }
 }

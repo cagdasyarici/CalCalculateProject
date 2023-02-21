@@ -68,8 +68,6 @@ namespace CalCalculatorBLL
             {
                 return QueryableList().Where(x => x.CreateTime.Date == date1.Date && x.CreateTime.Date == date2 && x.ContactUserID == user.UserID).ToList();
             }
-
-
         }
 
         /// <summary>
@@ -92,7 +90,6 @@ namespace CalCalculatorBLL
                     FoodID = x.FoodID
                 }
                 ).ToList();
-
             }
         }
 
