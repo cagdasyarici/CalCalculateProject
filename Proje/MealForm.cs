@@ -36,20 +36,21 @@ namespace Proje
             dataGridView1.Columns["User"].Visible = false;
             dataGridView1.Columns["FoodMeals"].Visible = false;
             dataGridView1.Columns["ContactUserID"].Visible = false;
+            dataGridView1.Columns["MealID"].Visible = false;
             //if (!totalCalorieBrought)
             //{
-                //totalCalorieBrought = true;
-                //dataGridView1.Columns.Add("TotalCalorie", "Total Calorie");
-                //List<int> mealIDs =  mealServices.QueryableList().Select(x=>x.MealID).ToList();
+            //totalCalorieBrought = true;
+            //dataGridView1.Columns.Add("TotalCalorie", "Total Calorie");
+            //List<int> mealIDs =  mealServices.QueryableList().Select(x=>x.MealID).ToList();
 
-                //foreach (DataGridViewRow row in dataGridView1.Rows)
-                //{
-                //    if (mealIDs.Contains((int)row.Cells[1].Value))
-                //    {
-                //        dataGridView1.Columns["TotalCalorie"]
-                //        break;
-                //    }
-                //}
+            //foreach (DataGridViewRow row in dataGridView1.Rows)
+            //{
+            //    if (mealIDs.Contains((int)row.Cells[1].Value))
+            //    {
+            //        dataGridView1.Columns["TotalCalorie"]
+            //        break;
+            //    }
+            //}
             //}
         }
 
