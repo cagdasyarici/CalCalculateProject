@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -66,8 +67,17 @@ namespace CalCalculatorBLL
         /// <returns></returns>
         public string Generate6DigitCode()
         {
-            Random rnd = new Random();
-            return rnd.Next(100000, 999999).ToString();
+            #region Eski kod
+            //Random rnd = new Random();
+            //return rnd.Next(100000, 999999).ToString(); 
+            #endregion
+
+            byte[] bytes = new byte[6];
+            RandomNumberGenerator rng = RandomNumberGenerator.Create();
+            rng.GetBytes(bytes);
+            string code = Convert.ToBase64String(bytes).Substring(0, 6);
+            
+            return code;
         }
         /// <summary>
         /// Girilen username'e ait şifreyi değiştirir
