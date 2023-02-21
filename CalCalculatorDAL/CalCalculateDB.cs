@@ -24,7 +24,7 @@ namespace CalCalculatorDAL
             //DENİZ
 
 
-            optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculateDB;Trusted_Connection=True");
+            //optionsBuilder.UseSqlServer("Server=DENIZ;Database=CalCalculateDB;Trusted_Connection=True");
 
 
 
@@ -35,7 +35,7 @@ namespace CalCalculatorDAL
 
             //YUŞA
 
-            //optionsBuilder.UseSqlServer("Server=YUSATOSUN\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=YUSATOSUN\\SQLEXPRESS;Database=CalCalculateDB;Trusted_Connection=True;");
         }
         //public class Image
         //{
