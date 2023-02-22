@@ -142,5 +142,7 @@ namespace CalCalculatorBLL
                 smtp.Send(verificationMessage);
             }
         }
+
+
     }
 }

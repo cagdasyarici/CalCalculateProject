@@ -192,9 +192,15 @@ namespace Proje
         private void btnSendMail_Click(object sender, EventArgs e)
         {
             string data = "";
-
             StringBuilder str = new StringBuilder();
             str.Append(data);
+
+            foreach (DataGridViewColumn column in dgvStatisticsTable.Columns)
+            {
+                str.Append(column.HeaderText + "   ");
+                 
+            }
+            str.AppendLine(data);
 
             foreach (DataGridViewRow row in dgvStatisticsTable.Rows)
             {
