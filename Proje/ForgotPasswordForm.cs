@@ -60,10 +60,10 @@ namespace Proje
         }
 
         private void btnNexxt_Click(object sender, EventArgs e)
-        {
-            using (_db = new())
-            {
-                var SecurityList = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).Select(x => new { x.SecurityQuestion, x.SecurityAnswer }).ToList();
+        {      
+                MailServices mailServices = new();
+
+                var SecurityList = mailServices.GetSecurityList(txtUsername.Text);
                 bool isUserExist = false;
 
                 foreach (var item in SecurityList)
@@ -74,15 +74,13 @@ namespace Proje
                         grpMail.Visible = true;
                         txtEMailAdress.Enabled = false;
 
-                        txtEMailAdress.Text = _db.Users.Where(x => x.UserName.Equals(txtUsername.Text)).FirstOrDefault().Email;
+                        txtEMailAdress.Text = mailServices.GetEmailAdress(txtEMailAdress.Text);
                         grpSecurity.Visible = false;
                         isUserExist = true;
                     }
                 }
-
                 if (!isUserExist)
                     MessageBox.Show("Please check your informations", "Wrong Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
         /// <summary>
         /// Girilen değer doğrulama koduyla aynıysa sonraki adımı açar
