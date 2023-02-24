@@ -76,7 +76,7 @@ namespace CalCalculatorBLL
             RandomNumberGenerator rng = RandomNumberGenerator.Create();
             rng.GetBytes(bytes);
             string code = Convert.ToBase64String(bytes).Substring(0, 6);
-            
+
             return code;
         }
         /// <summary>
@@ -141,6 +141,16 @@ namespace CalCalculatorBLL
                 //smtp.Timeout   // Duruma göre bunu da ekle
                 smtp.Send(verificationMessage);
             }
+        }
+
+        public dynamic GetSecurityList(string username)
+        {
+            return _db.Users.Where(x => x.UserName.Equals(username)).Select(x => new { x.SecurityQuestion, x.SecurityAnswer }).ToList();
+        }
+
+        public dynamic GetEmailAdress(string emailAdress)
+        {
+           return _db.Users.Where(x => x.UserName.Equals(emailAdress)).FirstOrDefault().Email;
         }
 
 
