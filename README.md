@@ -3,7 +3,6 @@ Calorie Calculator Application.MSSQL database was used with the CodeFirst approa
 
 ![Slide 1 of Software Platform](https://user-images.githubusercontent.com/81709813/227806005-acd08767-dc0e-4b2b-8485-0b57b0d2b4b0.jpeg)
 ![Slide 2 of Software Platform](https://user-images.githubusercontent.com/81709813/227806034-ebcdce5e-81c0-464d-b405-8af15666a3fd.jpeg)
-![Slide 3 of Software Platform (1)](https://user-images.githubusercontent.com/81709813/227806036-cf022cd4-7841-4265-94bf-1c5352b1debe.jpeg)
 ![Slide 4 of Software Platform](https://user-images.githubusercontent.com/81709813/227806038-08219ea6-38ad-425e-a559-12e16d4d8030.jpeg)
 ![Slide 5 of Software Platform](https://user-images.githubusercontent.com/81709813/227806040-918b25ed-0af9-4989-bd29-f20ecf3d38df.jpeg)
 ![Slide 6 of Software Platform](https://user-images.githubusercontent.com/81709813/227806041-83d1604b-2295-482d-8469-ae3c54fcc793.jpeg)
